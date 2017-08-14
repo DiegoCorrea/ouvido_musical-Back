@@ -35,3 +35,7 @@ Sistema de Recomendação em Musica
   3.1. Uma Musica: `http://127.0.0.1:8000/recommendations/songs/SOAKIMP12A8C130995/`  
   3.2. Usuarios ouviu a Musica: `http://127.0.0.1:8000/recommendations/songs/SOAKIMP12A8C130995/hearby/`  
   3.3. Usuario ouviu a Musica:   `http://127.0.0.1:8000/recommendations/songs/SOAKIMP12A8C130995/hearby/b80344d063b5ccb3212f76538f3d9e43d87dca9e`  
+
+### Front
+1. npm install
+2. npm run dev
