@@ -93,4 +93,4 @@ for user in User.objects.all():
         recommendation.user_id = user.user
         recommendation.probabilit_play_count = item[0]
         recommendation.save()
-print ("ok... Tabela de Recomendações Atualizada\n")
+print ("ok... Tabela de Recomendacoes Atualizada\n")
