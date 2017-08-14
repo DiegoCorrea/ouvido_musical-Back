@@ -3,12 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# SQLite DATA
-*.sqlite3
-
-# seed files
-*.seed
-
 # C extensions
 *.so
 
@@ -105,3 +99,16 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+# SQLite DATA
+*.sqlite3
+
+# seed files
+*.seed
+
+# react
+*.log
+*/node_modules
+*/node_modules/*
+/node_modules
