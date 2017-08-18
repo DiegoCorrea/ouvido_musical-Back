@@ -2,7 +2,7 @@ from recommendations.models import Song
 from recommendations.models import UserPlaySong
 from recommendations.models import User
 
-for line in open('scripts/seed/smallSongEntry.seed', 'r'):
+for line in open('scripts/seed/bigSongEntry.seed', 'r'):
    line =  line.split(',')
    song = Song()
    song.song = line[0]
@@ -12,7 +12,7 @@ for line in open('scripts/seed/smallSongEntry.seed', 'r'):
    song.year = line[4]
    song.save()
 
-for line in open('scripts/seed/smallUserEntry.seed', 'r'):
+for line in open('scripts/seed/bigUserEntry.seed', 'r'):
    line =  line.split('\t')
    user = User()
    user.user = line[0]
