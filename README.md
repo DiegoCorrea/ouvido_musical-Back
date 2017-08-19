@@ -7,6 +7,7 @@ Sistema de Recomendação em Musica
 3. `sudo pip install virtualenv`  
 4. `sudo pip install virtualenvwrapper`  
 5. `sudo pip install Django`  
+5. `sudo pip install sparqlwrapper`
 
 ### Configuração  
 

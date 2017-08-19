@@ -12,6 +12,8 @@ from .models import User
 from .models import UserPlaySong
 from .models import UserSongRecommendation
 
+from .getDBpedia import getFromDBpedia
+
 # Create your views here.
 def index(request):
     return JsonResponse({'status': 200, 'message': 'Pagina inicial'})
@@ -36,6 +38,9 @@ def song(request, song_id):
         results['message'] = "Musica nao encontrada"
         return HttpResponse(json.dumps(results), content_type="application/json")
     results = [ob.as_json()]
+
+    dbpediaData = getFromDBpedia()
+    results.append(dbpediaData)
     return HttpResponse(json.dumps(results), content_type="application/json")
 
 def songHearBy(request, song_id):
