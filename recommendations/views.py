@@ -38,9 +38,11 @@ def song(request, song_id):
         results['message'] = "Musica nao encontrada"
         return HttpResponse(json.dumps(results), content_type="application/json")
     results = [ob.as_json()]
-
-    dbpediaData = getFromDBpedia()
+    dbpediaData = getFromDBpedia(ob.artist)
+    print("/////////////////////////////////")
+    print("++++++++dbdbdbdbd: ", dbpediaData)
     results.append(dbpediaData)
+    print("++++++++Resultado: ", results)
     return HttpResponse(json.dumps(results), content_type="application/json")
 
 def songHearBy(request, song_id):
