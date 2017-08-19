@@ -8,8 +8,6 @@ def getFromDBpedia(search):
     sparql.setQuery("""
         prefix dbr: <http://dbpedia.org/resource/>
         prefix dbo: <http://dbpedia.org/ontology/>
-        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-        PREFIX mo: <http://purl.org/ontology/mo/>
         PREFIX dc: <http://purl.org/dc/elements/1.1/>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX dct: <http://purl.org/dc/terms/>
@@ -57,7 +55,7 @@ def getFromDBpedia(search):
     results = sparql.query().convert()
 
 
-    print("======================", results)
+    #print("======================", results)
     if len(results['results']['bindings']) == 0:
         return None
 
@@ -83,26 +81,6 @@ def getFromDBpedia(search):
                 if item == "albuns" and result[item]["value"] not in band[item]:
                     band[item].append(result[item]["value"])
     '''
-    for result in results["results"]["bindings"]:
-        band.setdefault("name", result["name"]["value"])
-
-        if "description" in result:
-            band.setdefault("description", result["description"]["value"])
-
-        if "abstract" in result:
-            band.setdefault("abstract", result["abstract"]["value"])
-
-        if "genres" in result and result["genres"]["value"] not in band["genres"]:
-            band["genres"].append(result["genres"]["value"])
-
-        if result["home"]["value"] not in band["home"]:
-            band["home"].append(result["home"]["value"])
-
-        if result["albuns"]["value"] not in band["albuns"]:
-            band["albuns"].append(result["albuns"]["value"])
-
-    '''
-
     print("=======================================================")
     print("\n")
     print("Nome:",band["name"])
@@ -116,6 +94,5 @@ def getFromDBpedia(search):
     print("Moradia:",band["home"])
     print("\n")
     print("Albuns:",band["albuns"])
-
-
+    '''
     return band
