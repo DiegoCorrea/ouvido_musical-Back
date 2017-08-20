@@ -8,6 +8,7 @@ Sistema de Recomendação em Musica
 4. `sudo pip install virtualenvwrapper`  
 5. `sudo pip install Django`  
 5. `sudo pip install sparqlwrapper`
+5. `sudo pip install django-cors-headers`
 
 ### Configuração  
 
@@ -23,6 +24,7 @@ Sistema de Recomendação em Musica
   4.2. Digite no terminal do Django e espere o calculo terminar: `import similarity`  
   4.3. Saia do terminal digitando: `exit()`  
 5. Iniciando servidor: `python manage.py runserver`  
+
 
 ### Links API JSON  
 1. Pagina inicial: `http://127.0.0.1:8000/recommendations/`  
