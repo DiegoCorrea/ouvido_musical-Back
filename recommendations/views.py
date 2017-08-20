@@ -39,10 +39,14 @@ def song(request, song_id):
         return HttpResponse(json.dumps(results), content_type="application/json")
     results = [ob.as_json()]
     dbpediaData = getFromDBpedia(ob.artist)
+<<<<<<< HEAD
     #print("/////////////////////////////////")
     #print("++++++++dbdbdbdbd: ", dbpediaData)
     results.append(dbpediaData)
     #print("++++++++Resultado: ", results)
+=======
+    results.append(dbpediaData)
+>>>>>>> d35522bf8dd7babd8bd0e79bfaaca5eaf357ebc8
     return HttpResponse(json.dumps(results), content_type="application/json")
 
 def songHearBy(request, song_id):
@@ -113,6 +117,7 @@ def userPlaySong(request, user_id, song_id):
     return HttpResponse(json.dumps(results), content_type="application/json")
 
 def userSimilarity(request, user_id):
+    objs = {}
     try:
         objs = UserSongRecommendation.objects.all().filter(user=user_id)
     except UserSongRecommendation.DoesNotExist:
@@ -120,5 +125,9 @@ def userSimilarity(request, user_id):
         results['status'] = 404
         results['message'] = "Musicas Recomendadas para o Usuario não encontradas"
         return HttpResponse(json.dumps(results), content_type="application/json")
-    results = [ob.as_json() for ob in objs]
+    rec = []
+    for item in objs:
+        rec.append(Song.objects.get(song=item.song_id))
+    results = [ob.as_json() for ob in rec]
+    print(results)
     return HttpResponse(json.dumps(results), content_type="application/json")
