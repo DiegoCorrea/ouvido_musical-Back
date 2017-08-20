@@ -49,3 +49,14 @@ class UserSongRecommendation(models.Model):
             song_id = self.song_id,
             user_id = self.user_id,
             probabilit_play_count = self.probabilit_play_count)
+
+class ItemSimilarity(models.Model):
+    songBase = models.ForeignKey(Song, unique=False)
+    songCompare = models.CharField(max_length=255, unique=False)
+    similarity = models.IntegerField(default=0, unique=False)
+
+    def as_json(self):
+        return dict(
+            songBase = self.songBase,
+            songCompare = self.songCompare,
+            similarity = self.similarity)

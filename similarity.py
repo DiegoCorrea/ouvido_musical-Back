@@ -3,6 +3,7 @@ from recommendations.models import Song
 from recommendations.models import User
 from recommendations.models import UserPlaySong
 from recommendations.models import UserSongRecommendation
+from recommendations.models import ItemSimilarity
 
 ####################################################################
 # Distancia Euclidiana
@@ -79,13 +80,26 @@ def getItemRecommendations(evaluationTable, itensSimilarity, userBase, limit=30)
     return rankings[0:limit]
 #####################################################
 
+print ("-> Carregando tabela de usuarios\n")
 userTable = getUserTable()
 print ("ok... Tabela de usuarios carregada\n")
+
+print ("-> Carregando tabela de Itens\n")
 itemTable = getItemTable(userTable)
 print ("ok... Tabela de itens carregada\n")
+
+print ("-> Calculando similaridade entre os itens\n")
 similarityTable = calcSimilarityTable(itemTable)
+for itemBase in similarityTable:
+    for itemCompare in similarityTable[itemBase]:
+        itemSimilar = ItemSimilarity()
+        itemSimilar.songCompare = itemCompare[1]
+        itemSimilar.similarity = itemCompare[0]
+        itemSimilar.songBase_id = itemBase[1]
+        itemSimilar.save()
 print ("ok... Tabela de Similaridade Calculada\n")
 
+print ("-> Calculando similaridade entre os usuarios e os itens\n")
 for user in User.objects.all():
     for item in getItemRecommendations(userTable, similarityTable, user.user):
         recommendation = UserSongRecommendation()
