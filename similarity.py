@@ -74,7 +74,11 @@ def getItemRecommendations(evaluationTable, itensSimilarity, userBase, limit=30)
             scores[unassistedItem] += similarity * score
             totalSimilarity.setdefault(unassistedItem, 0)
             totalSimilarity[unassistedItem] += similarity
-    rankings = [(score/totalSimilarity[item], item) for item, score in scores.items()]
+    for (item, score) in scores.items():
+        if totalSimilarity[item] != 0 and score != 0:
+            rankings = [(score/totalSimilarity[item], item)]
+        else:
+            rankings = [0, item]
     rankings.sort()
     rankings.reverse()
     return rankings[0:limit]

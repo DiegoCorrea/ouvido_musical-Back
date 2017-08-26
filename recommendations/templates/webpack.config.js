@@ -9,8 +9,8 @@ module.exports = {
         filename: './app.js'
     },
     devServer: {
-        port: 8080,
-        contentBase: './public',
+        port: 5050,
+        contentBase: './public'
     },
     resolve: {
         extensions: ['','.js','.jsx'],
