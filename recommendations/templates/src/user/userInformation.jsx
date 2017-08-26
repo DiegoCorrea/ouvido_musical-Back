@@ -2,6 +2,7 @@ import React from 'react'
 
 export default props => {
   const renderRow = () => {
+    console.log("---" + props.data)
     const obj = props.data || []
     return (
       <div key={obj.user_id} className="col s12 m8 offset-m2 l6 offset-l3">
@@ -26,7 +27,8 @@ export default props => {
     )
   }
   return (
-    <div className="songInfo">
+    <div className="userInfo">
+      {console.log('user')}
       {renderRow()}
     </div>
   )

@@ -84,16 +84,17 @@ def getItemRecommendations(evaluationTable, itensSimilarity, userBase, limit=30)
     return rankings[0:limit]
 #####################################################
 
-print ("-> Carregando tabela de usuarios\n")
+print ("1 -> Carregando tabela de usuarios\n")
 userTable = getUserTable()
 print ("ok... Tabela de usuarios carregada\n")
 
-print ("-> Carregando tabela de Itens\n")
+print ("2 -> Carregando tabela de Itens\n")
 itemTable = getItemTable(userTable)
 print ("ok... Tabela de itens carregada\n")
 
-print ("-> Calculando similaridade entre os itens\n")
+print ("3 -> Calculando similaridade entre os itens\n")
 similarityTable = calcSimilarityTable(itemTable)
+print ("4 -> Salvando o similaridade entre os itens no Banco\n")
 for itemBase in similarityTable:
     for itemCompare in similarityTable[itemBase]:
         itemSimilar = ItemSimilarity()
@@ -103,7 +104,7 @@ for itemBase in similarityTable:
         itemSimilar.save()
 print ("ok... Tabela de Similaridade Calculada\n")
 
-print ("-> Calculando similaridade entre os usuarios e os itens\n")
+print ("5 -> Calculando similaridade entre os usuarios e os itens\n")
 for user in User.objects.all():
     for item in getItemRecommendations(userTable, similarityTable, user.user):
         recommendation = UserSongRecommendation()
@@ -112,3 +113,4 @@ for user in User.objects.all():
         recommendation.probabilit_play_count = item[0]
         recommendation.save()
 print ("ok... Tabela de Recomendacoes Atualizada\n")
+print ("Encerrando Script! Bye bye...\n")

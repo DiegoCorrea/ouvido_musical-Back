@@ -30,8 +30,7 @@ export default class UserPage extends Component {
     return (
       <div>
         <UserInformation
-        data={this.state.data[0]}
-        db={this.state.data[1]}/>
+        data={this.state.data}/>
       </div>
     )
   }

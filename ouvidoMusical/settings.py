@@ -125,8 +125,8 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
     'google.com',
     'hostname.example.com',
-    'localhost:8080',
-    '127.0.0.1:8080'
+    'localhost:5050',
+    '127.0.0.1:5050'
 )
 
 CORS_ALLOW_METHODS = (

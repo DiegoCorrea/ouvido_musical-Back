@@ -21,7 +21,7 @@ def index(request):
 def songs(request):
     try:
         #objs = Song.objects.all()
-        results = [ob.as_json() for ob in Song.objects.all()]
+        results = [ob.as_json() for ob in Song.objects.order_by('song').filter()[:10]]
         return HttpResponse(json.dumps(results), content_type="application/json")
     except Song.DoesNotExist:
         results = {}
@@ -44,7 +44,7 @@ def song(request, song_id):
 
 def songHearBy(request, song_id):
     try:
-        objs = UserPlaySong.objects.all().filter(song=song_id)
+        objs = UserPlaySong.objects.all().filter(song=song_id)[0:10]
     except UserPlaySong.DoesNotExist:
         results = {}
         results['status'] = 404
@@ -67,15 +67,16 @@ def songHearByUser(request, song_id, user_id):
 
 def users(request):
     try:
-        objs = User.objects.all()
+        results = [ob.as_json() for ob in User.objects.order_by('user').filter()[:10]]
+        return HttpResponse(json.dumps(results), content_type="application/json")
     except User.DoesNotExist:
         results = {}
         results['status'] = 404
         results['message'] = "Usuarios nao encontrada"
         return HttpResponse(json.dumps(results), content_type="application/json")
-    results = [ob.as_json() for ob in objs]
+    results['status'] = 500
+    results['message'] = "Deu merda!"
     return HttpResponse(json.dumps(results), content_type="application/json")
-
 def user(request, user_id):
     try:
         ob = User.objects.get(user=user_id)

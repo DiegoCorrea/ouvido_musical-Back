@@ -103,6 +103,7 @@ ENV/
 
 # SQLite DATA
 *.sqlite3
+*.sqlite3-journal
 
 # seed files
 *.seed
