@@ -6,9 +6,9 @@ for line in open('scripts/seed/bigSongEntry.seed', 'r'):
    line =  line.split(',')
    song = Song()
    song.song = line[0]
-   song.title = line[1].split('"')[1::2]
-   song.album = line[2].split('"')[1::2]
-   song.artist = line[3].split('"')[1::2]
+   song.title = line[1].replace('"', '')
+   song.album = line[2].replace('"', '')
+   song.artist = line[3].replace('"', '')
    song.year = line[4]
    song.save()
 
