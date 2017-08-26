@@ -113,7 +113,7 @@ def userPlaySong(request, user_id, song_id):
 def userSimilarity(request, user_id):
     objs = {}
     try:
-        objs = UserSongRecommendation.objects.all().filter(user=user_id)
+        objs = UserSongRecommendation.objects.all().filter(user=user_id).order_by('probabilit_play_count').reverse()[:10]
     except UserSongRecommendation.DoesNotExist:
         results = {}
         results['status'] = 404

@@ -1,10 +1,13 @@
 import React from 'react'
-import IconButton from '../template/iconButton'
+
 import './recommendation.css'
 
 export default props => {
-  const renderRow = () => {
-    const list = props.data || []
+  const recommendationCards = () => {
+    console.log("[Recommendation List]")
+    console.log(props.recList)
+    const list = props.recList || []
+    console.log(list)
     return list.map(obj => (
       <div key={obj.song_id} className="col m4">
         <div className="card">
@@ -17,7 +20,7 @@ export default props => {
             <p>{obj.album} - {obj.year}</p>
           </div>
           <div className="card-action">
-            <a href="#songs" className="left">Ir para Música</a>
+            <a href="#" className="left">Ir para Música</a>
             <a href="#" className="right">Wiki</a>
           </div>
         </div>
@@ -26,7 +29,7 @@ export default props => {
   }
   return (
     <div className="row">
-      {renderRow()}
+      {recommendationCards()}
     </div>
   )
 }

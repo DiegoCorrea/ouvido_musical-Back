@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "materialize-css": "^0.100.1",
-    "react-facebook-login": "^3.6.2"
+    "react-facebook-login": "^3.6.2",
+    "react-image-file": "^0.1.0"
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import './topBar.css'
 
 export default props => (
   
@@ -8,7 +9,6 @@ export default props => (
       <ul className="left hide-on-med-and-down">
         <li><a href="#users">Usuarios</a></li>
         <li><a href="#songs">Músicas</a></li>
-        <li><a href="#recommendation">Recomendação</a></li>
       </ul>
     </div>
   </nav>

@@ -13,7 +13,7 @@ export default props => {
             <a href={"#/users/"+ obj.user_id}><span className="card-title cardTitleRec" >{obj.user_id}</span></a>
           </div>
           <div className="card-content">
-            <Link to={"/users/"+ obj.user_id} params={{uuid: obj.user_id}}><p>Nome: {obj.user_id}</p></Link>
+            <Link to={"/users/"+ obj.user_id} uuid={{uuid: obj.user_id}}><p>Nome: {obj.user_id}</p></Link>
           </div>
         </div>
       </div>

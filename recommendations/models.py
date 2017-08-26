@@ -44,6 +44,9 @@ class UserSongRecommendation(models.Model):
     song = models.ForeignKey(Song, unique=False)
     probabilit_play_count = models.IntegerField(default=0, unique=False)
 
+    #class Meta:
+    #    unique_together = ('user', 'song',)
+
     def as_json(self):
         return dict(
             song_id = self.song_id,
@@ -54,6 +57,9 @@ class ItemSimilarity(models.Model):
     songBase = models.ForeignKey(Song, unique=False)
     songCompare = models.CharField(max_length=255, unique=False)
     similarity = models.IntegerField(default=0, unique=False)
+
+    #class Meta:
+    #    unique_together = ('songBase', 'songCompare',)
 
     def as_json(self):
         return dict(
