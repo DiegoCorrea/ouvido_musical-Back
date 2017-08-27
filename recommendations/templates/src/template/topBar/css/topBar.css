@@ -1,4 +1,7 @@
 nav {
+    background-color: #2980b9;
+}
+nav > li:active{
     background-color: #3498db;
 }
 nav .nav-wrapper{

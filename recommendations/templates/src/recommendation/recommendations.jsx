@@ -4,7 +4,7 @@ import axios from 'axios'
 import PageHeader from '../template/pageHeader'
 import RecommendationsList from './recommendationList'
 
-const URL = 'http://127.0.0.1:8000/api/v1/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/recommendations/'
+const URL = 'http://127.0.0.1:8000/api/v1/users/'
 
 export default class Recommendations extends Component {
   constructor(props){
@@ -15,6 +15,7 @@ export default class Recommendations extends Component {
   }
 
   refresh(){
+    const resource = URL + this.props.params.uuid + '/recommendations'
     axios.get(`${URL}`)
     .then(resp => {this.setState({...this.state, data: resp.data})
     console.log(resp.data)})

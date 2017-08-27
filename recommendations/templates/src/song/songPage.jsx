@@ -17,7 +17,7 @@ export default class SongPage extends Component {
   }
 
   refresh(){
-    const resource = URL + 'SOAKIMP12A8C130995'
+    const resource = URL + this.props.params.uuid
     axios.get(`${resource}`)
     .then(resp => {this.setState({...this.state, data: resp.data})
     console.log("[Song Page - Get Song Information]")
