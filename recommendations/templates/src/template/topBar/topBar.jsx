@@ -1,5 +1,5 @@
 import React from 'react'
-import './topBar.css'
+import './css/topBar.css'
 
 export default props => (
   

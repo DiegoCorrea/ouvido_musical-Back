@@ -1,0 +1,7 @@
+nav {
+    background-color: #3498db;
+}
+nav .nav-wrapper{
+    width: 80%;
+    margin: auto;
+}
