@@ -25,9 +25,11 @@ export default class Users extends Component {
     return (
       <div>
         <TopBar />
-        <PageHeader name='Usuários' small=''></PageHeader>
-        <UsersList
-        data={this.state.data}/>
+        <div className="content">
+          <PageHeader name='Usuários' small=''></PageHeader>
+          <UsersList
+          data={this.state.data}/>
+        </div>
       </div>
     )
   }

@@ -35,12 +35,14 @@ export default class UserPage extends Component {
   }
   render() {
     return (
-      <div className='row'>
+      <div>
         <TopBar />
-        <UserInformation
-        data={this.state.data}/>
-        <RecommendationsList
-        recList={this.state.recommendations}/>
+        <div className='content'>
+          <UserInformation
+          data={this.state.data}/>
+          <RecommendationsList
+          recList={this.state.recommendations}/>
+        </div>
       </div>
     )
   }

@@ -10,9 +10,7 @@ import Routes from './routes'
 export default props => {
   return (
     <div>
-      <div className='container'>
         <Routes />
-      </div>
     </div>
   )
 }
