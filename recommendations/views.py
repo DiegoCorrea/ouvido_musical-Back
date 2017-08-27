@@ -20,8 +20,8 @@ def index(request):
 
 def songs(request):
     try:
-        #objs = Song.objects.all()
-        results = [ob.as_json() for ob in Song.objects.order_by('song').filter()[:10]]
+        objs = UserPlaySong.objects.order_by('play_count').reverse()[:20]
+        results = [ob.song.as_json() for ob in objs]
         return HttpResponse(json.dumps(results), content_type="application/json")
     except Song.DoesNotExist:
         results = {}
@@ -67,7 +67,7 @@ def songHearByUser(request, song_id, user_id):
 
 def users(request):
     try:
-        results = [ob.as_json() for ob in User.objects.order_by('user').filter()[:10]]
+        results = [ob.as_json() for ob in User.objects.order_by('user')[:10]]
         return HttpResponse(json.dumps(results), content_type="application/json")
     except User.DoesNotExist:
         results = {}
