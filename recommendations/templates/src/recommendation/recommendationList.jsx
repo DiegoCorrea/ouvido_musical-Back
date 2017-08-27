@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import './recommendation.css'
+import './css/recommendation.css'
 
 export default props => {
   const recommendationCards = () => {
@@ -20,8 +20,7 @@ export default props => {
             <p>{obj.album} - {obj.year}</p>
           </div>
           <div className="card-action">
-            <a href="#" className="left">Ir para Música</a>
-            <a href="#" className="right">Wiki</a>
+            <div class="heart">❤</div>
           </div>
         </div>
       </div>

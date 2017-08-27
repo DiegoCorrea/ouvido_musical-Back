@@ -1,0 +1,126 @@
+/*@import "compass/css3";*/
+
+body{
+  background-color: #2C262C;
+}
+h2{
+  color:white;
+  margin-top:50px;
+  text-align:center;
+  font-weight:normal;
+}
+.heart{
+  width:20px;
+  height:20px;
+  margin:200px auto;
+  transform:translateZ(0);
+  color: #aaa;
+  font-size:3em;
+  cursor:pointer;
+  position:relative;
+  transition: all .3s ease;
+
+  &:hover{
+      animation: pulse .6s linear;
+  }
+
+  &:before{
+      content: "❤";
+      position:absolute;
+      color: #A12B2B;
+      opacity:0;
+  }
+    &.happy{
+      color:#A12B2B;
+      &:before{
+         opacity:0;
+         transform: translateY(-30px) rotateZ(5deg);
+         animation: fly 1s ease;
+      }
+    }
+    &.broken{
+      color: #aaa;
+      position:relative;
+      transition: all .3s ease;
+
+      &:before, &:after{
+         content: "❤";
+         opacity:1;
+         color: #ccc;
+         position:absolute;
+         top:-150px;
+         transform:  scale(3) rotateZ(0);
+      }
+
+        &:before{
+          clip: rect(0, 20px, 200px, 0);
+          animation: break-left 1s ease forwards;
+        }
+        &:after{
+          clip: rect(0, 50px, 200px, 25px);
+          animation: break-right 1s ease forwards;
+        }
+    }
+}
+@keyframes pulse{
+  50%{
+    transform: scale(1.1);
+  }
+}
+@keyframes fly{
+  0%{
+    opacity:0; transform: translateY(-20px) rotateZ(15deg);
+  }
+  50%{
+    opacity:.75;
+    transform: scale(4) translateY(-30px) rotateZ(-15deg);
+  }
+  100%{
+    opacity:0;
+    transform: scale(4) translateY(-50px) rotateZ(15deg);
+  }
+}
+@keyframes break-left{
+  0%{
+    opacity:1;
+    transform: scale(3) rotateZ(0);
+  }
+  20%{
+    opacity:.5;
+    transform: scale(3) translateX(-10px) rotateZ(-20deg) translateY(0) ;
+  }
+  50%{
+   opacity:.5;
+    transform: scale(3) translateX(-10px) rotateZ(-20deg) translateY(0) ;
+  }
+  100%{
+    opacity:0;
+    transform: scale(3) translateX(-30px) rotateZ(-25deg) translateY(50px);
+
+  }
+
+}
+@keyframes break-right{
+  0%{
+    opacity:1;
+    transform: scale(3) rotateZ(0);
+  }
+  20%{
+    opacity:.5;
+    transform: scale(3) translateX(10px) rotateZ(20deg) translateY(0) ;
+  }
+  50%{
+   opacity:.5;
+    transform: scale(3) translateX(10px) rotateZ(20deg) translateY(0) ;
+  }
+  100%{
+    opacity:0;
+    transform: scale(3) translateX(30px) rotateZ(25deg) translateY(50px);
+
+  }
+
+}
+.cardTitleRec {
+    width:100%;
+    background: rgba(0, 0, 0, 0.5);
+}
