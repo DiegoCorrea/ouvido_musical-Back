@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import PageHeader from '../template/pageHeader'
+import TopBar from '../template/topBar/topBar'
+
 import UserInformation from './userInformation'
 import RecommendationsList from '../recommendation/recommendationList'
 
@@ -33,7 +35,8 @@ export default class UserPage extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='row'>
+        <TopBar />
         <UserInformation
         data={this.state.data}/>
         <RecommendationsList

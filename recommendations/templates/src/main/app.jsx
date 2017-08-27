@@ -4,17 +4,15 @@ import './app.css'
 
 import React from 'react'
 
-import TopBar from '../template/topBar/topBar'
 import Routes from './routes'
 
 
 export default props => {
-    return (
-        <div>
-            <div className='container'>
-                <TopBar />
-                <Routes />
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <div className='container'>
+        <Routes />
+      </div>
+    </div>
+  )
 }

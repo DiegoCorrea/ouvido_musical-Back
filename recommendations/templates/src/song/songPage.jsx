@@ -29,6 +29,7 @@ export default class SongPage extends Component {
   render() {
     return (
       <div>
+        <TopBar />
         <SongInformation
         data={this.state.data[0]}
         db={this.state.data[1]}/>

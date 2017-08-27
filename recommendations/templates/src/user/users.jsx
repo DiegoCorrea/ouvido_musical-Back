@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import TopBar from '../template/topBar/topBar'
 import PageHeader from '../template/pageHeader'
 import UsersList from './usersList'
 
@@ -23,6 +24,7 @@ export default class Users extends Component {
   render() {
     return (
       <div>
+        <TopBar />
         <PageHeader name='Usuários' small=''></PageHeader>
         <UsersList
         data={this.state.data}/>

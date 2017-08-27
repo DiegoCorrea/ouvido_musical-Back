@@ -10,10 +10,12 @@ import SongPage from '../song/songPage'
 
 import Recommendations from '../recommendation/recommendations'
 
+import LoginPage from '../login/loginPage'
+
 export default props => (
     <Router history={hashHistory}>
-        <Route path='/' component={Users} />
-
+        <Route path='/' component={LoginPage} />
+    
         <Route path='/users' component={Users} />
         <Route path='/users/:uuid' component={UserPage} />
         <Route path='/users/:uuid/recommendations' component={Recommendations} />

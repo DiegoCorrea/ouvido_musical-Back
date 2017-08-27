@@ -29,6 +29,7 @@ export default class Songs extends Component {
   render() {
     return (
       <div>
+        <TopBar />
         <PageHeader name='Músicas' small='Busque por uma música'></PageHeader>
         <SongsList
         data={this.state.data}/>
