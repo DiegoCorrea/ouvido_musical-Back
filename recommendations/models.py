@@ -7,7 +7,6 @@ import uuid
 # Create your models here.
 class Song(models.Model):
     song = models.CharField(max_length=255, unique=True, db_index=True, primary_key=True, default=uuid.uuid1().hex)
-
     title = models.CharField(max_length=255, unique=False)
     album = models.CharField(max_length=255, unique=False)
     artist = models.CharField(max_length=255, unique=False)
@@ -46,16 +45,16 @@ class UserSongRecommendation(models.Model):
     user = models.ForeignKey(User, unique=False)
     song = models.ForeignKey(Song, unique=False)
     probabilit_play_count = models.IntegerField(default=0, unique=False)
-    like = models.BooleanField(default=False)
+    iLike = models.BooleanField(default=False)
     score = models.IntegerField(null=True, blank=True)
-    #class Meta:
-    #    unique_together = ('user', 'song',)
 
     def as_json(self):
         return dict(
             song_id = self.song_id,
             user_id = self.user_id,
             probabilit_play_count = self.probabilit_play_count
+            #iLike = self.iLike
+            #score = self.score
         )
 
 class ItemSimilarity(models.Model):
