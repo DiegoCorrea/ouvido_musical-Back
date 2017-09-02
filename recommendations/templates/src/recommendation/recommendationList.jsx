@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import LikeButton from './likeButton'
 import './css/recommendation.css'
 
 export default props => {
@@ -19,9 +20,8 @@ export default props => {
             <p>{obj.artist}</p>
             <p>{obj.album} - {obj.year}</p>
           </div>
-          <div className="card-action">
-            <div class="heart">❤</div>
-          </div>
+          <LikeButton 
+          uuid={obj.song_id}/>
         </div>
       </div>
     ))
