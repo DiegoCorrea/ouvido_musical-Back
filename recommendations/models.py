@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
 import uuid
+from django.db import models
+
 
 # Create your models here.
 class Song(models.Model):
-    song = models.CharField(max_length=255, unique=True, db_index=True, primary_key=True, default=uuid.uuid1().hex)
+    song = models.CharField(max_length=255, unique=True, db_index=True, 
+                            primary_key=True, default=uuid.uuid1().hex)
     title = models.CharField(max_length=255, unique=False)
     album = models.CharField(max_length=255, unique=False)
     artist = models.CharField(max_length=255, unique=False)
@@ -14,19 +16,20 @@ class Song(models.Model):
 
     def as_json(self):
         return dict(
-            song_id = self.song,
-            title = self.title,
-            album = self.album,
-            artist = self.artist,
-            year = self.year
+            song_id=self.song,
+            title=self.title,
+            album=self.album,
+            artist=self.artist,
+            year=self.year
         )
 
 class User(models.Model):
-    user = models.CharField(max_length=255, unique=True, db_index=True, primary_key=True, default=uuid.uuid1().hex)
+    user = models.CharField(max_length=255, unique=True, db_index=True,
+                            primary_key=True, default=uuid.uuid1().hex)
 
     def as_json(self):
         return dict(
-            user_id = self.user
+            user_id=self.user
         )
 
 class UserPlaySong(models.Model):
@@ -36,9 +39,9 @@ class UserPlaySong(models.Model):
 
     def as_json(self):
         return dict(
-            song_id = self.song_id,
-            user_id = self.user_id,
-            play_count = self.play_count
+            song_id=self.song_id,
+            user_id=self.user_id,
+            play_count=self.play_count
         )
 
 class UserSongRecommendation(models.Model):
@@ -50,10 +53,10 @@ class UserSongRecommendation(models.Model):
 
     def as_json(self):
         return dict(
-            song_id = self.song_id,
-            user_id = self.user_id,
-            probabilit_play_count = self.probabilit_play_count,
-            iLike = self.iLike
+            song_id=self.song_id,
+            user_id=self.user_id,
+            probabilit_play_count=self.probabilit_play_count,
+            iLike=self.iLike
             #score = self.score
         )
 
@@ -67,7 +70,7 @@ class ItemSimilarity(models.Model):
 
     def as_json(self):
         return dict(
-            songBase = self.songBase,
-            songCompare = self.songCompare,
-            similarity = self.similarity
+            songBase=self.songBase,
+            songCompare=self.songCompare,
+            similarity=self.similarity
         )
