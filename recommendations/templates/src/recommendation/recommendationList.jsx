@@ -20,8 +20,9 @@ export default props => {
             <p>{obj.artist}</p>
             <p>{obj.album} - {obj.year}</p>
           </div>
-          <LikeButton 
-          uuid={obj.song_id}/>
+            <LikeButton 
+            song_id={obj.song_id}
+            uuid={props.uuid}/>
         </div>
       </div>
     ))

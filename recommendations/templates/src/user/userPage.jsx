@@ -41,7 +41,8 @@ export default class UserPage extends Component {
           <UserInformation
           data={this.state.data}/>
           <RecommendationsList
-          recList={this.state.recommendations}/>
+          recList={this.state.recommendations}
+          uuid={this.props.params.uuid}/>
         </div>
       </div>
     )

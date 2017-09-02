@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import './css/likeButton.css'
 
+const URL = 'http://127.0.0.1:8000/api/v1/users/'
 export default class LikeButton extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,10 @@ export default class LikeButton extends Component {
     this.setState({
       liked: !this.state.liked
     });
+    const resource = URL + this.props.uuid + '/recommendations/' + this.props.song_id + '/like/'
+    axios.post(`${resource}`, { iLike: this.state.liked})
+    console.log("Resource")
+    console.log(resource)
   }
   
   render() {
