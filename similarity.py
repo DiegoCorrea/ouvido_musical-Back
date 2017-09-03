@@ -45,12 +45,12 @@ def getItemSimilarityTable():
 ####################################################################
 # A partir de um usuario base
 # Pega o valor da similaridade desse usuario com todos os outros
-def getSimilarity(evaluationTable, userBase, limit=30):
+def getSimilarity(evaluationTable, userBase):
     similarity = [(euclideanDistance(evaluationTable, userBase, userCompare), userCompare)
                     for userCompare in evaluationTable if userCompare != userBase]
     similarity.sort()
     similarity.reverse()
-    return similarity[:limit]
+    return similarity
 
 def calcSimilarityTable(itemTable):
     similarityTable = {}
