@@ -109,7 +109,7 @@ def userSongs(request, user_id):
     return HttpResponse(json.dumps(results), content_type="application/json")
 
 def userPlaySong(request, user_id, song_id):
-    onjs = {}
+    objs = {}
     try:
         objs = UserPlaySong.objects.all().filter(user=user_id, song_id=song_id)
     except UserPlaySong.DoesNotExist:
@@ -163,26 +163,28 @@ def UserMusicRecommendation(request, user_id, song_id):
 
 @csrf_exempt
 def UserLikeMusicRecommendation(request, user_id, song_id):
+    print("Entrando em Curtir")
     if request.method == 'GET':
-        obj = {}
         try:
+            obj = {}
+            result = {}
             obj = UserSongRecommendation.objects.get(user=user_id, song_id=song_id)
+            result['iLike'] = obj.iLike
+            return HttpResponse(json.dumps(result), content_type="application/json")
         except UserSongRecommendation.DoesNotExist:
             results = {}
             results['status'] = 404
             results['message'] = "Musicas Recomendadas para o Usuario não encontradas"
             return HttpResponse(json.dumps(results), content_type="application/json")
-        return HttpResponse(json.dumps(obj.as_json()), content_type="application/json")
     elif request.method == 'POST':
         musicRecommendation = UserSongRecommendation.objects.get(user=user_id, song_id=song_id)
         received_json_data = json.loads(request.body.decode("utf-8"))
         print (received_json_data)
 
-        if received_json_data['iLike']:
-            musicRecommendation.iLike = received_json_data['iLike']
-            musicRecommendation.save()
-            print(musicRecommendation)
+        musicRecommendation.iLike = received_json_data['iLike']
+        musicRecommendation.save()
+        print(musicRecommendation)
         results = {}
         results['status'] = 200
-        results['message'] = "Musicas Recomendadas para o Usuario"
+        results['message'] = "Salvo com Sucesso"
         return HttpResponse(json.dumps(results), content_type="application/json")

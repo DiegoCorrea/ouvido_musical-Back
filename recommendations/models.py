@@ -48,7 +48,7 @@ class UserSongRecommendation(models.Model):
     user = models.ForeignKey(User, unique=False)
     song = models.ForeignKey(Song, unique=False)
     probabilit_play_count = models.IntegerField(default=0, unique=False)
-    iLike = models.BooleanField(default=None)
+    iLike = models.BooleanField(default=False)
     #score = models.IntegerField(null=True, blank=True)
 
     def as_json(self):

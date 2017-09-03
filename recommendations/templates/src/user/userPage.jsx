@@ -23,15 +23,13 @@ export default class UserPage extends Component {
     const resource = URL + this.props.params.uuid
     axios.get(`${resource}`)
     .then(resp => {this.setState({...this.state, data: resp.data})
-    console.log("[User Page - Get User Information]")
-    console.log(this.state.data)})
+    })
   }
   getUserRecommendations(){
     const resource = URL + this.props.params.uuid + "/recommendations/"
     axios.get(`${resource}`)
     .then(resp => {this.setState({...this.state, recommendations: resp.data})
-    console.log("[User Page - Get Recommendations]")
-    console.log(this.state.recommendations)})
+    })
   }
   render() {
     return (
