@@ -59,26 +59,27 @@ def calcSimilarityTable(itemTable):
         similarityTable[item] = scores
     return similarityTable
 #####################################################################
-def getItemRecommendations(userItens, itensSimilarity, limit=30):
+def getItemRecommendations(userItens, itensSimilarity):
     scores = {}
     totalSimilarity = {}
     rankings = []
     for (item, score) in userItens.items():
         for(similarity, unassistedItem) in itensSimilarity[item]:
             if unassistedItem in userItens: continue
-            if  similarity != 0:
-                scores.setdefault(unassistedItem, 0)
-                scores[unassistedItem] += similarity * score
-                totalSimilarity.setdefault(unassistedItem, 0)
-                totalSimilarity[unassistedItem] += similarity
-    for (item, score) in scores.items():
-        if totalSimilarity[item] != 0 and score != 0:
-            rankings = [(score/totalSimilarity[item], item)]
-        else:
-            rankings = [0, item]
+            
+            scores.setdefault(unassistedItem, 0)
+            scores[unassistedItem] += similarity * score
+            totalSimilarity.setdefault(unassistedItem, 0)
+            totalSimilarity[unassistedItem] += similarity
+    #for (item, score) in scores.items():
+    #    if totalSimilarity[item] != 0:
+    #        rankings = [(score/totalSimilarity[item], item)]
+    #    else:
+    #        rankings = [0, item]
+    rankings = [(score/totalSimilarity[item], item) for item, scpre in scores.items()]
     rankings.sort()
     rankings.reverse()
-    return rankings[:limit]
+    return rankings
 #####################################################
 
 print ("1 -> Carregando tabela de usuarios\n")
@@ -105,11 +106,11 @@ print ("ok... Tabela de Similaridade Calculada\n")
 
 print ("5 -> Calculando similaridade entre os usuarios e os itens\n")
 for user in User.objects.all():
+    #print ("user.user", user.user)
     for item in getItemRecommendations(userTable[user.user], similarityTable):
         if item:
-            #print ("user.user", user.user)
-            #print ("probabilit_play_count", item[0])
             #print ("song_id", item[1])
+            #print ("probabilit_play_count", item[0])
             recommendation = UserSongRecommendation()
             recommendation.song_id = item[1]
             recommendation.user_id = user.user
