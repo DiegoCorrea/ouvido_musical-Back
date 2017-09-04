@@ -38,7 +38,7 @@ def getItemTable(userTable):
 
 def getItemSimilarityTable():
     itens = {}
-    for line in ItemSimilarity.objects.all()[:10]:
+    for line in ItemSimilarity.objects.all():
         itens.setdefault(line, {})
         itens[line].setdefault(line.songCompare, int(line.similarity))
     return itens
@@ -66,7 +66,7 @@ def getItemRecommendations(userItens, itensSimilarity):
     for (item, score) in userItens.items():
         for(similarity, unassistedItem) in itensSimilarity[item]:
             if unassistedItem in userItens: continue
-            
+
             scores.setdefault(unassistedItem, 0)
             scores[unassistedItem] += similarity * score
             totalSimilarity.setdefault(unassistedItem, 0)
