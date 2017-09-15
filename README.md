@@ -2,8 +2,8 @@
 Sistema de Recomendação em Musica  
 
 ### Instalação  
-1. `sudo apt-get update`  
-2. `sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib`  
+1. `sudo apt update`  
+2. `sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib`  
 3. `sudo apt install python-pip`  
 4. `sudo pip3 install -U pip`  
 5. `sudo pip3 install virtualenv`  
@@ -31,8 +31,6 @@ Caso não exista a pasta:
 Regardless of which version of Python you are using, when the virtual environment is activated, you should use the pip command (not pip3).  
 3. `pip install django psycopg2`  
 4. `django-admin.py startproject ouvidoMusicalenv .`  
-4. `virtualenv myprojectenv`  
-4. `virtualenv myprojectenv`  
 
 1. Criando migração do banco: `python manage.py makemigrations recommendations`  
 2. Aplicando migração ao banco: `python manage.py migrate`  
