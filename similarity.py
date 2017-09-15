@@ -76,7 +76,7 @@ def getItemRecommendations(userItens, itensSimilarity):
     #        rankings = [(score/totalSimilarity[item], item)]
     #    else:
     #        rankings = [0, item]
-    rankings = [(score/totalSimilarity[item], item) for item, scpre in scores.items()]
+    rankings = [(score/totalSimilarity[item], item) for item, score in scores.items()]
     rankings.sort()
     rankings.reverse()
     return rankings

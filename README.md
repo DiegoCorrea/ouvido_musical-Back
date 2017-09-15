@@ -2,15 +2,37 @@
 Sistema de Recomendação em Musica  
 
 ### Instalação  
-1. `sudo apt install python-pip`  
-2. `sudo pip install -U pip`  
-3. `sudo pip install virtualenv`  
-4. `sudo pip install virtualenvwrapper`  
-5. `sudo pip install Django`  
-5. `sudo pip install sparqlwrapper`
-5. `sudo pip install django-cors-headers`
+1. `sudo apt-get update`  
+2. `sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib`  
+3. `sudo apt install python-pip`  
+4. `sudo pip3 install -U pip`  
+5. `sudo pip3 install virtualenv`  
+6. `sudo pip3 install virtualenvwrapper`    
+7. `sudo pip3 install Django`    
+8. `sudo pip3 install sparqlwrapper`  
+9. `sudo pip3 install django-cors-headers`  
+
+### Configurando o Banco  
+Caso precise de maiores informações acesse o link:   `https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-16-04`  
+1. `sudo -u postgres psql`  
+2. `CREATE DATABASE ouvidoMusical;`  
+3. `CREATE USER ouvidoMusicalAPI WITH PASSWORD 'lovelovelove';`  
+4. `ALTER ROLE ouvidoMusicalAPI SET client_encoding TO 'utf8';`  
+5. `ALTER ROLE ouvidoMusicalAPI SET default_transaction_isolation TO 'read committed';`  
+6. `ALTER ROLE ouvidoMusicalAPI SET timezone TO 'UTC';`  
+7. `GRANT ALL PRIVILEGES ON DATABASE ouvidoMusical TO ouvidoMusicalAPI;`  
+8. `\q`  
 
 ### Configuração  
+
+Caso não exista a pasta:  
+1. `virtualenv ouvidoMusicalenv`  
+2. `source ouvidoMusicalenv/bin/activate`  
+Regardless of which version of Python you are using, when the virtual environment is activated, you should use the pip command (not pip3).  
+3. `pip install django psycopg2`  
+4. `django-admin.py startproject ouvidoMusicalenv .`  
+4. `virtualenv myprojectenv`  
+4. `virtualenv myprojectenv`  
 
 1. Criando migração do banco: `python manage.py makemigrations recommendations`  
 2. Aplicando migração ao banco: `python manage.py migrate`  
