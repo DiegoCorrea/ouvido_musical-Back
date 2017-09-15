@@ -47,18 +47,19 @@ Regardless of which version of Python you are using, when the virtual environmen
 
 
 ### Links API JSON  
-1. Pagina inicial: `http://127.0.0.1:8000/recommendations/`  
-2. Usuarios: `http://127.0.0.1:8000/recommendations/users/`  
-  2.1. Um Usuario: `http://127.0.0.1:8000/recommendations/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/`  
-  2.2. Musicas que o usuario ouviu:   `http://127.0.0.1:8000/recommendations/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/songs/`  
-  2.3. A Musica que o usuario ouviu:   `http://127.0.0.1:8000/recommendations/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/songs/`  
-  2.3. A Musica que o usuario ouviu:   `http://127.0.0.1:8000/recommendations/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/songs/SOVEUVC12A6310EAF1/`  
-  2.4. As musicas recomendadas para o usuario:   `http://127.0.0.1:8000/recommendations/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/recommendations/`  
-3. Musicas: `http://127.0.0.1:8000/recommendations/songs/`  
-  3.1. Uma Musica: `http://127.0.0.1:8000/recommendations/songs/SOAKIMP12A8C130995/`  
-  3.2. Usuarios ouviu a Musica: `http://127.0.0.1:8000/recommendations/songs/SOAKIMP12A8C130995/hearby/`  
-  3.3. Usuario ouviu a Musica:   `http://127.0.0.1:8000/recommendations/songs/SOAKIMP12A8C130995/hearby/b80344d063b5ccb3212f76538f3d9e43d87dca9e`  
+1. Pagina inicial: `http://127.0.0.1:8000/api/v1/`  
+2. Usuarios: `http://127.0.0.1:8000/api/v1/users/`  
+  2.1. Um Usuario: `http://127.0.0.1:8000/api/v1/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/`  
+  2.2. Musicas que o usuario ouviu:   `http://127.0.0.1:8000/api/v1/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/songs/`  
+  2.3. A Musica que o usuario ouviu:   `http://127.0.0.1:8000/api/v1/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/songs/`  
+  2.3. A Musica que o usuario ouviu:   `http://127.0.0.1:8000/api/v1/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/songs/SOVEUVC12A6310EAF1/`  
+  2.4. As musicas recomendadas para o usuario:   `http://127.0.0.1:8000/api/v1/users/b80344d063b5ccb3212f76538f3d9e43d87dca9e/recommendations/`  
+3. Musicas: `http://127.0.0.1:8000/api/v1/songs/`  
+  3.1. Uma Musica: `http://127.0.0.1:8000/api/v1/songs/SOAKIMP12A8C130995/`  
+  3.2. Usuarios ouviu a Musica: `http://127.0.0.1:8000/api/v1/songs/SOAKIMP12A8C130995/hearby/`  
+  3.3. Usuario ouviu a Musica:   `http://127.0.0.1:8000/api/v1/songs/SOAKIMP12A8C130995/hearby/b80344d063b5ccb3212f76538f3d9e43d87dca9e`  
 
-### Front
-1. npm install
-2. npm run dev
+### Front  
+`cd templates`  
+1. npm install  
+2. npm run dev  

@@ -110,4 +110,4 @@ ENV/
 
 # react
 *.log
-recommendations/templates/node_modules/*
+templates/node_modules/*
