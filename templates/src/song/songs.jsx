@@ -5,7 +5,7 @@ import TopBar from '../template/topBar/topBar'
 import PageHeader from '../template/pageHeader'
 import SongsList from './songsList'
 
-const URL = 'http://127.0.0.1:8000/api/v1/songs/'
+const URL = 'http://127.0.0.1:8000/api/v1/songs/mostPlayedSongs'
 
 export default class Songs extends Component {
   constructor(props){
