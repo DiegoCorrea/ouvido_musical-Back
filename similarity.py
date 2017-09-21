@@ -1,9 +1,10 @@
 from math import sqrt
-from recommendations.models import Song
-from recommendations.models import User
-from recommendations.models import UserPlaySong
-from recommendations.models import UserSongRecommendation
-from recommendations.models import ItemSimilarity
+from api.songs.models import Song
+from api.songs.models import SongSimilarity
+from api.users.models import User
+from api.userPlaySong.models import UserPlaySong
+from api.userSongRecommendation.models import UserSongRecommendation
+
 
 ####################################################################
 # Distancia Euclidiana
