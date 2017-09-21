@@ -18,7 +18,7 @@ def index(request):
 def allUsers(request):
     results = {}
     try:
-        results = [ob.as_json() for ob in User.objects.all().order_by('id')[:10]]
+        results = [ob.as_json() for ob in User.objects.all().order_by('id')[:20]]
         return HttpResponse(json.dumps(results), content_type="application/json")
     except User.DoesNotExist:
         results = {}
