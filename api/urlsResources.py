@@ -25,6 +25,7 @@ urlpatterns = [
         userPlaySongView.songHearBy, name='A Musica ouvida por'),
     url(r'^songs/(?P<song_id>([a-zA-Z]|[0-9])+)/hearby/(?P<user_id>([a-zA-Z]|[0-9])+)$',
         userPlaySongView.songHearByUser, name='A Musica ouvida pelo usuario'),
-    url(r'^songs/mostPlayedSongs$', userPlaySongView.mostPlayedSongs, name='Musicas mais tocadas'),
+    url(r'^songs/mostPlayedSongs$', userPlaySongView.mostPlayedSongsResource, name='Musicas mais tocadas'),
 # User Song Recommendation URL's
+
 ]

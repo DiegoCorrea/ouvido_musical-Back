@@ -23,7 +23,7 @@ def allSongs(request):
     objs = {}
     try:
         objs = Song.objects.all()[:20]
-        results = [ob.song.as_json() for ob in objs]
+        results = [ob.as_json() for ob in objs]
         return HttpResponse(json.dumps(results), content_type="application/json")
     except Song.DoesNotExist:
         results = {}

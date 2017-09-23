@@ -12,15 +12,15 @@ from django.http import JsonResponse
 from api.songs.models import Song
 from api.users.models import User
 from .models import UserPlaySong
+from .controllers import mostPlayedSongs
 
 # Create your views here.
 
-def mostPlayedSongs(request):
+def mostPlayedSongsResource(request):
     if request.method == 'GET':
         objs = {}
         try:
-            objs = UserPlaySong.objects.order_by('play_count').reverse()[:20]
-            results = [ob.song.as_json() for ob in objs]
+            results = [ob.as_json() for ob in mostPlayedSongs()]
             return HttpResponse(json.dumps(results), content_type="application/json")
         except Song.DoesNotExist:
             results = {}
@@ -33,7 +33,7 @@ def mostPlayedSongs(request):
 def userSongs(request, user_id):
     objs = {}
     try:
-        objs = UserPlaySong.objects.all().filter(id=user_id).order_by('play_count').reverse()[:20]
+        objs = UserPlaySong.objects.all().filter(user=user_id)[:20]
     except UserPlaySong.DoesNotExist:
         results = {}
         results['status'] = 404
@@ -45,7 +45,7 @@ def userSongs(request, user_id):
 def userPlaySong(request, user_id, song_id):
     objs = {}
     try:
-        objs = UserPlaySong.objects.all().filter(id=user_id, song_id=song_id)
+        objs = UserPlaySong.objects.all().filter(user_id=user_id, song_id=song_id)
     except UserPlaySong.DoesNotExist:
         results = {}
         results['status'] = 404
@@ -63,7 +63,7 @@ def songHearBy(request, song_id):
         results['status'] = 404
         results['message'] = "Musicas do Usuario não encontradas"
         return HttpResponse(json.dumps(results), content_type="application/json")
-    results = [ob.user.as_json() for ob in objs]
+    results = [ob.as_json() for ob in objs]
     return HttpResponse(json.dumps(results), content_type="application/json")
 
 def songHearByUser(request, song_id, user_id):
@@ -75,5 +75,5 @@ def songHearByUser(request, song_id, user_id):
         results['status'] = 404
         results['message'] = "Musicas do Usuario não encontradas"
         return HttpResponse(json.dumps(results), content_type="application/json")
-    results = [ob.user.as_json() for ob in objs]
+    results = [ob.as_json() for ob in objs]
     return HttpResponse(json.dumps(results), content_type="application/json")
