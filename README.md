@@ -11,6 +11,11 @@ Sistema de Recomendação em Musica
 7. `sudo pip3 install Django`    
 8. `sudo pip3 install sparqlwrapper`  
 9. `sudo pip3 install django-cors-headers`  
+10. `sudo pip3 install Ipython`  
+11. `sudo pip3 install django-extensions`  
+11. `sudo pip3 install sklearn`  
+11. `sudo pip3 install scipy`  
+11. `sudo pip3 install numpy`  
 
 ### Configurando o Banco  
 Caso precise de maiores informações acesse o link:   `https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-16-04`  

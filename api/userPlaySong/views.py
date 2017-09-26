@@ -18,7 +18,6 @@ from .controllers import mostPlayedSongs
 
 def mostPlayedSongsResource(request):
     if request.method == 'GET':
-        objs = {}
         try:
             results = [ob.as_json() for ob in mostPlayedSongs()]
             return HttpResponse(json.dumps(results), content_type="application/json")
