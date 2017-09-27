@@ -1,7 +1,6 @@
 from random import choice
-from api.songs.models import Song
+from api.songs.models import Song, SongSimilarity
 from .cosineSimilarity import text_cos_similarity
-from .cosineT2 import text_cos_similarity2
 
 def titleSimilarity():
     songBase = Song.objects.get(id="SOVEUVC12A6310EAF1")
@@ -13,5 +12,15 @@ def titleSimilarityAllDB():
     for songBase in Song.objects.all():
         print("\n[Cosine similarity] entre \"" + songBase.title + "\":")
         for songsCompare in Song.objects.all():
-            sim = text_cos_similarity2([songBase.title,songsCompare.title])
-            print("\t\"" + songsCompare.title + "\" é: ", str(sim))
+            if songBase == songsCompare: continue
+            sim = text_cos_similarity([songBase.title,songsCompare.title])
+            if sim[0][1]== 0: continue
+            print("\t\"" + songsCompare.title + "\" é: ", str(sim[0][1]))
+            similar = SongSimilarity(songBase=songBase,songCompare=songsCompare.id,similarity=sim[0][1])
+            similar.save()
+
+def runSongSimilarity():
+    print("Iniciando o Calculo de Similaridade entre as Músicas")
+    print("*** Etapa 1 - Titulos semelhantes ***")
+    titleSimilarityAllDB()
+    print("*** Calculo finalizao! ***")

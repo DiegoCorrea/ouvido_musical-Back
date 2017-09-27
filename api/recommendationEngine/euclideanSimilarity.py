@@ -1,6 +1,5 @@
 from math import sqrt
-from api.songs.models import Song
-from api.songs.models import SongSimilarity
+from api.songs.models import Song, SongSimilarity
 from api.users.models import User
 from api.userPlaySong.models import UserPlaySong
 from api.userSongRecommendation.models import UserSongRecommendation
