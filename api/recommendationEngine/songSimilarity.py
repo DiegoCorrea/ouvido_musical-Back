@@ -18,9 +18,3 @@ def titleSimilarityAllDB():
             print("\t\"" + songsCompare.title + "\" é: ", str(sim[0][1]))
             similar = SongSimilarity(songBase=songBase,songCompare=songsCompare.id,similarity=sim[0][1])
             similar.save()
-
-def runSongSimilarity():
-    print("Iniciando o Calculo de Similaridade entre as Músicas")
-    print("*** Etapa 1 - Titulos semelhantes ***")
-    titleSimilarityAllDB()
-    print("*** Calculo finalizao! ***")
