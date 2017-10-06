@@ -1,3 +1,5 @@
+from random import choice
+
 from api.songs.models import Song, SongSimilarity
 from api.users.models import User
 from api.userPlaySong.models import UserPlaySong
@@ -13,9 +15,19 @@ def runSimilarity():
     print("*** Calculo finalizao! ***")
 
 
-def runUserRecommendation():
+def runUserRecommendation(DEBUG=0):
     for user in User.objects.all():
+        if (DEBUG != 0):
+            print ('')
+            print ("''"*30)
+            print ('\nUser: ', user.id)
         recommendations = getUserRecommendations(user.id)
-        for (song, similarity) in recommendations.items():
-            userRec = UserSongRecommendation(song_id=song,user_id=user.id,probabilit_play_count=similarity,iLike=False)
+        for (song_id, similarity) in recommendations.items():
+            userRec = UserSongRecommendation(song_id=song_id,user_id=user.id,similarity=similarity,iLike=bool(choice([True, False])))
             userRec.save()
+            if (DEBUG != 0):
+                song = Song.objects.get(id=song_id)
+                print ('\n++ Musicas recomendadas')
+                print ('\t-- Musica: ', song.title)
+                print ('\t-- Similaridade', similarity)
+                print ('\t-- Like: ', userRec.iLike)
