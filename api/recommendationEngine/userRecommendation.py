@@ -1,13 +1,10 @@
 from collections import OrderedDict
-import numpy as np
-from sklearn.metrics import average_precision_score
-
 
 from api.songs.models import Song, SongSimilarity
 from api.users.models import User
 from api.userPlaySong.models import UserPlaySong
 
-def getUserRecommendations(user_id, DEBUG=0):
+def getUserRecommendations(user_id, DEBUG=1):
     hearSongs = UserPlaySong.objects.filter(user_id=user_id).order_by('play_count').reverse()
     recommendation = {}
     for songPlayed in hearSongs:
@@ -21,14 +18,7 @@ def getUserRecommendations(user_id, DEBUG=0):
         rec.setdefault(song, sum(values)/len(values))
     return OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True))
 
-def calcUsersMAP(range=5, DEBUG=0):
-    ap = [calcUserMAP(user.usersongrecommendation_set.all()[:range]) for user in User.objects.all()]
-
-    if (DEBUG != 0):
-        print('\n\tMean Averange Precision: ', np.mean(ap))
-
-
-def calcUserMAP(songRec):
+def calcUserMAP(songRec, DEBUG=1):
     hitList = []
     relevant = 0
     countDoc = 0
@@ -39,6 +29,12 @@ def calcUserMAP(songRec):
             hitList.append(relevant/countDoc)
     ap = sum(hitList)
     if (ap > 0):
+        # <DEBUG>
+        if (DEBUG != 0):
+            print ('\t++ User MAP: ', sum(hitList)/relevant) # </DEBUG>
         return sum(hitList)/relevant
     else:
+        # <DEBUG>
+        if (DEBUG != 0):
+            print ('\t++ User MAP: 0') # </DEBUG>
         return 0
