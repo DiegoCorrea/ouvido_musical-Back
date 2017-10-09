@@ -37,6 +37,11 @@ Regardless of which version of Python you are using, when the virtual environmen
 3. `pip install django psycopg2`  
 4. `django-admin.py startproject ouvidoMusicalenv .`  
 
+### Iniciando Servidor
+1. Acessando o env: `source ouvidoMusicalenv/bin/activate`  
+2. Rodando Servidor: `python manage.py runserver`  
+3. Acessando Terminal: `python manage.py shell_plus`  
+
 1. Criando migração do banco: `python manage.py makemigrations recommendations`  
 2. Aplicando migração ao banco: `python manage.py migrate`  
 3. Carregando base de dados:  

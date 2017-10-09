@@ -8,7 +8,7 @@ from api.userSongRecommendation.models import UserSongRecommendation
 
 from .songSimilarity import titleSimilarityAllDB
 from .userRecommendation import getUserRecommendations
-from .userRecommendation import calcUserMAP
+from .userRecommendation import calcUserMAP, calcUserMRR
 
 def runSimilarity(DEBUG=1):
     # <DEBUG>
@@ -53,4 +53,19 @@ def usersMAP(range=5, DEBUG=1):
     if (DEBUG != 0):
         print ('\n\tMean Averange Precision: ', np.mean(ap))
         print ('\t++ Averange Precision dos usuarios: ', ap)
+        print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>
+
+# <Params>
+# range é o numero referente a quantas posições quer se calcular o MRR
+# range padrão é 5
+# </Params>
+def usersMRR(range=5, DEBUG=1):
+    # <DEBUG>
+    if (DEBUG != 0):
+        print ('\nMRR com range de ', range) # </DEBUG>
+    mrrList = [calcUserMRR(user.usersongrecommendation_set.all()[:range], DEBUG=DEBUG) for user in User.objects.all()]
+    # <DEBUG>
+    if (DEBUG != 0):
+        print ('\n\tMean Reciprocal Rank: ', np.mean(mrrList))
+        print ('\t++ Lista de MRR dos usuarios: ', mrrList)
         print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>

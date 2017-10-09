@@ -38,3 +38,17 @@ def calcUserMAP(songRec, DEBUG=1):
         if (DEBUG != 0):
             print ('\t++ User MAP: 0') # </DEBUG>
         return 0
+
+def calcUserMRR(songRec, DEBUG=1):
+    countDoc = 0
+    for rec in songRec:
+        countDoc += 1
+        if (rec.iLike):
+            # <DEBUG>
+            if (DEBUG != 0):
+                print ('\t++ MRR do usuario é: ', 1/countDoc) # </DEBUG>
+            return 1/countDoc
+    # <DEBUG>
+    if (DEBUG != 0):
+        print ('\t++ User MRR é: 0') # </DEBUG>
+    return 0
