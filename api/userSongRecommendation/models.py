@@ -9,11 +9,13 @@ class UserSongRecommendation(models.Model):
     song = models.ForeignKey(Song, unique=False)
     similarity = models.IntegerField(default=0, unique=False)
     iLike = models.BooleanField(default=False)
+    score = models.IntegerField(blank=True, null=True, unique=False)
 
     def as_json(self):
         return dict(
             song_id=self.song_id,
             user_id=self.user_id,
             similarity=self.similarity,
-            iLike=self.iLike
+            iLike=self.iLike,
+            score=self.score
         )

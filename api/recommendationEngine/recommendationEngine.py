@@ -1,10 +1,11 @@
-from random import choice
+from random import choice, randint
 import numpy as np
 
 from api.songs.models import Song, SongSimilarity
 from api.users.models import User
 from api.userPlaySong.models import UserPlaySong
 from api.userSongRecommendation.models import UserSongRecommendation
+from api.CONSTANTS import MAX_SCORE, MIN_SCORE
 
 from .songSimilarity import titleSimilarityAllDB
 from .userRecommendation import getUserRecommendations
@@ -28,9 +29,14 @@ def runUserRecommendation(DEBUG=1):
             print ('')
             print ("''"*30)
             print ('\nUser: ', user.id) # </DEBUG>
-        recommendations = getUserRecommendations(user.id)
+        recommendations = getUserRecommendations(user.id,DEBUG=DEBUG)
         for (song_id, similarity) in recommendations.items():
-            userRec = UserSongRecommendation(song_id=song_id,user_id=user.id,similarity=similarity,iLike=bool(choice([True, False])))
+            userRec = UserSongRecommendation(
+                        song_id=song_id,
+                        user_id=user.id,
+                        similarity=similarity,
+                        iLike=bool(choice([True, False])),
+                        score=randint(MIN_SCORE,MAX_SCORE))
             userRec.save()
             # <DEBUG>
             if (DEBUG != 0):
@@ -38,7 +44,8 @@ def runUserRecommendation(DEBUG=1):
                 print ('\n++ Musicas recomendadas')
                 print ('\t-- Musica: ', song.title)
                 print ('\t-- Similaridade', similarity)
-                print ('\t-- Like: ', userRec.iLike) # </DEBUG>
+                print ('\t-- Like: ', userRec.iLike)
+                print ('\t-- Score: ', userRec.score) # </DEBUG>
 
 # <Params>
 # range é o numero referente a quantas posições quer se calcular o MAP
