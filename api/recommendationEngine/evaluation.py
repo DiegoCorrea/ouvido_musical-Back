@@ -1,9 +1,6 @@
 from api.users.models import User
-from api.userSongRecommendation.models import UserSongRecommendation
 
 import numpy as np
-from math import log
-
 
 def userLikeArray(recommendations):
     if len(recommendations) == 0:

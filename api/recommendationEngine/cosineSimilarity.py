@@ -1,4 +1,4 @@
-import nltk, string, numpy
+import nltk, string
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 #nltk.download('wordnet') # first-time use only
