@@ -107,6 +107,7 @@ ENV/
 
 # seed files
 *.seed
+*.csv
 
 # react
 *.log
