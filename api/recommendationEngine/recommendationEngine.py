@@ -8,7 +8,7 @@ from api.CONSTANTS import MAX_SCORE, MIN_SCORE
 
 from .songSimilarity import titleSimilarityAllDB
 from .userRecommendation import getUserRecommendations
-from .evaluation import calcUsersMAP, calcUsersMRR
+from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
 
 def runSimilarity(DEBUG=1):
     # <DEBUG>
@@ -21,7 +21,7 @@ def runSimilarity(DEBUG=1):
         print("*** Calculo finalizao! ***") # </DEBUG>
 
 
-def runUserRecommendation(DEBUG=1):
+def makeUserRecommendation(DEBUG=1):
     for user in User.objects.all():
         # <DEBUG>
         if (DEBUG != 0):
@@ -46,6 +46,14 @@ def runUserRecommendation(DEBUG=1):
                 print ('\t-- Like: ', userRec.iLike)
                 print ('\t-- Score: ', userRec.score) # </DEBUG>
 
-def UsersEvaluating(DEBUG=1):
-    mrrResult = calcUsersMRR(range=5,DEBUG=DEBUG)
-    mapResult = calcUsersMAP(range=5,DEBUG=DEBUG)
+def UsersEvaluating(DEBUG=1, range=5):
+    mrrResult = calcUsersMRR(range=range,DEBUG=DEBUG)
+    mapResult = calcUsersMAP(range=range,DEBUG=DEBUG)
+    ndcgResult = calcUsersNDCG(range=range,DEBUG=DEBUG)
+    print ('')
+    print ("''"*30)
+    print ('Avaliações das Recomendações ao Usuarios')
+    print ("''"*30)
+    print ('MRR: ', mrrResult)
+    print ('MAP: ', mapResult)
+    print ('NDCG: ', ndcgResult)
