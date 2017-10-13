@@ -74,6 +74,21 @@ def getUserMRR(songRec, DEBUG=1):
     if (DEBUG != 0):
         print ('\t++ MRR do usuario é:  0') # </DEBUG>
     return 0
+
+def getUserMRR2(relevanceArray, DEBUG=1):
+    n_relevances = len(relevanceArray)
+    if n_relevances == 0:
+        return 0
+    for i in range(n_relevances):
+        if relevanceArray[i]:
+            # <DEBUG>
+            if (DEBUG != 0):
+                print ('\t++ MRR do usuario é: ', 1/(i+1)) # </DEBUG>
+            return 1/(i+1)
+    # <DEBUG>
+    if (DEBUG != 0):
+        print ('\t++ MRR do usuario é:  0') # </DEBUG>
+    return 0
 # <Params>
 # range é o numero referente a quantas posições quer se calcular o MRR
 # range padrão é 5
@@ -82,13 +97,20 @@ def calcUsersMRR(range=5, DEBUG=1):
     # <DEBUG>
     if (DEBUG != 0):
         print ('\nMRR com range de ', range) # </DEBUG>
-    mrrList = [getUserMRR(user.usersongrecommendation_set.all()[:range], DEBUG=DEBUG) for user in User.objects.all()]
+    mrrList = [getUserMRR2(userLikeArray(user.usersongrecommendation_set.all())[:range], DEBUG=DEBUG) for user in User.objects.all()]
+    #mrrList = [getUserMRR(user.usersongrecommendation_set.all()[:range], DEBUG=DEBUG) for user in User.objects.all()
     # <DEBUG>
     if (DEBUG != 0):
         print ('\n\tMean Reciprocal Rank: ', np.mean(mrrList))
         print ('\t++ Lista de MRR dos usuarios: ', mrrList)
         print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>
     return np.mean(mrrList)
+
+def userLikeArray(recommendations):
+    if len(recommendations) == 0:
+        return 0
+    return [rec.iLike for rec in recommendations]
+
 #####################################################################
 #
 #
