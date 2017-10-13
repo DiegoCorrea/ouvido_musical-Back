@@ -10,7 +10,7 @@ class UserPlaySong(models.Model):
     play_count = models.IntegerField(default=0, unique=False)
 
     class Meta:
-        unique_together = ('user', 'song',)
+        unique_together = (('user', 'song'),)
 
     def as_json(self):
         return dict(
