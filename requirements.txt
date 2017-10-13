@@ -4,16 +4,11 @@ cryptography==1.2.3
 Django==1.11.4
 django-cors-headers==2.1.0
 dnspython==1.12.0
-duplicity==0.7.6
 ecdsa==0.13
-enum34==1.1.2
-f.lux-indicator-applet==1.1.11rc0
 idna==2.0
 ipaddress==1.0.16
 isodate==0.5.4
 lockfile==0.12.2
-mysql-connector-python==2.0.4
-mysql-utilities==1.6.1
 ndg-httpsclient==0.4.0
 paramiko==1.16.0
 pbr==3.1.1
@@ -22,12 +17,9 @@ psycopg2==2.7.3.1
 ptyprocess==0.5
 pyasn1==0.1.9
 pycrypto==2.6.1
-pygobject==3.20.0
 pyodbc==3.0.7
 pyOpenSSL==0.15.1
 pyparsing==2.2.0
-pysqlite==2.7.0
-python-cloudfiles==1.7.10
 pytz==2017.2
 pyxdg==0.25
 rdflib==4.2.2
@@ -36,7 +28,6 @@ six==1.10.0
 SPARQLWrapper==1.8.0
 stevedore==1.25.0
 urllib3==1.13.1
-vboxapi==1.0
 virtualenv==15.1.0
 virtualenv-clone==0.2.6
 virtualenvwrapper==4.7.2

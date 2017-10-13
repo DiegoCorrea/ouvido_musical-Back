@@ -1,3 +1,3 @@
-\COPY songs_song FROM 'config/postgres/bigger/songEntry.csv' DELIMITER ',' CSV HEADER;
-\COPY users_user FROM 'config/postgres/bigger/userEntry.csv' CSV HEADER;
-\COPY "userPlaySong_userplaysong"(user_id,song_id,play_count) FROM 'config/postgres/bigger/smallUserPlaySongEntry.csv' DELIMITER '\t' CSV HEADER;
+\COPY songs_song FROM 'config/postgres/bigger/distinctSong.seed' DELIMITER ',' CSV HEADER;
+\COPY users_user FROM 'config/postgres/bigger/distinctUser.seed' CSV HEADER;
+\COPY "userPlaySong_userplaysong"(user_id,song_id,play_count) FROM 'config/postgres/bigger/distinctUserPlaySong.seed' DELIMITER '\t' CSV HEADER;

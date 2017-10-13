@@ -34,7 +34,7 @@ Caso não exista a pasta:
 1. `virtualenv ouvidoMusicalenv`  
 2. `source ouvidoMusicalenv/bin/activate`  
 Regardless of which version of Python you are using, when the virtual environment is activated, you should use the pip command (not pip3).  
-3. `pip install django psycopg2`  
+3. `pip3 install django psycopg2`  
 4. `django-admin.py startproject ouvidoMusicalenv .`  
 
 ### Iniciando Servidor
