@@ -9,6 +9,9 @@ class UserPlaySong(models.Model):
     song = models.ForeignKey(Song, unique=False)
     play_count = models.IntegerField(default=0, unique=False)
 
+    class Meta:
+        unique_together = ('user', 'song',)
+
     def as_json(self):
         return dict(
             user_id=self.user_id,
