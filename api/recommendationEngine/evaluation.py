@@ -4,6 +4,11 @@ from api.userSongRecommendation.models import UserSongRecommendation
 import numpy as np
 from math import log
 
+
+def userLikeArray(recommendations):
+    if len(recommendations) == 0:
+        return 0
+    return [rec.iLike for rec in recommendations]
 #####################################################################
 # MAP
 # Mean Averange Precision
@@ -14,15 +19,16 @@ from math import log
 # DEBUG 1 os prints internos da função serão imprimidos na tela
 # DEBUG 0 os prints internos da função não serão imprimidos
 # </Params>
-def getUserAP(songRec, DEBUG=1):
+def getUserAP(relevanceArray, DEBUG=1):
+    n_relevances = len(relevanceArray)
+    if n_relevances == 0:
+        return 0
     hitList = []
     relevant = 0
-    countDoc = 0
-    for rec in songRec:
-        countDoc += 1
-        if (rec.iLike):
+    for i in range(n_relevances):
+        if relevanceArray[i]:
             relevant += 1
-            hitList.append(relevant/countDoc)
+            hitList.append(relevant/(i+1))
     ap = sum(hitList)
     if (ap > 0):
         # <DEBUG>
@@ -44,7 +50,7 @@ def calcUsersMAP(range=5, DEBUG=1):
     # <DEBUG>
     if (DEBUG != 0):
         print ('\nMAP com range de ', range) # </DEBUG>
-    ap = [getUserAP(user.usersongrecommendation_set.all()[:range], DEBUG=DEBUG) for user in User.objects.all()]
+    ap = [getUserAP(userLikeArray(user.usersongrecommendation_set.all()[:range]), DEBUG=DEBUG) for user in User.objects.all()]
     # <DEBUG>
     if (DEBUG != 0):
         print ('\n\tMean Averange Precision: ', np.mean(ap))
@@ -61,21 +67,7 @@ def calcUsersMAP(range=5, DEBUG=1):
 # DEBUG 1 os prints internos da função serão imprimidos na tela
 # DEBUG 0 os prints internos da função não serão imprimidos
 # </Params>
-def getUserMRR(songRec, DEBUG=1):
-    countDoc = 0
-    for rec in songRec:
-        countDoc += 1
-        if (rec.iLike):
-            # <DEBUG>
-            if (DEBUG != 0):
-                print ('\t++ MRR do usuario é: ', 1/countDoc) # </DEBUG>
-            return 1/countDoc
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\t++ MRR do usuario é:  0') # </DEBUG>
-    return 0
-
-def getUserMRR2(relevanceArray, DEBUG=1):
+def getUserMRR(relevanceArray, DEBUG=1):
     n_relevances = len(relevanceArray)
     if n_relevances == 0:
         return 0
@@ -97,19 +89,13 @@ def calcUsersMRR(range=5, DEBUG=1):
     # <DEBUG>
     if (DEBUG != 0):
         print ('\nMRR com range de ', range) # </DEBUG>
-    mrrList = [getUserMRR2(userLikeArray(user.usersongrecommendation_set.all())[:range], DEBUG=DEBUG) for user in User.objects.all()]
-    #mrrList = [getUserMRR(user.usersongrecommendation_set.all()[:range], DEBUG=DEBUG) for user in User.objects.all()
+    mrrList = [getUserMRR(userLikeArray(user.usersongrecommendation_set.all()[:range]), DEBUG=DEBUG) for user in User.objects.all()]
     # <DEBUG>
     if (DEBUG != 0):
         print ('\n\tMean Reciprocal Rank: ', np.mean(mrrList))
         print ('\t++ Lista de MRR dos usuarios: ', mrrList)
         print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>
     return np.mean(mrrList)
-
-def userLikeArray(recommendations):
-    if len(recommendations) == 0:
-        return 0
-    return [rec.iLike for rec in recommendations]
 
 #####################################################################
 #
