@@ -9,14 +9,14 @@ def getDistinctUsers(range=0):
     status = 1
     distinctList = []
     for line in open('config/postgres/train/bigPlayEntry.csv', 'r'):
-        status += 1
-        line = line.split('\t')
-        if (line[0] in distinctList): continue
-        distinctList.append(line[0])
         if (status % 10000 == 0):
             print (" -> ",status)
         if (len(distinctList) >= range):
             break
+        status += 1
+        line = line.split('\t')
+        if (line[0] in distinctList): continue
+        distinctList.append(line[0])
     distinctList = set(distinctList)
     print ('Total de Usuarios Distintos: ', len(distinctList))
     print ('Salvando no Arquivo. Aguarde alguns minutos!')
@@ -39,14 +39,14 @@ def getDistinctSong(range=0):
         lineSplit = line.split(',')
         if (status % 10000 == 0):
             print (" -> ",status)
+        if (status == range):
+            break
         if lineSplit[0] not in distinctList:
             distinctList.append(lineSplit[0])
             toSaveFile.write(line)
         else:
             print ('[Alerta] Entrada Duplicada : ', line)
         status += 1
-        if (status == range):
-            break
     print ('Total de Usuarios Distintos: ', len(distinctList))
     toSaveFile.close()
     print ('Usuarios distintos gerado e salvo. Finalizando o script!')
