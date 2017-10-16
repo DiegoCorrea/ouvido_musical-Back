@@ -12,6 +12,7 @@ from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
 def make(DEBUG=1):
     runSimilarity(DEBUG=DEBUG)
     makeUserRecommendation(DEBUG=DEBUG)
+    UsersEvaluating(DEBUG=DEBUG)
 
 def runSimilarity(DEBUG=1):
     # <DEBUG>
