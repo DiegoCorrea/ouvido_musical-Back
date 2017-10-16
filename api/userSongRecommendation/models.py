@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.db import models
 
 from api.users.models import User
@@ -10,6 +13,9 @@ class UserSongRecommendation(models.Model):
     similarity = models.IntegerField(default=0, unique=False)
     iLike = models.BooleanField(default=False)
     score = models.IntegerField(blank=True, null=True, unique=False)
+
+    class Meta:
+        unique_together = (('user', 'song'),)
 
     def as_json(self):
         return dict(

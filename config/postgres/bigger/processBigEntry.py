@@ -84,25 +84,26 @@ def rangedDistinctPlayCount(range=0):
     print ('Processando a entrada do Play Entry para Distinct Play')
     print ('*'*30)
     distinctList = {}
-    status = 1
+    status = 0
+    songs = [s.id for s in Song.objects.all()]
+    users = [u.id for u in User.objects.all()]
     for line in open('config/postgres/bigger/bigPlayEntry.csv', 'r'):
-        if status == 1: continue
         if (status % 1000 == 0):
             print (" -> ",status)
+        status += 1
         line = line.split('\t')
-        if (User.objects.get(id=line[0])):
-            if (Song.objects.get(id=line[1])):
-                status += 1
-                if (line[0] in distinctList):
-                    if(line[1] in distinctList[line[0]]):
-                        distinctList[line[0]][line[1]] += line[1]
-                    else:
-                        distinctList[line[0]].setdefault(line[1], line[2])
-                else:
-                    distinctList.setdefault(line[0], {})
-                    distinctList[line[0]].setdefault(line[1], line[2])
-                if (status == range):
-                    break
+        if (line[0] not in users): continue
+        if (line[1] not in songs): continue
+        if (line[0] in distinctList):
+            if(line[1] in distinctList[line[0]]):
+                distinctList[line[0]][line[1]] += line[1]
+            else:
+                distinctList[line[0]].setdefault(line[1], line[2])
+        else:
+            distinctList.setdefault(line[0], {})
+            distinctList[line[0]].setdefault(line[1], line[2])
+        if (status >= range):
+            break
     print ('Total de Usuarios Distintos: ', len(distinctList))
     print ('Salvando no Arquivo. Aguarde alguns minutos!')
     toSaveFile = open('config/postgres/bigger/distinctPlay'+ str(range) +'.seed', 'w+')

@@ -4,7 +4,7 @@ import numpy as np
 
 def userLikeArray(recommendations):
     if len(recommendations) == 0:
-        return 0
+        return []
     return [rec.iLike for rec in recommendations]
 #####################################################################
 # MAP
@@ -51,7 +51,6 @@ def calcUsersMAP(range=5, DEBUG=1):
     # <DEBUG>
     if (DEBUG != 0):
         print ('\n\tMean Averange Precision: ', np.mean(ap))
-        print ('\t++ Averange Precision dos usuarios: ', ap)
         print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>
     return np.mean(ap)
 
@@ -90,7 +89,6 @@ def calcUsersMRR(range=5, DEBUG=1):
     # <DEBUG>
     if (DEBUG != 0):
         print ('\n\tMean Reciprocal Rank: ', np.mean(mrrList))
-        print ('\t++ Lista de MRR dos usuarios: ', mrrList)
         print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>
     return np.mean(mrrList)
 
@@ -177,5 +175,5 @@ def calcUsersNDCG(DEBUG=1, range=5):
 
 def userScoreList(recommendations):
     if len(recommendations) == 0:
-        return 0.
+        return []
     return [rec.score for rec in recommendations]

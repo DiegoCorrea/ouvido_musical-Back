@@ -1,6 +1,7 @@
 from random import choice, randint
 
 from api.users.models import User
+from api.songs.models import Song
 from api.userSongRecommendation.models import UserSongRecommendation
 from api.CONSTANTS import MAX_SCORE, MIN_SCORE
 
