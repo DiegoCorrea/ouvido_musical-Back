@@ -9,6 +9,10 @@ from .songSimilarity import titleSimilarityAllDB
 from .userRecommendation import getUserRecommendations
 from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
 
+def make(DEBUG=1):
+    runSimilarity(DEBUG=DEBUG)
+    makeUserRecommendation(DEBUG=DEBUG)
+
 def runSimilarity(DEBUG=1):
     # <DEBUG>
     if (DEBUG != 0):
@@ -51,8 +55,12 @@ def UsersEvaluating(DEBUG=1, range=5):
     ndcgResult = calcUsersNDCG(range=range,DEBUG=DEBUG)
     print ('')
     print ("''"*30)
+    print ("''"*30)
+    print ("''"*30)
     print ('Avaliações das Recomendações ao Usuarios')
     print ("''"*30)
+    print ("''"*30)
+    print ("''"*30)
+    print ('NDCG: ', ndcgResult)
     print ('MRR: ', mrrResult)
     print ('MAP: ', mapResult)
-    print ('NDCG: ', ndcgResult)
