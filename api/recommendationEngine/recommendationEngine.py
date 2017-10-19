@@ -28,7 +28,7 @@ def make(DEBUG=1):
         execTime.setdefault('UserRecommendation-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
         execTime.setdefault('Evaluating-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     # </DEBUG>
-    UsersEvaluating(DEBUG=0)
+    UsersEvaluating(DEBUG=DEBUG)
     # <DEBUG>
     if (DEBUG != 0):
         execTime.setdefault('Evaluating-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
