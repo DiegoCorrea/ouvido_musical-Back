@@ -1,4 +1,5 @@
 from random import choice, randint
+from time import gmtime, strftime
 
 from api.users.models import User
 from api.songs.models import Song
@@ -10,9 +11,30 @@ from .userRecommendation import getUserRecommendations
 from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
 
 def make(DEBUG=1):
-    runSimilarity(DEBUG=DEBUG)
-    makeUserRecommendation(DEBUG=DEBUG)
-    UsersEvaluating(DEBUG=DEBUG)
+    # <DEBUG>
+    execTime = { }
+    if (DEBUG != 0):
+        execTime.setdefault('Similarity-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
+    # </DEBUG>
+    #runSimilarity(DEBUG=DEBUG)
+    # <DEBUG>
+    if (DEBUG != 0):
+        execTime.setdefault('Similarity-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
+        execTime.setdefault('UserRecommendation-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
+    # </DEBUG>
+    #makeUserRecommendation(DEBUG=DEBUG)
+    # <DEBUG>
+    if (DEBUG != 0):
+        execTime.setdefault('UserRecommendation-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
+        execTime.setdefault('Evaluating-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
+    # </DEBUG>
+    UsersEvaluating(DEBUG=0)
+    # <DEBUG>
+    if (DEBUG != 0):
+        execTime.setdefault('Evaluating-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
+        for item in execTime.items():
+            print(item)
+    # </DEBUG>
 
 def runSimilarity(DEBUG=1):
     # <DEBUG>
