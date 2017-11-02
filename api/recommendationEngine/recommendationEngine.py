@@ -16,13 +16,13 @@ def make(DEBUG=1):
     if (DEBUG != 0):
         execTime.setdefault('Similarity-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     # </DEBUG>
-    #runSimilarity(DEBUG=DEBUG)
+    runSimilarity(DEBUG=DEBUG)
     # <DEBUG>
     if (DEBUG != 0):
         execTime.setdefault('Similarity-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
         execTime.setdefault('UserRecommendation-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     # </DEBUG>
-    #makeUserRecommendation(DEBUG=DEBUG)
+    makeUserRecommendation(DEBUG=DEBUG)
     # <DEBUG>
     if (DEBUG != 0):
         execTime.setdefault('UserRecommendation-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))

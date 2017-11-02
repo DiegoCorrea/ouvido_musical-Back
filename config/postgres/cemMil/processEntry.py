@@ -7,7 +7,7 @@ def getDistinctUsers(range=0):
     print ('*'*30)
     status = 1
     distinctList = []
-    for line in open('config/postgres/bigger/bigPlayEntry.csv', 'r'):
+    for line in open('config/postgres/cemMil/bigPlayEntry.csv', 'r'):
         line = line.split('\t')
         distinctList.append(line[0])
         if (status % 10000 == 0):
@@ -17,7 +17,7 @@ def getDistinctUsers(range=0):
     distinctList = set(distinctList)
     print ('Total de Usuarios Distintos: ', len(distinctList))
     print ('Salvando no Arquivo. Aguarde alguns minutos!')
-    toSaveFile = open('config/postgres/bigger/distinctUser'+ str(range) +'.seed', 'w+')
+    toSaveFile = open('config/postgres/cemMil/distinctUser'+ str(range) +'.seed', 'w+')
     toSaveFile.write('id\n')
     for user in distinctList:
         toSaveFile.write(user + '\n')
@@ -30,9 +30,9 @@ def getDistinctSong(range=0):
     print ('*'*30)
     distinctList = []
     status = 1
-    toSaveFile = open('config/postgres/bigger/distinctSong'+ str(range) +'.seed', 'w+')
+    toSaveFile = open('config/postgres/cemMil/distinctSong'+ str(range) +'.seed', 'w+')
     toSaveFile.write('id,title,album,artist,year\n')
-    for line in open('config/postgres/bigger/bigSongEntry.csv', 'r'):
+    for line in open('config/postgres/cemMil/bigSongEntry.csv', 'r'):
         lineSplit = line.split(',')
         if (status % 10000 == 0):
             print (" -> ",status)
@@ -54,7 +54,7 @@ def getDistinctPlayCount():
     print ('*'*30)
     distinctList = {}
     status = 0
-    for line in open('config/postgres/bigger/bigPlayEntry.csv', 'r'):
+    for line in open('config/postgres/cemMil/bigPlayEntry.csv', 'r'):
         status += 1
         if status == 1: continue
         if (status % 1000 == 0):
@@ -72,7 +72,7 @@ def getDistinctPlayCount():
             break;
     print ('Total de Usuarios Distintos: ', len(distinctList))
     print ('Salvando no Arquivo. Aguarde alguns minutos!')
-    toSaveFile = open('config/postgres/bigger/distinctPlay.seed', 'w+')
+    toSaveFile = open('config/postgres/cemMil/distinctPlay.seed', 'w+')
     toSaveFile.write('user_id,song_id,play_count\n')
     for user in distinctList:
         for (song, play) in distinctList[user].items():
@@ -85,10 +85,10 @@ def rangedDistinctPlayCount(range=0):
     print ('Processando a entrada do Play Entry para Distinct Play')
     print ('*'*30)
     distinctList = {}
-    status = 0
+    status = 1
     songs = [s.id for s in Song.objects.all()]
     users = [u.id for u in User.objects.all()]
-    for line in open('config/postgres/bigger/bigPlayEntry.csv', 'r'):
+    for line in open('config/postgres/cemMil/bigPlayEntry.csv', 'r'):
         if (status % 1000 == 0):
             print (" -> ",status)
         status += 1
@@ -103,11 +103,11 @@ def rangedDistinctPlayCount(range=0):
         else:
             distinctList.setdefault(line[0], {})
             distinctList[line[0]].setdefault(line[1], line[2])
-        if (status >= range):
+        if (status == range):
             break
     print ('Total de Usuarios Distintos: ', len(distinctList))
     print ('Salvando no Arquivo. Aguarde alguns minutos!')
-    toSaveFile = open('config/postgres/bigger/distinctPlay'+ str(range) +'.seed', 'w+')
+    toSaveFile = open('config/postgres/cemMil/distinctPlay'+ str(range) +'.seed', 'w+')
     toSaveFile.write('user_id,song_id,play_count\n')
     for user in distinctList:
         for (song, play) in distinctList[user].items():
