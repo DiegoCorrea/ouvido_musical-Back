@@ -24,8 +24,8 @@ class Song(models.Model):
         )
 
 class SongSimilarity(models.Model):
-    songBase = models.ForeignKey(Song, unique=False)
-    songCompare = models.CharField(max_length=255, unique=False)
+    songBase = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_right')
+    songCompare = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_left')
     similarity = models.FloatField(default=0, unique=False)
 
     def as_json(self):

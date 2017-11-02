@@ -11,63 +11,50 @@ def titleSimilarityAllDB(DEBUG=1):
         if (DEBUG != 0):
             status += 1
             print("\n\n+ Músicas processadas: " + str(status) + " de um total ", str(lenSongs))
-            print("\n[Cosine similarity] entre \"" + songBase.title + "\":") # </DEBUG>
+            print("\n[Cosine similarity] \"" + songBase.title + "\"") # </DEBUG>
         songsSimilaries.setdefault(songBase.id, { })
         for songCompare in allSongs:
             if songBase == songCompare: continue
-            if ((songBase.id in songsSimilaries)
-                and (songCompare.id in songsSimilaries[songBase.id])
-                or (songCompare.id in songsSimilaries)
-                and (songBase.id in songsSimilaries[songCompare.id])):
-                # <DEBUG>
-                if (DEBUG != 0):
-                    print("\t-> \""+ songCompare.title + "\" já calculado!") # </DEBUG>
-                continue
             sim = text_cos_similarity([songBase.title,songCompare.title])
-            # if sim[0][1]== 0: continue
             # <DEBUG>
-            if (DEBUG != 0):
+            if (DEBUG < 2):
                 print("\t\"" + songCompare.title + "\" é: ", str(sim[0][1])) # </DEBUG>
             songsSimilaries[songBase.id].setdefault(songCompare.id, sim)
-            similar = SongSimilarity(songBase=songBase, songCompare=songCompare.id, similarity=sim[0][1])
+            similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=sim[0][1])
             similar.save()
+        allSongs = allSongs.exclude(id=songBase.id)
 
 def titleSimilarityNewSongs(DEBUG=1):
     allSongs = Song.objects.all()
     songsSimilaries = { }
-    for similar in SongSimilarity.objects.all():
-        if ((similar.songBase in songsSimilaries)
-            and (similar.songCompare in songsSimilaries[similar.songBase])
-            or (similar.songCompare in songsSimilaries)
-            and (similar.songBase in songsSimilaries[similar.songCompare])): continue
-        songsSimilaries.setdefault(similar.songBase, { })
-        songsSimilaries[similar.songBase].setdefault(similar.songCompare, similar.similarity)
+    lenSongs = len(allSongs)
     status = 0
+    newSong = 0
+    for similar in SongSimilarity.objects.all():
+        songsSimilaries.setdefault(similar.songBase_id, { })
+        songsSimilaries[similar.songBase_id].setdefault(similar.songCompare_id, similar.similarity)
     for songBase in allSongs:
-        if (songBase.id in songsSimilaries):
-            continue
-        else:
+        if (songBase.id not in songsSimilaries):
             songsSimilaries.setdefault(songBase.id, { })
+            newSong += 1
         # <DEBUG>
         if (DEBUG != 0):
             status += 1
-            print("\n+ Novas músicas processadas: ", status)
-            print("\n[Cosine similarity] entre \"" + songBase.title + "\": ") # </DEBUG>
+            print("\n\n+ Músicas processadas: " + str(status) + " de um total ", str(lenSongs))
+            print("\n\n+ Novas músicas: " + str(newSong))
+            print("\n[Cosine similarity]  \"" + songBase.title + "\"") # </DEBUG>
         for songCompare in allSongs:
             if songBase == songCompare: continue
-            if ((songBase.id in songsSimilaries)
-                and (songCompare.id in songsSimilaries[songBase.id])
-                or (songCompare.id in songsSimilaries)
-                and (songBase.id in songsSimilaries[songCompare.id])):
+            if (((songBase.id in songsSimilaries) and (songCompare.id in songsSimilaries[songBase.id])) or ((songCompare.id in songsSimilaries) and (songBase.id in songsSimilaries[songCompare.id]))):
                 # <DEBUG>
-                if (DEBUG != 0):
+                if (DEBUG < 2):
                     print("\t-> \""+ songCompare.title + "\" já calculado!") # </DEBUG>
                 continue
             sim = text_cos_similarity([songBase.title,songCompare.title])
-            # if sim[0][1]== 0: continue
             # <DEBUG>
-            if (DEBUG != 0):
+            if (DEBUG < 2):
                 print("\t\"" + songCompare.title + "\" é: ", str(sim[0][1])) # </DEBUG>
             songsSimilaries[songBase.id].setdefault(songCompare.id, sim)
-            similar = SongSimilarity(songBase=songBase, songCompare=songCompare.id, similarity=sim[0][1])
+            similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=sim[0][1])
             similar.save()
+        allSongs = allSongs.exclude(id=songBase.id)
