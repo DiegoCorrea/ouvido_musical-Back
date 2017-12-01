@@ -3,6 +3,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 #nltk.download('wordnet') # first-time use only
 
+####################################################################
+# Cosine similarity and TF-IDF
 def LemTokens(tokens):
     lemmer = nltk.stem.WordNetLemmatizer()
     return [lemmer.lemmatize(token) for token in tokens]
@@ -15,3 +17,5 @@ def cosineSimilarity(textlist):
     TfidfVec = TfidfVectorizer(tokenizer=LemNormalize, stop_words={'english'}, analyzer='word')
     tfidf = TfidfVec.fit_transform(textlist)
     return (tfidf * tfidf.T).toarray()
+
+####################################################################

@@ -6,17 +6,17 @@ from api.songs.models import Song
 from api.userSongRecommendation.models import UserSongRecommendation
 from api.CONSTANTS import MAX_SCORE, MIN_SCORE
 
-from .songSimilarity import titleSimilarityAllDB
+from .songSimilarity import titleSimilarity
 from .userRecommendation import getUserRecommendations
 from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
 
-def make(DEBUG=1):
+def bigBang(DEBUG=1):
     # <DEBUG>
     execTime = { }
     if (DEBUG <= 5):
         execTime.setdefault('Similarity-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     # </DEBUG>
-    runSimilarity(DEBUG=DEBUG)
+    titleSimilarity()
     # <DEBUG>
     if (DEBUG <= 5):
         execTime.setdefault('Similarity-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
@@ -28,24 +28,13 @@ def make(DEBUG=1):
         execTime.setdefault('UserRecommendation-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
         execTime.setdefault('Evaluating-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     # </DEBUG>
-    UsersEvaluating(DEBUG=DEBUG)
+    evaluateUsersRank(DEBUG=DEBUG)
     # <DEBUG>
     if (DEBUG <= 5):
         execTime.setdefault('Evaluating-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
         for item in execTime.items():
             print(item)
     # </DEBUG>
-
-def runSimilarity(DEBUG=1):
-    # <DEBUG>
-    if (DEBUG <= 1):
-        print("Iniciando o Calculo de Similaridade entre as Músicas")
-        print("*** Etapa 1 - Titulos semelhantes ***") # </DEBUG>
-    titleSimilarityAllDB(DEBUG=DEBUG)
-    # <DEBUG>
-    if (DEBUG <= 1):
-        print("*** Calculo finalizao! ***") # </DEBUG>
-
 
 def makeUserRecommendation(DEBUG=1):
     status = 0
@@ -78,7 +67,7 @@ def makeUserRecommendation(DEBUG=1):
                 print ('\t-- Like: ', userRec.iLike)
                 print ('\t-- Score: ', userRec.score) # </DEBUG>
 
-def UsersEvaluating(DEBUG=1, range=5):
+def evaluateUsersRank(DEBUG=1, range=5):
     mrrResult = calcUsersMRR(range=range,DEBUG=DEBUG)
     mapResult = calcUsersMAP(range=range,DEBUG=DEBUG)
     ndcgResult = calcUsersNDCG(range=range,DEBUG=DEBUG)
