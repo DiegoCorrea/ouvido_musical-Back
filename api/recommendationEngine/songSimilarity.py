@@ -60,17 +60,17 @@ def titleSimilarityNewSongs(DEBUG=1):
         allSongs = allSongs.exclude(id=songBase.id)
 
 def titleSimilarity():
-    allSongs = Song.objects.all()[:20]
+    allSongs = Song.objects.all()
     matrixSimilarity = cosineSimilarity([ song.title for song in allSongs ])
     i = 0
     totalSong = len(allSongs)
     for songBase in allSongs:
         print('++Musica: ' + songBase.title)
-        j = 0
+        allSongs = allSongs.exclude(id=songBase.id)
+        j = i + 1
         for songCompare in allSongs:
             print('\t' + songCompare.title + '\t --> \t' + str(matrixSimilarity[i][j]))
-            #similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=matrixSimilarity[i][j])
-            #similar.save()
+            similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=matrixSimilarity[i][j])
+            similar.save()
             j += 1
         i += 1
-        allSongs = allSongs.exclude(id=songBase.id)
