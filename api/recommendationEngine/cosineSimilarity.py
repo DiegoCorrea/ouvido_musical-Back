@@ -11,7 +11,7 @@ def LemNormalize(text):
     remove_punct_dict = dict((ord(punct), None) for punct in string.punctuation)
     return LemTokens(nltk.word_tokenize(text.lower().translate(remove_punct_dict)))
 
-def text_cos_similarity(textlist):
-    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize)
+def cosineSimilarity(textlist):
+    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize, stop_words='english', analyzer='word')
     tfidf = TfidfVec.fit_transform(textlist)
     return (tfidf * tfidf.T).toarray()

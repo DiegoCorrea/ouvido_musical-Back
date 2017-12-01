@@ -1,5 +1,5 @@
 from api.songs.models import Song, SongSimilarity
-from .cosineSimilarity import text_cos_similarity
+from .cosineSimilarity import cosineSimilarity
 
 def titleSimilarityAllDB(DEBUG=1):
     allSongs = Song.objects.all()
@@ -15,7 +15,7 @@ def titleSimilarityAllDB(DEBUG=1):
         songsSimilaries.setdefault(songBase.id, { })
         for songCompare in allSongs:
             if songBase == songCompare: continue
-            sim = text_cos_similarity([songBase.title,songCompare.title])
+            sim = cosineSimilarity([songBase.title,songCompare.title])
             # <DEBUG>
             if (DEBUG <= 1):
                 print("\t\"" + songCompare.title + "\" é: ", str(sim[0][1])) # </DEBUG>
@@ -50,7 +50,7 @@ def titleSimilarityNewSongs(DEBUG=1):
                 if (DEBUG <= 1):
                     print("\t-> \""+ songCompare.title + "\" já calculado!") # </DEBUG>
                 continue
-            sim = text_cos_similarity([songBase.title,songCompare.title])
+            sim = cosineSimilarity([songBase.title,songCompare.title])
             # <DEBUG>
             if (DEBUG <= 1):
                 print("\t\"" + songCompare.title + "\" é: ", str(sim[0][1])) # </DEBUG>
