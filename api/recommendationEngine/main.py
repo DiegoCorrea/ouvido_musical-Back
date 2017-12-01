@@ -1,4 +1,3 @@
-from random import choice, randint
 from time import gmtime, strftime
 
 from .songSimilarity import titleSimilarity

@@ -11,6 +11,9 @@ class Song(models.Model):
                             primary_key=True, default=uuid.uuid1().hex)
     title = models.CharField(max_length=511, unique=False)
 
+    def getSimilaries(self):
+        return self.SongSimilarity_right.all()
+
     def as_json(self):
         return dict(
             song_id=self.id,
@@ -21,7 +24,7 @@ class SongSimilarity(models.Model):
     songBase = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_right')
     songCompare = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_left')
     similarity = models.FloatField(default=0, unique=False)
-    
+
     class Meta:
         unique_together = (('songBase', 'songCompare'),)
 

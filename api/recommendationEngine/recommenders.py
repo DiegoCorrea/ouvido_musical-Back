@@ -1,5 +1,5 @@
 from collections import OrderedDict
-
+from random import choice, randint
 from api.users.models import User
 from api.songs.models import Song
 from api.userPlaySong.models import UserPlaySong
@@ -7,11 +7,10 @@ from api.userSongRecommendation.models import UserSongRecommendation
 from api.CONSTANTS import MAX_SCORE, MIN_SCORE
 
 def getUserRecommendations(user_id, DEBUG=1):
-    hearSongs = UserPlaySong.objects.filter(user_id=user_id).order_by('play_count').reverse()
     recommendation = {}
-    for songPlayed in hearSongs:
-        similaries = songPlayed.song.songsimilarity_set.all()
-        for songSimi in similaries:
+    for songPlayed in UserPlaySong.objects.filter(user_id=user_id).order_by('play_count').reverse():
+        #print(str(songPlayed.song.songsimilarity))
+        for songSimi in songPlayed.song.getSimilaries():
             if songSimi.songCompare not in recommendation:
                 recommendation.setdefault(songSimi.songCompare, [])
             recommendation[songSimi.songCompare].append(songSimi.similarity)
