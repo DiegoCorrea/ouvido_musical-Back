@@ -17,6 +17,7 @@ Sistema de Recomendação em Musica
 11. `sudo pip3 install scipy`  
 11. `sudo pip3 install numpy`  
 11. `sudo pip3 install nltk`  
+# nltk.download('wordnet') # first-time use only
 
 ### Configurando o Banco  
 Caso precise de maiores informações acesse o link: `https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-16-04`  

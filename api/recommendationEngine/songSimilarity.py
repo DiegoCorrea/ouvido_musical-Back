@@ -1,5 +1,5 @@
 from api.songs.models import Song, SongSimilarity
-from .cosineSimilarity import cosineSimilarity
+from .similarities import cosineSimilarity
 
 def titleSimilarityAllDB(DEBUG=1):
     allSongs = Song.objects.all()
@@ -61,15 +61,14 @@ def titleSimilarityNewSongs(DEBUG=1):
 
 def titleSimilarity():
     allSongs = Song.objects.all()
+    # Calc Cosine from Songs and return a symmetric matrix len(Songs) x len(Songs)
     matrixSimilarity = cosineSimilarity([ song.title for song in allSongs ])
+    # Persiste Title similarity
     i = 0
-    totalSong = len(allSongs)
     for songBase in allSongs:
-        print('++Musica: ' + songBase.title)
         allSongs = allSongs.exclude(id=songBase.id)
         j = i + 1
         for songCompare in allSongs:
-            print('\t' + songCompare.title + '\t --> \t' + str(matrixSimilarity[i][j]))
             similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=matrixSimilarity[i][j])
             similar.save()
             j += 1
