@@ -58,3 +58,19 @@ def titleSimilarityNewSongs(DEBUG=1):
             similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=sim[0][1])
             similar.save()
         allSongs = allSongs.exclude(id=songBase.id)
+
+def titleSimilarity():
+    allSongs = Song.objects.all()[:20]
+    matrixSimilarity = cosineSimilarity([ song.title for song in allSongs ])
+    i = 0
+    totalSong = len(allSongs)
+    for songBase in allSongs:
+        print('++Musica: ' + songBase.title)
+        j = 0
+        for songCompare in allSongs:
+            print('\t' + songCompare.title + '\t --> \t' + str(matrixSimilarity[i][j]))
+            #similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=matrixSimilarity[i][j])
+            #similar.save()
+            j += 1
+        i += 1
+        allSongs = allSongs.exclude(id=songBase.id)
