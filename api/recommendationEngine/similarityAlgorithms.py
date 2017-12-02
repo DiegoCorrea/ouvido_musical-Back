@@ -1,6 +1,7 @@
 import nltk, string
 from sklearn.feature_extraction.text import TfidfVectorizer
-
+import logging
+logger = logging.getLogger(__name__)
 #nltk.download('wordnet') # first-time use only
 
 ####################################################################
@@ -14,8 +15,10 @@ def LemNormalize(text):
     return LemTokens(nltk.word_tokenize(text.lower().translate(remove_punct_dict)))
 
 def cosineSimilarity(textlist):
+    logger.info("[Start Cosine Similarity]")
     TfidfVec = TfidfVectorizer(tokenizer=LemNormalize, stop_words={'english'}, analyzer='word')
     tfidf = TfidfVec.fit_transform(textlist)
+    logger.info("[Finished Cosine Similarity]")
     return (tfidf * tfidf.T).toarray()
 
 ####################################################################
