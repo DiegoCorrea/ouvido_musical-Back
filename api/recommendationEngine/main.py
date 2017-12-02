@@ -6,7 +6,7 @@ import logging
 logger = logging.getLogger(__name__)
 def bigBang(DEBUG=1):
     execTime = { }
-    logger.info("Start Big Bang")
+    logger.info("[Start Big Bang]")
     # Calc Similarity
     execTime.setdefault('Similarity-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     TitleSimilarity()
@@ -21,7 +21,7 @@ def bigBang(DEBUG=1):
     execTime.setdefault('Evaluating-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
     for item in execTime.items():
         logger.debug(item)
-    logger.info("Finish Big Bang")
+    logger.info("[Finish Big Bang]")
 
 def evaluateUsersRank(DEBUG=1, range=5):
     mrrResult = calcUsersMRR(range=range,DEBUG=DEBUG)

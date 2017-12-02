@@ -1,6 +1,7 @@
-from api.users.models import User
-
+from api.users.models import Use
 import numpy as np
+import logging
+logger = logging.getLogger(__name__)
 
 def userLikeArray(recommendations):
     if len(recommendations) == 0:

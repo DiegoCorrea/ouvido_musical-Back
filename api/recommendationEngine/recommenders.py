@@ -5,6 +5,8 @@ from api.songs.models import Song
 from api.userPlaySong.models import UserPlaySong
 from api.userSongRecommendation.models import UserSongRecommendation
 from api.CONSTANTS import MAX_SCORE, MIN_SCORE
+import logging
+logger = logging.getLogger(__name__)
 
 ################################################################################
 # User Average uses the average rating value of a user to make predictions.
@@ -23,6 +25,7 @@ def getUserAverageRecommendations(user_id):
     return OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True))
 
 def UserAverage():
+    logger.info("[Start User Average]")
     for user in User.objects.all():
         userRecommendations = getUserAverageRecommendations(user.id)
         for (song, similarity) in userRecommendations.items():
@@ -33,4 +36,5 @@ def UserAverage():
                         iLike=bool(choice([True, False])),
                         score=randint(MIN_SCORE,MAX_SCORE))
             userRec.save()
+    logger.info("[Finish User Average]")
 ################################################################################

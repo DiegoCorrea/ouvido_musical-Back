@@ -12,7 +12,7 @@ class Song(models.Model):
     title = models.CharField(max_length=511, unique=False)
 
     def getSimilaries(self):
-        return self.SongSimilarity_right.all()
+        return self.SongSimilarity_right.all() | self.SongSimilarity_left.all()
 
     def as_json(self):
         return dict(
