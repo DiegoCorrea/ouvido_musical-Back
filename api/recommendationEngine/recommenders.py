@@ -6,11 +6,11 @@ from api.userPlaySong.models import UserPlaySong
 from api.userSongRecommendation.models import UserSongRecommendation
 from api.CONSTANTS import MAX_SCORE, MIN_SCORE
 
-def getUserRecommendations(user_id, DEBUG=1):
+def getUserAverageRecommendations(user_id):
     recommendation = {}
     for songPlayed in UserPlaySong.objects.filter(user_id=user_id).order_by('play_count').reverse():
-        #print(str(songPlayed.song.songsimilarity))
         for songSimi in songPlayed.song.getSimilaries():
+            if songSimi.similarity == 0.0: continue
             if songSimi.songCompare not in recommendation:
                 recommendation.setdefault(songSimi.songCompare, [])
             recommendation[songSimi.songCompare].append(songSimi.similarity)
@@ -19,33 +19,14 @@ def getUserRecommendations(user_id, DEBUG=1):
         rec.setdefault(song, sum(values)/len(values))
     return OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True))
 
-def makeUserRecommendation(DEBUG=1):
-    status = 0
-    users = User.objects.all()
-    lenUsers = len(users)
-    for user in users:
-        recommendations = getUserRecommendations(user.id,DEBUG=DEBUG)
-        # <DEBUG>
-        if (DEBUG <= 1):
-            status += 1
-            print ('')
-            print ("''"*30)
-            print ('+ Progresso ', status, ' de ', lenUsers)
-            print ('\nUser: ', user.id) # </DEBUG>
-            print ('\nTotal de Recomendações ', len(recommendations))
-        for (song_id, similarity) in recommendations.items():
+def UserAverage():
+    for user in User.objects.all():
+        userRecommendations = getUserAverageRecommendations(user.id)
+        for (song, similarity) in userRecommendations.items():
             userRec = UserSongRecommendation(
-                        song_id=song_id,
+                        song=Song.objects.get(id=song.id),
                         user_id=user.id,
                         similarity=similarity,
                         iLike=bool(choice([True, False])),
                         score=randint(MIN_SCORE,MAX_SCORE))
             userRec.save()
-            # <DEBUG>
-            if (DEBUG <= 2):
-                song = Song.objects.get(id=song_id)
-                print ('\n++++++++++++++++++++++++')
-                print ('\t-- Musica: ', song.title)
-                print ('\t-- Similaridade', similarity)
-                print ('\t-- Like: ', userRec.iLike)
-                print ('\t-- Score: ', userRec.score) # </DEBUG>
