@@ -6,6 +6,9 @@ from api.userPlaySong.models import UserPlaySong
 from api.userSongRecommendation.models import UserSongRecommendation
 from api.CONSTANTS import MAX_SCORE, MIN_SCORE
 
+################################################################################
+# User Average uses the average rating value of a user to make predictions.
+#
 def getUserAverageRecommendations(user_id):
     recommendation = {}
     for songPlayed in UserPlaySong.objects.filter(user_id=user_id).order_by('play_count').reverse():
@@ -30,3 +33,4 @@ def UserAverage():
                         iLike=bool(choice([True, False])),
                         score=randint(MIN_SCORE,MAX_SCORE))
             userRec.save()
+################################################################################

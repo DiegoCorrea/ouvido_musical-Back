@@ -1,7 +1,7 @@
 from api.songs.models import Song, SongSimilarity
 from .similarityAlgorithms import cosineSimilarity
 
-def titleSimilarity(DEBUG=1):
+def TitleSimilarity():
     allSongs = Song.objects.all()
     similarSongs = { }
     newSongs = 0
@@ -21,12 +21,8 @@ def titleSimilarity(DEBUG=1):
         j = i + 1
         for songCompare in allSongs:
             if (((songBase.id in similarSongs) and (songCompare.id in similarSongs[songBase.id])) or ((songCompare.id in similarSongs) and (songBase.id in similarSongs[songCompare.id]))):
-                # <DEBUG>
-                if (DEBUG <= 1):
-                    print("\t-> \""+ songCompare.title + "\" já calculado!") # </DEBUG>
                 continue
             similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=similarityMatrix[i][j])
             similar.save()
             j += 1
         i += 1
-    print("\n\n+ Novas músicas: " + str(newSongs))

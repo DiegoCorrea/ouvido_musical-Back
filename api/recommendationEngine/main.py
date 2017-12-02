@@ -1,7 +1,7 @@
 from time import gmtime, strftime
 
-from .songSimilarity import titleSimilarity
-from .recommenders import makeUserRecommendation
+from .songSimilarity import TitleSimilarity
+from .recommenders import UserAverage
 from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
 
 def bigBang(DEBUG=1):
@@ -10,13 +10,13 @@ def bigBang(DEBUG=1):
     if (DEBUG <= 5):
         execTime.setdefault('Similarity-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     # </DEBUG>
-    titleSimilarity()
+    TitleSimilarity()
     # <DEBUG>
     if (DEBUG <= 5):
         execTime.setdefault('Similarity-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
         execTime.setdefault('UserRecommendation-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     # </DEBUG>
-    makeUserRecommendation(DEBUG=DEBUG)
+    UserAverage()
     # <DEBUG>
     if (DEBUG <= 5):
         execTime.setdefault('UserRecommendation-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
