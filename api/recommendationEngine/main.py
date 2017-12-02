@@ -1,34 +1,27 @@
 from time import gmtime, strftime
-
+import logging
 from .songSimilarity import TitleSimilarity
 from .recommenders import UserAverage
 from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
-
+logger = logging.getLogger(__name__)
 def bigBang(DEBUG=1):
-    # <DEBUG>
     execTime = { }
-    if (DEBUG <= 5):
-        execTime.setdefault('Similarity-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
-    # </DEBUG>
+    logger.info("Iniciando Big Bang")
+    # Calc Similarity
+    execTime.setdefault('Similarity-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     TitleSimilarity()
-    # <DEBUG>
-    if (DEBUG <= 5):
-        execTime.setdefault('Similarity-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
-        execTime.setdefault('UserRecommendation-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
-    # </DEBUG>
+    execTime.setdefault('Similarity-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
+    # Calc Recommendations
+    execTime.setdefault('UserRecommendation-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
     UserAverage()
-    # <DEBUG>
-    if (DEBUG <= 5):
-        execTime.setdefault('UserRecommendation-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
-        execTime.setdefault('Evaluating-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
-    # </DEBUG>
-    evaluateUsersRank(DEBUG=DEBUG)
-    # <DEBUG>
-    if (DEBUG <= 5):
-        execTime.setdefault('Evaluating-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
-        for item in execTime.items():
-            print(item)
-    # </DEBUG>
+    execTime.setdefault('UserRecommendation-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
+    # Evaluating Rank
+    execTime.setdefault('Evaluating-StartedAt', strftime("%a, %d %b %Y %X", gmtime()))
+    evaluateUsersRank()
+    execTime.setdefault('Evaluating-FinishedAt', strftime("%a, %d %b %Y %X", gmtime()))
+    for item in execTime.items():
+        logger.debug(item)
+    logger.info("Finalizanddo Big Bang")
 
 def evaluateUsersRank(DEBUG=1, range=5):
     mrrResult = calcUsersMRR(range=range,DEBUG=DEBUG)
