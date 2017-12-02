@@ -1,4 +1,4 @@
-from api.users.models import Use
+from api.users.models import User
 import numpy as np
 import logging
 logger = logging.getLogger(__name__)
@@ -28,18 +28,18 @@ def getAP(relevanceArray):
     else:
         return 0
 
-def calcUsersMAP(range=5, DEBUG=0):
+def calcUsersMAP(limit=5):
+    logger.info("[Start User MAP]")
     ap = []
     for user in User.objects.all():
-        userec = user.usersongrecommendation_set.all()[:range]
+        userec = user.usersongrecommendation_set.all()[:limit]
         if (len(userec) == 0): continue
         ap.append(getAP(userLikeArray(userec)))
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\n\tMean Averange Precision: ', np.mean(ap))
-        print ('\t++ Total de usuarios: ', len(User.objects.all()))
-        print ('\t++ Total de usuarios avaliados no MAP: ', len(ap)) # </DEBUG>
-    return np.mean(ap)
+    uMap = np.mean(ap)
+    logger.debug("Mean Average Precision@%d: %d", limit, uMap)
+    logger.debug("Total Users Rated: %d", len(ap))
+    logger.info("[Finish User MAP]")
+    return uMap
 
 #####################################################################
 # MRR
@@ -54,18 +54,18 @@ def getMRR(relevanceArray):
             return 1/(i+1)
     return 0
 
-def calcUsersMRR(range=5, DEBUG=0):
+def calcUsersMRR(limit=5):
+    logger.info("[Start User MRR]")
     mrrList = []
     for user in User.objects.all():
-        userec = user.usersongrecommendation_set.all()[:range]
+        userec = user.usersongrecommendation_set.all()[:limit]
         if (len(userec) == 0): continue
         mrrList.append(getAP(userLikeArray(userec)))
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\n\tMRR Reciprocal Rank: ', np.mean(mrrList))
-        print ('\t++ Total de usuarios: ', len(User.objects.all()))
-        print ('\t++ Total de usuarios avaliados no MRR: ', len(mrrList)) # </DEBUG>
-    return np.mean(mrrList)
+    uMrr = np.mean(mrrList)
+    logger.debug("Mean Reciprocal Rank@%d: %d", limit, uMrr)
+    logger.debug("Total Users Rated: %d", len(mrrList))
+    logger.info("[Finish User MRR]")
+    return uMrr
 
 #####################################################################
 # NDCG
@@ -74,33 +74,6 @@ def calcUsersMRR(range=5, DEBUG=0):
 """ Reference from https://gist.github.com/bwhite/3726239
 """
 def dcg_at_k(r, k, method=0):
-    """Score is discounted cumulative gain (dcg)
-    Relevance is positive real values.  Can use binary
-    as the previous methods.
-    Example from
-    http://www.stanford.edu/class/cs276/handouts/EvaluationNew-handout-6-per.pdf
-    >>> r = [3, 2, 3, 0, 0, 1, 2, 2, 3, 0]
-    >>> dcg_at_k(r, 1)
-    3.0
-    >>> dcg_at_k(r, 1, method=1)
-    3.0
-    >>> dcg_at_k(r, 2)
-    5.0
-    >>> dcg_at_k(r, 2, method=1)
-    4.2618595071429155
-    >>> dcg_at_k(r, 10)
-    9.6051177391888114
-    >>> dcg_at_k(r, 11)
-    9.6051177391888114
-    Args:
-        r: Relevance scores (list or numpy) in rank order
-            (first element is the first item)
-        k: Number of results to consider
-        method: If 0 then weights are [1.0, 1.0, 0.6309, 0.5, 0.4307, ...]
-                If 1 then weights are [1.0, 0.6309, 0.5, 0.4307, ...]
-    Returns:
-        Discounted cumulative gain
-    """
     r = np.asfarray(r)[:k]
     if r.size:
         if method == 0:
@@ -113,47 +86,19 @@ def dcg_at_k(r, k, method=0):
 
 
 def ndcg_at_k(r, k, method=0):
-    """Score is normalized discounted cumulative gain (ndcg)
-    Relevance is positive real values.  Can use binary
-    as the previous methods.
-    Example from
-    http://www.stanford.edu/class/cs276/handouts/EvaluationNew-handout-6-per.pdf
-    >>> r = [3, 2, 3, 0, 0, 1, 2, 2, 3, 0]
-    >>> ndcg_at_k(r, 1)
-    1.0
-    >>> r = [2, 1, 2, 0]
-    >>> ndcg_at_k(r, 4)
-    0.9203032077642922
-    >>> ndcg_at_k(r, 4, method=1)
-    0.96519546960144276
-    >>> ndcg_at_k([0], 1)
-    0.0
-    >>> ndcg_at_k([1], 2)
-    1.0
-    Args:
-        r: Relevance scores (list or numpy) in rank order
-            (first element is the first item)
-        k: Number of results to consider
-        method: If 0 then weights are [1.0, 1.0, 0.6309, 0.5, 0.4307, ...]
-                If 1 then weights are [1.0, 0.6309, 0.5, 0.4307, ...]
-    Returns:
-        Normalized discounted cumulative gain
-    """
     dcg_max = dcg_at_k(sorted(r, reverse=True), k, method)
     if not dcg_max:
         return 0.
     return dcg_at_k(r, k, method) / dcg_max
 
-def calcUsersNDCG(DEBUG=0, range=5):
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\nNDCG com range de ', range) # </DEBUG>
-    result = [ndcg_at_k(userScoreList(user.usersongrecommendation_set.all()),k=range, method=0) for user in User.objects.all()]
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\n\tNDCG: ', np.mean(result))
-        print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>
-    return np.mean(result)
+def calcUsersNDCG(limit=5):
+    logger.info("[Start Users NDCG]")
+    result = [ndcg_at_k(userScoreList(user.usersongrecommendation_set.all()),k=limit, method=0) for user in User.objects.all()]
+    uNDCG = np.mean(result)
+    logger.debug("Normalized Cumulative Gain@%d: %d", limit, uNDCG)
+    logger.debug("Total Users Rated: %d", len(result))
+    logger.info("[Finish Users NDCG]")
+    return uNDCG
 
 def userScoreList(recommendations):
     if len(recommendations) == 0:
