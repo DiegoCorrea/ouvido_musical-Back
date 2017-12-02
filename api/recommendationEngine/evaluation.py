@@ -11,12 +11,7 @@ def userLikeArray(recommendations):
 # Mean Averange Precision
 #
 #####################################################################
-# <Params>
-# songRec é a lista de musicas recomendadas para um usuario
-# DEBUG 1 os prints internos da função serão imprimidos na tela
-# DEBUG 0 os prints internos da função não serão imprimidos
-# </Params>
-def getUserAP(relevanceArray, DEBUG=0):
+def getAP(relevanceArray):
     n_relevances = len(relevanceArray)
     if n_relevances == 0:
         return 0
@@ -28,31 +23,16 @@ def getUserAP(relevanceArray, DEBUG=0):
             hitList.append(relevant/(i+1))
     ap = sum(hitList)
     if (ap > 0):
-        # <DEBUG>
-        if (DEBUG != 0):
-            print ('\t++ User MAP: ', sum(hitList)/relevant) # </DEBUG>
         return sum(hitList)/relevant
     else:
-        # <DEBUG>
-        if (DEBUG != 0):
-            print ('\t++ User MAP:  0') # </DEBUG>
         return 0
-# <Params>
-# range é o numero referente a quantas posições quer se calcular o MAP
-# range padrão é 5
-# DEBUG 1 os prints internos da função serão imprimidos na tela
-# DEBUG 0 os prints internos da função não serão imprimidos
-# </Params>
+
 def calcUsersMAP(range=5, DEBUG=0):
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\nMAP com range de ', range) # </DEBUG>
-    #ap = [getUserAP(userLikeArray(user.usersongrecommendation_set.all()[:range]), DEBUG=DEBUG) for user in User.objects.all()]
     ap = []
     for user in User.objects.all():
         userec = user.usersongrecommendation_set.all()[:range]
         if (len(userec) == 0): continue
-        ap.append(getUserAP(userLikeArray(userec), DEBUG=DEBUG))
+        ap.append(getAP(userLikeArray(userec)))
     # <DEBUG>
     if (DEBUG != 0):
         print ('\n\tMean Averange Precision: ', np.mean(ap))
@@ -64,39 +44,21 @@ def calcUsersMAP(range=5, DEBUG=0):
 # MRR
 #
 #####################################################################
-# <Params>calcUsersMRR
-# songRec é a lista de musicas recomendadas para um usuario
-# DEBUG 1 os prints internos da função serão imprimidos na tela
-# DEBUG 0 os prints internos da função não serão imprimidos
-# </Params>
-def getUserMRR(relevanceArray, DEBUG=0):
+def getMRR(relevanceArray):
     n_relevances = len(relevanceArray)
     if n_relevances == 0:
         return 0
     for i in range(n_relevances):
         if relevanceArray[i]:
-            # <DEBUG>
-            if (DEBUG != 0):
-                print ('\t++ MRR do usuario é: ', 1/(i+1)) # </DEBUG>
             return 1/(i+1)
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\t++ MRR do usuario é:  0') # </DEBUG>
     return 0
-# <Params>
-# range é o numero referente a quantas posições quer se calcular o MRR
-# range padrão é 5
-# </Params>
+
 def calcUsersMRR(range=5, DEBUG=0):
-    # <DEBUG>
-    if (DEBUG != 0):
-        print ('\nMRR com range de ', range) # </DEBUG>
-    #mrrList = [getUserMRR(userLikeArray(user.usersongrecommendation_set.all()[:range]), DEBUG=DEBUG) for user in User.objects.all()]
     mrrList = []
     for user in User.objects.all():
         userec = user.usersongrecommendation_set.all()[:range]
         if (len(userec) == 0): continue
-        mrrList.append(getUserAP(userLikeArray(userec), DEBUG=DEBUG))
+        mrrList.append(getAP(userLikeArray(userec)))
     # <DEBUG>
     if (DEBUG != 0):
         print ('\n\tMRR Reciprocal Rank: ', np.mean(mrrList))
@@ -105,7 +67,7 @@ def calcUsersMRR(range=5, DEBUG=0):
     return np.mean(mrrList)
 
 #####################################################################
-#
+# NDCG
 #
 #####################################################################
 """ Reference from https://gist.github.com/bwhite/3726239
@@ -190,7 +152,7 @@ def calcUsersNDCG(DEBUG=0, range=5):
     if (DEBUG != 0):
         print ('\n\tNDCG: ', np.mean(result))
         print ('\t++ Total de usuarios: ', len(User.objects.all())) # </DEBUG>
-    return result
+    return np.mean(result)
 
 def userScoreList(recommendations):
     if len(recommendations) == 0:
