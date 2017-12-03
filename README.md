@@ -17,6 +17,9 @@ Sistema de Recomendação em Musica
 11. `sudo pip3 install scipy`  
 11. `sudo pip3 install numpy`  
 11. `sudo pip3 install nltk`  
+11. `sudo pip3 install pandas`  
+11. `sudo pip3 install matplotlib`  
+11. `sudo pip3 install tornado`  
 # nltk.download('wordnet') # first-time use only
 
 ### Configurando o Banco  
