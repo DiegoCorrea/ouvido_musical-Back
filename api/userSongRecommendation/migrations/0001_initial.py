@@ -17,16 +17,20 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='UserPlaySong',
+            name='UserSongRecommendation',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('play_count', models.IntegerField(default=0)),
+                ('similarity', models.IntegerField(default=0)),
+                ('iLike', models.BooleanField(default=False)),
+                ('score', models.IntegerField(blank=True, null=True)),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
                 ('song', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='songs.Song')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.User')),
             ],
         ),
         migrations.AlterUniqueTogether(
-            name='userplaysong',
+            name='usersongrecommendation',
             unique_together=set([('user', 'song')]),
         ),
     ]
