@@ -33,7 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'ouvidoMusical',
     'api.evaluation',
-    'api.benchmark',
+    'api.benchmark.similarity',
+    'api.benchmark.recommendation',
+    'api.benchmark.evaluation',
     'api.users',
     'api.songs',
     'api.userPlaySong',
