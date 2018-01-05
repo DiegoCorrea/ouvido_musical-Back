@@ -1,6 +1,9 @@
 from api.users.models import User
+from api.evaluation.models import MAP, MRR, NDCG
+from api.benchmark.evaluators.models import MAP as benchMAP, MRR as benchMRR, NDCG as benchNDCG
 import numpy as np
 import logging
+
 logger = logging.getLogger(__name__)
 
 def userLikeArray(recommendations):
@@ -27,7 +30,6 @@ def getAP(relevanceArray):
         return sum(hitList)/relevant
     else:
         return 0
-
 def calcUsersMAP(limit=5):
     logger.info("[Start User MAP]")
     ap = []
@@ -40,7 +42,18 @@ def calcUsersMAP(limit=5):
     logger.debug("Total Users Rated: %d", len(ap))
     logger.info("[Finish User MAP]")
     return uMap
-
+def runMAP(limit=5):
+    execTime = [ ]
+    logger.info("[Start MAP Evaluation]")
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    value = calcUsersMAP(limit=limit)
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    bench = benchMAP(started_at=execTime[0],finished_at=execTime[1])
+    bench.save()
+    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    mapResult = MAP(value=value, limit=limit)
+    mapResult.save()
+    logger.info("[Finish MAP Evaluation]")
 #####################################################################
 # MRR
 #
@@ -53,7 +66,6 @@ def getMRR(relevanceArray):
         if relevanceArray[i]:
             return 1/(i+1)
     return 0
-
 def calcUsersMRR(limit=5):
     logger.info("[Start User MRR]")
     mrrList = []
@@ -66,7 +78,18 @@ def calcUsersMRR(limit=5):
     logger.debug("Total Users Rated: %d", len(mrrList))
     logger.info("[Finish User MRR]")
     return uMrr
-
+def runMRR(limit=5):
+    execTime = [ ]
+    logger.info("[Start MAP Evaluation]")
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    value = calcUsersMRR(limit=limit)
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    bench = benchMAP(started_at=execTime[0],finished_at=execTime[1])
+    bench.save()
+    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    mrrResult = MRR(value=value, limit=limit)
+    mrrResult.save()
+    logger.info("[Finish MAP Evaluation]")
 #####################################################################
 # NDCG
 #
@@ -104,3 +127,16 @@ def userScoreList(recommendations):
     if len(recommendations) == 0:
         return []
     return [rec.score for rec in recommendations]
+
+def runNDCG(limit=5):
+    execTime = [ ]
+    logger.info("[Start MAP Evaluation]")
+    execTime.append(strftime("%a, %d %b %Y %X",gmtime()))
+    value = calcUsersNDCG(limit=limit)
+    execTime.append(strftime("%a, %d %b %Y %X",gmtime()))
+    bench = benchNDCG(started_at=execTime[0],finished_at=execTime[1])
+    bench.save()
+    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    ndcgResult = NDCG(value=value,limit=limit)
+    ndcgResult.save()
+    logger.info("[Finish MAP Evaluation]")

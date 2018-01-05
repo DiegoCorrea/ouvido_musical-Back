@@ -4,17 +4,17 @@ from django.db import models
 
 # Create your models here.
 class MRR(models.Model):
-    value = models.FloatField()
-    limit = models.IntegerField()
+    started_at = models.DateTimeField()
+    finished_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 class MAP(models.Model):
-    value = models.FloatField()
-    limit = models.IntegerField()
+    started_at = models.DateTimeField()
+    finished_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 class NDCG(models.Model):
-    value = models.FloatField()
-    limit = models.IntegerField()
+    started_at = models.DateTimeField()
+    finished_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

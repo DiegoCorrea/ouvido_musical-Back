@@ -8,12 +8,16 @@ from api.songs.models import Song
 
 # Create your models here.
 class UserSongRecommendation(models.Model):
+    # IDS
     user = models.ForeignKey(User, unique=False)
     song = models.ForeignKey(Song, unique=False)
+    # Datas
     similarity = models.IntegerField(default=0, unique=False)
     iLike = models.BooleanField(default=False)
     score = models.IntegerField(blank=True, null=True, unique=False)
-
+    # Timers
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     class Meta:
         unique_together = (('user', 'song'),)
 

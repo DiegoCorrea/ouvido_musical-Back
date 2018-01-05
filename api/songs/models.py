@@ -21,10 +21,14 @@ class Song(models.Model):
         )
 
 class SongSimilarity(models.Model):
+    # IDS
     songBase = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_right')
     songCompare = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_left')
+    # Datas
     similarity = models.FloatField(default=0, unique=False)
-
+    # Timers
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     class Meta:
         unique_together = (('songBase', 'songCompare'),)
 

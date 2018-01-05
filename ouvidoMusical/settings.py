@@ -32,15 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'ouvidoMusical',
-    'api.evaluation',
     'api.benchmark.similarity',
     'api.benchmark.recommendation',
-    'api.benchmark.evaluation',
+    'api.benchmark.evaluators',
     'api.users',
     'api.songs',
     'api.userPlaySong',
     'api.userSongRecommendation',
-    'api.endPointRequest',
+    'api.evaluation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
