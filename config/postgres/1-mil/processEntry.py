@@ -30,7 +30,7 @@ def getDistinctSong(range=0):
     print ('*'*30)
     distinctList = []
     status = 1
-    toSaveFile = open('config/postgres/cemMil/distinctSong'+ str(range) +'.seed', 'w+')
+    toSaveFile = open('config/postgres/mil/distinctSong'+ str(range) +'.seed', 'w+')
     toSaveFile.write('id,title,album,artist,year\n')
     for line in open('config/postgres/cemMil/bigSongEntry.csv', 'r'):
         lineSplit = line.split(',')

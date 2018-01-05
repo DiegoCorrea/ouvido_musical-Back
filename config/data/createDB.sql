@@ -1,0 +1,10 @@
+CREATE DATABASE ouvido_musical_thousand;
+CREATE DATABASE ouvido_musical_ten_thousand;
+CREATE DATABASE ouvido_musical_hundred_thousand;
+CREATE USER ouvidoMusicalAPI WITH PASSWORD 'lovelovelove';
+ALTER ROLE ouvidoMusicalAPI SET client_encoding TO 'utf8';
+ALTER ROLE ouvidoMusicalAPI SET default_transaction_isolation TO 'read committed';
+ALTER ROLE ouvidoMusicalAPI SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE ouvido_musical_thousand TO ouvidoMusicalAPI;
+GRANT ALL PRIVILEGES ON DATABASE ouvido_musical_ten_thousand TO ouvidoMusicalAPI;
+GRANT ALL PRIVILEGES ON DATABASE ouvido_musical_hundred_thousand TO ouvidoMusicalAPI;

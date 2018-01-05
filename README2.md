@@ -8,7 +8,7 @@
 ### Banco de dados   
 Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:  
 1. Acessar o terminal do postgres, a partir da pasta do projeto: `sudo -u postgres psql`  
-2. Executar o script: `\i config/postgres/createDB.sql;`  
+2. Executar o script: `\i config/data/createDB.sql;`  
 3. Sair do terminal do postgres: `\q`  
 
 ### Criando tabelas no banco  
@@ -16,6 +16,6 @@ Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:
 2. `python3.6 manage.py migrate`
 
 ### Load Data
-1. `sudo -u postgres psql ouvidomusicaldez`  
-2. `\i config/postgres/dez/loadData.sql;`  
+1. `sudo -u postgres psql ouvido_musical_thousand`  
+2. `\i config/data/oneMillionSongs/thousand/loadData.sql;`  
 3. `\q`  
