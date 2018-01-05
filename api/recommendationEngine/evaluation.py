@@ -1,6 +1,7 @@
 from api.users.models import User
 from api.evaluation.models import MAP, MRR, NDCG
 from api.benchmark.evaluators.models import MAP as benchMAP, MRR as benchMRR, NDCG as benchNDCG
+from time import gmtime, strftime
 import numpy as np
 import logging
 
@@ -43,8 +44,8 @@ def calcUsersMAP(limit=5):
     logger.info("[Finish User MAP]")
     return uMap
 def runMAP(limit=5):
-    execTime = [ ]
     logger.info("[Start MAP Evaluation]")
+    execTime = [ ]
     execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
     value = calcUsersMAP(limit=limit)
     execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
@@ -80,7 +81,7 @@ def calcUsersMRR(limit=5):
     return uMrr
 def runMRR(limit=5):
     execTime = [ ]
-    logger.info("[Start MAP Evaluation]")
+    logger.info("[Start MRR Evaluation]")
     execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
     value = calcUsersMRR(limit=limit)
     execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
@@ -89,7 +90,7 @@ def runMRR(limit=5):
     logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
     mrrResult = MRR(value=value, limit=limit)
     mrrResult.save()
-    logger.info("[Finish MAP Evaluation]")
+    logger.info("[Finish MRR Evaluation]")
 #####################################################################
 # NDCG
 #
@@ -130,7 +131,7 @@ def userScoreList(recommendations):
 
 def runNDCG(limit=5):
     execTime = [ ]
-    logger.info("[Start MAP Evaluation]")
+    logger.info("[Start NDCG Evaluation]")
     execTime.append(strftime("%a, %d %b %Y %X",gmtime()))
     value = calcUsersNDCG(limit=limit)
     execTime.append(strftime("%a, %d %b %Y %X",gmtime()))
@@ -139,4 +140,9 @@ def runNDCG(limit=5):
     logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
     ndcgResult = NDCG(value=value,limit=limit)
     ndcgResult.save()
-    logger.info("[Finish MAP Evaluation]")
+    logger.info("[Finish NDCG Evaluation]")
+################################################################################
+def runEvaluateUsersRank(limit=5):
+    runMAP(limit=limit)
+    runMRR(limit=limit)
+    runNDCG(limit=limit)

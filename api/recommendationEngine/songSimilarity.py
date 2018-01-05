@@ -1,5 +1,7 @@
 from api.songs.models import Song, SongSimilarity
 from .similarityAlgorithms import cosineSimilarity
+from api.benchmark.assimilators.models import Cosine as benchCosine
+from time import gmtime, strftime
 import logging
 logger = logging.getLogger(__name__)
 def TitleSimilarity():
@@ -31,5 +33,15 @@ def TitleSimilarity():
             j += 1
         i += 1
     logger.debug("Total DB songs: %d", i)
-    logger.debug("Total new songs: %d", newSongs-1)
+    logger.debug("Total new songs: %d", newSongs)
     logger.info("[Finish Title Similarity]")
+def runTitleSimilarity():
+    logger.info("[Start Title Similarity with Cosine] - Benchmark")
+    execTime = [ ]
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    TitleSimilarity()
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    bench = benchCosine(started_at=execTime[0],finished_at=execTime[1])
+    bench.save()
+    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    logger.info("[Finish Title Similarity with Cosine] - Benchmark")

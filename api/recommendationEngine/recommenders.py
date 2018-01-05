@@ -4,7 +4,9 @@ from api.users.models import User
 from api.songs.models import Song
 from api.userPlaySong.models import UserPlaySong
 from api.userSongRecommendation.models import UserSongRecommendation
+from api.benchmark.recommendators.models import UserAverage as benchUserAverage
 from api.CONSTANTS import MAX_SCORE, MIN_SCORE
+from time import gmtime, strftime
 import logging
 logger = logging.getLogger(__name__)
 
@@ -37,4 +39,15 @@ def UserAverage():
                         score=randint(MIN_SCORE,MAX_SCORE))
             userRec.save()
     logger.info("[Finish User Average]")
+
+def runUserAverage():
+    logger.info("[Start User Average - Benchmark]")
+    execTime = [ ]
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    UserAverage()
+    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    bench = benchUserAverage(started_at=execTime[0],finished_at=execTime[1])
+    bench.save()
+    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    logger.info("[Start User Average] - Benchmark")
 ################################################################################
