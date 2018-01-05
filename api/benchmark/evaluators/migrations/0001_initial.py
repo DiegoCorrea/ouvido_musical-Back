@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
             name='MAP',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('value', models.FloatField()),
-                ('limit', models.IntegerField()),
+                ('started_at', models.DateTimeField()),
+                ('finished_at', models.DateTimeField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],
@@ -27,8 +27,8 @@ class Migration(migrations.Migration):
             name='MRR',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('value', models.FloatField()),
-                ('limit', models.IntegerField()),
+                ('started_at', models.DateTimeField()),
+                ('finished_at', models.DateTimeField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],
@@ -37,8 +37,8 @@ class Migration(migrations.Migration):
             name='NDCG',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('value', models.FloatField()),
-                ('limit', models.IntegerField()),
+                ('started_at', models.DateTimeField()),
+                ('finished_at', models.DateTimeField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],
