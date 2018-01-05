@@ -1,7 +1,7 @@
 from api.users.models import User
 from api.evaluation.models import MAP, MRR, NDCG
 from api.benchmark.evaluators.models import MAP as benchMAP, MRR as benchMRR, NDCG as benchNDCG
-from time import gmtime, strftime
+from django.utils import timezone
 import numpy as np
 import logging
 
@@ -39,19 +39,17 @@ def calcUsersMAP(limit=5):
         if (len(userec) == 0): continue
         ap.append(getAP(userLikeArray(userec)))
     uMap = np.mean(ap)
-    logger.debug("Mean Average Precision@%d: %d", limit, uMap)
+    logger.debug("Mean Average Precision@%d: %f", limit, uMap)
     logger.debug("Total Users Rated: %d", len(ap))
     logger.info("[Finish User MAP]")
     return uMap
 def runMAP(limit=5):
     logger.info("[Start MAP Evaluation]")
-    execTime = [ ]
-    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    startAt = timezone.now()
     value = calcUsersMAP(limit=limit)
-    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
-    bench = benchMAP(started_at=execTime[0],finished_at=execTime[1])
+    bench = benchMAP(started_at=startAt,finished_at=timezone.now())
     bench.save()
-    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
     mapResult = MAP(value=value, limit=limit)
     mapResult.save()
     logger.info("[Finish MAP Evaluation]")
@@ -75,19 +73,17 @@ def calcUsersMRR(limit=5):
         if (len(userec) == 0): continue
         mrrList.append(getAP(userLikeArray(userec)))
     uMrr = np.mean(mrrList)
-    logger.debug("Mean Reciprocal Rank@%d: %d", limit, uMrr)
+    logger.debug("Mean Reciprocal Rank@%d: %f", limit, uMrr)
     logger.debug("Total Users Rated: %d", len(mrrList))
     logger.info("[Finish User MRR]")
     return uMrr
 def runMRR(limit=5):
-    execTime = [ ]
     logger.info("[Start MRR Evaluation]")
-    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    startAt = timezone.now()
     value = calcUsersMRR(limit=limit)
-    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
-    bench = benchMAP(started_at=execTime[0],finished_at=execTime[1])
+    bench = benchMAP(started_at=startAt,finished_at=timezone.now())
     bench.save()
-    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
     mrrResult = MRR(value=value, limit=limit)
     mrrResult.save()
     logger.info("[Finish MRR Evaluation]")
@@ -119,7 +115,7 @@ def calcUsersNDCG(limit=5):
     logger.info("[Start Users NDCG]")
     result = [ndcg_at_k(userScoreList(user.usersongrecommendation_set.all()),k=limit, method=0) for user in User.objects.all()]
     uNDCG = np.mean(result)
-    logger.debug("Normalized Cumulative Gain@%d: %d", limit, uNDCG)
+    logger.debug("Normalized Cumulative Gain@%d: %f", limit, uNDCG)
     logger.debug("Total Users Rated: %d", len(result))
     logger.info("[Finish Users NDCG]")
     return uNDCG
@@ -130,14 +126,12 @@ def userScoreList(recommendations):
     return [rec.score for rec in recommendations]
 
 def runNDCG(limit=5):
-    execTime = [ ]
     logger.info("[Start NDCG Evaluation]")
-    execTime.append(strftime("%a, %d %b %Y %X",gmtime()))
+    startAt = timezone.now()
     value = calcUsersNDCG(limit=limit)
-    execTime.append(strftime("%a, %d %b %Y %X",gmtime()))
-    bench = benchNDCG(started_at=execTime[0],finished_at=execTime[1])
+    bench = benchNDCG(started_at=startAt,finished_at=timezone.now())
     bench.save()
-    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
     ndcgResult = NDCG(value=value,limit=limit)
     ndcgResult.save()
     logger.info("[Finish NDCG Evaluation]")

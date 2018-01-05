@@ -1,7 +1,7 @@
 from api.songs.models import Song, SongSimilarity
 from .similarityAlgorithms import cosineSimilarity
 from api.benchmark.assimilators.models import Cosine as benchCosine
-from time import gmtime, strftime
+from django.utils import timezone
 import logging
 logger = logging.getLogger(__name__)
 def TitleSimilarity():
@@ -37,11 +37,9 @@ def TitleSimilarity():
     logger.info("[Finish Title Similarity]")
 def runTitleSimilarity():
     logger.info("[Start Title Similarity with Cosine] - Benchmark")
-    execTime = [ ]
-    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
+    startAt = timezone.now()
     TitleSimilarity()
-    execTime.append(strftime("%a, %d %b %Y %X", gmtime()))
-    bench = benchCosine(started_at=execTime[0],finished_at=execTime[1])
+    bench = benchCosine(started_at=startAt,finished_at=timezone.now())
     bench.save()
-    logger.info("Benchmark: Start at - ",execTime[0]," || Finished at -",execTime[1])
+    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
     logger.info("[Finish Title Similarity with Cosine] - Benchmark")
