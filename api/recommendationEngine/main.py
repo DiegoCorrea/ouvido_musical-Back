@@ -2,6 +2,7 @@ from time import gmtime, strftime
 from .songSimilarity import TitleSimilarity
 from .recommenders import UserAverage
 from .evaluation import calcUsersMAP, calcUsersMRR, calcUsersNDCG
+from api.evaluation.models import MAP, MRR, NDCG
 import logging
 logger = logging.getLogger(__name__)
 
@@ -29,6 +30,9 @@ def bigBang():
     logger.info("[Finish Big Bang]")
 
 def evaluateUsersRank(range=5):
-    mrrResult = calcUsersMRR(limit=range)
-    mapResult = calcUsersMAP(limit=range)
-    ndcgResult = calcUsersNDCG(limit=range)
+    mrrResult = MRR(value=calcUsersMRR(limit=range))
+    mrrResult.save()
+    mapResult = MAP(value=calcUsersMAP(limit=range))
+    mapResult.save()
+    ndcgResult = NDCG(value=calcUsersNDCG(limit=range))
+    ndcgResult.save()
