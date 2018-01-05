@@ -36,8 +36,6 @@ def getPlayCount(name, limit):
     status = 0
     if not os.path.exists(directory):
         os.makedirs(directory)
-    usersToSaveFile = open('config/data/oneMillionSongs/' + str(name) + '/users.csv', 'w+')
-    usersToSaveFile.write('id\n')
     toSaveFile = open('config/data/oneMillionSongs/' + str(name) + '/playCount.csv', 'w+')
     toSaveFile.write('user_id,song_id,play_count\n')
     for line in open('config/data/oneMillionSongs/originalCleanEntry/playCount.csv', 'r+'):
@@ -47,11 +45,14 @@ def getPlayCount(name, limit):
             print ("-> [", status, "]")
         lineSplit = line.split(',')
         if (lineSplit[1] not in songDict): continue
-        if (lineSplit[0] not in userPlayList):
-            userPlayList.append(lineSplit[0])
-            usersToSaveFile.write(lineSplit[0] + "\n")
+        userPlayList.append(lineSplit[0])
         toSaveFile.write(line)
-    print ('- Total de usuarios: ', len(userPlayList))
+    userDict = set(userPlayList)
+    print ('- Total de usuarios: ', len(userDict))
+    usersToSaveFile = open('config/data/oneMillionSongs/' + str(name) + '/users.csv', 'w+')
+    usersToSaveFile.write('id\n')
+    for user in userDict:
+        usersToSaveFile.write(user + "\n")
     toSaveFile.close()
     usersToSaveFile.close()
     print ('- Finalizando o script!')
@@ -66,6 +67,7 @@ def start(name, limit):
 
 
 ##########
-start(name="thousand",limit=1000)
-start(name="tenThousand",limit=10000)
-start(name="hundredThousand",limit=100000)
+def main():
+    start(name="thousand",limit=1000)
+    start(name="tenThousand",limit=10000)
+    start(name="hundredThousand",limit=100000)
