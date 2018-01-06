@@ -3,6 +3,6 @@ from .UserAverage.algorithm.views import runUserAverage
 import logging
 logger = logging.getLogger(__name__)
 def runRecommenders():
-    logger.INFO("[Start Recommenders]")
+    logger.info("[Start Recommenders]")
     runUserAverage()
-    logger.INFO("[Finish Recommenders]")
+    logger.info("[Finish Recommenders]")
