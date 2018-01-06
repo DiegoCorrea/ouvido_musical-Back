@@ -1,8 +1,9 @@
 from .algorithm import CosineSimilarity
-from apps.data.songs.models import Song, SongSimilarity
 from .models import CosineSimilarity_SongTitle
+from apps.data.songs.models import Song, SongSimilarity
 from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 from django.utils import timezone
+
 import logging
 logger = logging.getLogger(__name__)
 def TitleSimilarity():

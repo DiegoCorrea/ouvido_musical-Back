@@ -1,1 +1,1 @@
-default_app_config = 'apps.similarities.Cosine.algorithm.apps.CosineSimilarityConfig'
+default_app_config = 'apps.similarities.Cosine.algorithm.apps.CosineConfig'

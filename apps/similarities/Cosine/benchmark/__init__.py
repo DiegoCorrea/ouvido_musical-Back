@@ -1,1 +1,1 @@
-default_app_config = 'apps.similarities.Cosine.benchmark.apps.CossineBenchmarkConfig'
+default_app_config = 'apps.similarities.Cosine.benchmark.apps.CosineBenchmarkConfig'
