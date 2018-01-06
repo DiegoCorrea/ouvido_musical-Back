@@ -26,7 +26,7 @@ def ndcg_at_k(r, k, method=0):
     return dcg_at_k(r, k, method) / dcg_max
 def calcUsersNDCG(limit=5):
     logger.info("[Start Users NDCG]")
-    result = [ndcg_at_k(userScoreList(user.usersongrecommendation_set.all()),k=limit, method=0) for user in User.objects.all()]
+    result = [ndcg_at_k(userScoreList(user.useraverage_recommendations_set.all()),k=limit, method=0) for user in User.objects.all()]
     uNDCG = np.mean(result)
     logger.debug("Normalized Cumulative Gain@%d: %f", limit, uNDCG)
     logger.debug("Total Users Rated: %d", len(result))
