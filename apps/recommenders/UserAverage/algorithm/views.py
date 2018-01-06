@@ -1,13 +1,13 @@
 from collections import OrderedDict
 from random import choice, randint
-from api.users.models import User
-from api.songs.models import Song
-from api.userPlaySong.models import UserPlaySong
-from api.userSongRecommendation.models import UserSongRecommendation
-
-from apps.recommenders.UserAverage.benchmark.models import benchUserAverage
-from apps.CONSTANTS import MAX_SCORE, MIN_SCORE
 from django.utils import timezone
+
+from apps.CONSTANTS import MAX_SCORE, MIN_SCORE
+from apps.data.users.models import User
+from apps.data.songs.models import Song
+from apps.data.userPlaySong.models import UserPlaySong
+from apps.recommenders.UserAverage.benchmark.models import BenchUserAverage
+from .models import UserAverage_Recommendations
 import logging
 logger = logging.getLogger(__name__)
 
@@ -32,7 +32,7 @@ def UserAverage():
     for user in User.objects.all():
         userRecommendations = getUserAverageRecommendations(user.id)
         for (song, similarity) in userRecommendations.items():
-            userRec = UserSongRecommendation(
+            userRec = UserAverage_Recommendations(
                         song=Song.objects.get(id=song.id),
                         user_id=user.id,
                         similarity=similarity,
@@ -45,7 +45,7 @@ def runUserAverage():
     logger.info("[Start User Average - Benchmark]")
     startAt = timezone.now()
     UserAverage()
-    bench = benchUserAverage(started_at=startAt,finished_at=timezone.now())
+    bench = BenchUserAverage(started_at=startAt,finished_at=timezone.now())
     bench.save()
     logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
     logger.info("[Start User Average] - Benchmark")

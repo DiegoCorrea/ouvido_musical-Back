@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
 from apps.data.users.models import User
 from apps.data.songs.models import Song
 

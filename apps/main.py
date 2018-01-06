@@ -1,5 +1,5 @@
 from apps.similarities.Cosine.algorithm.views import runTitleSimilarity
-from .recommenders import runUserAverage
+from apps.recommenders.UserAverage.algorithm.views import runUserAverage
 from .evaluation import runEvaluateUsersRank
 import logging
 logger = logging.getLogger(__name__)

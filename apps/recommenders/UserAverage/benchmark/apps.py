@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class BenchUserAverageConfig(AppConfig):
-    name = 'benchUserAverage'
+    name = 'apps.recommenders.UserAverage.benchmark'
+    label = 'benchUserAverage'

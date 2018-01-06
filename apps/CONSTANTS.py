@@ -1,0 +1,2 @@
+MAX_SCORE = 3
+MIN_SCORE = 0

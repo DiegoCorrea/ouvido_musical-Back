@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
-
-class UserAverage_RecommendationsConfig(AppConfig):
-    name = 'userAverage_Recommendations'
+class UserAverageConfig(AppConfig):
+    name = 'apps.recommenders.UserAverage.algorithm'
+    label = 'userAverange'
