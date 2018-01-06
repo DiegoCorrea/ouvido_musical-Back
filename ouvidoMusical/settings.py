@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'apps.data.songs',
     'apps.data.users',
     'apps.data.userPlaySong',
+    'apps.data.userSongRecommendation',
     'apps.similarities.Cosine.algorithm',
     'apps.similarities.Cosine.benchmark',
     'apps.recommenders.UserAverage.algorithm',
