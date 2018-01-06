@@ -1,4 +1,5 @@
 from django.apps import AppConfig
 
-class BenchMAPConfig(AppConfig):
-    name = 'benchMAP'
+class MAPBenchmarkConfig(AppConfig):
+    name = 'apps.evaluators.MAP.benchmark'
+    label = 'MAPBenchmarkConfig'
