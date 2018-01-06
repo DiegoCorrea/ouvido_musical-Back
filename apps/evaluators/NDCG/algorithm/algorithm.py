@@ -1,16 +1,8 @@
 from apps.data.users.models import User
-from apps.evaluators.NDCG.rating.models import RatingNDCG
-from apps.evaluators.NDCG.benchmark.models import benchNDCG
-from django.utils import timezone
 import numpy as np
+
 import logging
-
 logger = logging.getLogger(__name__)
-
-def userLikeArray(recommendations):
-    if len(recommendations) == 0:
-        return []
-    return [rec.iLike for rec in recommendations]
 #####################################################################
 # NDCG
 #
@@ -44,13 +36,3 @@ def userScoreList(recommendations):
     if len(recommendations) == 0:
         return []
     return [rec.score for rec in recommendations]
-def runNDCG(limit=5):
-    logger.info("[Start NDCG Evaluation]")
-    startAt = timezone.now()
-    value = calcUsersNDCG(limit=limit)
-    bench = benchNDCG(started_at=startAt,finished_at=timezone.now())
-    bench.save()
-    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
-    ndcgResult = NDCG(value=value,limit=limit)
-    ndcgResult.save()
-    logger.info("[Finish NDCG Evaluation]")
