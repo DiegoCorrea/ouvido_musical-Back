@@ -1,4 +1,5 @@
 from django.apps import AppConfig
 
-class BenchNDCGConfig(AppConfig):
-    name = 'benchNDCG'
+class NDCGBenchmarkConfig(AppConfig):
+    name = 'apps.evaluators.NDCG.benchmark'
+    label = 'NDCGBenchmark'

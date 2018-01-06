@@ -1,4 +1,5 @@
 from django.apps import AppConfig
 
-class RatingNDCGConfig(AppConfig):
-    name = 'ratingNDCG'
+class NDCGConfig(AppConfig):
+    name = 'apps.evaluators.NDCG.algorithm'
+    label = 'NDCG'
