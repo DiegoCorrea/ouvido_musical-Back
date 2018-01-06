@@ -1,4 +1,5 @@
 from django.apps import AppConfig
 
-class RatingMAPConfig(AppConfig):
-    name = 'ratingMAP'
+class MAPConfig(AppConfig):
+    name = 'apps.evaluators.MAP.algorithm'
+    label = 'MAP'

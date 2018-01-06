@@ -1,4 +1,5 @@
 from django.apps import AppConfig
 
-class BenchMRRConfig(AppConfig):
-    name = 'benchMRR'
+class MRRBenchmarkConfig(AppConfig):
+    name = 'apps.evaluators.MRR.benchmark'
+    label = 'MRRBenchmark'
