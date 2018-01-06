@@ -1,4 +1,4 @@
-from apps.similarities.Cosine.algorithm.view import runTitleSimilarity
+from apps.similarities.Cosine.algorithm.views import runTitleSimilarity
 from .recommenders import runUserAverage
 from .evaluation import runEvaluateUsersRank
 import logging
