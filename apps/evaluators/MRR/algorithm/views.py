@@ -1,6 +1,6 @@
 from .algorithm import calcUsersMRR
 from apps.evaluators.MRR.algorithm.models import MRR
-from apps.evaluators.MRR.benchmark.models import benchMRR
+from apps.evaluators.MRR.benchmark.models import BenchMRR
 from django.utils import timezone
 
 import logging
@@ -10,7 +10,7 @@ def runMRR(limit=5):
     logger.info("[Start MRR Evaluation]")
     startAt = timezone.now()
     value = calcUsersMRR(limit=limit)
-    bench = benchMRR(started_at=startAt,finished_at=timezone.now())
+    bench = BenchMRR(started_at=startAt,finished_at=timezone.now())
     bench.save()
     mrrResult = MRR(value=value, limit=limit)
     mrrResult.save()

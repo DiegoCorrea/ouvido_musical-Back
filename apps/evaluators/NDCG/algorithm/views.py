@@ -1,6 +1,6 @@
 from .algorithm import calcUsersNDCG
 from apps.evaluators.NDCG.algorithm.models import NDCG
-from apps.evaluators.NDCG.benchmark.models import benchNDCG
+from apps.evaluators.NDCG.benchmark.models import BenchNDCG
 from django.utils import timezone
 
 import logging
@@ -10,7 +10,7 @@ def runNDCG(limit=5):
     logger.info("[Start NDCG Evaluation]")
     startAt = timezone.now()
     value = calcUsersNDCG(limit=limit)
-    bench = benchNDCG(started_at=startAt,finished_at=timezone.now())
+    bench = BenchNDCG(started_at=startAt,finished_at=timezone.now())
     bench.save()
     ndcgResult = NDCG(value=value,limit=limit)
     ndcgResult.save()
