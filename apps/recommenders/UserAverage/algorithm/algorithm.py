@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from random import choice, randint
+from django.db import transaction
 
 from apps.CONSTANTS import MAX_SCORE, MIN_SCORE
 from apps.data.users.models import User
@@ -27,14 +28,15 @@ def getUserAverageRecommendations(user_id):
 
 def UserAverage():
     logger.info("[Start User Average]")
-    for user in User.objects.all():
-        userRecommendations = getUserAverageRecommendations(user.id)
-        for (song, similarity) in userRecommendations.items():
-            userRec = UserAverage_Recommendations(
-                        song=Song.objects.get(id=song.id),
-                        user_id=user.id,
-                        similarity=similarity,
-                        iLike=bool(choice([True, False])),
-                        score=randint(MIN_SCORE,MAX_SCORE))
-            userRec.save()
+    with transaction.atomic():
+        for user in User.objects.all():
+            userRecommendations = getUserAverageRecommendations(user.id)
+            for (song, similarity) in userRecommendations.items():
+                userRec = UserAverage_Recommendations(
+                            song=Song.objects.get(id=song.id),
+                            user_id=user.id,
+                            similarity=similarity,
+                            iLike=bool(choice([True, False])),
+                            score=randint(MIN_SCORE,MAX_SCORE))
+                userRec.save()
     logger.info("[Finish User Average]")
