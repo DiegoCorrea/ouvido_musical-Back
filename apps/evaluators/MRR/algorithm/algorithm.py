@@ -1,10 +1,7 @@
 from apps.data.users.models import User
-from apps.evaluators.MRR.rating.models import RatingMRR
-from apps.evaluators.MRR.benchmark.models import benchMRR
-from django.utils import timezone
 import numpy as np
-import logging
 
+import logging
 logger = logging.getLogger(__name__)
 
 def userLikeArray(recommendations):
@@ -35,13 +32,3 @@ def calcUsersMRR(limit=5):
     logger.debug("Total Users Rated: %d", len(mrrList))
     logger.info("[Finish User MRR]")
     return uMrr
-def runMRR(limit=5):
-    logger.info("[Start MRR Evaluation]")
-    startAt = timezone.now()
-    value = calcUsersMRR(limit=limit)
-    bench = benchMRR(started_at=startAt,finished_at=timezone.now())
-    bench.save()
-    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
-    mrrResult = MRR(value=value, limit=limit)
-    mrrResult.save()
-    logger.info("[Finish MRR Evaluation]")

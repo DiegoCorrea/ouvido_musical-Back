@@ -1,10 +1,7 @@
 from apps.data.users.models import User
-from apps.evaluators.MAP.rating.models import RatingMAP
-from apps.evaluators.MAP.benchmark.models import benchMAP
-from django.utils import timezone
 import numpy as np
-import logging
 
+import logging
 logger = logging.getLogger(__name__)
 
 def userLikeArray(recommendations):
@@ -43,13 +40,3 @@ def calcUsersMAP(limit=5):
     logger.debug("Total Users Rated: %d", len(ap))
     logger.info("[Finish User MAP]")
     return uMap
-def runMAP(limit=5):
-    logger.info("[Start MAP Evaluation]")
-    startAt = timezone.now()
-    value = calcUsersMAP(limit=limit)
-    bench = benchMAP(started_at=startAt,finished_at=timezone.now())
-    bench.save()
-    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
-    mapResult = RatingMAP(value=value, limit=limit)
-    mapResult.save()
-    logger.info("[Finish MAP Evaluation]")
