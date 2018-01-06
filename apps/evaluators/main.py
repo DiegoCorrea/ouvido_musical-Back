@@ -1,6 +1,6 @@
-from .MAP.algorithm.main import runMAP
-from .MRR.algorithm.main import runMRR
-from .NDCG.algorithm.main import runNDCG
+from .MAP.algorithm.views import runMAP
+from .MRR.algorithm.views import runMRR
+from .NDCG.algorithm.views import runNDCG
 
 def runEvaluation(limit=5):
     runMAP(limit=limit)

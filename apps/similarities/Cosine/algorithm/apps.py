@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class CosineSimilarityConfig(AppConfig):
-    name = 'cosineSimilarity'
+class CosineConfig(AppConfig):
+    name = 'apps.similarities.Cosine.algorithm'
+    label = 'cosine'

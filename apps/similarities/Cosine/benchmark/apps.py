@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class CossineBenchmarkConfig(AppConfig):
-    name = 'cossineBenchmark'
+    name = 'apps.similarities.Cosine.benchmark'
+    label = 'cossineBenchmark'

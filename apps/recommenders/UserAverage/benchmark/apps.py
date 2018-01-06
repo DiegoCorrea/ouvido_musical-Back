@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BenchUserAverageConfig(AppConfig):
+class UserAverageBenchmarkConfig(AppConfig):
     name = 'apps.recommenders.UserAverage.benchmark'
-    label = 'benchUserAverage'
+    label = 'userAverageBenchmark'
