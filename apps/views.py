@@ -1,6 +1,6 @@
-from apps.similarities.views import runSimilarities
-from apps.recommenders.UserAverage.algorithm.views import runUserAverage
-from apps.evaluators.views import runEvaluation
+from .similarities.views import runSimilarities
+from .recommenders.views import runRecommenders
+from .evaluators.views import runEvaluations
 
 import logging
 logger = logging.getLogger(__name__)
@@ -9,7 +9,7 @@ def bigBang():
     # Calc Similarity
     runSimilarities()
     # Calc Recommendations
-    runUserAverage()
+    runRecommenders()
     # Calc Evaluations
-    runEvaluation()
+    runEvaluations()
     logger.info("[Finish Big Bang]")
