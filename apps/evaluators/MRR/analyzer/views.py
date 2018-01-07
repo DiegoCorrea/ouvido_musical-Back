@@ -11,3 +11,6 @@ def runMRRBenchmarkGraph():
     bench_gLine()
     bench_gBoxPlot()
     bench_gScatter()
+def runAllMRRAnalizers():
+    runMRRValueGraph()
+    runMRRBenchmarkGraph()

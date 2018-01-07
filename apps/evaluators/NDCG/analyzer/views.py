@@ -11,3 +11,6 @@ def runNDCGBenchmarkGraph():
     bench_gLine()
     bench_gBoxPlot()
     bench_gScatter()
+def runAllNDCGAnalizers():
+    #runNDCGValueGraph()
+    runNDCGBenchmarkGraph()

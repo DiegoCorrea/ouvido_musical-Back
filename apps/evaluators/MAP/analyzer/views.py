@@ -11,3 +11,6 @@ def runMAPBenchmarkGraph():
     bench_gLine()
     bench_gBoxPlot()
     bench_gScatter()
+def runAllMAPAnalizers():
+    runMAPValueGraph()
+    runMAPBenchmarkGraph()
