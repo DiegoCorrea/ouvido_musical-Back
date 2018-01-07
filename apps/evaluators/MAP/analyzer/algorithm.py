@@ -5,7 +5,7 @@ from collections import Counter
 from apps.evaluators.MAP.algorithm.models import MAP
 from django.db import connection
 
-directory = str('./apps/evaluators/MAP/analyzer/graphs/' + str(connection.settings_dict['NAME'] + '/'))
+directory = str('./apps/evaluators/MAP/analyzer/graphs/' + str(connection.settings_dict['NAME'] + '/algorithm/'))
 if not os.path.exists(directory):
     os.makedirs(directory)
 def value_gLine(at=5):
