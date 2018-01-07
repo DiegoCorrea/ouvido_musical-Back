@@ -11,12 +11,12 @@ def cleanDB(songSimi=True,cosSimi=True, userRec=True, userAveRec=True):
     if userAveRec: UserAverage_Recommendations.objects.all().delete()
 
 def cleanRecTables(userRec=True, userAveRec=True):
-    logger.info("*"*30)
+    logger.info("-"*30)
     logger.info('Limpando as tabelas de recomendações')
     if userRec: UserSongRecommendations.objects.all().delete()
     if userAveRec: UserAverage_Recommendations.objects.all().delete()
-    logger.info("*"*30)
+    logger.info("-"*30)
 def cleanScoreTable():
-    logger.info("*"*30)
+    logger.info("-"*30)
     logger.info('Limpando as tabelas de Score')
-    logger.info("*"*30)
+    logger.info("-"*30)

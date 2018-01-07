@@ -10,7 +10,7 @@ def score_evaluate_analise():
     runEvaluations()
     runAnalizers()
 
-def clean_score_evaluate_analise():
+def clean_score():
     cleanRecTables()
     #cleanScoreTable()
 
@@ -22,7 +22,7 @@ def run_score_evaluate_analise():
         logger.info("*"*30)
         logger.info("\tCiclo: " + str(i))
         logger.info("*"*30)
-        clean_score_evaluate_analise()
+        clean_score()
         score_evaluate_analise()
         os.system('cls||clear')
     logger.info('Finalizando Script')
