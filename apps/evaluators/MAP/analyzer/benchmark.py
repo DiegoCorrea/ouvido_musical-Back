@@ -12,7 +12,7 @@ if not os.path.exists(directory):
     os.makedirs(directory)
 
 def bench_gLine():
-    logger.info("[Start Bench (MAP) Graph Line]")
+    logger.info("[Start Bench MAP (Graph Line)]")
     allBenchmarks = BenchMAP.objects.all()
     benchmarkTimes = [ ]
     benchmarkMeanTimes = [ ]
@@ -34,9 +34,9 @@ def bench_gLine():
     plt.plot([benchmark.id for benchmark in allBenchmarks],[benchmark for benchmark in benchmarkMedianTimes],color='blue',label='Mediana')
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'value_gLine' + '-[id]-'+ str(allBenchmarks.last().id) + '.png')
-    logger.info("[Finish Bench (MAP) Graph Line]")
+    logger.info("[Finish Bench MAP (Graph Line)]")
 def bench_gScatter():
-    logger.info("[Start Bench (MAP) Graph Scatter]")
+    logger.info("[Start Bench MAP (Graph Scatter)]")
     allBenchmarks = BenchMAP.objects.all()
     benchmarkTimes = [ ]
     benchmarkMeanTimes = [ ]
@@ -56,18 +56,19 @@ def bench_gScatter():
     plt.scatter(benchmarkTimes, benchmarkTimes, label='Media: ' + str(float("{0:.4f}".format(benchmarkMeanTimes[-1]))))
     plt.legend(loc='upper left')
     plt.savefig(str(directory) + 'value_gScatter' + '-[id]-'+ str(allBenchmarks.last().id) + '.png')
-    logger.info("[Finish Bench (MAP) Graph Scatter]")
+    logger.info("[Finish Bench MAP (Graph Scatter)]")
 def bench_gBoxPlot():
-    logger.info("[Start Bench (MAP) Graph BoxPlot]")
+    logger.info("[Start Bench MAP (Graph BoxPlot)]")
     allBenchmarks = BenchMAP.objects.all()
     benchmarkTimes = [((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0) for benchmark in allBenchmarks]
+    logger.debug("MAP Benchmark -> Run Number: " + str(len(benchmarkTimes)))
     plt.figure()
     plt.title('MAP - Mean Averange Precision\nBenchmark')
     plt.boxplot(benchmarkTimes, labels='T')
     plt.savefig(str(directory) + 'value_gBoxPlot' + '-[id]-'+ str(allBenchmarks.last().id) + '.png')
-    logger.info("[Finish Bench (MAP) Graph BoxPlot]")
+    logger.info("[Finish Bench MAP (Graph BoxPlot)]")
 def bench_gBar():
-    logger.info("[Start Bench (MAP) Graph Bar]")
+    logger.info("[Start Bench MAP (Graph Bar)]")
     allBenchmarks = BenchMAP.objects.all()
     benchmarkTimes = [float("{0:.3f}".format((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)) for benchmark in allBenchmarks]
     benchmarkCountList = Counter(benchmarkTimes)
@@ -77,7 +78,7 @@ def bench_gBar():
     plt.title('MAP - Mean Averange Precision\nBenchmark')
     plt.ylabel('Tempo execução (minutos)')
     plt.xlabel('Quantidade')
-    plt.bar(benchmarkCountList.values(),benchmarkCountList.keys(), label='Moda: ' + str(float("{0:.4f}".format(mode))))
+    plt.bar(benchmarkCountList.values(),benchmarkCountList.keys(), label='Moda: ' + str(float("{0:.3f}".format(mode))))
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'value_gBar' + '-[id]-'+ str(allBenchmarks.last().id) + '.png')
-    logger.info("[Finish Bench (MAP) Graph Bar]")
+    logger.info("[Finish Bench MAP (Graph Bar)]")
