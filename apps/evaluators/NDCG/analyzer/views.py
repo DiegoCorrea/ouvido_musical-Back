@@ -1,12 +1,12 @@
 from .algorithm import value_gLine, value_gScatter, value_gBoxPlot, value_gBar
 from .benchmark import bench_gBar, bench_gBoxPlot, bench_gLine, bench_gScatter
 
-def runMRRValueGraph():
+def runNDCGValueGraph():
     value_gLine()
     value_gScatter()
     value_gBoxPlot()
     value_gBar()
-def runMRRBenchmarkGraph():
+def runNDCGBenchmarkGraph():
     bench_gBar()
     bench_gLine()
     bench_gBoxPlot()
