@@ -6,6 +6,8 @@ from apps.evaluators.MRR.algorithm.models import MRR
 from django.db import connection
 
 directory = str('./apps/evaluators/MRR/analyzer/graphs/' + str(connection.settings_dict['NAME'] + '/'))
+if not os.path.exists(directory):
+    os.makedirs(directory)
 def value_gLine(at=5):
     allEvaluations = MRR.objects.filter(limit=at)
     evaluationValues = [evalution.value for evalution in allEvaluations]
@@ -19,8 +21,6 @@ def value_gLine(at=5):
     plt.text(-0.1, 1, r'Media: ' + str(evaluationMean))
     plt.text(-0.1, .8, r'Mediana: ' + str(evaluationMedian))
     plt.plot([evalution.id for evalution in allEvaluations],[evalution.value for evalution in allEvaluations])
-    if not os.path.exists(directory):
-        os.makedirs(directory)
     plt.savefig(str(directory) + 'value_gLine' + '-[id]-'+ str(allEvaluations.last().id) + '.png')
 
 def value_gScatter(at=5):
@@ -37,8 +37,6 @@ def value_gScatter(at=5):
     plt.text(-0.1, .8, r'Mediana: ' + str(float("{0:.2f}".format(evaluationMedian))))
     plt.scatter(evaluationValues, evaluationValues)
     plt.axis([-0.2, 1.2, -0.2, 1.2])
-    if not os.path.exists(directory):
-        os.makedirs(directory)
     plt.savefig(str(directory) + 'value_gScatter' + '-[id]-'+ str(allEvaluations.last().id) + '.png')
 
 def value_gBoxPlot(at=5):
@@ -47,8 +45,6 @@ def value_gBoxPlot(at=5):
     plt.figure()
     plt.title('MRR - Mean Reciprocal Rank@' + str(at))
     plt.boxplot(evaluationValues)
-    if not os.path.exists(directory):
-        os.makedirs(directory)
     plt.savefig(str(directory) + 'value_gBoxPlot' + '-[id]-'+ str(allEvaluations.last().id) + '.png')
 
 def value_gBar(at=5):
@@ -60,6 +56,4 @@ def value_gBar(at=5):
     plt.ylabel('Intervalor de valores')
     plt.xlabel('Quantidade')
     plt.bar(evalutionCountList.values(),evalutionCountList.keys())
-    if not os.path.exists(directory):
-        os.makedirs(directory)
     plt.savefig(str(directory) + 'value_gBar' + '-[id]-'+ str(allEvaluations.last().id) + '.png')
