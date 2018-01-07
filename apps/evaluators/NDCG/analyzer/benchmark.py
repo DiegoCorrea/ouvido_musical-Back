@@ -12,13 +12,13 @@ def bench_gLine():
     logger.info("[Start Bench NDCG (Graph Line)]")
     allBenchmarks = BenchNDCG.objects.all()
     benchmarkTimes = [ ]
-    benchmarkNormalize DiscountedTimes = [ ]
+    benchmarkMeanTimes = [ ]
     benchmarkMedianTimes = [ ]
     for benchmark in allBenchmarks:
         benchmarkTimes.append((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
-        benchmarkNormalize DiscountedTimes.append(np.Normalize Discounted(benchmarkTimes))
+        benchmarkMeanTimes.append(np.mean(benchmarkTimes))
         benchmarkMedianTimes.append(np.median(benchmarkTimes))
-    logger.debug("NDCG Benchmark -> Normalize Discounted (minutes): " + str(benchmarkNormalize DiscountedTimes[-1]))
+    logger.debug("NDCG Benchmark -> Normalize Discounted (minutes): " + str(benchmarkMeanTimes[-1]))
     logger.debug("NDCG Benchmark -> Median (minutes): " + str(benchmarkMedianTimes[-1]))
     logger.debug("NDCG Benchmark -> Run Number: " + str(len(benchmarkTimes)))
     directory = str('./apps/evaluators/NDCG/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
@@ -30,7 +30,7 @@ def bench_gLine():
     plt.xlabel('ID da execução')
     plt.ylabel('Tempo de execução (minutos)')
     plt.plot([benchmark.id for benchmark in allBenchmarks],[benchmark for benchmark in benchmarkTimes],color='red',label='Tempo')
-    plt.plot([benchmark.id for benchmark in allBenchmarks],[benchmark for benchmark in benchmarkNormalize DiscountedTimes],color='green',label='Media')
+    plt.plot([benchmark.id for benchmark in allBenchmarks],[benchmark for benchmark in benchmarkMeanTimes],color='green',label='Media')
     plt.plot([benchmark.id for benchmark in allBenchmarks],[benchmark for benchmark in benchmarkMedianTimes],color='blue',label='Mediana')
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'value_gLine.png')
@@ -39,13 +39,13 @@ def bench_gScatter():
     logger.info("[Start Bench NDCG (Graph Scatter)]")
     allBenchmarks = BenchNDCG.objects.all()
     benchmarkTimes = [ ]
-    benchmarkNormalize DiscountedTimes = [ ]
+    benchmarkMeanTimes = [ ]
     benchmarkMedianTimes = [ ]
     for benchmark in allBenchmarks:
         benchmarkTimes.append((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
-        benchmarkNormalize DiscountedTimes.append(np.Normalize Discounted(benchmarkTimes))
+        benchmarkMeanTimes.append(np.mean(benchmarkTimes))
         benchmarkMedianTimes.append(np.median(benchmarkTimes))
-    logger.debug("NDCG Benchmark -> Normalize Discounted (minutes): " + str(benchmarkNormalize DiscountedTimes[-1]))
+    logger.debug("NDCG Benchmark -> Normalize Discounted (minutes): " + str(benchmarkMeanTimes[-1]))
     logger.debug("NDCG Benchmark -> Median (minutes): " + str(benchmarkMedianTimes[-1]))
     logger.debug("NDCG Benchmark -> Run Number: " + str(len(benchmarkTimes)))
     directory = str('./apps/evaluators/NDCG/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
@@ -56,7 +56,7 @@ def bench_gScatter():
     plt.title('NDCG - Normalize Discounted Cumulative Gain\nBenchmark')
     plt.ylabel('Tempo de execução (minutos)')
     plt.xlabel('Tempo de execução (minutos)')
-    plt.scatter(benchmarkTimes, benchmarkTimes, label='Media: ' + str(float("{0:.4f}".format(benchmarkNormalize DiscountedTimes[-1]))))
+    plt.scatter(benchmarkTimes, benchmarkTimes, label='Media: ' + str(float("{0:.4f}".format(benchmarkMeanTimes[-1]))))
     plt.legend(loc='upper left')
     plt.savefig(str(directory) + 'value_gScatter.png')
     logger.info("[Finish Bench NDCG (Graph Scatter)]")
