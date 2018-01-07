@@ -1,5 +1,5 @@
 from .algorithm import calcUsersMRR
-from apps.evaluators.MRR.algorithm.models import MRR
+from .algorithm.models import MRR
 from apps.evaluators.MRR.benchmark.models import BenchMRR
 from django.utils import timezone
 
