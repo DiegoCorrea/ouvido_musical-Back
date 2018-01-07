@@ -34,6 +34,7 @@ def value_gLine(at=5):
     plt.plot([evaluation.id for evaluation in allEvaluations],[evaluation for evaluation in evaluationMedianValues],color='blue',label='Mediana')
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'value_gLine.png')
+    plt.close()
     logger.info("[Finish MRR Value (Graph Line)]")
 def value_gScatter(at=5):
     logger.info("[Start MRR Value (Graph Scatter)]")
@@ -59,6 +60,7 @@ def value_gScatter(at=5):
     plt.scatter(evaluationValues, evaluationValues, label='Media: ' + str(float("{0:.4f}".format(evaluationValues[-1]))))
     plt.legend(loc='upper left')
     plt.savefig(str(directory) + 'value_gScatter.png')
+    plt.close()
     logger.info("[Finish MRR Value (Graph Scatter)]")
 def value_gBoxPlot(at=5):
     logger.info("[Start MRR Value (Graph BoxPlot)]")
@@ -72,6 +74,7 @@ def value_gBoxPlot(at=5):
     plt.title('MRR - Mean Reciprocal Rank@' + str(at))
     plt.boxplot(evaluationValues, labels='V')
     plt.savefig(str(directory) + 'value_gBoxPlot.png')
+    plt.close()
     logger.info("[Finish MRR Value (Graph BoxPlot)]")
 def value_gBar(at=5):
     logger.info("[Start MRR Value (Graph Bar)]")
@@ -90,4 +93,5 @@ def value_gBar(at=5):
     plt.bar(evalutionCountList.values(),evalutionCountList.keys(), label='Moda: ' + str(float("{0:.4f}".format(mode))))
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'value_gBar.png')
+    plt.close()
     logger.info("[Finish MRR Value (Graph Bar)]")

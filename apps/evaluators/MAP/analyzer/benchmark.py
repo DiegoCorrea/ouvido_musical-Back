@@ -34,6 +34,7 @@ def bench_gLine():
     plt.plot([benchmark.id for benchmark in allBenchmarks],[benchmark for benchmark in benchmarkMedianTimes],color='blue',label='Mediana')
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'value_gLine.png')
+    plt.close()
     logger.info("[Finish Bench MAP (Graph Line)]")
 def bench_gScatter():
     logger.info("[Start Bench MAP (Graph Scatter)]")
@@ -59,6 +60,7 @@ def bench_gScatter():
     plt.scatter(benchmarkTimes, benchmarkTimes, label='Media: ' + str(float("{0:.4f}".format(benchmarkMeanTimes[-1]))))
     plt.legend(loc='upper left')
     plt.savefig(str(directory) + 'value_gScatter.png')
+    plt.close()
     logger.info("[Finish Bench MAP (Graph Scatter)]")
 def bench_gBoxPlot():
     logger.info("[Start Bench MAP (Graph BoxPlot)]")
@@ -72,6 +74,7 @@ def bench_gBoxPlot():
     plt.title('MAP - Mean Averange Precision\nBenchmark')
     plt.boxplot(benchmarkTimes, labels='T')
     plt.savefig(str(directory) + 'value_gBoxPlot.png')
+    plt.close()
     logger.info("[Finish Bench MAP (Graph BoxPlot)]")
 def bench_gBar():
     logger.info("[Start Bench MAP (Graph Bar)]")
@@ -90,4 +93,5 @@ def bench_gBar():
     plt.bar(benchmarkCountList.values(),benchmarkCountList.keys(), label='Moda: ' + str(float("{0:.3f}".format(mode))))
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'value_gBar.png')
+    plt.close()
     logger.info("[Finish Bench MAP (Graph Bar)]")
