@@ -1,3 +1,3 @@
 from apps.recommenders.views import runUserAverage
-def votateUserAverage():
+def scoreUserAverage():
     runUserAverage()
