@@ -2,11 +2,12 @@ import os
 from .score import scoreUserAverage
 from .cleanDB import cleanRecTables, cleanScoreTable
 from apps.evaluators.views import runEvaluations, runAnalizers
+from apps.recommenders.views import runUserAverage
 import logging
 logger = logging.getLogger(__name__)
 
 def score_evaluate_analise():
-    scoreUserAverage()
+    runUserAverage()
     runEvaluations()
     runAnalizers()
 
@@ -18,7 +19,7 @@ def run_score_evaluate_analise():
     logger.info("*"*30)
     logger.info("* Iniciando script Votar, Avaliar e Analizar as recomendações")
     logger.info("*"*30)
-    for i in range(5):
+    for i in range(10):
         logger.info("*"*30)
         logger.info("\tCiclo: " + str(i))
         logger.info("*"*30)
