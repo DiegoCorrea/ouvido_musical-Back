@@ -1,11 +1,10 @@
-from .algorithm import value_gLine, value_gScatter, value_gBoxPlot, value_gBar
+from .algorithm import score_gBar, recommended_gBar, like_gBar
 from .benchmark import bench_gBar, bench_gBoxPlot, bench_gLine, bench_gScatter
 
 def runUserAverageValueGraph():
-    value_gLine()
-    value_gScatter()
-    value_gBoxPlot()
-    value_gBar()
+    like_gBar()
+    recommended_gBar()
+    score_gBar()
 def runUserAverageBenchmarkGraph():
     bench_gBar()
     bench_gLine()
