@@ -11,7 +11,7 @@ class UserAverage_Recommendations(models.Model):
     user = models.ForeignKey(User, unique=False)
     song = models.ForeignKey(Song, unique=False)
     # Datas
-    similarity = models.IntegerField(default=0, unique=False)
+    similarity = models.FloatField(default=0.0, unique=False)
     iLike = models.BooleanField(default=False)
     score = models.IntegerField(blank=True, null=True, unique=False)
     # Timers
