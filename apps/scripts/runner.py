@@ -8,8 +8,10 @@ logger = logging.getLogger(__name__)
 
 def score_evaluate_analise():
     runUserAverage()
-    runEvaluations()
-    runAnalizers()
+    runEvaluations(at=5)
+    runEvaluations(at=10)
+    runAnalizers(at=5)
+    runAnalizers(at=10)
 
 def clean_score():
     cleanRecTables()
@@ -19,7 +21,7 @@ def run_score_evaluate_analise():
     logger.info("*"*30)
     logger.info("* Iniciando script Votar, Avaliar e Analizar as recomendações")
     logger.info("*"*30)
-    for i in range(10):
+    for i in range(2):
         logger.info("*"*30)
         logger.info("\tCiclo: " + str(i))
         logger.info("*"*30)

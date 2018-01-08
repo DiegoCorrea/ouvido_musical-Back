@@ -5,12 +5,11 @@ from .MAP.analyzer.views import runAllMAPAnalizers
 from .MRR.analyzer.views import runAllMRRAnalizers
 from .NDCG.analyzer.views import runAllNDCGAnalizers
 
-def runEvaluations(limit=5):
-    runMAP(limit=limit)
-    runMRR(limit=limit)
-    runNDCG(limit=limit)
-
-def runAnalizers():
-    runAllMAPAnalizers()
-    runAllMRRAnalizers()
-    runAllNDCGAnalizers()
+def runEvaluations(at=5):
+    runMAP(at=at)
+    runMRR(at=at)
+    runNDCG(at=at)
+def runAnalizers(at=5):
+    runAllMAPAnalizers(at=at)
+    runAllMRRAnalizers(at=at)
+    runAllNDCGAnalizers(at=at)
