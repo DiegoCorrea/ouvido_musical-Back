@@ -2,9 +2,9 @@ from .algorithm import score_gBar, recommended_gBar, like_gBar, similarity_gScat
 from .benchmark import bench_gBar, bench_gBoxPlot, bench_gLine, bench_gScatter
 
 def runUserAverageValueGraph():
-    #like_gBar()
-    #recommended_gBar()
-    #score_gBar()
+    like_gBar()
+    recommended_gBar()
+    score_gBar()
     similarity_gBar()
     similarity_gScatter()
 def runUserAverageBenchmarkGraph():

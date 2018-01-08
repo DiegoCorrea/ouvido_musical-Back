@@ -9,17 +9,16 @@ import logging
 logger = logging.getLogger(__name__)
 def like_gBar(allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Recomended (Graph Bar)]")
-    itemValues = [item.iLike for item in allItens]
-    countList = Counter(itemValues)
+    countList = Counter([item.iLike for item in allItens])
     logger.debug('User Averange Benchmark -> List len: ' + str(len(countList)))
     directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allItens.last().created_at) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title('User Average - Score')
-    plt.ylabel('Quantidade de usuários')
-    plt.xlabel('Nota')
-    plt.bar(countList.keys(), countList.values())
+    plt.title('User Average - Gostou')
+    plt.ylabel('Quantidade de votos')
+    plt.xlabel('Gostou')
+    plt.bar([str(item) for item in countList.keys()], countList.values())
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'like_gBar.png')
     plt.close()
@@ -27,8 +26,7 @@ def like_gBar(allItens = UserAverage_Recommendations.objects.all()):
 
 def recommended_gBar(allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Recomended (Graph Bar)]")
-    itemValues = [item.song.id for item in allItens]
-    countList = Counter(itemValues)
+    countList = Counter([item.song.id for item in allItens])
     countListValues = Counter(countList.values())
     logger.debug('User Averange Benchmark -> List len: ' + str(len(countList)))
     directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allItens.last().created_at) + '/')
@@ -36,9 +34,9 @@ def recommended_gBar(allItens = UserAverage_Recommendations.objects.all()):
         os.makedirs(directory)
     plt.figure()
     plt.title('User Average - Score')
-    plt.ylabel('Quantidade de usuários')
-    plt.xlabel('Nota')
-    plt.bar(countListValues.keys(), countListValues.values())
+    plt.ylabel('Quantidade de músicas')
+    plt.xlabel('Vezes recomendada')
+    plt.bar(countListValues.values(), countListValues.keys())
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'recommended_gBar.png')
     plt.close()
@@ -46,18 +44,16 @@ def recommended_gBar(allItens = UserAverage_Recommendations.objects.all()):
 
 def score_gBar(allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Score (Graph Bar)]")
-    itemValues = [evalution.score for evalution in allItens]
-    countList = Counter(itemValues)
+    countList = Counter([evalution.score for evalution in allItens])
     logger.debug('User Averange Score -> List len: ' + str(len(countList)))
     directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allItens.last().created_at) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
     plt.title('User Average - Score')
-    plt.ylabel('Quantidade de usuários')
+    plt.ylabel('Quantidade de músicas')
     plt.xlabel('Nota')
     plt.bar(countList.keys(), countList.values())
-    plt.legend(loc='best')
     plt.savefig(str(directory) + 'score_gBar.png')
     plt.close()
     logger.info("[Finish User Average Score (Graph Bar)]")
