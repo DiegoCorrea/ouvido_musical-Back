@@ -21,7 +21,7 @@ def bench_gLine():
     logger.debug("NDCG Benchmark -> Normalize Discounted (minutes): " + str(benchmarkMeanTimes[-1]))
     logger.debug("NDCG Benchmark -> Median (minutes): " + str(benchmarkMedianTimes[-1]))
     logger.debug("NDCG Benchmark -> Run Number: " + str(len(benchmarkTimes)))
-    directory = str('./apps/evaluators/NDCG/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/evaluators/NDCG/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -49,7 +49,7 @@ def bench_gScatter():
     logger.debug("NDCG Benchmark -> Normalize Discounted (minutes): " + str(benchmarkMeanTimes[-1]))
     logger.debug("NDCG Benchmark -> Median (minutes): " + str(benchmarkMedianTimes[-1]))
     logger.debug("NDCG Benchmark -> Run Number: " + str(len(benchmarkTimes)))
-    directory = str('./apps/evaluators/NDCG/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/evaluators/NDCG/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -67,7 +67,7 @@ def bench_gBoxPlot():
     allBenchmarks = BenchNDCG.objects.all()
     benchmarkTimes = [((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0) for benchmark in allBenchmarks]
     logger.debug("NDCG Benchmark -> Run Number: " + str(len(benchmarkTimes)))
-    directory = str('./apps/evaluators/NDCG/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/evaluators/NDCG/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -83,7 +83,7 @@ def bench_gBar():
     benchmarkCountList = Counter(benchmarkTimes)
     mode = benchmarkCountList.most_common(1)[0][0]
     logger.debug('NDCG Benchmark -> Mode: ' + str(mode))
-    directory = str('./apps/evaluators/NDCG/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/evaluators/NDCG/graphs/' + str(connection.settings_dict['NAME']) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()

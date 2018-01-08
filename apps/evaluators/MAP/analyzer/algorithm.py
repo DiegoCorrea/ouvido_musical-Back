@@ -21,7 +21,7 @@ def value_gLine(at=5):
     logger.debug("MAP Evaluation -> Mean: " + str(evaluationMeanValues[-1]))
     logger.debug("MAP Evaluation -> Median: " + str(evaluationMedianValues[-1]))
     logger.debug("MAP Evaluation -> Run Number: " + str(len(evaluationValues)))
-    directory = str('./apps/evaluators/MAP/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -49,7 +49,7 @@ def value_gScatter(at=5):
     logger.debug("MAP Evaluation -> Mean: " + str(evaluationMeanValues[-1]))
     logger.debug("MAP Evaluation -> Median: " + str(evaluationMedianValues[-1]))
     logger.debug("MAP Evaluation -> Run Number: " + str(len(evaluationValues)))
-    directory = str('./apps/evaluators/MAP/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -67,7 +67,7 @@ def value_gBoxPlot(at=5):
     allEvaluations = MAP.objects.filter(limit=at)
     evaluationValues = [(evalution.value) for evalution in allEvaluations]
     logger.debug("MAP Evaluation -> Run Number: " + str(len(evaluationValues)))
-    directory = str('./apps/evaluators/MAP/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -83,7 +83,7 @@ def value_gBar(at=5):
     evalutionCountList = Counter(evaluationValues)
     mode = evalutionCountList.most_common(1)[0][0]
     logger.debug('MAP Evaluation -> Mode: ' + str(mode))
-    directory = str('./apps/evaluators/MAP/analyzer/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
