@@ -76,10 +76,10 @@ def similarity_gScatter(allItens = UserAverage_Recommendations.objects.all()):
     plt.savefig(str(directory) + 'similarity_gScatter.png')
     plt.close()
     logger.info("[Finish User Average Similarity (Graph Scatter)]")
-def similarity_gBar(allItens = UserAverage_Recommendations.objects.all()):
-    logger.info("[Start User Average Similarity (Graph Bar)]")
+def similarity_gLine(allItens = UserAverage_Recommendations.objects.all()):
+    logger.info("[Start User Average Similarity (Graph Line)]")
     itemValues = [float("{0:.3f}".format(item.similarity)) for item in allItens]
-    countList = Counter(itemValues)
+    countList = Counter(sorted(itemValues))
     logger.debug('User Average Similarity -> List len: ' + str(len(itemValues)))
     directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allItens.last().created_at) + '/')
     if not os.path.exists(directory):
@@ -88,8 +88,8 @@ def similarity_gBar(allItens = UserAverage_Recommendations.objects.all()):
     plt.title('User Average - Similarity')
     plt.ylabel('Quantidade de similares')
     plt.xlabel('Similaridade')
-    plt.bar(countList.keys(),countList.values())
+    plt.plot(countList.keys(),countList.values())
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'similarity_gBar.png')
     plt.close()
-    logger.info("[Finish User Average Similarity (Graph Bar)]")
+    logger.info("[Finish User Average Similarity (Graph Line)]")
