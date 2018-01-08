@@ -108,7 +108,7 @@ ENV/
 # seed files
 *.seed
 *.csv
-
+files/
 # react
 *.log
 templates/node_modules/*

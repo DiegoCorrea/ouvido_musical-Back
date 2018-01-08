@@ -20,7 +20,7 @@ def run_score_evaluate_analise():
     logger.info("*"*30)
     logger.info("* Iniciando script Votar, Avaliar e Analizar as recomendações")
     logger.info("*"*30)
-    for i in range(2):
+    for i in range(30):
         logger.info("*"*30)
         logger.info("\tCiclo: " + str(i))
         logger.info("*"*30)
