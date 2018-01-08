@@ -76,6 +76,7 @@ def similarity_gScatter(allItens = UserAverage_Recommendations.objects.all()):
     plt.savefig(str(directory) + 'similarity_gScatter.png')
     plt.close()
     logger.info("[Finish User Average Similarity (Graph Scatter)]")
+    
 def similarity_gLine(allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Similarity (Graph Line)]")
     itemValues = [float("{0:.3f}".format(item.similarity)) for item in allItens]
