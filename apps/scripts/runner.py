@@ -1,16 +1,15 @@
 import os
-from .score import scoreUserAverage
 from .cleanDB import cleanRecTables, cleanScoreTable
 from apps.evaluators.views import runEvaluations, runAnalizers
-from apps.recommenders.views import runUserAverage
+from apps.recommenders.views import runRecommenders
 import logging
 logger = logging.getLogger(__name__)
 
 def score_evaluate_analise():
-    runUserAverage()
+    runRecommenders()
     runEvaluations(at=5)
-    runEvaluations(at=10)
     runAnalizers(at=5)
+    runEvaluations(at=10)
     runAnalizers(at=10)
 
 def clean_score():
