@@ -1,6 +1,6 @@
 from .similarities.views import runSimilarities
 from .recommenders.views import runRecommenders
-from .evaluators.views import runEvaluations
+from .evaluators.views import runEvaluations, runAnalizers
 
 import logging
 logger = logging.getLogger(__name__)
@@ -12,4 +12,5 @@ def bigBang():
     runRecommenders()
     # Calc Evaluations
     runEvaluations()
+    runAnalizers()
     logger.info("[Finish Big Bang]")
