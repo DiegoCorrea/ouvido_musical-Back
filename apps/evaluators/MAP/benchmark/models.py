@@ -4,6 +4,6 @@ from django.db import models
 from apps.evaluators.MAP.algorithm.models import MAP
 # Create your models here.
 class BenchMAP(models.Model):
-    life = models.OneToOneField(MAP)
+    id = models.OneToOneField(MAP)
     started_at = models.DateTimeField()
     finished_at = models.DateTimeField()
