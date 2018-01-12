@@ -1,16 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import logging
 import os
 from collections import Counter
-from apps.evaluators.MAP.algorithm.models import MAP
 from django.db import connection
-import logging
+from apps.evaluators.MAP.algorithm.models import MAP
+from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 logger = logging.getLogger(__name__)
 
 def value_gLine(at=5):
     logger.info("[Start MAP Value (Graph Line)]")
-    allEvaluations = MAP.objects.filter(at=at)
+    allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [ ]
     evaluationMeanValues = [ ]
     evaluationMedianValues = [ ]
@@ -21,7 +22,7 @@ def value_gLine(at=5):
     logger.debug("MAP Evaluation -> Mean: " + str(evaluationMeanValues[-1]))
     logger.debug("MAP Evaluation -> Median: " + str(evaluationMedianValues[-1]))
     logger.debug("MAP Evaluation -> Run Number: " + str(len(evaluationValues)))
-    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(songSetLimit) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -38,7 +39,7 @@ def value_gLine(at=5):
     logger.info("[Finish MAP Value (Graph Line)]")
 def value_gScatter(at=5):
     logger.info("[Start MAP Value (Graph Scatter)]")
-    allEvaluations = MAP.objects.filter(at=at)
+    allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [ ]
     evaluationMeanValues = [ ]
     evaluationMedianValues = [ ]
@@ -49,7 +50,7 @@ def value_gScatter(at=5):
     logger.debug("MAP Evaluation -> Mean: " + str(evaluationMeanValues[-1]))
     logger.debug("MAP Evaluation -> Median: " + str(evaluationMedianValues[-1]))
     logger.debug("MAP Evaluation -> Run Number: " + str(len(evaluationValues)))
-    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(songSetLimit) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -64,10 +65,10 @@ def value_gScatter(at=5):
     logger.info("[Finish MAP Value (Graph Scatter)]")
 def value_gBoxPlot(at=5):
     logger.info("[Start MAP Value (Graph BoxPlot)]")
-    allEvaluations = MAP.objects.filter(at=at)
+    allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [(evalution.value) for evalution in allEvaluations]
     logger.debug("MAP Evaluation -> Run Number: " + str(len(evaluationValues)))
-    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(songSetLimit) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -78,12 +79,12 @@ def value_gBoxPlot(at=5):
     logger.info("[Finish MAP Value (Graph BoxPlot)]")
 def value_gBar(at=5):
     logger.info("[Start MAP Value (Graph Bar)]")
-    allEvaluations = MAP.objects.filter(at=at)
+    allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [float("{0:.4f}".format(evalution.value)) for evalution in allEvaluations]
     evalutionCountList = Counter(evaluationValues)
     mode = evalutionCountList.most_common(1)[0][0]
     logger.debug('MAP Evaluation -> Mode: ' + str(mode))
-    directory = str('./files/apps/evaluators/MAP/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
+    directory = str('./files/apps/evaluators/MAP/graphs/' + str(songSetLimit) + '/algorithm/' + str(allEvaluations.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
