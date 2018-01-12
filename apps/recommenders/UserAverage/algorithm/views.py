@@ -1,4 +1,4 @@
-from .algorithm import UserAverage
+from .algorithm import UserAverage, UserAverage_Life
 from apps.recommenders.UserAverage.benchmark.models import BenchUserAverage
 from django.utils import timezone
 
@@ -7,9 +7,10 @@ logger = logging.getLogger(__name__)
 
 def runUserAverage(songSetLimit):
     logger.info("[Start Run User Average - Benchmark]")
-    startAt = timezone.now()
+    startedAt = timezone.now()
     UserAverage(songSetLimit=songSetLimit)
-    bench = BenchUserAverage(started_at=startAt,finished_at=timezone.now())
+    finishedAt = timezone.now()
+    bench = BenchUserAverage(life=UserAverage_Life.objects.last(),started_at=startedAt,finished_at=finishedAt)
     bench.save()
     logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
     logger.info("[Start Run User Average] - Benchmark")

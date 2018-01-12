@@ -5,6 +5,6 @@ from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 # Create your models here.
 class BenchUserAverage(models.Model):
-    life = models.OneToOneField(UserAverage_Life)
+    life = models.OneToOneField(UserAverage_Life, unique=True)
     started_at = models.DateTimeField()
     finished_at = models.DateTimeField()
