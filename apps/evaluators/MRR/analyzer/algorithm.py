@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 def value_gLine(at=5):
     logger.info("[Start MRR Value (Graph Line)]")
-    allEvaluations = MRR.objects.filter(limit=at)
+    allEvaluations = MRR.objects.filter(at=at)
     evaluationValues = [ ]
     evaluationMeanValues = [ ]
     evaluationMedianValues = [ ]
@@ -38,7 +38,7 @@ def value_gLine(at=5):
     logger.info("[Finish MRR Value (Graph Line)]")
 def value_gScatter(at=5):
     logger.info("[Start MRR Value (Graph Scatter)]")
-    allEvaluations = MRR.objects.filter(limit=at)
+    allEvaluations = MRR.objects.filter(at=at)
     evaluationValues = [ ]
     evaluationMeanValues = [ ]
     evaluationMedianValues = [ ]
@@ -64,7 +64,7 @@ def value_gScatter(at=5):
     logger.info("[Finish MRR Value (Graph Scatter)]")
 def value_gBoxPlot(at=5):
     logger.info("[Start MRR Value (Graph BoxPlot)]")
-    allEvaluations = MRR.objects.filter(limit=at)
+    allEvaluations = MRR.objects.filter(at=at)
     evaluationValues = [(evalution.value) for evalution in allEvaluations]
     logger.debug("MRR Evaluation -> Run Number: " + str(len(evaluationValues)))
     directory = str('./files/apps/evaluators/MRR/graphs/' + str(connection.settings_dict['NAME']) + '/algorithm/' + str(allEvaluations.last().id) + '/')
@@ -78,7 +78,7 @@ def value_gBoxPlot(at=5):
     logger.info("[Finish MRR Value (Graph BoxPlot)]")
 def value_gBar(at=5):
     logger.info("[Start MRR Value (Graph Bar)]")
-    allEvaluations = MRR.objects.filter(limit=at)
+    allEvaluations = MRR.objects.filter(at=at)
     evaluationValues = [float("{0:.4f}".format(evalution.value)) for evalution in allEvaluations]
     evalutionCountList = Counter(evaluationValues)
     mode = evalutionCountList.most_common(1)[0][0]
