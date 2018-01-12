@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
-class NDCG(models.Model):
-    value = models.FloatField()
-    limit = models.IntegerField()
+class UserAverageLife(models.Model):
+    setSize = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
