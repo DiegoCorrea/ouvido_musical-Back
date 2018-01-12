@@ -26,9 +26,9 @@ def getUserAverageRecommendationsAllDB(user_id):
         rec.setdefault(song, sum(values)/len(values))
     return OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True))
 
-def getUserAverageRecommendationsLimited(user_id, songListLimit):
+def getUserAverageRecommendationsLimited(user_id, songSetLimit):
     recommendation = {}
-    songIDList = [ song.id for song in Song.objects.all()[:songListLimit]]
+    songIDList = [ song.id for song in Song.objects.all()[:songSetLimit]]
     for songPlayed in UserPlaySong.objects.filter(user_id=user_id).order_by('play_count').reverse():
         for songSimi in songPlayed.song.getSimilaries(songIDList):
             if songSimi.similarity == 0.0: continue
@@ -40,11 +40,11 @@ def getUserAverageRecommendationsLimited(user_id, songListLimit):
         rec.setdefault(song, sum(values)/len(values))
     return OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True))
 
-def UserAverage(userList=User.objects.all(), songListLimit=Song.objects.count()):
+def UserAverage(userList=User.objects.all(), songSetLimit=Song.objects.count()):
     logger.info("[Start User Average]")
     with transaction.atomic():
         for user in userList:
-            userRecommendations = getUserAverageRecommendationsLimited(user.id, songListLimit)
+            userRecommendations = getUserAverageRecommendationsLimited(user.id, songSetLimit)
             for (song, similarity) in userRecommendations.items():
                 userRec = UserAverage_Recommendations(
                             song=Song.objects.get(id=song.id),

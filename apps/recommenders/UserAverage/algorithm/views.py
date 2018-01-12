@@ -5,10 +5,10 @@ from django.utils import timezone
 import logging
 logger = logging.getLogger(__name__)
 
-def runUserAverage():
+def runUserAverage(songSetLimit):
     logger.info("[Start User Average - Benchmark]")
     startAt = timezone.now()
-    UserAverage()
+    UserAverage(songSetLimit=songSetLimit)
     bench = BenchUserAverage(started_at=startAt,finished_at=timezone.now())
     bench.save()
     logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
