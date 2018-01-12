@@ -10,8 +10,8 @@ class Song(models.Model):
                             primary_key=True, default=uuid.uuid1().hex)
     title = models.CharField(max_length=511, unique=False)
 
-    def getSimilaries(self):
-        return self.SongSimilarity_right.all() | self.SongSimilarity_left.all()
+    def getSimilaries(self, songIDList):
+        return self.SongSimilarity_right.filter(songBase__in=songIDList).order_by('similarity') | self.SongSimilarity_left.filter(songCompare__in=songIDList).order_by('similarity')
 
     def as_json(self):
         return dict(
@@ -24,7 +24,7 @@ class SongSimilarity(models.Model):
     songBase = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_right')
     songCompare = models.ForeignKey(Song, unique=False, related_name='SongSimilarity_left')
     # Datas
-    similarity = models.FloatField(default=0, unique=False)
+    similarity = models.FloatField(default=0.0, unique=False)
     # Timers
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
