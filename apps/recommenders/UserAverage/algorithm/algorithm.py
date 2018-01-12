@@ -41,6 +41,7 @@ def getUserAverageRecommendationsLimited(user_id, songSetLimit):
     return OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True))
 
 def UserAverage(userList=User.objects.all(), songSetLimit=Song.objects.count()):
+    UserAverage_Life.objects.create()
     logger.info("[Start User Average]")
     with transaction.atomic():
         for user in userList:
@@ -49,7 +50,7 @@ def UserAverage(userList=User.objects.all(), songSetLimit=Song.objects.count()):
                 userRec = UserAverage_Recommendations(
                             song=Song.objects.get(id=song.id),
                             user_id=user.id,
-                            life = UserAverage_Life.objects.last().id,
+                            life = UserAverage_Life.objects.last(),
                             similarity=similarity,
                             iLike=bool(choice([True,False])),
                             score=randint(MIN_SCORE,MAX_SCORE))
