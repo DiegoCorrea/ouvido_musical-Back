@@ -19,3 +19,7 @@ Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:
 1. `sudo -u postgres psql ouvido_musical_thousand`  
 2. `\i config/data/oneMillionSongs/thousand/loadData.sql;`  
 3. `\q`  
+
+### Clean pyc  
+1. Limpa todo o cache`find . -name \*.pyc -delete`  
+2. Clean migrations: `find . -path "*/migrations/*.py" -not -name "__init__.py" -delete`
