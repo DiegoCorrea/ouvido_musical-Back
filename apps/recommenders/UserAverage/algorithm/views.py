@@ -6,10 +6,10 @@ import logging
 logger = logging.getLogger(__name__)
 
 def runUserAverage(songSetLimit):
-    logger.info("[Start User Average - Benchmark]")
+    logger.info("[Start Run User Average - Benchmark]")
     startAt = timezone.now()
     UserAverage(songSetLimit=songSetLimit)
     bench = BenchUserAverage(started_at=startAt,finished_at=timezone.now())
     bench.save()
     logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
-    logger.info("[Start User Average] - Benchmark")
+    logger.info("[Start Run User Average] - Benchmark")

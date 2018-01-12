@@ -6,5 +6,3 @@ from django.db import models
 class BenchUserAverage(models.Model):
     started_at = models.DateTimeField()
     finished_at = models.DateTimeField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)

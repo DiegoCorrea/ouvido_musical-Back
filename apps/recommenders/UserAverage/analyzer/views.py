@@ -12,6 +12,6 @@ def runUserAverageBenchmarkGraph():
     bench_gLine()
     bench_gBoxPlot()
     bench_gScatter()
-def runAllUserAverageAnalizers():
+def runUserAverageAnalizers(songSetLimit):
     runUserAverageValueGraph()
     runUserAverageBenchmarkGraph()
