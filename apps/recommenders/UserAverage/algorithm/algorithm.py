@@ -6,7 +6,7 @@ from apps.CONSTANTS import MAX_SCORE, MIN_SCORE
 from apps.data.users.models import User
 from apps.data.songs.models import Song
 from apps.data.userPlaySong.models import UserPlaySong
-from .models import UserAverage_Recommendations
+from .models import UserAverage_Recommendations, UserAverage_Life
 
 import logging
 logger = logging.getLogger(__name__)
@@ -49,6 +49,7 @@ def UserAverage(userList=User.objects.all(), songSetLimit=Song.objects.count()):
                 userRec = UserAverage_Recommendations(
                             song=Song.objects.get(id=song.id),
                             user_id=user.id,
+                            life = UserAverage_Life.objects.last().id,
                             similarity=similarity,
                             iLike=bool(choice([True,False])),
                             score=randint(MIN_SCORE,MAX_SCORE))
