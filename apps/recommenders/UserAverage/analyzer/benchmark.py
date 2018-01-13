@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 from collections import Counter
-from apps.recommenders.UserAverage.algorithm.models import UserAverage_Recommendations
+from apps.recommenders.UserAverage.algorithm.models import UserAverage_Recommendations, UserAverage_Life
 from apps.recommenders.UserAverage.benchmark.models import BenchUserAverage
 import logging
 
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 def bench_gLine(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph Line)]")
-    allBenchmarks = BenchUserAverage.objects.all()
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
     benchmarkTimes = [ ]
     benchmarkMeanTimes = [ ]
     benchmarkMedianTimes = [ ]
@@ -38,7 +38,7 @@ def bench_gLine(songSetLimit, allItens = UserAverage_Recommendations.objects.all
     logger.info("[Finish Bench User Averange (Graph Line)]")
 def bench_gScatter(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph Scatter)]")
-    allBenchmarks = BenchUserAverage.objects.all()
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
     benchmarkTimes = [ ]
     benchmarkMeanTimes = [ ]
     benchmarkMedianTimes = [ ]
@@ -64,7 +64,7 @@ def bench_gScatter(songSetLimit, allItens = UserAverage_Recommendations.objects.
     logger.info("[Finish Bench User Averange (Graph Scatter)]")
 def bench_gBoxPlot(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph BoxPlot)]")
-    allBenchmarks = BenchUserAverage.objects.all()
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
     benchmarkTimes = [((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0) for benchmark in allBenchmarks]
     logger.debug("User Averange Benchmark -> Run Number: " + str(len(benchmarkTimes)))
     directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
@@ -78,7 +78,7 @@ def bench_gBoxPlot(songSetLimit, allItens = UserAverage_Recommendations.objects.
     logger.info("[Finish Bench User Averange (Graph BoxPlot)]")
 def bench_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph Bar)]")
-    allBenchmarks = BenchUserAverage.objects.all()
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
     benchmarkTimes = [float("{0:.2f}".format((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)) for benchmark in allBenchmarks]
     benchmarkCountList = Counter(benchmarkTimes)
     common = benchmarkCountList

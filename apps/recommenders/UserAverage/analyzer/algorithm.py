@@ -22,7 +22,6 @@ def like_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all()
     plt.savefig(str(directory) + 'like_gBar.png')
     plt.close()
     logger.info("[Finish User Average Score (Graph Bar)]")
-
 def recommended_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Recomended (Graph Bar)]")
     countList = Counter([item.song.id for item in allItens])
@@ -40,7 +39,6 @@ def recommended_gBar(songSetLimit, allItens = UserAverage_Recommendations.object
     plt.savefig(str(directory) + 'recommended_gBar.png')
     plt.close()
     logger.info("[Finish User Average Score (Graph Bar)]")
-
 def score_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Score (Graph Bar)]")
     countList = Counter([evalution.score for evalution in allItens])
@@ -56,7 +54,6 @@ def score_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all(
     plt.savefig(str(directory) + 'score_gBar.png')
     plt.close()
     logger.info("[Finish User Average Score (Graph Bar)]")
-
 def similarity_gScatter(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Similarity (Graph Scatter)]")
     itemValues = [ item.similarity for item in allItens]
@@ -75,7 +72,6 @@ def similarity_gScatter(songSetLimit, allItens = UserAverage_Recommendations.obj
     plt.savefig(str(directory) + 'similarity_gScatter.png')
     plt.close()
     logger.info("[Finish User Average Similarity (Graph Scatter)]")
-
 def similarity_gLine(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Similarity (Graph Line)]")
     itemValues = [float("{0:.3f}".format(item.similarity)) for item in allItens]
