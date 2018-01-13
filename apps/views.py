@@ -40,6 +40,6 @@ def run_score_evaluate_analise():
             logger.info("\tTamanho do banco (" + str(songSetLimit) + ") Ciclo: " + str(i))
             logger.info("*"*30)
             cleanRecTables()
-            #recommendation_evaluate_analise(songSetLimit)
+            recommendation_evaluate_analise(songSetLimit)
             os.system('cls||clear')
     logger.info('Finalizando Script')
