@@ -21,23 +21,21 @@ def TitleSimilarity():
         similarSongs[similar.songBase_id].setdefault(similar.songCompare_id, similar.similarity)
     # Persiste Title similarity
     logger.info("Start to persiste Title similarity")
-    i = 0
+    line = 0
+    allHighSongs = allSongs
     with transaction.atomic():
-        for songBase in allSongs:
+        for songBase in allHighSongs:
             allSongs = allSongs.exclude(id=songBase.id)
             if (songBase.id not in similarSongs):
                 similarSongs.setdefault(songBase.id, { })
-                newSongs += 1
-            j = i + 1
+            column = line + 1
             for songCompare in allSongs:
                 if (((songBase.id in similarSongs) and (songCompare.id in similarSongs[songBase.id])) or ((songCompare.id in similarSongs) and (songBase.id in similarSongs[songCompare.id]))):
                     continue
-                similar = SongSimilarity(songBase=songBase, songCompare=songCompare, similarity=similarityMatrix[i][j])
-                similar.save()
-                j += 1
-            i += 1
-    logger.debug("Total DB songs: %d", i)
-    logger.debug("Total new songs: %d", newSongs)
+                SongSimilarity.objects.create(songBase=songBase, songCompare=songCompare, similarity=similarityMatrix[line][column])
+                column += 1
+            line += 1
+    logger.debug("Total DB songs: %d", line)
     logger.info("[Finish Title Similarity]")
 def runTitleSimilarity():
     logger.info("[Start Title Similarity with Cosine] - Benchmark")
