@@ -95,7 +95,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         #'NAME': 'ouvido_musical_five_hundred',
-        'NAME': 'ouvido_musical_thousand',
+        'NAME': 'ouvido_musical_ten_thousand',
         'USER': 'ouvidomusicalapi',
         'PASSWORD': 'lovelovelove',
         'HOST': 'localhost',
@@ -202,7 +202,7 @@ LOGGING = {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': 'logs/main.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'maxBytes': 1024 * 1024 * 10,  # 10 MB
             'backupCount': 7,
             'formatter': 'main_formatter',
             'filters': ['require_debug_false'],
@@ -211,7 +211,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': 'logs/main_debug.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'maxBytes': 1024 * 1024 * 10,  # 10 MB
             'backupCount': 7,
             'formatter': 'main_formatter',
             'filters': ['require_debug_true'],
