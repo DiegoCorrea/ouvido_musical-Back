@@ -47,12 +47,11 @@ def UserAverage(userList=User.objects.all(), songSetLimit=Song.objects.count()):
         for user in userList:
             userRecommendations = getUserAverageRecommendationsLimited(user.id, songSetLimit)
             for (song, similarity) in userRecommendations.items():
-                userRec = UserAverage_Recommendations(
+                UserAverage_Recommendations.objects.create(
                             song=Song.objects.get(id=song.id),
                             user_id=user.id,
                             life = UserAverage_Life.objects.last(),
                             similarity=similarity,
                             iLike=bool(choice([True,False])),
                             score=randint(MIN_SCORE,MAX_SCORE))
-                userRec.save()
     logger.info("[Finish User Average]")
