@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 def TitleSimilarity():
     logger.info("[Start Title Similarity]")
     allSongs = Song.objects.all()
+    bool(allSongs)
     similarSongs = { }
     newSongs = 0
     # Calc Cosine from Songs and return a symmetric matrix len(Songs) x len(Songs)
@@ -26,12 +27,8 @@ def TitleSimilarity():
     with transaction.atomic():
         for songBase in allHighSongs:
             allSongs = allSongs.exclude(id=songBase.id)
-            if (songBase.id not in similarSongs):
-                similarSongs.setdefault(songBase.id, { })
             column = line + 1
             for songCompare in allSongs:
-                if (((songBase.id in similarSongs) and (songCompare.id in similarSongs[songBase.id])) or ((songCompare.id in similarSongs) and (songBase.id in similarSongs[songCompare.id]))):
-                    continue
                 SongSimilarity.objects.create(songBase=songBase, songCompare=songCompare, similarity=similarityMatrix[line][column])
                 column += 1
             line += 1
@@ -39,9 +36,9 @@ def TitleSimilarity():
     logger.info("[Finish Title Similarity]")
 def runTitleSimilarity():
     logger.info("[Start Title Similarity with Cosine] - Benchmark")
-    startAt = timezone.now()
+    startedAt = timezone.now()
     TitleSimilarity()
-    bench = BenchCosine_SongTitle(started_at=startAt,finished_at=timezone.now())
-    bench.save()
-    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
+    finishedAt = timezone.now()
+    BenchCosine_SongTitle.objects.create(started_at=startedAt,finished_at=finishedAt)
+    logger.info("Benchmark: Start at - " + str(startedAt) + " || Finished at -" + str(finishedAt))
     logger.info("[Finish Title Similarity with Cosine] - Benchmark")
