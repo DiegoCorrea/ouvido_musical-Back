@@ -10,7 +10,8 @@ logger = logging.getLogger(__name__)
 
 def bench_gLine(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph Line)]")
-    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
+    life_list = UserAverage_Life.objects.filter(setSize=songSetLimit)
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in life_list])
     benchmarkTimes = [ ]
     benchmarkMeanTimes = [ ]
     benchmarkMedianTimes = [ ]
@@ -21,7 +22,7 @@ def bench_gLine(songSetLimit, allItens = UserAverage_Recommendations.objects.all
     logger.debug("User Averange Benchmark -> Mean (minutes): " + str(benchmarkMeanTimes[-1]))
     logger.debug("User Averange Benchmark -> Median (minutes): " + str(benchmarkMedianTimes[-1]))
     logger.debug("User Averange Benchmark -> Run Number: " + str(len(benchmarkTimes)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(life_list.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -38,7 +39,8 @@ def bench_gLine(songSetLimit, allItens = UserAverage_Recommendations.objects.all
     logger.info("[Finish Bench User Averange (Graph Line)]")
 def bench_gScatter(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph Scatter)]")
-    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
+    life_list = UserAverage_Life.objects.filter(setSize=songSetLimit)
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in life_list])
     benchmarkTimes = [ ]
     benchmarkMeanTimes = [ ]
     benchmarkMedianTimes = [ ]
@@ -49,7 +51,7 @@ def bench_gScatter(songSetLimit, allItens = UserAverage_Recommendations.objects.
     logger.debug("User Averange Benchmark -> Mean (minutes): " + str(benchmarkMeanTimes[-1]))
     logger.debug("User Averange Benchmark -> Median (minutes): " + str(benchmarkMedianTimes[-1]))
     logger.debug("User Averange Benchmark -> Run Number: " + str(len(benchmarkTimes)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(life_list.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -64,10 +66,11 @@ def bench_gScatter(songSetLimit, allItens = UserAverage_Recommendations.objects.
     logger.info("[Finish Bench User Averange (Graph Scatter)]")
 def bench_gBoxPlot(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph BoxPlot)]")
-    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
+    life_list = UserAverage_Life.objects.filter(setSize=songSetLimit)
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in life_list])
     benchmarkTimes = [((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0) for benchmark in allBenchmarks]
     logger.debug("User Averange Benchmark -> Run Number: " + str(len(benchmarkTimes)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(life_list.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -78,14 +81,15 @@ def bench_gBoxPlot(songSetLimit, allItens = UserAverage_Recommendations.objects.
     logger.info("[Finish Bench User Averange (Graph BoxPlot)]")
 def bench_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
     logger.info("[Start Bench User Averange (Graph Bar)]")
-    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in UserAverage_Life.objects.filter(setSize=songSetLimit)])
+    life_list = UserAverage_Life.objects.filter(setSize=songSetLimit)
+    allBenchmarks = BenchUserAverage.objects.filter(life__in=[ run.id for run in life_list])
     benchmarkTimes = [float("{0:.2f}".format((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)) for benchmark in allBenchmarks]
     benchmarkCountList = Counter(benchmarkTimes)
     common = benchmarkCountList
     mode = common.most_common(1)[0][0]
     logger.debug('User Averange Benchmark -> Mode: ' + str(mode))
     logger.debug('User Averange Benchmark -> List: ' + str(benchmarkCountList))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(allBenchmarks.last().id) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/benchmark/' + str(life_list.last().id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
