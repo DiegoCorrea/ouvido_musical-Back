@@ -5,11 +5,10 @@ from .MAP.analyzer.views import runAllMAPAnalizers
 from .MRR.analyzer.views import runAllMRRAnalizers
 from .NDCG.analyzer.views import runAllNDCGAnalizers
 
-def runEvaluations(at=5):
+def runEvaluations(at=5,songSetLimit=songSetLimit):
     runMAP(at=at)
+    runAllMAPAnalizers(at=at,songSetLimit=songSetLimit)
     runMRR(at=at)
+    runAllMRRAnalizers(at=at,songSetLimit=songSetLimit)
     runNDCG(at=at)
-def runAnalizers(at=5):
-    runAllMAPAnalizers(at=at)
-    runAllMRRAnalizers(at=at)
-    runAllNDCGAnalizers(at=at)
+    runAllNDCGAnalizers(at=at,songSetLimit=songSetLimit)

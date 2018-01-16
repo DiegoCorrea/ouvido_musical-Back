@@ -27,15 +27,15 @@ def cleanRecTables(userRec=True, userAveRec=True):
 ###############################################################################
 def recommendation_evaluate_analise(songSetLimit):
     runRecommenders(songSetLimit=songSetLimit)
-    #runEvaluations(at=5)
-    #runEvaluations(at=10)
+    runEvaluations(at=5,songSetLimit=songSetLimit)
+    runEvaluations(at=10,songSetLimit=songSetLimit)
 
 def run_score_evaluate_analise():
     logger.info("*"*30)
     logger.info("* Iniciando script Recomendar, Avaliar e Analizar as recomendações")
     logger.info("*"*30)
-    for songSetLimit in [500, 750, 1000]:
-        for i in range(30):
+    for songSetLimit in [1000, 2000, 3000]:
+        for i in range(10):
             logger.info("*"*30)
             logger.info("\tTamanho do banco (" + str(songSetLimit) + ") Ciclo: " + str(i))
             logger.info("*"*30)
