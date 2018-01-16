@@ -9,7 +9,7 @@ from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 logger = logging.getLogger(__name__)
 
-def value_gLine(at=5):
+def value_gLine(at=5,songSetLimit):
     logger.info("[Start MAP Value (Graph Line)]")
     allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [ ]
@@ -37,7 +37,7 @@ def value_gLine(at=5):
     plt.savefig(str(directory) + 'value_gLine-[' + str(at) + '].png')
     plt.close()
     logger.info("[Finish MAP Value (Graph Line)]")
-def value_gScatter(at=5):
+def value_gScatter(at=5,songSetLimit):
     logger.info("[Start MAP Value (Graph Scatter)]")
     allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [ ]
@@ -63,7 +63,7 @@ def value_gScatter(at=5):
     plt.savefig(str(directory) + 'value_gScatter-[' + str(at) + '].png')
     plt.close()
     logger.info("[Finish MAP Value (Graph Scatter)]")
-def value_gBoxPlot(at=5):
+def value_gBoxPlot(at=5,songSetLimit):
     logger.info("[Start MAP Value (Graph BoxPlot)]")
     allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [(evalution.value) for evalution in allEvaluations]
@@ -77,7 +77,7 @@ def value_gBoxPlot(at=5):
     plt.savefig(str(directory) + 'value_gBoxPlot-[' + str(at) + '].png')
     plt.close()
     logger.info("[Finish MAP Value (Graph BoxPlot)]")
-def value_gBar(at=5):
+def value_gBar(at=5,songSetLimit):
     logger.info("[Start MAP Value (Graph Bar)]")
     allEvaluations = MAP.objects.filter(at=at,life_id=UserAverage_Life.objects.last())
     evaluationValues = [float("{0:.4f}".format(evalution.value)) for evalution in allEvaluations]
