@@ -10,7 +10,7 @@ def like_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all()
     logger.info("[Start User Average Recomended (Graph Bar)]")
     countList = Counter([item.iLike for item in allItens])
     logger.debug('User Averange Benchmark -> List len: ' + str(len(countList)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life_id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -27,7 +27,7 @@ def recommended_gBar(songSetLimit, allItens = UserAverage_Recommendations.object
     countList = Counter([item.song_id for item in allItens])
     countListValues = Counter(countList.values())
     logger.debug('User Averange Benchmark -> List len: ' + str(len(countList)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life_id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -43,7 +43,7 @@ def score_gBar(songSetLimit, allItens = UserAverage_Recommendations.objects.all(
     logger.info("[Start User Average Score (Graph Bar)]")
     countList = Counter([evalution.score for evalution in allItens])
     logger.debug('User Averange Score -> List len: ' + str(len(countList)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life_id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -59,7 +59,7 @@ def similarity_gScatter(songSetLimit, allItens = UserAverage_Recommendations.obj
     itemValues = [ float("{0:.3f}".format(item.similarity)) for item in allItens]
     itemMeanValues = np.mean(itemValues)
     logger.debug('User Average Similarity -> Mean: ' + str(len(itemValues)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life_id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -77,7 +77,7 @@ def similarity_gLine(songSetLimit, allItens = UserAverage_Recommendations.object
     itemValues = [float("{0:.3f}".format(item.similarity)) for item in allItens]
     countList = Counter(sorted(itemValues))
     logger.debug('User Average Similarity -> List len: ' + str(len(itemValues)))
-    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life) + '/')
+    directory = str('./files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life_id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()

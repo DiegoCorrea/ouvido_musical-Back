@@ -15,15 +15,20 @@ logger = logging.getLogger(__name__)
 #
 def getUserAverageRecommendations(user_id, songSetLimit, songIDList):
     recommendation = { }
-    songPlayedID_list = [ played.song_id for played in UserPlaySong.objects.filter(user_id=user_id)]
-    songIDList = songIDList.exclude(songPlayedID_list)
+    userPlayed_list = UserPlaySong.objects.filter(user_id=user_id)
+    for played in userPlayed_list:
+        songIDList.remove(played.song_id)
     try:
         songIDList = sample(set(songIDList), songSetLimit)
     except ValueError as e:
         songIDList = sample(set(songIDList), len(songIDList))
     for songPlayed in userPlayed_list:
-        for songSimi in songPlayed.song.getSimilaries(songIDList):
-            if songSimi.similarity == 0.0: continue
+        print("aaa")
+        print (str(len(songIDList)))
+        similaresSide = songPlayed.song.getSimilaries(set(songIDList))
+        print("!!!! "+str(len(similaresSide)))
+        for songSimi in similaresSide:
+            #if songSimi.similarity == 0.0: continue
             if songSimi.songCompare not in recommendation:
                 recommendation.setdefault(songSimi.songCompare, [])
             recommendation[songSimi.songCompare].append(songSimi.similarity)
@@ -38,12 +43,13 @@ def UserAverage(userList=User.objects.all(), songSetLimit=Song.objects.count(), 
     logger.info("[Start User Average]")
     with transaction.atomic():
         for user in userList:
-            userRecommendations = getUserAverageRecommendations(user.id, songSetLimit, songIDList=songIDList)
+            userRecommendations = getUserAverageRecommendations(user.id, songSetLimit, set(songIDList))
+            print("---+++ "+str(len(userRecommendations)))
             for (song, similarity) in userRecommendations.items():
                 UserAverage_Recommendations.objects.create(
                             song=Song.objects.get(id=song.id),
                             user_id=user.id,
-                            life = UserAverage_Life.objects.last(),
+                            life=UserAverage_Life.objects.last().id,
                             similarity=similarity,
                             iLike=bool(choice([True,False])),
                             score=randint(MIN_SCORE,MAX_SCORE))
