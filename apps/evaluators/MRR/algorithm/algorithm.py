@@ -20,15 +20,15 @@ def getMRR(relevanceArray):
         if relevanceArray[i]:
             return 1/(i+1)
     return 0
-def calcUsersMRR(limit=5):
+def calcUsersMRR(at=5):
     logger.info("[Start User MRR]")
     mrrList = []
     for user in User.objects.all():
-        userec = user.useraverage_recommendations_set.all()[:limit]
+        userec = user.useraverage_recommendations_set.all()[:at]
         if (len(userec) == 0): continue
         mrrList.append(getMRR(userLikeArray(userec)))
     uMrr = np.mean(mrrList)
-    logger.debug("Mean Reciprocal Rank@%d: %f", limit, uMrr)
+    logger.debug("Mean Reciprocal Rank@%d: %f", at, uMrr)
     logger.debug("Total Users Rated: %d", len(mrrList))
     logger.info("[Finish User MRR]")
     return uMrr

@@ -1,18 +1,19 @@
 from .algorithm import calcUsersNDCG
-from apps.evaluators.NDCG.algorithm.models import NDCG
+from .models import NDCG
 from apps.evaluators.NDCG.benchmark.models import BenchNDCG
 from django.utils import timezone
+from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 import logging
 logger = logging.getLogger(__name__)
 # Create your views here.
 def runNDCG(at=5):
     logger.info("[Start NDCG Evaluation]")
-    startAt = timezone.now()
-    value = calcUsersNDCG(limit=at)
-    bench = BenchNDCG(started_at=startAt,finished_at=timezone.now())
-    bench.save()
-    ndcgResult = NDCG(value=value,limit=at)
+    startedAt = timezone.now()
+    value = calcUsersNDCG(at=at)
+    finishedAt = timezone.now()
+    ndcgResult = NDCG(life=UserAverage_Life.objects.last(),value=value,at=at)
     ndcgResult.save()
-    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
+    BenchNDCG.objects.create(id=ndcgResult,started_at=startedAt,finished_at=finishedAt)
+    logger.info("Benchmark: Start at - " + str(startedAt) + " || Finished at -" + str(finishedAt))
     logger.info("[Finish NDCG Evaluation]")

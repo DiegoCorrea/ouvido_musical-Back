@@ -5,7 +5,7 @@ from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 # Create your models here.
 class MRR(models.Model):
-    life_id = models.ForeignKey(UserAverage_Life, unique=False)
+    life = models.ForeignKey(UserAverage_Life, unique=False)
     value = models.FloatField()
     at = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)

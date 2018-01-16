@@ -2,17 +2,18 @@ from .algorithm import calcUsersMRR
 from .models import MRR
 from apps.evaluators.MRR.benchmark.models import BenchMRR
 from django.utils import timezone
+from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 import logging
 logger = logging.getLogger(__name__)
 # Create your views here.
 def runMRR(at=5):
     logger.info("[Start MRR Evaluation]")
-    startAt = timezone.now()
-    value = calcUsersMRR(limit=at)
-    bench = BenchMRR(started_at=startAt,finished_at=timezone.now())
-    bench.save()
-    mrrResult = MRR(value=value, limit=at)
+    startedAt = timezone.now()
+    value = calcUsersMRR(at=at)
+    finishedAt = timezone.now()
+    mrrResult = MRR(life=UserAverage_Life.objects.last(),value=value, at=at)
     mrrResult.save()
-    logger.info("Benchmark: Start at - " + str(bench.started_at) + " || Finished at -" + str(bench.finished_at))
+    BenchMRR.objects.create(id=mrrResult,started_at=startedAt,finished_at=finishedAt)
+    logger.info("Benchmark: Start at - " + str(startedAt) + " || Finished at -" + str(finishedAt))
     logger.info("[Finish MRR Evaluation]")
