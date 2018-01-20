@@ -5,6 +5,7 @@ from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 from django.utils import timezone
 from django.db import transaction
 from multiprocessing.dummy import Pool as ThreadPool
+from apps.CONSTANTS import MAX_THREAD
 
 import logging
 logger = logging.getLogger(__name__)
@@ -55,7 +56,7 @@ def TitleSimilarity():
         line += 1
     # Persiste Title similarity
     logger.info("Start to persiste Title similarity")
-    pool = ThreadPool(16)
+    pool = ThreadPool(MAX_THREAD)
     with transaction.atomic():
         pool.map(saveTitleSimilarity, songInterator)
         pool.close()
