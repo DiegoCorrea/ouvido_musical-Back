@@ -13,28 +13,22 @@ songInterator = {}
 similarityMatrix = []
 
 
-def saveTitleSimilarity(similarityMatrix, sBase, songInterator):
-    for sComp in songInterator:
-        SongSimilarity.objects.create(
-            songBase=sBase['id'],
-            songCompare=songInterator[sComp]['id'],
-            similarity=similarityMatrix[sBase['position']][songInterator[sComp]['position']]
-        )
-
-
-def sstt(sBase):
+def saveTitleSimilarity(sBase):
     global similarityMatrix
     global songInterator
-    logger.info("++ Song Title: " + str(songInterator[sBase]['id'].id))
-    logger.info("++ Song Psition: " + str(songInterator[sBase]['position']))
+    logger.info("++ Song Title: " + str(songInterator[sBase]['obj'].id))
+    logger.info("++ Song Psition: " + str(songInterator[sBase]['pos']))
     for sComp in songInterator:
-        if(songInterator[sComp]['position'] < songInterator[sBase]['position']):
+        if songInterator[sBase]['pos'] >= songInterator[sComp]['pos']:
             continue
-        SongSimilarity.objects.create(
-            songBase=songInterator[sBase]['id'],
-            songCompare=songInterator[sComp]['id'],
-            similarity=similarityMatrix[songInterator[sBase]['position']][songInterator[sComp]['position']]
-        )
+        try:
+            SongSimilarity.objects.create(
+                songBase=songInterator[sBase]['obj'],
+                songCompare=songInterator[sComp]['obj'],
+                similarity=similarityMatrix[songInterator[sBase]['pos']][songInterator[sComp]['pos']]
+            )
+        except Exception as e:
+            logger.info("-----Error Alert: " + str(e.errno))
 
 
 def TitleSimilarity():
@@ -46,16 +40,16 @@ def TitleSimilarity():
     similarityMatrix = CosineSimilarity([song.title for song in allSongs])
     for song in allSongs:
         songInterator.setdefault(song.id, {
-            'id': song,
-            'position': line
+            'obj': song,
+            'pos': line
             }
         )
         line += 1
     # Persiste Title similarity
     logger.info("Start to persiste Title similarity")
-    pool = ThreadPool(8)
+    pool = ThreadPool(16)
     with transaction.atomic():
-        pool.map(sstt, songInterator)
+        pool.map(saveTitleSimilarity, songInterator)
         pool.close()
         pool.join()
     logger.info("[Finish Title Similarity]")
