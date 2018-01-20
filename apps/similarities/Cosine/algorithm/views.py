@@ -4,9 +4,13 @@ from apps.data.songs.models import Song, SongSimilarity
 from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 from django.utils import timezone
 from django.db import transaction
+from multiprocessing.dummy import Pool as ThreadPool
 
 import logging
 logger = logging.getLogger(__name__)
+
+songInterator = {}
+similarityMatrix = []
 
 
 def saveTitleSimilarity(similarityMatrix, sBase, songInterator):
@@ -18,14 +22,30 @@ def saveTitleSimilarity(similarityMatrix, sBase, songInterator):
         )
 
 
+def sstt(sBase):
+    global similarityMatrix
+    global songInterator
+    logger.info("++ Song Title: " + str(songInterator[sBase]['id'].id))
+    logger.info("++ Song Psition: " + str(songInterator[sBase]['position']))
+    for sComp in songInterator:
+        if(songInterator[sComp]['position'] < songInterator[sBase]['position']):
+            continue
+        SongSimilarity.objects.create(
+            songBase=songInterator[sBase]['id'],
+            songCompare=songInterator[sComp]['id'],
+            similarity=similarityMatrix[songInterator[sBase]['position']][songInterator[sComp]['position']]
+        )
+
+
 def TitleSimilarity():
     logger.info("[Start Title Similarity]")
+    global similarityMatrix
+    global songInterator
     allSongs = Song.objects.all()
-    songPosition = {}
     line = 0
     similarityMatrix = CosineSimilarity([song.title for song in allSongs])
     for song in allSongs:
-        songPosition.setdefault(song.id, {
+        songInterator.setdefault(song.id, {
             'id': song,
             'position': line
             }
@@ -33,12 +53,11 @@ def TitleSimilarity():
         line += 1
     # Persiste Title similarity
     logger.info("Start to persiste Title similarity")
+    pool = ThreadPool(8)
     with transaction.atomic():
-        for songBase in allSongs:
-            sB = songPosition[songBase.id]
-            del songPosition[songBase.id]
-            logger.info("++ Song: " + str(sB['position']))
-            saveTitleSimilarity(similarityMatrix, sB, songPosition)
+        pool.map(sstt, songInterator)
+        pool.close()
+        pool.join()
     logger.info("[Finish Title Similarity]")
 
 

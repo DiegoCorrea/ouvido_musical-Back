@@ -1,6 +1,7 @@
 ### Executando  
 1. `source ouvidoMusicalenv/bin/activate`  
 2. `python3.6 manage.py runserver`  
+3. Linux visualizar processadores: `mpstat -P ALL`
 
 ### Terminal Django/Projeto  
 1. `python3.6 manage.py shell_plus`  
