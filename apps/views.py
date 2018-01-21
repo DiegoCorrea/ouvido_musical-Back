@@ -2,7 +2,9 @@ import os
 from .data.userSongRecommendation.models import UserSongRecommendations
 from .similarities.views import runSimilarities
 from .recommenders.views import runRecommenders
-from .recommenders.UserAverage.algorithm.models import UserAverage_Recommendations
+from .recommenders.UserAverage.algorithm.models import (
+    UserAverage_Recommendations
+)
 from .evaluators.views import runEvaluations
 import logging
 logger = logging.getLogger(__name__)

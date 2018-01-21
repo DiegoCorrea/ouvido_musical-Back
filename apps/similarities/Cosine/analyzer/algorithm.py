@@ -24,10 +24,10 @@ def similarity_gScatter(songSetLimit=SongSimilarity.objects.count()):
     pool.join()
     itemMeanValues = np.mean(itemValues)
     directory = str(
-                    './files/apps/similarities/Cosine/graphs/'
-                    + str(songSetLimit)
-                    + '/algorithm/'
-                    )
+        './files/apps/similarities/Cosine/graphs/'
+        + str(songSetLimit)
+        + '/algorithm/'
+    )
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -36,11 +36,11 @@ def similarity_gScatter(songSetLimit=SongSimilarity.objects.count()):
     plt.ylabel('Similaridade')
     plt.xlabel('Similaridade')
     plt.scatter(
-                itemValues,
-                itemValues,
-                label='Media: '
-                + str(float("{0:.3f}".format(itemMeanValues)))
-                )
+        itemValues,
+        itemValues,
+        label='Media: '
+        + str(float("{0:.3f}".format(itemMeanValues)))
+    )
     plt.legend(loc='upper left')
     plt.savefig(str(directory) + 'similarity_gScatter.png')
     plt.close()
@@ -57,10 +57,10 @@ def similarity_gLine(songSetLimit=SongSimilarity.objects.count()):
     countList = Counter(sorted(itemValues))
     itemMeanValues = np.mean(itemValues)
     directory = str(
-                    './files/apps/similarities/Cosine/graphs/'
-                    + str(songSetLimit)
-                    + '/algorithm/'
-                    )
+        './files/apps/similarities/Cosine/graphs/'
+        + str(songSetLimit)
+        + '/algorithm/'
+    )
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -68,14 +68,20 @@ def similarity_gLine(songSetLimit=SongSimilarity.objects.count()):
     plt.title('Cosine Similarity')
     plt.ylabel('Quantidade de similares')
     plt.xlabel('Similaridade')
-    plt.plot(countList.keys(), countList.values())
+    plt.plot(
+        countList.keys(),
+        countList.values()
+    )
     plt.scatter(
-                itemValues,
-                itemValues,
-                label='Media: '
-                + str(float("{0:.3f}".format(itemMeanValues)))
-                )
+        itemValues,
+        itemValues,
+        label='Media: '
+        + str(float("{0:.3f}".format(itemMeanValues)))
+    )
     plt.legend(loc='upper left')
-    plt.savefig(str(directory) + 'similarity_gLine.png')
+    plt.savefig(
+        str(directory)
+        + 'similarity_gLine.png'
+    )
     plt.close()
     logger.info("[Finish Cosine Similarity (Graph Line)]")
