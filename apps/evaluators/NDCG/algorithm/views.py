@@ -6,14 +6,28 @@ from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 import logging
 logger = logging.getLogger(__name__)
-# Create your views here.
+
+
 def runNDCG(at=5):
     logger.info("[Start NDCG Evaluation]")
     startedAt = timezone.now()
     value = calcUsersNDCG(at=at)
     finishedAt = timezone.now()
-    ndcgResult = NDCG(life=UserAverage_Life.objects.last(),value=value,at=at)
+    ndcgResult = NDCG(
+                        life=UserAverage_Life.objects.last(),
+                        value=value,
+                        at=at
+                    )
     ndcgResult.save()
-    BenchNDCG.objects.create(id=ndcgResult,started_at=startedAt,finished_at=finishedAt)
-    logger.info("Benchmark: Start at - " + str(startedAt) + " || Finished at -" + str(finishedAt))
+    BenchNDCG.objects.create(
+                            id=ndcgResult,
+                            started_at=startedAt,
+                            finished_at=finishedAt
+                            )
+    logger.info(
+                "Benchmark: Start at - "
+                + str(startedAt)
+                + " || Finished at -"
+                + str(finishedAt)
+                )
     logger.info("[Finish NDCG Evaluation]")

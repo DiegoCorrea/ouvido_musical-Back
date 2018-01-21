@@ -12,8 +12,21 @@ def runMRR(at=5):
     startedAt = timezone.now()
     value = calcUsersMRR(at=at)
     finishedAt = timezone.now()
-    mrrResult = MRR(life=UserAverage_Life.objects.last(),value=value, at=at)
+    mrrResult = MRR(
+                    life=UserAverage_Life.objects.last(),
+                    value=value,
+                    at=at
+                    )
     mrrResult.save()
-    BenchMRR.objects.create(id=mrrResult,started_at=startedAt,finished_at=finishedAt)
-    logger.info("Benchmark: Start at - " + str(startedAt) + " || Finished at -" + str(finishedAt))
+    BenchMRR.objects.create(
+                            id=mrrResult,
+                            started_at=startedAt,
+                            finished_at=finishedAt
+                            )
+    logger.info(
+                "Benchmark: Start at - "
+                + str(startedAt)
+                + " || Finished at -"
+                + str(finishedAt)
+                )
     logger.info("[Finish MRR Evaluation]")
