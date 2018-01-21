@@ -79,10 +79,10 @@ def getUserAverageRecommendations(user):
 
 def UserAverage(songSetLimit=Song.objects.count()):
     logger.info("[Start User Average]")
+    UserAverage_Life.objects.create(setSize=songSetLimit)
     setSongLimitOnMap(songSetLimit=songSetLimit)
     setAllSongsIdOnMemory()
     userList = User.objects.all()
-    UserAverage_Life.objects.create(setSize=songSetLimit)
     pool = ThreadPool(MAX_THREAD)
     pool.map(getUserAverageRecommendations, userList)
     pool.close()
