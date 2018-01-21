@@ -45,21 +45,36 @@ def getUserAverageRecommendations_b(user):
         for songSimi in similaresSide:
             # if songSimi.similarity == 0.0:
             #    continue
-            if songSimi.songCompare not in recommendations:
+            if songSimi.songCompare in recommendations:
+                recommendations[songSimi.songCompare].append(songSimi.similarity)
+                continue
+            if songSimi.songBase in recommendations:
+                recommendations[songSimi.songBase].append(songSimi.similarity)
+                continue
+            if songSimi.songCompare is not songPlayed.song and songSimi.songCompare not in recommendations:
                 recommendations.setdefault(songSimi.songCompare, [])
-            recommendations[songSimi.songCompare].append(songSimi.similarity)
+                recommendations[songSimi.songCompare].append(songSimi.similarity)
+                continue
+            if songSimi.songBase is not songPlayed.song and songSimi.songBase not in recommendations:
+                recommendations.setdefault(songSimi.songBase, [])
+                recommendations[songSimi.songBase].append(songSimi.similarity)
+                continue
     rec = {}
     for (song, values) in recommendations.items():
         rec.setdefault(song, sum(values)/len(values))
     with transaction.atomic():
         for (song, similarity) in OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True)).items():
-            UserAverage_Recommendations.objects.create(
+            try:
+                UserAverage_Recommendations.objects.create(
                         song_id=song.id,
                         user_id=user.id,
                         life_id=UserAverage_Life.objects.last().id,
                         similarity=similarity,
                         iLike=bool(choice([True, False])),
                         score=randint(MIN_SCORE, MAX_SCORE))
+            except Exception:
+                logger.info("-----Error Alert-----")
+                continue
 
 
 def UserAverage_n(songSetLimit=Song.objects.count()):
