@@ -68,7 +68,10 @@ def bench_gLine(at, songSetLimit):
         color='blue', label='Mediana'
     )
     plt.legend(loc='best')
-    plt.savefig(str(directory) + 'value_gLine.png')
+    plt.savefig(
+        str(directory)
+        + 'value_gLine.png'
+    )
     plt.close()
     logger.info("[Finish Bench MAP (Graph Line)]")
 
@@ -120,10 +123,13 @@ def bench_gScatter(at, songSetLimit):
         benchmarkTimes,
         benchmarkTimes,
         label='Media: '
-            + str(float("{0:.4f}".format(benchmarkMeanTimes[-1])))
+        + str(float("{0:.4f}".format(benchmarkMeanTimes[-1])))
     )
     plt.legend(loc='upper left')
-    plt.savefig(str(directory) + 'value_gScatter.png')
+    plt.savefig(
+        str(directory)
+        + 'value_gScatter.png'
+    )
     plt.close()
     logger.info("[Finish Bench MAP (Graph Scatter)]")
 
@@ -169,7 +175,10 @@ def bench_gBoxPlot(at, songSetLimit):
         + str(songSetLimit)
     )
     plt.boxplot(benchmarkTimes, labels='T')
-    plt.savefig(str(directory) + 'value_gBoxPlot.png')
+    plt.savefig(
+        str(directory)
+        + 'value_gBoxPlot.png'
+    )
     plt.close()
     logger.info("[Finish Bench MAP (Graph BoxPlot)]")
 
@@ -209,6 +218,9 @@ def bench_gBar(at, songSetLimit):
         label='Moda: ' + str(float("{0:.3f}".format(mode)))
     )
     plt.legend(loc='best')
-    plt.savefig(str(directory) + 'value_gBar.png')
+    plt.savefig(
+        str(directory)
+        + 'value_gBar.png'
+    )
     plt.close()
     logger.info("[Finish Bench MAP (Graph Bar)]")
