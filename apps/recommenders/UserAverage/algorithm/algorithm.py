@@ -43,8 +43,8 @@ def getUserAverageRecommendations_b(user):
     for songPlayed in userPlayed_list:
         similaresSide = songPlayed.song.getSimilaries(songIDList=userModel)
         for songSimi in similaresSide:
-            # if songSimi.similarity == 0.0:
-            #    continue
+            if songSimi.similarity == 0.0:
+                continue
             if songSimi.songCompare in recommendations:
                 recommendations[songSimi.songCompare].append(songSimi.similarity)
                 continue
