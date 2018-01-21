@@ -27,7 +27,7 @@ def setAllSongsIdOnMemory():
     SONGDB_IDS = [song.id for song in Song.objects.all()]
 
 
-def getUserAverageRecommendations_b(user):
+def getUserAverageRecommendations(user):
     logger.info("[Start Get User Recommendation] - id: " + str(user.id))
     global SONGDB_IDS
     recommendations = {}
@@ -77,14 +77,14 @@ def getUserAverageRecommendations_b(user):
                 continue
 
 
-def UserAverage_n(songSetLimit=Song.objects.count()):
+def UserAverage(songSetLimit=Song.objects.count()):
     logger.info("[Start User Average]")
     setSongLimitOnMap(songSetLimit=songSetLimit)
     setAllSongsIdOnMemory()
     userList = User.objects.all()
     UserAverage_Life.objects.create(setSize=songSetLimit)
     pool = ThreadPool(MAX_THREAD)
-    pool.map(getUserAverageRecommendations_b, userList)
+    pool.map(getUserAverageRecommendations, userList)
     pool.close()
     pool.join()
     logger.info("[Finish User Average]")
