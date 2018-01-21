@@ -2,7 +2,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from apps.evaluators.MRR.algorithm.models import MRR
-# Create your models here.
+
+
 class BenchMRR(models.Model):
     id = models.OneToOneField(MRR, primary_key=True)
     started_at = models.DateTimeField()
