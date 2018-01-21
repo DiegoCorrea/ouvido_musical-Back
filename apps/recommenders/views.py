@@ -7,5 +7,5 @@ logger = logging.getLogger(__name__)
 def runRecommenders(songSetLimit):
     logger.info("[Start Recommenders]")
     runUserAverage(songSetLimit=songSetLimit)
-    runUserAverageAnalizers(songSetLimit=songSetLimit)
+    # runUserAverageAnalizers(songSetLimit=songSetLimit)
     logger.info("[Finish Recommenders]")

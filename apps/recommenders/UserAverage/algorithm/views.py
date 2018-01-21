@@ -16,7 +16,10 @@ def runUserAverage(songSetLimit):
         started_at=startedAt,
         finished_at=finishedAt
     )
-    logger.info("Benchmark: Start at - "
-        + str(startedAt) + " || Finished at -" + str(finishedAt)
+    logger.info(
+        "Benchmark: Start at - "
+        + str(startedAt)
+        + " || Finished at -"
+        + str(finishedAt)
     )
     logger.info("[Start Run User Average] - Benchmark")
