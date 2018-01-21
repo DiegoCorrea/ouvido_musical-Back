@@ -13,53 +13,6 @@ import copy
 import logging
 logger = logging.getLogger(__name__)
 
-
-def getUserAverageRecommendations(user_id, songSetLimit, songIDList):
-    recommendation = {}
-    userPlayed_list = UserPlaySong.objects.filter(user_id=user_id)
-    for played in userPlayed_list:
-        songIDList.remove(played.song_id)
-    try:
-        songIDList = sample(set(songIDList), songSetLimit)
-    except ValueError:
-        songIDList = sample(set(songIDList), len(songIDList))
-    for songPlayed in userPlayed_list:
-        print("aaa")
-        print (str(len(songIDList)))
-        similaresSide = songPlayed.song.getSimilaries(set(songIDList))
-        print("!!!! "+str(len(similaresSide)))
-        for songSimi in similaresSide:
-            # if songSimi.similarity == 0.0: continue
-            if songSimi.songCompare not in recommendation:
-                recommendation.setdefault(songSimi.songCompare, [])
-            recommendation[songSimi.songCompare].append(songSimi.similarity)
-    rec = {}
-    for (song, values) in recommendation.items():
-        rec.setdefault(song, sum(values)/len(values))
-    return OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True))
-
-
-def UserAverage(userList=User.objects.all(), songSetLimit=Song.objects.count(), allSongs=Song.objects.all()):
-    bool(allSongs)
-    songIDList = [song.id for song in allSongs]
-    UserAverage_Life.objects.create(setSize=songSetLimit)
-    logger.info("[Start User Average]")
-    with transaction.atomic():
-        for user in userList:
-            userRecommendations = getUserAverageRecommendations(user.id, songSetLimit, set(songIDList))
-            print("---+++ "+str(len(userRecommendations)))
-            for (song, similarity) in userRecommendations.items():
-                UserAverage_Recommendations.objects.create(
-                            song=Song.objects.get(id=song.id),
-                            user_id=user.id,
-                            life=UserAverage_Life.objects.last().id,
-                            similarity=similarity,
-                            iLike=bool(choice([True,False])),
-                            score=randint(MIN_SCORE,MAX_SCORE))
-    logger.info("[Finish User Average]")
-
-
-# ###############################################################################
 SONGSET_LIMIT = 0
 SONGDB_IDS = None
 
