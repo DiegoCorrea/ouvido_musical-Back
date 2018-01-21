@@ -62,9 +62,3 @@ def TitleSimilarity():
         pool.close()
         pool.join()
     logger.info("[Finish Title Similarity]")
-
-
-def runTitleSimilarity():
-    logger.info("[Start Title Similarity with Cosine] - Benchmark")
-    TitleSimilarity()
-    logger.info("[Finish Title Similarity with Cosine] - Benchmark")
