@@ -3,10 +3,10 @@ from django.db import models
 from apps.data.users.models import User
 from apps.data.songs.models import Song
 
-# Create your models here.
+
 class UserPlaySong(models.Model):
     user = models.ForeignKey(User, unique=False)
-    song = models.ForeignKey(Song, unique=False)
+    song = models.ForeignKey(Song, unique=False, related_name='song')
     play_count = models.IntegerField(default=0, unique=False)
 
     class Meta:
