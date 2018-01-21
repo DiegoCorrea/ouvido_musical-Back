@@ -45,7 +45,7 @@ def value_gLine(at=5,songSetLimit):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title('MAP - Mean Averange Precision@' + str(at))
+    plt.title('MAP - Mean Averange Precision@' + str(at) + '\nSet - '+ str(songSetLimit))
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do MAP')
     plt.plot(
@@ -104,7 +104,7 @@ def value_gScatter(at=5,songSetLimit):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title('MAP - Mean Averange Precision@' + str(at))
+    plt.title('MAP - Mean Averange Precision@' + str(at) + '\nSet - '+ str(songSetLimit))
     plt.ylabel('Valor MAP')
     plt.xlabel('Valor MAP')
     plt.scatter(
@@ -142,7 +142,7 @@ def value_gBoxPlot(at=5,songSetLimit):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title('MAP - Mean Averange Precision@' + str(at))
+    plt.title('MAP - Mean Averange Precision@' + str(at) + '\nSet - '+ str(songSetLimit))
     plt.boxplot(evaluationValues, labels='V')
     plt.savefig(
         str(directory)
@@ -174,7 +174,7 @@ def value_gBar(at=5,songSetLimit):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title('MAP - Mean Averange Precision@' + str(at))
+    plt.title('MAP - Mean Averange Precision@' + str(at) + '\nSet - '+ str(songSetLimit))
     plt.ylabel('Intervalor de valores')
     plt.xlabel('Quantidade')
     plt.bar(
