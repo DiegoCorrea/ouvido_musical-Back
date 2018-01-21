@@ -6,7 +6,6 @@ from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 
 import logging
 logger = logging.getLogger(__name__)
-# Create your views here.
 
 
 def runMAP(at=5):
@@ -17,14 +16,14 @@ def runMAP(at=5):
     mapResult = MAP(life=UserAverage_Life.objects.last(), value=value, at=at)
     mapResult.save()
     BenchMAP.objects.create(
-                            id=mapResult,
-                            started_at=startedAt,
-                            finished_at=finishedAt
-                            )
+        id=mapResult,
+        started_at=startedAt,
+        finished_at=finishedAt
+    )
     logger.info(
-                "Benchmark: Start at - "
-                + str(startedAt)
-                + " || Finished at -"
-                + str(finishedAt)
-                )
+        "Benchmark: Start at - "
+        + str(startedAt)
+        + " || Finished at -"
+        + str(finishedAt)
+    )
     logger.info("[Finish MAP Evaluation]")
