@@ -5,10 +5,11 @@ from django.db import models
 from apps.data.users.models import User
 from apps.data.songs.models import Song
 
-# Create your models here.
+
 class UserAverage_Life(models.Model):
     setSize = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
+
 
 class UserAverage_Recommendations(models.Model):
     # IDS
@@ -21,6 +22,7 @@ class UserAverage_Recommendations(models.Model):
     score = models.IntegerField(blank=True, null=True, unique=False)
     # Timers
     created_at = models.DateTimeField(auto_now_add=True)
+
     class Meta:
         unique_together = (('user', 'song'),)
 
