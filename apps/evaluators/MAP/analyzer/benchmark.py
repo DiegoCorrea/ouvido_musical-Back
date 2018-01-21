@@ -47,7 +47,7 @@ def bench_gLine(at, songSetLimit):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
-        +'\nBenchmark - set '
+        + '\nBenchmark - set '
         + str(songSetLimit)
     )
     plt.xlabel('ID da execução')
