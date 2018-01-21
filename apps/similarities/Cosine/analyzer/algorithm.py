@@ -27,8 +27,6 @@ def similarity_gScatter(songSetLimit=SongSimilarity.objects.count()):
                     './files/apps/similarities/Cosine/graphs/'
                     + str(songSetLimit)
                     + '/algorithm/'
-                    + str(timezone.now())
-                    + '/'
                     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -62,8 +60,6 @@ def similarity_gLine(songSetLimit=SongSimilarity.objects.count()):
                     './files/apps/similarities/Cosine/graphs/'
                     + str(songSetLimit)
                     + '/algorithm/'
-                    + str(timezone.now())
-                    + '/'
                     )
     if not os.path.exists(directory):
         os.makedirs(directory)
