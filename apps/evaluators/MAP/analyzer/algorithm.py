@@ -45,7 +45,12 @@ def value_gLine(at=5,songSetLimit):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title('MAP - Mean Averange Precision@' + str(at) + '\nSet - '+ str(songSetLimit))
+    plt.title(
+        'MAP - Mean Averange Precision@'
+        + str(at)
+        + '\nSet - '
+        + str(songSetLimit)
+    )
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do MAP')
     plt.plot(
