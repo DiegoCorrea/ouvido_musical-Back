@@ -22,8 +22,16 @@ def bigBang():
 def cleanRecTables(userRec=True, userAveRec=True):
     logger.info("-"*30)
     logger.info('Limpando as tabelas de recomendações')
-    if userRec: logger.info("Deletando UserSongRecommendations -----> " + str(UserSongRecommendations.objects.all().delete()))
-    if userAveRec: logger.info("Deletando UserAverage_Recommendations -----> " + str(UserAverage_Recommendations.objects.all().delete()))
+    if userRec:
+        logger.info(
+            "Deletando UserSongRecommendations -----> "
+            + str(UserSongRecommendations.objects.all().delete())
+        )
+    if userAveRec:
+        logger.info(
+            "Deletando UserAverage_Recommendations -----> "
+            + str(UserAverage_Recommendations.objects.all().delete())
+        )
     logger.info("-"*30)
 
 
@@ -35,12 +43,17 @@ def recommendation_evaluate_analise(songSetLimit):
 
 def run_score_evaluate_analise():
     logger.info("*"*30)
-    logger.info("* Iniciando script Recomendar, Avaliar e Analizar as recomendações")
+    logger.info("* Recomendar, Avaliar e Analizar as recomendações")
     logger.info("*"*30)
     for songSetLimit in [1000, 2000, 3000]:
         for i in range(10):
             logger.info("*"*30)
-            logger.info("\tTamanho do banco (" + str(songSetLimit) + ") Ciclo: " + str(i))
+            logger.info(
+                "\tTamanho do banco ("
+                + str(songSetLimit)
+                + ") Ciclo: "
+                + str(i)
+            )
             logger.info("*"*30)
             cleanRecTables()
             recommendation_evaluate_analise(songSetLimit)
