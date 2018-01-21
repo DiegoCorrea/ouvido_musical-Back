@@ -13,7 +13,11 @@ def runMAP(at=5):
     startedAt = timezone.now()
     value = calcUsersMAP(at=at)
     finishedAt = timezone.now()
-    mapResult = MAP(life=UserAverage_Life.objects.last(), value=value, at=at)
+    mapResult = MAP(
+        life=UserAverage_Life.objects.last(),
+        value=value,
+        at=at
+    )
     mapResult.save()
     BenchMAP.objects.create(
         id=mapResult,
