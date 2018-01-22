@@ -3,7 +3,6 @@ import numpy as np
 import os
 from collections import Counter
 from apps.evaluators.MRR.algorithm.models import MRR
-from django.db import connection
 import logging
 
 logger = logging.getLogger(__name__)
@@ -11,9 +10,10 @@ logger = logging.getLogger(__name__)
 
 def value_gLine(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph Line)]")
-    allEvaluations = MRR.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = []
     evaluationMeanValues = []
     evaluationMedianValues = []
@@ -34,11 +34,11 @@ def value_gLine(songSetLimit, at=5):
         + str(len(evaluationValues))
     )
     directory = str(
-      './files/apps/evaluators/MRR/graphs/'
-      + str(setSongLimit)
-      + '/algorithm/'
-      + str(at) + '/'
-  )
+        ' ./files/apps/evaluators/MRR/graphs/'
+        + str(songSetLimit)
+        + '/algorithm/'
+        + str(at) + '/'
+    )
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
@@ -79,9 +79,10 @@ def value_gLine(songSetLimit, at=5):
 
 def value_gScatter(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph Scatter)]")
-    allEvaluations = MRR.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = []
     evaluationMeanValues = []
     evaluationMedianValues = []
@@ -103,7 +104,7 @@ def value_gScatter(songSetLimit, at=5):
     )
     directory = str(
       './files/apps/evaluators/MRR/graphs/'
-      + str(setSongLimit)
+      + str(songSetLimit)
       + '/algorithm/'
       + str(at) + '/'
       )
@@ -123,12 +124,12 @@ def value_gScatter(songSetLimit, at=5):
         evaluationValues,
         evaluationValues,
         label='Media: '
-            + str(float("{0:.4f}".format(evaluationValues[-1])))
+        + str(float("{0:.4f}".format(evaluationValues[-1])))
     )
     plt.legend(loc='upper left')
     plt.savefig(
         str(directory)
-        +'value_gScatter.png'
+        + 'value_gScatter.png'
     )
     plt.close()
     logger.info("[Finish MRR Value (Graph Scatter)]")
@@ -136,9 +137,10 @@ def value_gScatter(songSetLimit, at=5):
 
 def value_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph BoxPlot)]")
-    allEvaluations = MRR.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = [
         (evalution.value)
         for evalution in allEvaluations
@@ -149,7 +151,7 @@ def value_gBoxPlot(songSetLimit, at=5):
     )
     directory = str(
       './files/apps/evaluators/MRR/graphs/'
-      + str(setSongLimit)
+      + str(songSetLimit)
       + '/algorithm/'
       + str(at) + '/'
     )
@@ -173,9 +175,10 @@ def value_gBoxPlot(songSetLimit, at=5):
 
 def value_gBar(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph Bar)]")
-    allEvaluations = MRR.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = [
         float("{0:.4f}".format(evalution.value))
         for evalution in allEvaluations
@@ -185,7 +188,7 @@ def value_gBar(songSetLimit, at=5):
     logger.debug('MRR Evaluation -> Mode: ' + str(mode))
     directory = str(
         './files/apps/evaluators/MRR/graphs/'
-        + str(setSongLimit)
+        + str(songSetLimit)
         + '/algorithm/'
         + str(at) + '/'
     )
@@ -204,7 +207,7 @@ def value_gBar(songSetLimit, at=5):
         evalutionCountList.values(),
         evalutionCountList.keys(),
         label='Moda: '
-            + str(float("{0:.4f}".format(mode)))
+        + str(float("{0:.4f}".format(mode)))
     )
     plt.legend(loc='best')
     plt.savefig(
