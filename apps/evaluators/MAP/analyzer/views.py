@@ -12,7 +12,7 @@ from .benchmark import (
 )
 
 
-def runMAPValueGraphs
+def runMAPValueGraphs(songSetLimit, at=5):
     value_gLine(at=at, songSetLimit=songSetLimit)
     value_gScatter(at=at, songSetLimit=songSetLimit)
     value_gBoxPlot(at=at, songSetLimit=songSetLimit)
