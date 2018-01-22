@@ -3,7 +3,7 @@ import numpy as np
 import os
 from collections import Counter
 from apps.evaluators.MAP.benchmark.models import BenchMAP
-from django.db import connection
+from apps.evaluators.MAP.algorithm.models import MAP
 import logging
 
 logger = logging.getLogger(__name__)
@@ -11,9 +11,10 @@ logger = logging.getLogger(__name__)
 
 def bench_gLine(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph Line)]")
-    allBenchmarks = BenchMAP.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MAP.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmap)
     benchmarkTimes = []
     benchmarkMeanTimes = []
     benchmarkMedianTimes = []
@@ -78,9 +79,10 @@ def bench_gLine(songSetLimit, at=5):
 
 def bench_gScatter(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph Scatter)]")
-    allBenchmarks = BenchMAP.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MAP.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmap)
     benchmarkTimes = []
     benchmarkMeanTimes = []
     benchmarkMedianTimes = []
@@ -114,7 +116,7 @@ def bench_gScatter(songSetLimit, at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
-        +'\nBenchmark - set '
+        + '\nBenchmark - set '
         + str(songSetLimit)
     )
     plt.ylabel('Tempo de execução (minutos)')
@@ -136,9 +138,10 @@ def bench_gScatter(songSetLimit, at=5):
 
 def bench_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph BoxPlot)]")
-    allBenchmarks = BenchMAP.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MAP.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmap)
     benchmarkTimes = []
     benchmarkMeanTimes = []
     benchmarkMedianTimes = []
@@ -171,7 +174,7 @@ def bench_gBoxPlot(songSetLimit, at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
-        +'\nBenchmark - set '
+        + '\nBenchmark - set '
         + str(songSetLimit)
     )
     plt.boxplot(benchmarkTimes, labels='T')
@@ -185,11 +188,14 @@ def bench_gBoxPlot(songSetLimit, at=5):
 
 def bench_gBar(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph Bar)]")
-    allBenchmarks = BenchMAP.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MAP.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmap)
     benchmarkTimes = [
-        float("{0:.3f}".format((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0))
+        float("{0:.3f}".format(
+            (benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
+        )
         for benchmark in allBenchmarks
     ]
     benchmarkCountList = Counter(benchmarkTimes)
@@ -207,7 +213,7 @@ def bench_gBar(songSetLimit, at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
-        +'\nBenchmark - set '
+        + '\nBenchmark - set '
         + str(songSetLimit)
     )
     plt.ylabel('Tempo execução (minutos)')
