@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def value_gLine(at=5, setSongLimit):
+def value_gLine(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph Line)]")
     allEvaluations = MRR.objects.filter(
         at=at
@@ -77,7 +77,7 @@ def value_gLine(at=5, setSongLimit):
     logger.info("[Finish MRR Value (Graph Line)]")
 
 
-def value_gScatter(at=5, setSongLimit):
+def value_gScatter(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph Scatter)]")
     allEvaluations = MRR.objects.filter(
         at=at
@@ -134,7 +134,7 @@ def value_gScatter(at=5, setSongLimit):
     logger.info("[Finish MRR Value (Graph Scatter)]")
 
 
-def value_gBoxPlot(at=5, setSongLimit):
+def value_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph BoxPlot)]")
     allEvaluations = MRR.objects.filter(
         at=at
@@ -171,7 +171,7 @@ def value_gBoxPlot(at=5, setSongLimit):
     logger.info("[Finish MRR Value (Graph BoxPlot)]")
 
 
-def value_gBar(at=5, setSongLimit):
+def value_gBar(songSetLimit, at=5):
     logger.info("[Start MRR Value (Graph Bar)]")
     allEvaluations = MRR.objects.filter(
         at=at

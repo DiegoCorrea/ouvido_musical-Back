@@ -12,20 +12,20 @@ from .benchmark import (
 )
 
 
-def runMRRValueGraph(at=5, setSongLimit):
+def runMRRValueGraph(songSetLimit, at=5):
     value_gLine(at=at, setSongLimit=setSongLimit)
     value_gScatter(at=at, setSongLimit=setSongLimit)
     value_gBoxPlot(at=at, setSongLimit=setSongLimit)
     value_gBar(at=at, setSongLimit=setSongLimit)
 
 
-def runMRRBenchmarkGraph(at=5, setSongLimit):
+def runMRRBenchmarkGraph(songSetLimit, at=5):
     bench_gBar(at=at, setSongLimit=setSongLimit)
     bench_gLine(at=at, setSongLimit=setSongLimit)
     bench_gBoxPlot(at=at, setSongLimit=setSongLimit)
     bench_gScatter(at=at, setSongLimit=setSongLimit)
 
 
-def runAllMRRAnalizers(at=5, setSongLimit):
+def runAllMRRAnalizers(songSetLimit, at=5):
     runMRRValueGraph(at=at, setSongLimit=setSongLimit)
     runMRRBenchmarkGraph(at=at, setSongLimit=setSongLimit)

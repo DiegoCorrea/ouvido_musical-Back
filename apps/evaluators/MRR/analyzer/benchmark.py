@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def bench_gLine(at, songSetLimit):
+def bench_gLine(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph Line)]")
     allBenchmarks = BenchMRR.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -79,7 +79,7 @@ def bench_gLine(at, songSetLimit):
     logger.info("[Finish Bench MRR (Graph Line)]")
 
 
-def bench_gScatter(at, songSetLimit):
+def bench_gScatter(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph Scatter)]")
     allBenchmarks = BenchMRR.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -140,7 +140,7 @@ def bench_gScatter(at, songSetLimit):
     logger.info("[Finish Bench MRR (Graph Scatter)]")
 
 
-def bench_gBoxPlot(at, songSetLimit):
+def bench_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph BoxPlot)]")
     allBenchmarks = BenchMRR.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -177,7 +177,7 @@ def bench_gBoxPlot(at, songSetLimit):
     logger.info("[Finish Bench MRR (Graph BoxPlot)]")
 
 
-def bench_gBar(at, songSetLimit):
+def bench_gBar(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph Bar)]")
     allBenchmarks = BenchMRR.objects.all().filter(
         id.life.setSize=songSetLimit
