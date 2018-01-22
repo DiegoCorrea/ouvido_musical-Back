@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def value_gLine(at=5,songSetLimit):
+def value_gLine(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph Line)]")
     allEvaluations = NDCG.objects.filter(
         at=at
@@ -79,7 +79,7 @@ def value_gLine(at=5,songSetLimit):
     logger.info("[Finish NDCG Value (Graph Line)]")
 
 
-def value_gScatter(at=5,songSetLimit):
+def value_gScatter(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph Scatter)]")
     allEvaluations = NDCG.objects.filter(
         at=at
@@ -137,7 +137,7 @@ def value_gScatter(at=5,songSetLimit):
     logger.info("[Finish NDCG Value (Graph Scatter)]")
 
 
-def value_gBoxPlot(at=5,songSetLimit):
+def value_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph BoxPlot)]")
     allEvaluations = NDCG.objects.filter(
         at=at
@@ -175,7 +175,7 @@ def value_gBoxPlot(at=5,songSetLimit):
     logger.info("[Finish NDCG Value (Graph BoxPlot)]")
 
 
-def value_gBar(at=5,songSetLimit):
+def value_gBar(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph Bar)]")
     allEvaluations = NDCG.objects.filter(
         at=at

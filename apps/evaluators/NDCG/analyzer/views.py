@@ -12,20 +12,20 @@ from .benchmark import (
 )
 
 
-def runNDCGValueGraph(at=5,songSetLimit):
+def runNDCGValueGraph(songSetLimit, at=5):
     value_gLine(at=at, songSetLimit=songSetLimit)
     value_gScatter(at=at, songSetLimit=songSetLimit)
     value_gBoxPlot(at=at, songSetLimit=songSetLimit)
     value_gBar(at=at, songSetLimit=songSetLimit)
 
 
-def runNDCGBenchmarkGraph(at=5,songSetLimit):
+def runNDCGBenchmarkGraph(songSetLimit, at=5):
     bench_gBar(at=at, songSetLimit=songSetLimit)
     bench_gLine(at=at, songSetLimit=songSetLimit)
     bench_gBoxPlot(at=at, songSetLimit=songSetLimit)
     bench_gScatter(at=at, songSetLimit=songSetLimit)
 
 
-def runAllNDCGAnalizers(at=5,songSetLimit):
+def runAllNDCGAnalizers(songSetLimit, at=5):
     runNDCGValueGraph(at=at, songSetLimit=songSetLimit)
     runNDCGBenchmarkGraph(at=at, songSetLimit=songSetLimit)

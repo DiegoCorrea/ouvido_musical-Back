@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def bench_gLine(at, songSetLimit):
+def bench_gLine(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph Line)]")
     allBenchmarks = BenchNDCG.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -79,7 +79,7 @@ def bench_gLine(at, songSetLimit):
     logger.info("[Finish Bench NDCG (Graph Line)]")
 
 
-def bench_gScatter(at, songSetLimit):
+def bench_gScatter(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph Scatter)]")
     allBenchmarks = BenchNDCG.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -136,7 +136,7 @@ def bench_gScatter(at, songSetLimit):
     logger.info("[Finish Bench NDCG (Graph Scatter)]")
 
 
-def bench_gBoxPlot(at, songSetLimit):
+def bench_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph BoxPlot)]")
     allBenchmarks = BenchNDCG.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -173,7 +173,7 @@ def bench_gBoxPlot(at, songSetLimit):
     logger.info("[Finish Bench NDCG (Graph BoxPlot)]")
 
 
-def bench_gBar(at, songSetLimit):
+def bench_gBar(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph Bar)]")
     allBenchmarks = BenchNDCG.objects.all().filter(
         id.life.setSize=songSetLimit
