@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def bench_gLine(at, songSetLimit):
+def bench_gLine(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph Line)]")
     allBenchmarks = BenchMAP.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -76,7 +76,7 @@ def bench_gLine(at, songSetLimit):
     logger.info("[Finish Bench MAP (Graph Line)]")
 
 
-def bench_gScatter(at, songSetLimit):
+def bench_gScatter(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph Scatter)]")
     allBenchmarks = BenchMAP.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -134,7 +134,7 @@ def bench_gScatter(at, songSetLimit):
     logger.info("[Finish Bench MAP (Graph Scatter)]")
 
 
-def bench_gBoxPlot(at, songSetLimit):
+def bench_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph BoxPlot)]")
     allBenchmarks = BenchMAP.objects.all().filter(
         id.life.setSize=songSetLimit
@@ -183,7 +183,7 @@ def bench_gBoxPlot(at, songSetLimit):
     logger.info("[Finish Bench MAP (Graph BoxPlot)]")
 
 
-def bench_gBar(at, songSetLimit):
+def bench_gBar(songSetLimit, at=5):
     logger.info("[Start Bench MAP (Graph Bar)]")
     allBenchmarks = BenchMAP.objects.all().filter(
         id.life.setSize=songSetLimit

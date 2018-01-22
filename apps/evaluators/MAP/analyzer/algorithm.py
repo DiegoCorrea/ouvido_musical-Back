@@ -10,7 +10,7 @@ from apps.recommenders.UserAverage.algorithm.models import UserAverage_Life
 logger = logging.getLogger(__name__)
 
 
-def value_gLine(at=5,songSetLimit):
+def value_gLine(songSetLimit, at=5):
     logger.info("[Start MAP Value (Graph Line)]")
     allEvaluations = MAP.objects.filter(
         at=at
@@ -74,7 +74,7 @@ def value_gLine(at=5,songSetLimit):
     logger.info("[Finish MAP Value (Graph Line)]")
 
 
-def value_gScatter(at=5,songSetLimit):
+def value_gScatter(songSetLimit, at=5):
     logger.info("[Start MAP Value (Graph Scatter)]")
     allEvaluations = MAP.objects.filter(
         at=at
@@ -124,7 +124,7 @@ def value_gScatter(at=5,songSetLimit):
     logger.info("[Finish MAP Value (Graph Scatter)]")
 
 
-def value_gBoxPlot(at=5,songSetLimit):
+def value_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start MAP Value (Graph BoxPlot)]")
     allEvaluations = MAP.objects.filter(
         at=at
@@ -157,7 +157,7 @@ def value_gBoxPlot(at=5,songSetLimit):
     logger.info("[Finish MAP Value (Graph BoxPlot)]")
 
 
-def value_gBar(at=5,songSetLimit):
+def value_gBar(songSetLimit, at=5):
     logger.info("[Start MAP Value (Graph Bar)]")
     allEvaluations = MAP.objects.filter(
         at=at
