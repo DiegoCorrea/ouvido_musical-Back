@@ -3,7 +3,6 @@ import numpy as np
 import os
 from collections import Counter
 from apps.evaluators.NDCG.algorithm.models import NDCG
-from django.db import connection
 import logging
 
 logger = logging.getLogger(__name__)
@@ -11,9 +10,10 @@ logger = logging.getLogger(__name__)
 
 def value_gLine(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph Line)]")
-    allEvaluations = NDCG.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = []
     evaluationMeanValues = []
     evaluationMedianValues = []
@@ -81,9 +81,10 @@ def value_gLine(songSetLimit, at=5):
 
 def value_gScatter(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph Scatter)]")
-    allEvaluations = NDCG.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = []
     evaluationMeanValues = []
     evaluationMedianValues = []
@@ -139,9 +140,10 @@ def value_gScatter(songSetLimit, at=5):
 
 def value_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph BoxPlot)]")
-    allEvaluations = NDCG.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = [
         (evalution.value)
         for evalution in allEvaluations
@@ -177,9 +179,10 @@ def value_gBoxPlot(songSetLimit, at=5):
 
 def value_gBar(songSetLimit, at=5):
     logger.info("[Start NDCG Value (Graph Bar)]")
-    allEvaluations = NDCG.objects.filter(
-        at=at
-    ).filter(life.setSize=songSetLimit)
+    allEvaluations = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allEvaluations.append(evalution)
     evaluationValues = [
         float("{0:.4f}".format(evalution.value))
         for evalution in allEvaluations
