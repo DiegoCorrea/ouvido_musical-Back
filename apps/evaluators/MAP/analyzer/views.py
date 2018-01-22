@@ -26,6 +26,6 @@ def runMAPBenchmarkGraph(songSetLimit, at=5):
     bench_gScatter(at=at, songSetLimit=songSetLimit)
 
 
-def runAllMAPAnalizers(songSetLimit, at=5):
-    runMAPValueGraph(at=at, songSetLimit=songSetLimit)
-    runMAPBenchmarkGraph(at=at, songSetLimit=songSetLimit)
+# def runAllMAPAnalizers(songSetLimit, at=5):
+#    runMAPValueGraph(at=at, songSetLimit=songSetLimit)
+#    runMAPBenchmarkGraph(at=at, songSetLimit=songSetLimit)
