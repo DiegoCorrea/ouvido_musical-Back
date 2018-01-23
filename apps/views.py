@@ -5,7 +5,7 @@ from .recommenders.views import runRecommenders
 from .recommenders.UserAverage.algorithm.models import (
     UserAverage_Recommendations
 )
-from .evaluators.views import runEvaluations
+from .evaluators.views import runEvaluations, runAnalizerEvaluations
 import logging
 logger = logging.getLogger(__name__)
 
@@ -60,4 +60,10 @@ def run_score_evaluate_analise():
             cleanRecTables()
             recommendation_evaluate_analise(songSetLimit)
             os.system('cls||clear')
+    runAnalizerEvaluations(at=5, songSetLimit=1000)
+    runAnalizerEvaluations(at=10, songSetLimit=1000)
+    runAnalizerEvaluations(at=5, songSetLimit=2000)
+    runAnalizerEvaluations(at=10, songSetLimit=2000)
+    runAnalizerEvaluations(at=5, songSetLimit=3000)
+    runAnalizerEvaluations(at=10, songSetLimit=3000)
     logger.info('Finalizando Script')
