@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 from collections import Counter
-from apps.evaluators.NDCG.benchmark.models import BenchNDCG
+from apps.evaluators.NDCG.algorithm.models import NDCG
 from django.db import connection
 import logging
 
@@ -11,9 +11,10 @@ logger = logging.getLogger(__name__)
 
 def bench_gLine(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph Line)]")
-    allBenchmarks = BenchNDCG.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchndcg)
     benchmarkTimes = []
     benchmarkMeanTimes = []
     benchmarkMedianTimes = []
@@ -53,19 +54,19 @@ def bench_gLine(songSetLimit, at=5):
     plt.xlabel('ID da execução')
     plt.ylabel('Tempo de execução (minutos)')
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkTimes],
         color='red',
         label='Tempo'
     )
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkMeanTimes],
         color='green',
         label='Media'
     )
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkMedianTimes],
         color='blue',
         label='Mediana'
@@ -81,14 +82,17 @@ def bench_gLine(songSetLimit, at=5):
 
 def bench_gScatter(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph Scatter)]")
-    allBenchmarks = BenchNDCG.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchndcg)
     benchmarkTimes = []
     benchmarkMeanTimes = []
     benchmarkMedianTimes = []
     for benchmark in allBenchmarks:
-        benchmarkTimes.append((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
+        benchmarkTimes.append(
+            (benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0
+        )
         benchmarkMeanTimes.append(np.mean(benchmarkTimes))
         benchmarkMedianTimes.append(np.median(benchmarkTimes))
     logger.debug(
@@ -138,9 +142,10 @@ def bench_gScatter(songSetLimit, at=5):
 
 def bench_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph BoxPlot)]")
-    allBenchmarks = BenchNDCG.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchndcg)
     benchmarkTimes = [
         ((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
         for benchmark in allBenchmarks
@@ -175,9 +180,10 @@ def bench_gBoxPlot(songSetLimit, at=5):
 
 def bench_gBar(songSetLimit, at=5):
     logger.info("[Start Bench NDCG (Graph Bar)]")
-    allBenchmarks = BenchNDCG.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchndcg)
     benchmarkTimes = [
         float("{0:.3f}".format(
             (benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
