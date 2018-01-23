@@ -47,6 +47,7 @@ def run_score_evaluate_analise():
     logger.info("*"*30)
     logger.info("* Recomendar, Avaliar e Analizar as recomendações")
     logger.info("*"*30)
+    runSimilarities()
     for songSetLimit in [1000, 2000, 3000]:
         for i in range(10):
             logger.info("*"*30)
