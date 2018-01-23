@@ -2,8 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 from collections import Counter
-from apps.evaluators.MRR.benchmark.models import BenchMRR
-from django.db import connection
+from apps.evaluators.MRR.algorithm.models import MRR
 import logging
 
 logger = logging.getLogger(__name__)
@@ -11,9 +10,10 @@ logger = logging.getLogger(__name__)
 
 def bench_gLine(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph Line)]")
-    allBenchmarks = BenchMRR.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmrr)
     benchmarkTimes = []
     benchmarkMeanTimes = []
     benchmarkMedianTimes = []
@@ -53,19 +53,19 @@ def bench_gLine(songSetLimit, at=5):
     plt.xlabel('ID da execução')
     plt.ylabel('Tempo de execução (minutos)')
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkTimes],
         color='red',
         label='Tempo'
     )
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkMeanTimes],
         color='green',
         label='Media'
     )
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkMedianTimes],
         color='blue',
         label='Mediana'
@@ -81,9 +81,10 @@ def bench_gLine(songSetLimit, at=5):
 
 def bench_gScatter(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph Scatter)]")
-    allBenchmarks = BenchMRR.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmrr)
     benchmarkTimes = []
     benchmarkMeanTimes = []
     benchmarkMedianTimes = []
@@ -142,9 +143,10 @@ def bench_gScatter(songSetLimit, at=5):
 
 def bench_gBoxPlot(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph BoxPlot)]")
-    allBenchmarks = BenchMRR.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmrr)
     benchmarkTimes = [
         ((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
         for benchmark in allBenchmarks
@@ -179,11 +181,14 @@ def bench_gBoxPlot(songSetLimit, at=5):
 
 def bench_gBar(songSetLimit, at=5):
     logger.info("[Start Bench MRR (Graph Bar)]")
-    allBenchmarks = BenchMRR.objects.all().filter(
-        id.life.setSize=songSetLimit
-    ).filter(id.at=at)
+    allBenchmarks = []
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize == songSetLimit:
+            allBenchmarks.append(evalution.benchmrr)
     benchmarkTimes = [
-        float("{0:.3f}".format((benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0))
+        float("{0:.3f}".format(
+            (benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
+        )
         for benchmark in allBenchmarks
     ]
     benchmarkCountList = Counter(benchmarkTimes)

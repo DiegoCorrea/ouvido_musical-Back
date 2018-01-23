@@ -13,19 +13,19 @@ from .benchmark import (
 
 
 def runMRRValueGraph(songSetLimit, at=5):
-    value_gLine(at=at, setSongLimit=setSongLimit)
-    value_gScatter(at=at, setSongLimit=setSongLimit)
-    value_gBoxPlot(at=at, setSongLimit=setSongLimit)
-    value_gBar(at=at, setSongLimit=setSongLimit)
+    value_gLine(at=at, songSetLimit=songSetLimit)
+    value_gScatter(at=at, songSetLimit=songSetLimit)
+    value_gBoxPlot(at=at, songSetLimit=songSetLimit)
+    value_gBar(at=at, songSetLimit=songSetLimit)
 
 
 def runMRRBenchmarkGraph(songSetLimit, at=5):
-    bench_gBar(at=at, setSongLimit=setSongLimit)
-    bench_gLine(at=at, setSongLimit=setSongLimit)
-    bench_gBoxPlot(at=at, setSongLimit=setSongLimit)
-    bench_gScatter(at=at, setSongLimit=setSongLimit)
+    bench_gBar(at=at, songSetLimit=songSetLimit)
+    bench_gLine(at=at, songSetLimit=songSetLimit)
+    bench_gBoxPlot(at=at, songSetLimit=songSetLimit)
+    bench_gScatter(at=at, songSetLimit=songSetLimit)
 
 
 def runAllMRRAnalizers(songSetLimit, at=5):
-    runMRRValueGraph(at=at, setSongLimit=setSongLimit)
-    runMRRBenchmarkGraph(at=at, setSongLimit=setSongLimit)
+    runMRRValueGraph(at=at, songSetLimit=songSetLimit)
+    runMRRBenchmarkGraph(at=at, songSetLimit=songSetLimit)
