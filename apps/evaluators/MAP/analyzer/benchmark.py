@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 from collections import Counter
-from apps.evaluators.MAP.benchmark.models import BenchMAP
 from apps.evaluators.MAP.algorithm.models import MAP
 import logging
 
@@ -54,19 +53,22 @@ def bench_gLine(songSetLimit, at=5):
     plt.xlabel('ID da execução')
     plt.ylabel('Tempo de execução (minutos)')
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkTimes],
-        color='red', label='Tempo'
+        color='red',
+        label='Tempo'
     )
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkMeanTimes],
-        color='green', label='Media'
+        color='green',
+        label='Media'
     )
     plt.plot(
-        [benchmark.id for benchmark in allBenchmarks],
+        [i for i in range(len(allBenchmarks))],
         [benchmark for benchmark in benchmarkMedianTimes],
-        color='blue', label='Mediana'
+        color='blue',
+        label='Mediana'
     )
     plt.legend(loc='best')
     plt.savefig(
@@ -220,8 +222,7 @@ def bench_gBar(songSetLimit, at=5):
     plt.xlabel('Quantidade')
     plt.bar(
         benchmarkCountList.values(),
-        benchmarkCountList.keys(),
-        label='Moda: ' + str(float("{0:.3f}".format(mode)))
+        benchmarkCountList.keys()
     )
     plt.legend(loc='best')
     plt.savefig(
