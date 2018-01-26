@@ -255,19 +255,19 @@ def all_value_gLine(at=5):
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do NDCG')
     plt.plot(
-        [i for i in range(len(allEvaluations[1000]))],
+        [i+1 for i in range(len(allEvaluations[1000]))],
         [evaluation.value for evaluation in allEvaluations[1000]],
         color='red',
         label='1000'
         )
     plt.plot(
-        [i for i in range(len(allEvaluations[2000]))],
+        [i+1 for i in range(len(allEvaluations[2000]))],
         [evaluation.value for evaluation in allEvaluations[2000]],
         color='green',
         label='2000'
     )
     plt.plot(
-        [i for i in range(len(allEvaluations[3000]))],
+        [i+1 for i in range(len(allEvaluations[3000]))],
         [evaluation.value for evaluation in allEvaluations[3000]],
         color='blue',
         label='3000'
