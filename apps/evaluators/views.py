@@ -16,3 +16,12 @@ def runAnalizerEvaluations(songSetLimit, at=5):
     runAllMAPAnalizers(at=at, songSetLimit=songSetLimit)
     runAllMRRAnalizers(at=at, songSetLimit=songSetLimit)
     runAllNDCGAnalizers(at=at, songSetLimit=songSetLimit)
+
+
+def testAnalizers():
+    runAnalizerEvaluations(at=5, songSetLimit=1000)
+    runAnalizerEvaluations(at=10, songSetLimit=1000)
+    runAnalizerEvaluations(at=5, songSetLimit=2000)
+    runAnalizerEvaluations(at=10, songSetLimit=2000)
+    runAnalizerEvaluations(at=5, songSetLimit=3000)
+    runAnalizerEvaluations(at=10, songSetLimit=3000)
