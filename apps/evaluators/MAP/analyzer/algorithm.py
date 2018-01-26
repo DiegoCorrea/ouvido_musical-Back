@@ -4,6 +4,7 @@ import logging
 import os
 from collections import Counter
 from apps.evaluators.MAP.algorithm.models import MAP
+from apps.data.users.models import User
 
 logger = logging.getLogger(__name__)
 
@@ -240,6 +241,8 @@ def all_value_gLine(at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do MAP')
@@ -287,6 +290,8 @@ def all_value_gBoxPlot(at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.boxplot(
         [
