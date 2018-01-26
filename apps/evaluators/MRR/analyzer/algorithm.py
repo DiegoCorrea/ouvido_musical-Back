@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-from collections import Counter
-from apps.evaluators.MRR.algorithm.models import MRR
 import logging
+import os
+
+from collections import Counter
+from apps.data.users.models import User
+from apps.evaluators.MRR.algorithm.models import MRR
 
 logger = logging.getLogger(__name__)
 
@@ -241,6 +243,8 @@ def all_value_gLine(at=5):
     plt.title(
         'MRR - Mean Reciprocal Rank@'
         + str(at)
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do MRR')
@@ -288,6 +292,8 @@ def all_value_gBoxPlot(at=5):
     plt.title(
         'MRR - Mean Reciprocal Rank@'
         + str(at)
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.boxplot(
         [
