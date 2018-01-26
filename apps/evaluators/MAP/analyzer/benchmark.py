@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-from collections import Counter
-from apps.evaluators.MAP.algorithm.models import MAP
-from apps.data.users.models import User
 import logging
+import os
+
+from collections import Counter
+from apps.data.users.models import User
+from apps.evaluators.MAP.algorithm.models import MAP
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +37,7 @@ def bench_gLine(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        '/files/apps/evaluators/MAP/graphs/'
+        'files/apps/evaluators/MAP/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -107,7 +108,7 @@ def bench_gScatter(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        '/files/apps/evaluators/MAP/graphs/'
+        'files/apps/evaluators/MAP/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -166,7 +167,7 @@ def bench_gBoxPlot(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        '/files/apps/evaluators/MAP/graphs/'
+        'files/apps/evaluators/MAP/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
