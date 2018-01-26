@@ -282,3 +282,44 @@ def all_bench_gLine(at=5):
     )
     plt.close()
     logger.info("[Finish Bench MRR (Graph Line)]")
+
+
+def all_bench_gBoxPlot(at=5):
+    logger.info("[Start Bench MRR (Graph BoxPlot)]")
+    allBenchmarks = {}
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize not in allBenchmarks:
+            allBenchmarks.setdefault(evalution.life.setSize, [])
+        else:
+            allBenchmarks[evalution.life.setSize].append(
+                (
+                    evalution.benchmrr.finished_at - evalution.benchmrr.started_at
+                ).total_seconds() / 60.0
+            )
+    directory = str(
+        'files/apps/evaluators/MRR/graphs/all/'
+        + 'benchmark/'
+        + str(at) + '/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    plt.figure()
+    plt.title(
+        'MRR - Mean Reciprocal Rank@'
+        + str(at)
+        + '\nBenchmark'
+    )
+    plt.boxplot(
+        [
+            [benchmark for benchmark in allBenchmarks[1000]],
+            [benchmark for benchmark in allBenchmarks[2000]],
+            [benchmark for benchmark in allBenchmarks[3000]]
+        ],
+        labels=[1000, 2000, 3000]
+    )
+    plt.savefig(
+        str(directory)
+        + 'value_gBoxPlot.png'
+    )
+    plt.close()
+    logger.info("[Finish Bench MRR (Graph BoxPlot)]")
