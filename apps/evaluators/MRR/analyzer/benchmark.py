@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-from collections import Counter
-from apps.evaluators.MRR.algorithm.models import MRR
 import logging
+import os
+
+from collections import Counter
+from apps.data.users.models import User
+from apps.evaluators.MRR.algorithm.models import MRR
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +37,7 @@ def bench_gLine(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        '/files/apps/evaluators/MRR/graphs/'
+        'files/apps/evaluators/MRR/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -106,13 +108,7 @@ def bench_gScatter(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        '/files/apps/evaluators/MRR/graphs/'
-        + str(songSetLimit)
-        + '/benchmark/'
-        + str(at) + '/'
-    )
-    directory = str(
-        '/files/apps/evaluators/MRR/graphs/'
+        'files/apps/evaluators/MRR/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -156,7 +152,7 @@ def bench_gBoxPlot(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        '/files/apps/evaluators/MRR/graphs/'
+        'files/apps/evaluators/MRR/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -195,7 +191,7 @@ def bench_gBar(songSetLimit, at=5):
     mode = benchmarkCountList.most_common(1)[0][0]
     logger.debug('MRR Benchmark -> Mode: ' + str(mode))
     directory = str(
-        '/files/apps/evaluators/MRR/graphs/'
+        'files/apps/evaluators/MRR/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -253,7 +249,9 @@ def all_bench_gLine(at=5):
     plt.title(
         'MRR - Mean Reciprocal Rank@'
         + str(at)
-        + '\nBenchmark'
+        + ' Benchmark'
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.xlabel('ID da execução')
     plt.ylabel('Tempo de execução (minutos)')
@@ -307,7 +305,9 @@ def all_bench_gBoxPlot(at=5):
     plt.title(
         'MRR - Mean Reciprocal Rank@'
         + str(at)
-        + '\nBenchmark'
+        + ' Benchmark'
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.boxplot(
         [
