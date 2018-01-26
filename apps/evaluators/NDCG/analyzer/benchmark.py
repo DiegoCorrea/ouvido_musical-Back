@@ -283,3 +283,44 @@ def all_bench_gLine(at=5):
     )
     plt.close()
     logger.info("[Finish Bench NDCG (Graph Line)]")
+
+
+def all_bench_gBoxPlot(at=5):
+    logger.info("[Start Bench NDCG (Graph BoxPlot)]")
+    allBenchmarks = {}
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize not in allBenchmarks:
+            allBenchmarks.setdefault(evalution.life.setSize, [])
+        else:
+            allBenchmarks[evalution.life.setSize].append(
+                (
+                    evalution.benchndcg.finished_at - evalution.benchndcg.started_at
+                ).total_seconds() / 60.0
+            )
+    directory = str(
+        'files/apps/evaluators/NDCG/graphs/all/'
+        + 'benchmark/'
+        + str(at) + '/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    plt.figure()
+    plt.title(
+        'NDCG - Mean Averange Precision@'
+        + str(at)
+        + '\nBenchmark'
+    )
+    plt.boxplot(
+        [
+            [benchmark for benchmark in allBenchmarks[1000]],
+            [benchmark for benchmark in allBenchmarks[2000]],
+            [benchmark for benchmark in allBenchmarks[3000]]
+        ],
+        labels=[1000, 2000, 3000]
+    )
+    plt.savefig(
+        str(directory)
+        + 'value_gBoxPlot.png'
+    )
+    plt.close()
+    logger.info("[Finish Bench NDCG (Graph BoxPlot)]")
