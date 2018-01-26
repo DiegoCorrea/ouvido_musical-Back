@@ -36,7 +36,7 @@ def bench_gLine(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        './files/apps/evaluators/NDCG/graphs/'
+        'files/apps/evaluators/NDCG/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -108,7 +108,7 @@ def bench_gScatter(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        './files/apps/evaluators/NDCG/graphs/'
+        'files/apps/evaluators/NDCG/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -155,7 +155,7 @@ def bench_gBoxPlot(songSetLimit, at=5):
         + str(len(benchmarkTimes))
     )
     directory = str(
-        './files/apps/evaluators/NDCG/graphs/'
+        'files/apps/evaluators/NDCG/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -197,7 +197,7 @@ def bench_gBar(songSetLimit, at=5):
         + str(mode)
     )
     directory = str(
-        './files/apps/evaluators/NDCG/graphs/'
+        'files/apps/evaluators/NDCG/graphs/'
         + str(songSetLimit)
         + '/benchmark/'
         + str(at) + '/'
@@ -226,3 +226,60 @@ def bench_gBar(songSetLimit, at=5):
     )
     plt.close()
     logger.info("[Finish Bench NDCG (Graph Bar)]")
+
+# ###################################################################### #
+
+
+def all_bench_gLine(at=5):
+    logger.info("[Start Bench NDCG (Graph Line)]")
+    allBenchmarks = {}
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize not in allBenchmarks:
+            allBenchmarks.setdefault(evalution.life.setSize, [])
+        else:
+            allBenchmarks[evalution.life.setSize].append(
+                (
+                    evalution.benchndcg.finished_at - evalution.benchndcg.started_at
+                ).total_seconds() / 60.0
+            )
+    directory = str(
+        'files/apps/evaluators/NDCG/graphs/all/'
+        + 'benchmark/'
+        + str(at) + '/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    plt.figure()
+    plt.grid(True)
+    plt.title(
+        'NDCG - Mean Reciprocal Rank@'
+        + str(at)
+        + '\nBenchmark'
+    )
+    plt.xlabel('ID da execução')
+    plt.ylabel('Tempo de execução (minutos)')
+    plt.plot(
+        [i for i in range(len(allBenchmarks[1000]))],
+        [benchmark for benchmark in allBenchmarks[1000]],
+        color='red',
+        label='1000'
+    )
+    plt.plot(
+        [i for i in range(len(allBenchmarks[2000]))],
+        [benchmark for benchmark in allBenchmarks[2000]],
+        color='green',
+        label='2000'
+    )
+    plt.plot(
+        [i for i in range(len(allBenchmarks[3000]))],
+        [benchmark for benchmark in allBenchmarks[3000]],
+        color='blue',
+        label='3000'
+    )
+    plt.legend(loc='best')
+    plt.savefig(
+        str(directory)
+        + 'all_value_gLine.png'
+    )
+    plt.close()
+    logger.info("[Finish Bench NDCG (Graph Line)]")
