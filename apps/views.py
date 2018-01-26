@@ -47,8 +47,8 @@ def run_score_evaluate_analise():
     logger.info("*"*30)
     logger.info("* Recomendar, Avaliar e Analizar as recomendações")
     logger.info("*"*30)
-    for songSetLimit in [1000, 2000, 3000]:
-        for i in range(10):
+    for songSetLimit in [1500, 3000, 4500]:
+        for i in range(11):
             logger.info("*"*30)
             logger.info(
                 "\tTamanho do banco ("
