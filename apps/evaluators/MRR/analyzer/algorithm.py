@@ -266,3 +266,40 @@ def all_value_gLine(at=5):
     plt.savefig(str(directory) + 'all_value_gLine.png')
     plt.close()
     logger.info("[Finish MRR Value (Graph Line)]")
+
+
+def all_value_gBoxPlot(at=5):
+    logger.info("[Start MRR Value (Graph BoxPlot)]")
+    allEvaluations = {}
+    for evalution in MRR.objects.filter(at=at):
+        if evalution.life.setSize not in allEvaluations:
+            allEvaluations.setdefault(evalution.life.setSize, [])
+        else:
+            allEvaluations[evalution.life.setSize].append(evalution)
+    directory = str(
+        'files/apps/evaluators/MRR/graphs/all/'
+        + 'algorithm/'
+        + str(at)
+        + '/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    plt.figure()
+    plt.title(
+        'MRR - Mean Reciprocal Rank@'
+        + str(at)
+    )
+    plt.boxplot(
+        [
+            [evaluation.value for evaluation in allEvaluations[1000]],
+            [evaluation.value for evaluation in allEvaluations[2000]],
+            [evaluation.value for evaluation in allEvaluations[3000]]
+        ],
+        labels=[1000, 2000, 3000]
+    )
+    plt.savefig(
+        str(directory)
+        + 'all_value_gBoxPlot.png'
+    )
+    plt.close()
+    logger.info("[Finish MRR Value (Graph BoxPlot)]")
