@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-from collections import Counter
-from apps.evaluators.NDCG.algorithm.models import NDCG
 import logging
+import os
+
+from collections import Counter
+from apps.data.users.models import User
+from apps.evaluators.NDCG.algorithm.models import NDCG
 
 logger = logging.getLogger(__name__)
 
@@ -247,6 +249,8 @@ def all_value_gLine(at=5):
     plt.title(
         'NDCG - Normalize Discounted Cumulative Gain@'
         + str(at)
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do NDCG')
@@ -294,6 +298,8 @@ def all_value_gBoxPlot(at=5):
     plt.title(
         'NDCG - Normalize Discounted Cumulative Gain@'
         + str(at)
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.boxplot(
         [
