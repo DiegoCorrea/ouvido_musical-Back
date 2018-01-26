@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-from collections import Counter
-from apps.evaluators.NDCG.algorithm.models import NDCG
-from django.db import connection
 import logging
+import os
+
+from collections import Counter
+from apps.data.users.models import User
+from apps.evaluators.NDCG.algorithm.models import NDCG
 
 logger = logging.getLogger(__name__)
 
@@ -254,7 +255,9 @@ def all_bench_gLine(at=5):
     plt.title(
         'NDCG - Mean Reciprocal Rank@'
         + str(at)
-        + '\nBenchmark'
+        + ' Benchmark'
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.xlabel('ID da execução')
     plt.ylabel('Tempo de execução (minutos)')
@@ -308,7 +311,9 @@ def all_bench_gBoxPlot(at=5):
     plt.title(
         'NDCG - Mean Averange Precision@'
         + str(at)
-        + '\nBenchmark'
+        + ' Benchmark'
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.boxplot(
         [
