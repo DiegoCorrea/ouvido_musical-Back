@@ -221,3 +221,54 @@ def value_gBar(songSetLimit, at=5):
     )
     plt.close()
     logger.info("[Finish NDCG Value (Graph Bar)]")
+
+
+# ########################################################################## #
+
+
+def all_value_gLine(at=5):
+    logger.info("[Start NDCG Value (Graph Line)]")
+    allEvaluations = {}
+    for evalution in NDCG.objects.filter(at=at):
+        if evalution.life.setSize not in allEvaluations:
+            allEvaluations.setdefault(evalution.life.setSize, [])
+        else:
+            allEvaluations[evalution.life.setSize].append(evalution)
+    directory = str(
+        'files/apps/evaluators/NDCG/graphs/all/'
+        + 'algorithm/'
+        + str(at)
+        + '/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    plt.figure()
+    plt.grid(True)
+    plt.title(
+        'NDCG - Normalize Discounted Cumulative Gain@'
+        + str(at)
+    )
+    plt.xlabel('ID do execução')
+    plt.ylabel('Valor do NDCG')
+    plt.plot(
+        [i for i in range(len(allEvaluations[1000]))],
+        [evaluation.value for evaluation in allEvaluations[1000]],
+        color='red',
+        label='1000'
+        )
+    plt.plot(
+        [i for i in range(len(allEvaluations[2000]))],
+        [evaluation.value for evaluation in allEvaluations[2000]],
+        color='green',
+        label='2000'
+    )
+    plt.plot(
+        [i for i in range(len(allEvaluations[3000]))],
+        [evaluation.value for evaluation in allEvaluations[3000]],
+        color='blue',
+        label='3000'
+    )
+    plt.legend(loc='best')
+    plt.savefig(str(directory) + 'all_value_gLine.png')
+    plt.close()
+    logger.info("[Finish NDCG Value (Graph Line)]")
