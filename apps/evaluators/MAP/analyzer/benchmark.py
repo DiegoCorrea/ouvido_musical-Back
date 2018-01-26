@@ -3,6 +3,7 @@ import numpy as np
 import os
 from collections import Counter
 from apps.evaluators.MAP.algorithm.models import MAP
+from apps.data.users.models import User
 import logging
 
 logger = logging.getLogger(__name__)
@@ -313,7 +314,9 @@ def all_bench_gBoxPlot(at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
-        + '\nBenchmark'
+        + ' Benchmark'
+        + '\n User set - '
+        + str(User.objects.count())
     )
     plt.boxplot(
         [
