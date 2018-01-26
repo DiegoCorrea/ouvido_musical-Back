@@ -2,9 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import logging
 import os
+
 from collections import Counter
-from apps.evaluators.MAP.algorithm.models import MAP
 from apps.data.users.models import User
+from apps.evaluators.MAP.algorithm.models import MAP
 
 logger = logging.getLogger(__name__)
 
