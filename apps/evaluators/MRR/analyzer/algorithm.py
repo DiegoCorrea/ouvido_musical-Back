@@ -36,7 +36,7 @@ def value_gLine(songSetLimit, at=5):
         + str(len(evaluationValues))
     )
     directory = str(
-        ' ./files/apps/evaluators/MRR/graphs/'
+        ' files/apps/evaluators/MRR/graphs/'
         + str(songSetLimit)
         + '/algorithm/'
         + str(at) + '/'
@@ -105,7 +105,7 @@ def value_gScatter(songSetLimit, at=5):
         + str(len(evaluationValues))
     )
     directory = str(
-      './files/apps/evaluators/MRR/graphs/'
+      'files/apps/evaluators/MRR/graphs/'
       + str(songSetLimit)
       + '/algorithm/'
       + str(at) + '/'
@@ -152,7 +152,7 @@ def value_gBoxPlot(songSetLimit, at=5):
         + str(len(evaluationValues))
     )
     directory = str(
-      './files/apps/evaluators/MRR/graphs/'
+      'files/apps/evaluators/MRR/graphs/'
       + str(songSetLimit)
       + '/algorithm/'
       + str(at) + '/'
@@ -189,7 +189,7 @@ def value_gBar(songSetLimit, at=5):
     mode = evalutionCountList.most_common(1)[0][0]
     logger.debug('MRR Evaluation -> Mode: ' + str(mode))
     directory = str(
-        './files/apps/evaluators/MRR/graphs/'
+        'files/apps/evaluators/MRR/graphs/'
         + str(songSetLimit)
         + '/algorithm/'
         + str(at) + '/'
