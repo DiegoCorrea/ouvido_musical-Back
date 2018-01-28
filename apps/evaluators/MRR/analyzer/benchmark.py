@@ -225,7 +225,7 @@ def bench_gBar(songSetLimit, at=5):
 # ###################################################################### #
 
 
-def all_bench_gLine(at=5):
+def all_bench_gLine(at=5, size_list=[1500, 3000, 4500]):
     logger.info("[Start Bench MRR (Graph Line)]")
     allBenchmarks = {}
     for evalution in MRR.objects.filter(at=at):
@@ -250,28 +250,28 @@ def all_bench_gLine(at=5):
         'MRR - Mean Reciprocal Rank@'
         + str(at)
         + ' Benchmark'
-        + '\n User set - '
+        + '\n |u| - '
         + str(User.objects.count())
     )
     plt.xlabel('ID da execução')
     plt.ylabel('Tempo de execução (minutos)')
     plt.plot(
-        [i for i in range(len(allBenchmarks[1000]))],
-        [benchmark for benchmark in allBenchmarks[1000]],
+        [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
+        [benchmark for benchmark in allBenchmarks[size_list[0]]],
         color='red',
-        label='1000'
+        label=size_list[0]
     )
     plt.plot(
-        [i for i in range(len(allBenchmarks[2000]))],
-        [benchmark for benchmark in allBenchmarks[2000]],
+        [i+1 for i in range(len(allBenchmarks[size_list[1]]))],
+        [benchmark for benchmark in allBenchmarks[size_list[1]]],
         color='green',
-        label='2000'
+        label=size_list[1]
     )
     plt.plot(
-        [i for i in range(len(allBenchmarks[3000]))],
-        [benchmark for benchmark in allBenchmarks[3000]],
+        [i+1 for i in range(len(allBenchmarks[size_list[2]]))],
+        [benchmark for benchmark in allBenchmarks[size_list[2]]],
         color='blue',
-        label='3000'
+        label=size_list[2]
     )
     plt.legend(loc='best')
     plt.savefig(
@@ -282,7 +282,7 @@ def all_bench_gLine(at=5):
     logger.info("[Finish Bench MRR (Graph Line)]")
 
 
-def all_bench_gBoxPlot(at=5):
+def all_bench_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
     logger.info("[Start Bench MRR (Graph BoxPlot)]")
     allBenchmarks = {}
     for evalution in MRR.objects.filter(at=at):
@@ -306,16 +306,16 @@ def all_bench_gBoxPlot(at=5):
         'MRR - Mean Reciprocal Rank@'
         + str(at)
         + ' Benchmark'
-        + '\n User set - '
+        + '\n |u| - '
         + str(User.objects.count())
     )
     plt.boxplot(
         [
-            [benchmark for benchmark in allBenchmarks[1000]],
-            [benchmark for benchmark in allBenchmarks[2000]],
-            [benchmark for benchmark in allBenchmarks[3000]]
+            [benchmark for benchmark in allBenchmarks[size_list[0]]],
+            [benchmark for benchmark in allBenchmarks[size_list[1]]],
+            [benchmark for benchmark in allBenchmarks[size_list[2]]]
         ],
-        labels=[1000, 2000, 3000]
+        labels=[size_list[0], size_list[1], size_list[2]]
     )
     plt.savefig(
         str(directory)
