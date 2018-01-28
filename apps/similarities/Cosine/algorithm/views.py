@@ -1,7 +1,6 @@
 from .algorithm import CosineSimilarity
 from .models import CosineSimilarity_SongTitle
 from apps.data.songs.models import Song, SongSimilarity
-from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 from django.utils import timezone
 from django.db import transaction
 from multiprocessing.dummy import Pool as ThreadPool
@@ -38,15 +37,7 @@ def TitleSimilarity():
     global songInterator
     allSongs = Song.objects.all()
     line = 0
-    startedAt = timezone.now()
     similarityMatrix = CosineSimilarity([song.title for song in allSongs])
-    finishedAt = timezone.now()
-    BenchCosine_SongTitle.objects.create(
-        started_at=startedAt, finished_at=finishedAt
-    )
-    logger.info(
-        "Benchmark: Start at - " + str(startedAt)
-        + " || Finished at -" + str(finishedAt))
     for song in allSongs:
         songInterator.setdefault(song.id, {
             'obj': song,
