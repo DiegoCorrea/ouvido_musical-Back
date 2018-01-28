@@ -54,19 +54,19 @@ def value_gLine(songSetLimit, at=5):
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do MRR')
     plt.plot(
-        [i for i in range(len(allEvaluations))],
+        [i+1 for i in range(len(allEvaluations))],
         [evaluation for evaluation in evaluationValues],
         color='red',
         label='Valor'
     )
     plt.plot(
-        [i for i in range(len(allEvaluations))],
+        [i+1 for i in range(len(allEvaluations))],
         [evaluation for evaluation in evaluationMeanValues],
         color='green',
         label='Media'
     )
     plt.plot(
-        [i for i in range(len(allEvaluations))],
+        [i+1 for i in range(len(allEvaluations))],
         [evaluation for evaluation in evaluationMedianValues],
         color='blue',
         label='Mediana'
