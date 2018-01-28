@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import os
 import logging
 
-from apps.CONSTANTS import COSINE_TOTAL_VALIDE_RUN, COSINE_TOTAL_RUN
+from apps.CONSTANTS import START_VALIDE_RUN, TOTAL_RUN
 from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
@@ -15,7 +15,7 @@ def all_similarity_gLine(size_list):
         allBenchmarks.setdefault(runner, [])
         for benchmark in BenchCosine_SongTitle.objects.filter(
             setSize=runner
-        )[COSINE_TOTAL_VALIDE_RUN:COSINE_TOTAL_RUN]:
+        )[START_VALIDE_RUN:TOTAL_RUN]:
             allBenchmarks[runner].append(benchmark.similarity)
     directory = str(
         'files/apps/similarities/Cosine/graphs/all/'
