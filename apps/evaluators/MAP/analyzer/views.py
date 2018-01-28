@@ -16,7 +16,7 @@ from .benchmark import (
 )
 
 
-def runMAPValueGraphs(songSetLimit, at=5):
+def runMAPValueGraphs(songSetLimit, at):
     value_gLine(at=at, songSetLimit=songSetLimit)
     value_gScatter(at=at, songSetLimit=songSetLimit)
     value_gBoxPlot(at=at, songSetLimit=songSetLimit)
@@ -25,7 +25,7 @@ def runMAPValueGraphs(songSetLimit, at=5):
     all_value_gLine(at=at)
 
 
-def runMAPBenchmarkGraph(songSetLimit, at=5):
+def runMAPBenchmarkGraph(songSetLimit, at):
     bench_gBar(at=at, songSetLimit=songSetLimit)
     bench_gLine(at=at, songSetLimit=songSetLimit)
     bench_gBoxPlot(at=at, songSetLimit=songSetLimit)
@@ -34,6 +34,6 @@ def runMAPBenchmarkGraph(songSetLimit, at=5):
     all_bench_gLine(at=at)
 
 
-def runAllMAPAnalizers(songSetLimit, at=5):
+def runAllMAPAnalizers(songSetLimit, at):
     runMAPValueGraphs(at=at, songSetLimit=songSetLimit)
     runMAPBenchmarkGraph(at=at, songSetLimit=songSetLimit)

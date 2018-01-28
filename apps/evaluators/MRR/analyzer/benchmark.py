@@ -4,6 +4,7 @@ import logging
 import os
 
 from collections import Counter
+from apps.CONSTANTS import SET_SIZE_LIST
 from apps.data.users.models import User
 from apps.evaluators.MRR.algorithm.models import MRR
 
@@ -183,7 +184,9 @@ def bench_gBar(songSetLimit, at=5):
             allBenchmarks.append(evalution.benchmrr)
     benchmarkTimes = [
         float("{0:.3f}".format(
-            (benchmark.finished_at - benchmark.started_at).total_seconds() / 60.0)
+            (
+                benchmark.finished_at - benchmark.started_at
+            ).total_seconds() / 60.0)
         )
         for benchmark in allBenchmarks
     ]
@@ -225,7 +228,7 @@ def bench_gBar(songSetLimit, at=5):
 # ###################################################################### #
 
 
-def all_bench_gLine(at=5, size_list=[1500, 3000, 4500]):
+def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start Bench MRR (Graph Line)]")
     allBenchmarks = {}
     for evalution in MRR.objects.filter(at=at):
@@ -281,7 +284,7 @@ def all_bench_gLine(at=5, size_list=[1500, 3000, 4500]):
     logger.info("[Finish Bench MRR (Graph Line)]")
 
 
-def all_bench_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
+def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start Bench MRR (Graph BoxPlot)]")
     allBenchmarks = {}
     for evalution in MRR.objects.filter(at=at):

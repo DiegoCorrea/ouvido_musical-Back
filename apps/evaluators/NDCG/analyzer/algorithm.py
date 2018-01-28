@@ -4,6 +4,7 @@ import logging
 import os
 
 from collections import Counter
+from apps.CONSTANTS import SET_SIZE_LIST
 from apps.data.users.models import User
 from apps.evaluators.NDCG.algorithm.models import NDCG
 
@@ -228,7 +229,7 @@ def value_gBar(songSetLimit, at=5):
 # ########################################################################## #
 
 
-def all_value_gLine(at=5, size_list=[1500, 3000, 4500]):
+def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start NDCG Value (Graph Line)]")
     allEvaluations = {}
     for evalution in NDCG.objects.filter(at=at):
@@ -280,7 +281,7 @@ def all_value_gLine(at=5, size_list=[1500, 3000, 4500]):
     logger.info("[Finish NDCG Value (Graph Line)]")
 
 
-def all_value_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
+def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start NDCG Value (Graph BoxPlot)]")
     allEvaluations = {}
     for evalution in NDCG.objects.filter(at=at):

@@ -3,8 +3,9 @@ MAX_THREAD = 8
 MAX_SCORE = 3
 MIN_SCORE = 0
 
-SET_SIZE = [1500, 3000, 4500]
-GRAPH_SET_COLORS = ['red', 'green', 'blue']
+SET_SIZE_LIST = [1500, 3000, 4500]
+GRAPH_SET_COLORS_LIST = ['red', 'green', 'blue']
+AT_LIST = [5, 10]
 
 TOTAL_RUN = 20
 START_VALIDE_RUN = 10

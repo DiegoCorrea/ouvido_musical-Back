@@ -1,24 +1,15 @@
 import os
+import logging
 from .data.userSongRecommendation.models import UserSongRecommendations
 from .similarities.views import runSimilarities
 from .recommenders.views import runRecommenders
 from .recommenders.UserAverage.algorithm.models import (
     UserAverage_Recommendations
 )
-from .evaluators.views import runEvaluations, runAnalizerEvaluations
-import logging
+from .evaluators.views import runEvaluations
+from .CONSTANTS import SET_SIZE_LIST, AT_LIST, TOTAL_RUN
+
 logger = logging.getLogger(__name__)
-
-
-def bigBang():
-    logger.info("[Start Big Bang]")
-    # Calc Similarity
-    runSimilarities()
-    # Calc Recommendations
-    runRecommenders()
-    # Calc Evaluations
-    runEvaluations()
-    logger.info("[Finish Big Bang]")
 
 
 def cleanRecTables(userRec=True, userAveRec=True):
@@ -37,18 +28,15 @@ def cleanRecTables(userRec=True, userAveRec=True):
     logger.info("-"*30)
 
 
-def recommendation_evaluate_analise(songSetLimit):
+def recommendation_evaluate(songSetLimit):
     runRecommenders(songSetLimit=songSetLimit)
-    runEvaluations(at=5, songSetLimit=songSetLimit)
-    runEvaluations(at=10, songSetLimit=songSetLimit)
+    for at in AT_LIST:
+        runEvaluations(at=at, songSetLimit=songSetLimit)
 
 
-def run_score_evaluate_analise():
-    logger.info("*"*30)
-    logger.info("* Recomendar, Avaliar e Analizar as recomendações")
-    logger.info("*"*30)
-    for songSetLimit in [1500, 3000, 4500]:
-        for i in range(11):
+def runTheSystem():
+    for songSetLimit in SET_SIZE_LIST:
+        for i in range(TOTAL_RUN):
             logger.info("*"*30)
             logger.info(
                 "\tTamanho do banco ("
@@ -58,6 +46,6 @@ def run_score_evaluate_analise():
             )
             logger.info("*"*30)
             cleanRecTables()
-            recommendation_evaluate_analise(songSetLimit)
+            recommendation_evaluate(songSetLimit)
             os.system('cls||clear')
     logger.info('Finalizando Script')

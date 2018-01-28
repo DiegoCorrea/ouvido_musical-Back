@@ -4,6 +4,7 @@ import logging
 import os
 
 from collections import Counter
+from apps.CONSTANTS import SET_SIZE_LIST
 from apps.data.users.models import User
 from apps.evaluators.MAP.algorithm.models import MAP
 
@@ -221,7 +222,7 @@ def value_gBar(songSetLimit, at=5):
 # ########################################################################## #
 
 
-def all_value_gLine(at=5, size_list=[1500, 3000, 4500]):
+def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start MAP Value (Graph Line)]")
     allEvaluations = {}
     for evalution in MAP.objects.filter(at=at):
@@ -270,7 +271,7 @@ def all_value_gLine(at=5, size_list=[1500, 3000, 4500]):
     logger.info("[Finish MAP Value (Graph Line)]")
 
 
-def all_value_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
+def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start MAP Value (Graph BoxPlot)]")
     allEvaluations = {}
     for evalution in MAP.objects.filter(at=at):

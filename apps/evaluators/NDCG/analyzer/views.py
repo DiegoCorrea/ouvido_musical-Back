@@ -16,7 +16,7 @@ from .benchmark import (
 )
 
 
-def runNDCGValueGraph(songSetLimit, at=5):
+def runNDCGValueGraph(songSetLimit, at):
     value_gLine(at=at, songSetLimit=songSetLimit)
     value_gScatter(at=at, songSetLimit=songSetLimit)
     value_gBoxPlot(at=at, songSetLimit=songSetLimit)
@@ -25,7 +25,7 @@ def runNDCGValueGraph(songSetLimit, at=5):
     all_value_gBoxPlot(at=at)
 
 
-def runNDCGBenchmarkGraph(songSetLimit, at=5):
+def runNDCGBenchmarkGraph(songSetLimit, at):
     bench_gBar(at=at, songSetLimit=songSetLimit)
     bench_gLine(at=at, songSetLimit=songSetLimit)
     bench_gBoxPlot(at=at, songSetLimit=songSetLimit)
@@ -34,6 +34,6 @@ def runNDCGBenchmarkGraph(songSetLimit, at=5):
     all_bench_gBoxPlot(at=at)
 
 
-def runAllNDCGAnalizers(songSetLimit, at=5):
+def runAllNDCGAnalizers(songSetLimit, at):
     runNDCGValueGraph(at=at, songSetLimit=songSetLimit)
     runNDCGBenchmarkGraph(at=at, songSetLimit=songSetLimit)

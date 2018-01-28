@@ -16,7 +16,7 @@ from .benchmark import (
 )
 
 
-def runMRRValueGraph(songSetLimit, at=5):
+def runMRRValueGraph(songSetLimit, at):
     value_gLine(at=at, songSetLimit=songSetLimit)
     value_gScatter(at=at, songSetLimit=songSetLimit)
     value_gBoxPlot(at=at, songSetLimit=songSetLimit)
@@ -25,7 +25,7 @@ def runMRRValueGraph(songSetLimit, at=5):
     all_value_gBoxPlot(at=at)
 
 
-def runMRRBenchmarkGraph(songSetLimit, at=5):
+def runMRRBenchmarkGraph(songSetLimit, at):
     bench_gBar(at=at, songSetLimit=songSetLimit)
     bench_gLine(at=at, songSetLimit=songSetLimit)
     bench_gBoxPlot(at=at, songSetLimit=songSetLimit)
@@ -34,6 +34,6 @@ def runMRRBenchmarkGraph(songSetLimit, at=5):
     all_bench_gBoxPlot(at=at)
 
 
-def runAllMRRAnalizers(songSetLimit, at=5):
+def runAllMRRAnalizers(songSetLimit, at):
     runMRRValueGraph(at=at, songSetLimit=songSetLimit)
     runMRRBenchmarkGraph(at=at, songSetLimit=songSetLimit)
