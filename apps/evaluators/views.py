@@ -18,7 +18,7 @@ def runAnalizerEvaluations(songSetLimit, at=5):
     runAllNDCGAnalizers(at=at, songSetLimit=songSetLimit)
 
 
-def testAnalizers():
+def testAnalizersEvaluations():
     runAnalizerEvaluations(at=5, songSetLimit=1500)
     runAnalizerEvaluations(at=10, songSetLimit=1500)
     runAnalizerEvaluations(at=5, songSetLimit=3000)
