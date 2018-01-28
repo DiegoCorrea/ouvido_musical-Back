@@ -8,6 +8,7 @@ from apps.data.songs.models import Song
 
 class UserAverage_Life(models.Model):
     setSize = models.IntegerField()
+    similarity = models.FloatField(default=0.0, unique=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
