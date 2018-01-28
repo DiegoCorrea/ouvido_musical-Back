@@ -19,9 +19,9 @@ def runAnalizerEvaluations(songSetLimit, at=5):
 
 
 def testAnalizers():
-    runAnalizerEvaluations(at=5, songSetLimit=1000)
-    runAnalizerEvaluations(at=10, songSetLimit=1000)
-    runAnalizerEvaluations(at=5, songSetLimit=2000)
-    runAnalizerEvaluations(at=10, songSetLimit=2000)
+    runAnalizerEvaluations(at=5, songSetLimit=1500)
+    runAnalizerEvaluations(at=10, songSetLimit=1500)
     runAnalizerEvaluations(at=5, songSetLimit=3000)
     runAnalizerEvaluations(at=10, songSetLimit=3000)
+    runAnalizerEvaluations(at=5, songSetLimit=4500)
+    runAnalizerEvaluations(at=10, songSetLimit=4500)
