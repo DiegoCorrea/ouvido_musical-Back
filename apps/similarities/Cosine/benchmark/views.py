@@ -4,7 +4,7 @@ import os
 
 from random import sample
 from django.utils import timezone
-from apps.CONSTANTS import COSINE_TOTAL_RUN, COSINE_SET_SIZE
+from apps.CONSTANTS import TOTAL_RUN, SET_SIZE
 from apps.data.songs.models import Song
 from apps.similarities.Cosine.algorithm.algorithm import CosineSimilarity
 from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
@@ -32,16 +32,18 @@ def CosineBenchmark(allSongs):
     logger.info("[Finish Bench Cosine]")
 
 
-def RunCosineBenchmark(size_list=COSINE_SET_SIZE):
+def RunCosineBenchmark(size_list=SET_SIZE):
     logger.info("[Start Run Bench Cosine]")
     songs_list = Song.objects.all()
     for runner in size_list:
-        for i in range(COSINE_TOTAL_RUN):
+        for i in range(TOTAL_RUN):
             logger.info(
-                "\tTamanho do banco ("
+                "#########################################################"
+                + "\n\t Tamanho do banco ("
                 + str(runner)
                 + ") Ciclo: "
                 + str(i)
+                + "#########################################################"
             )
             CosineBenchmark(allSongs=sample(set(songs_list), runner))
     logger.info("[Finish Run Bench Cosine]")
