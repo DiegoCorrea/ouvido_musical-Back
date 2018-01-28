@@ -66,7 +66,9 @@ def all_bench_gBoxPlot(size_list):
     allBenchmarks = {}
     for runner in size_list:
         allBenchmarks.setdefault(runner, [])
-        for benchmark in BenchCosine_SongTitle.objects.filter(setSize=runner):
+        for benchmark in BenchCosine_SongTitle.objects.filter(
+            setSize=runner
+        )[START_VALIDE_RUN:TOTAL_RUN]:
             allBenchmarks[runner].append(
                 (
                     benchmark.finished_at - benchmark.started_at
