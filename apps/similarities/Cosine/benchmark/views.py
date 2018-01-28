@@ -1,6 +1,4 @@
-import matplotlib.pyplot as plt
 import logging
-import os
 
 from random import sample
 from django.utils import timezone
@@ -38,12 +36,12 @@ def RunCosineBenchmark(size_list=SET_SIZE):
     for runner in size_list:
         for i in range(TOTAL_RUN):
             logger.info(
-                "#########################################################"
-                + "\n\t Tamanho do banco ("
+                "\n#########################################################"
+                + "\n\tTamanho do banco ("
                 + str(runner)
                 + ") Ciclo: "
                 + str(i)
-                + "#########################################################"
+                + "\n#########################################################"
             )
             CosineBenchmark(allSongs=sample(set(songs_list), runner))
     logger.info("[Finish Run Bench Cosine]")
