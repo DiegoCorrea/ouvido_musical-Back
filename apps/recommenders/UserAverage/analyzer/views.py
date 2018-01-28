@@ -12,11 +12,7 @@ from .benchmark import (
 
 
 def runUserAverageValueGraph(songSetLimit):
-    like_gBar(songSetLimit=songSetLimit)
-    recommended_gBar(songSetLimit=songSetLimit)
-    score_gBar(songSetLimit=songSetLimit)
-    similarity_gLine(songSetLimit=songSetLimit)
-    similarity_gScatter(songSetLimit=songSetLimit)
+    pass
 
 
 def runUserAverageBenchmarkGraph():
