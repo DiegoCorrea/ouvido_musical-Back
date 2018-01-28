@@ -21,7 +21,6 @@ class CosineSimilarity_SongTitle(models.Model):
     similarity = models.FloatField(default=0, unique=False)
     # Timers
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = (('songBase', 'songCompare'),)
