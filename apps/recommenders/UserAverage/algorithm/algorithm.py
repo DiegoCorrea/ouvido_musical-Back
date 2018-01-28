@@ -5,7 +5,12 @@ from django.db import transaction
 from django.db.models import Sum
 from multiprocessing.dummy import Pool as ThreadPool
 
-from apps.CONSTANTS import MAX_SCORE, MIN_SCORE, MAX_THREAD
+from apps.CONSTANTS import (
+    MAX_SCORE,
+    MIN_SCORE,
+    MAX_THREAD,
+    RECOMMENDATION_LIMIT
+)
 from apps.data.users.models import User
 from apps.data.songs.models import Song
 from apps.data.userPlaySong.models import UserPlaySong
@@ -65,9 +70,9 @@ def getUserAverageRecommendations(user):
     for (song, values) in recommendations.items():
         rec.setdefault(song, sum(values)/len(values))
     with transaction.atomic():
-        for (song, similarity) in OrderedDict(
+        for (song, similarity) in (OrderedDict(
             sorted(rec.items(), key=lambda t: t[1], reverse=True)
-        ).items():
+        ).items())[:RECOMMENDATION_LIMIT]:
             try:
                 UserAverage_Recommendations.objects.create(
                         song_id=song.id,
