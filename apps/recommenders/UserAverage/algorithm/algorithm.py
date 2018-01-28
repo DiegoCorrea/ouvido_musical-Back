@@ -1,6 +1,8 @@
 from collections import OrderedDict
 from random import choice, randint, sample
 from django.db import transaction
+
+from django.db.models import Sum
 from multiprocessing.dummy import Pool as ThreadPool
 
 from apps.CONSTANTS import MAX_SCORE, MIN_SCORE, MAX_THREAD
@@ -87,4 +89,9 @@ def UserAverage(songSetLimit=Song.objects.count()):
     pool.map(getUserAverageRecommendations, userList)
     pool.close()
     pool.join()
+    UserAverage_Life.objects.last().update(
+        similarity=(UserAverage_Recommendations.objects.aggregate(
+            Sum('similarity'))/UserAverage_Recommendations.objects.count()
+        )
+    )
     logger.info("[Finish User Average]")
