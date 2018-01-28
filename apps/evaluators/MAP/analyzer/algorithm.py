@@ -294,6 +294,7 @@ def all_value_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
         + '\n |u| - '
         + str(User.objects.count())
     )
+    plt.ylabel('Valor do MAP')
     plt.boxplot(
         [
             [evaluation.value for evaluation in allEvaluations[size_list[0]]],
