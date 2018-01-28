@@ -296,7 +296,7 @@ def all_value_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
     plt.ylabel('Valor do MRR')
     plt.boxplot(
         [
-            [evaluation.value for evaluation in allEvaluations[size_list[1]]],
+            [evaluation.value for evaluation in allEvaluations[size_list[0]]],
             [evaluation.value for evaluation in allEvaluations[size_list[1]]],
             [evaluation.value for evaluation in allEvaluations[size_list[2]]]
         ],
