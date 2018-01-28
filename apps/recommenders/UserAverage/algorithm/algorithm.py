@@ -65,7 +65,9 @@ def getUserAverageRecommendations(user):
     for (song, values) in recommendations.items():
         rec.setdefault(song, sum(values)/len(values))
     with transaction.atomic():
-        for (song, similarity) in OrderedDict(sorted(rec.items(), key=lambda t: t[1], reverse=True)).items():
+        for (song, similarity) in OrderedDict(
+            sorted(rec.items(), key=lambda t: t[1], reverse=True)
+        ).items():
             try:
                 UserAverage_Recommendations.objects.create(
                         song_id=song.id,
