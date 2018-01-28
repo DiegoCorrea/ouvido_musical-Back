@@ -309,6 +309,7 @@ def all_bench_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
         + '\n |u| - '
         + str(User.objects.count())
     )
+    plt.ylabel('Tempo de execução (minutos)')
     plt.boxplot(
         [
             [benchmark for benchmark in allBenchmarks[size_list[0]]],
