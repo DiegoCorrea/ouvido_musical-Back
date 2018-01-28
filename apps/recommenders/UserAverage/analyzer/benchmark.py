@@ -27,7 +27,7 @@ def all_bench_gLine(size_list=[1500, 3000, 4500]):
                 ).total_seconds() / 60.0
             )
     directory = str(
-        'files/apps/recommenders/UserAverage/graphs/all/'
+        'files/apps/recommenders/UserAverage/graphs/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -83,7 +83,7 @@ def all_bench_gBoxPlot(size_list=[1500, 3000, 4500]):
                 ).total_seconds() / 60.0
             )
     directory = str(
-        'files/apps/recommenders/UserAverage/graphs/all/'
+        'files/apps/recommenders/UserAverage/graphs/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -95,6 +95,8 @@ def all_bench_gBoxPlot(size_list=[1500, 3000, 4500]):
         + '\n |u| - '
         + str(User.objects.count())
     )
+    plt.xlabel('ID da execução')
+    plt.ylabel('Tempo de execução (minutos)')
     plt.boxplot(
         [
             [benchmark for benchmark in allBenchmarks[size_list[0]]],
