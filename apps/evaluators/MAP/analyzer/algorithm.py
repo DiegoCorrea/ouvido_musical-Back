@@ -221,7 +221,7 @@ def value_gBar(songSetLimit, at=5):
 # ########################################################################## #
 
 
-def all_value_gLine(at=5):
+def all_value_gLine(at=5, size_list=[1500, 3000, 4500]):
     logger.info("[Start MAP Value (Graph Line)]")
     allEvaluations = {}
     for evalution in MAP.objects.filter(at=at):
@@ -242,28 +242,28 @@ def all_value_gLine(at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
-        + '\n User set - '
+        + '\n |u| - '
         + str(User.objects.count())
     )
     plt.xlabel('ID do execução')
     plt.ylabel('Valor do MAP')
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[1000]))],
-        [evaluation.value for evaluation in allEvaluations[1000]],
+        [i+1 for i in range(len(allEvaluations[size_list[0]]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[0]]],
         color='red',
-        label='1000'
+        label=size_list[0]
         )
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[2000]))],
-        [evaluation.value for evaluation in allEvaluations[2000]],
+        [i+1 for i in range(len(allEvaluations[size_list[1]]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[1]]],
         color='green',
-        label='2000'
+        label=size_list[1]
     )
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[3000]))],
-        [evaluation.value for evaluation in allEvaluations[3000]],
+        [i+1 for i in range(len(allEvaluations[size_list[2]]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[2]]],
         color='blue',
-        label='3000'
+        label=size_list[2]
     )
     plt.legend(loc='best')
     plt.savefig(str(directory) + 'all_value_gLine.png')
@@ -271,7 +271,7 @@ def all_value_gLine(at=5):
     logger.info("[Finish MAP Value (Graph Line)]")
 
 
-def all_value_gBoxPlot(at=5):
+def all_value_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
     logger.info("[Start MAP Value (Graph BoxPlot)]")
     allEvaluations = {}
     for evalution in MAP.objects.filter(at=at):
@@ -291,16 +291,16 @@ def all_value_gBoxPlot(at=5):
     plt.title(
         'MAP - Mean Averange Precision@'
         + str(at)
-        + '\n User set - '
+        + '\n |u| - '
         + str(User.objects.count())
     )
     plt.boxplot(
         [
-            [evaluation.value for evaluation in allEvaluations[1000]],
-            [evaluation.value for evaluation in allEvaluations[2000]],
-            [evaluation.value for evaluation in allEvaluations[3000]]
+            [evaluation.value for evaluation in allEvaluations[size_list[0]]],
+            [evaluation.value for evaluation in allEvaluations[size_list[1]]],
+            [evaluation.value for evaluation in allEvaluations[size_list[2]]]
         ],
-        labels=[1000, 2000, 3000]
+        labels=[size_list[0], size_list[1], size_list[2]]
     )
     plt.savefig(
         str(directory)
