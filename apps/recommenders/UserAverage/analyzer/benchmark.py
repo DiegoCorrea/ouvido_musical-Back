@@ -68,7 +68,7 @@ def all_bench_gLine(size_list=[1500, 3000, 4500]):
     logger.info("[Finish Bench User Average (Graph Line)]")
 
 
-def all_bench_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
+def all_bench_gBoxPlot(size_list=[1500, 3000, 4500]):
     logger.info("[Start Bench User Average (Graph BoxPlot)]")
     allBenchmarks = {}
     for recommenderRunner in UserAverage_Life.objects.filter(
