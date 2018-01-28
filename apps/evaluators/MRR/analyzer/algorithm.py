@@ -232,7 +232,6 @@ def all_value_gLine(at=5, size_list=[1500, 3000, 4500]):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/MRR/graphs/all/'
-        + 'algorithm/'
         + str(at)
         + '/'
     )
@@ -267,7 +266,7 @@ def all_value_gLine(at=5, size_list=[1500, 3000, 4500]):
         label=size_list[2]
     )
     plt.legend(loc='best')
-    plt.savefig(str(directory) + 'all_value_gLine.png')
+    plt.savefig(str(directory) + 'all_algorithm_gLine.png')
     plt.close()
     logger.info("[Finish MRR Value (Graph Line)]")
 
@@ -282,7 +281,6 @@ def all_value_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/MRR/graphs/all/'
-        + 'algorithm/'
         + str(at)
         + '/'
     )
@@ -306,7 +304,7 @@ def all_value_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
     )
     plt.savefig(
         str(directory)
-        + 'all_value_gBoxPlot.png'
+        + 'all_algorithm_gBoxPlot.png'
     )
     plt.close()
     logger.info("[Finish MRR Value (Graph BoxPlot)]")
