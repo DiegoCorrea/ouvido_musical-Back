@@ -1,19 +1,20 @@
 from .algorithm import (
-    similarity_gScatter,
-    similarity_gLine
+    all_similarity_gLine,
+    all_similarity_gBoxPlot
 )
 
 from .benchmark import (
     all_bench_gLine,
     all_bench_gBoxPlot
 )
+from apps.CONSTANTS import COSINE_TOTAL_RUN, COSINE_SET_SIZE
 
 
-def runAlgorithmAnalizers():
-    similarity_gScatter()
-    similarity_gLine()
+def runAlgorithmAnalizers(size_list=COSINE_SET_SIZE):
+    all_similarity_gLine(size_list=size_list)
+    all_similarity_gBoxPlot(size_list=size_list)
 
 
-def runBenchmarkAnalizers(size_list=[1500, 3000, 4500]):
+def runBenchmarkAnalizers(size_list=COSINE_SET_SIZE):
     all_bench_gLine(size_list=size_list)
     all_bench_gBoxPlot(size_list=size_list)
