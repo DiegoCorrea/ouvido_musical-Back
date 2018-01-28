@@ -245,7 +245,6 @@ def all_bench_gLine(at=5, size_list=[1500, 3000, 4500]):
             )
     directory = str(
         'files/apps/evaluators/NDCG/graphs/all/'
-        + 'benchmark/'
         + str(at) + '/'
     )
     if not os.path.exists(directory):
@@ -282,7 +281,7 @@ def all_bench_gLine(at=5, size_list=[1500, 3000, 4500]):
     plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'all_value_gLine.png'
+        + 'all_bench_gLine.png'
     )
     plt.close()
     logger.info("[Finish Bench NDCG (Graph Line)]")
@@ -302,7 +301,6 @@ def all_bench_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
             )
     directory = str(
         'files/apps/evaluators/NDCG/graphs/all/'
-        + 'benchmark/'
         + str(at) + '/'
     )
     if not os.path.exists(directory):
@@ -326,7 +324,7 @@ def all_bench_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
     )
     plt.savefig(
         str(directory)
-        + 'value_gBoxPlot.png'
+        + 'all_bench_gBoxPlot.png'
     )
     plt.close()
     logger.info("[Finish Bench NDCG (Graph BoxPlot)]")
