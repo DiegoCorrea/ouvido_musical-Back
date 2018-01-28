@@ -1,87 +1,89 @@
 import matplotlib.pyplot as plt
-import numpy as np
-from collections import Counter
 import os
-from django.utils import timezone
-from apps.data.songs.models import SongSimilarity
-from multiprocessing.dummy import Pool as ThreadPool
-from apps.CONSTANTS import MAX_THREAD
 import logging
+
+from apps.CONSTANTS import COSINE_TOTAL_VALIDE_RUN, COSINE_TOTAL_RUN
+from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
 
 
-def toFloat(item):
-    return float("{0:.3f}".format(item.similarity))
-
-
-def similarity_gScatter(songSetLimit=SongSimilarity.objects.count()):
-    allItens = SongSimilarity.objects.all()
-    logger.info("[Start Cosine Similarity (Graph Scatter)]")
-    pool = ThreadPool(MAX_THREAD)
-    itemValues = pool.map(toFloat, allItens)
-    pool.close()
-    pool.join()
-    itemMeanValues = np.mean(itemValues)
+def all_similarity_gLine(size_list):
+    logger.info("[Start Cosine - Similarity (Graph Line)]")
+    allBenchmarks = {}
+    for runner in size_list:
+        allBenchmarks.setdefault(runner, [])
+        for benchmark in BenchCosine_SongTitle.objects.filter(
+            setSize=runner
+        )[COSINE_TOTAL_VALIDE_RUN:COSINE_TOTAL_RUN]:
+            allBenchmarks[runner].append(benchmark.similarity)
     directory = str(
-        './files/apps/similarities/Cosine/graphs/'
-        + str(songSetLimit)
-        + '/algorithm/'
+        'files/apps/similarities/Cosine/graphs/all/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title('Cosine Similarity')
+    plt.title(
+        'Title Cosine Similarity'
+    )
+    plt.xlabel('ID da execução')
     plt.ylabel('Similaridade')
-    plt.xlabel('Similaridade')
-    plt.scatter(
-        itemValues,
-        itemValues,
-        label='Media: '
-        + str(float("{0:.3f}".format(itemMeanValues)))
-    )
-    plt.legend(loc='upper left')
-    plt.savefig(str(directory) + 'similarity_gScatter.png')
-    plt.close()
-    logger.info("[Finish Cosine Similarity (Graph Scatter)]")
-
-
-def similarity_gLine(songSetLimit=SongSimilarity.objects.count()):
-    allItens = SongSimilarity.objects.all()
-    logger.info("[Start Cosine Similarity (Graph Line)]")
-    pool = ThreadPool(MAX_THREAD)
-    itemValues = pool.map(toFloat, allItens)
-    pool.close()
-    pool.join()
-    countList = Counter(sorted(itemValues))
-    itemMeanValues = np.mean(itemValues)
-    directory = str(
-        './files/apps/similarities/Cosine/graphs/'
-        + str(songSetLimit)
-        + '/algorithm/'
-    )
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    plt.figure()
-    plt.grid(True)
-    plt.title('Cosine Similarity')
-    plt.ylabel('Quantidade de similares')
-    plt.xlabel('Similaridade')
     plt.plot(
-        countList.keys(),
-        countList.values()
+        [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
+        [benchmark for benchmark in allBenchmarks[size_list[0]]],
+        color='red',
+        label=size_list[0]
     )
-    plt.scatter(
-        itemValues,
-        itemValues,
-        label='Media: '
-        + str(float("{0:.3f}".format(itemMeanValues)))
+    plt.plot(
+        [i+1 for i in range(len(allBenchmarks[size_list[1]]))],
+        [benchmark for benchmark in allBenchmarks[size_list[1]]],
+        color='green',
+        label=size_list[1]
     )
-    plt.legend(loc='upper left')
+    plt.plot(
+        [i+1 for i in range(len(allBenchmarks[size_list[2]]))],
+        [benchmark for benchmark in allBenchmarks[size_list[2]]],
+        color='blue',
+        label=size_list[2]
+    )
+    plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'similarity_gLine.png'
+        + 'all_similarity_gLine.png'
     )
     plt.close()
     logger.info("[Finish Cosine Similarity (Graph Line)]")
+
+
+def all_similarity_gBoxPlot(size_list):
+    logger.info("[Start Cosine Similarity (Graph BoxPlot)]")
+    allBenchmarks = {}
+    for runner in size_list:
+        allBenchmarks.setdefault(runner, [])
+        for benchmark in BenchCosine_SongTitle.objects.filter(setSize=runner):
+            allBenchmarks[runner].append(benchmark.similarity)
+    directory = str(
+        'files/apps/similarities/Cosine/graphs/all/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    plt.figure()
+    plt.title(
+        'Title Cosine Similarity'
+    )
+    plt.ylabel('Similaridade')
+    plt.boxplot(
+        [
+            [benchmark for benchmark in allBenchmarks[size_list[0]]],
+            [benchmark for benchmark in allBenchmarks[size_list[1]]],
+            [benchmark for benchmark in allBenchmarks[size_list[2]]]
+        ],
+        labels=[size_list[0], size_list[1], size_list[2]]
+    )
+    plt.savefig(
+        str(directory)
+        + 'all_similarity_gBoxPlot.png'
+    )
+    plt.close()
+    logger.info("[Finish Cosine Similarity (Graph BoxPlot)]")
