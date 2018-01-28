@@ -1,6 +1,6 @@
+from django.utils import timezone
 from .algorithm import UserAverage, UserAverage_Life
 from apps.recommenders.UserAverage.benchmark.models import BenchUserAverage
-from django.utils import timezone
 
 import logging
 logger = logging.getLogger(__name__)
