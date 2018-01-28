@@ -2,19 +2,20 @@ import matplotlib.pyplot as plt
 import logging
 import os
 
-from random import sample
-
+from apps.CONSTANTS import COSINE_TOTAL_VALIDE_RUN, COSINE_TOTAL_RUN
 from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
 
 
-def all_bench_gLine(size_list=[1500, 3000, 4500]):
+def all_bench_gLine(size_list):
     logger.info("[Start Bench Cosine (Graph Line)]")
     allBenchmarks = {}
     for runner in size_list:
         allBenchmarks.setdefault(runner, [])
-        for benchmark in BenchCosine_SongTitle.objects.filter(setSize=runner):
+        for benchmark in BenchCosine_SongTitle.objects.filter(
+            setSize=runner
+        )[COSINE_TOTAL_VALIDE_RUN:COSINE_TOTAL_RUN]:
             allBenchmarks[runner].append(
                 (
                     benchmark.finished_at - benchmark.started_at
@@ -60,7 +61,7 @@ def all_bench_gLine(size_list=[1500, 3000, 4500]):
     logger.info("[Finish Bench Csine (Graph Line)]")
 
 
-def all_bench_gBoxPlot(at=5, size_list=[1500, 3000, 4500]):
+def all_bench_gBoxPlot(size_list):
     logger.info("[Start Bench Cosine (Graph BoxPlot)]")
     allBenchmarks = {}
     for runner in size_list:
