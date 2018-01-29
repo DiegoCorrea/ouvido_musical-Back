@@ -95,9 +95,9 @@ def UserAverage(songSetLimit=Song.objects.count()):
     pool.map(getUserAverageRecommendations, userList)
     pool.close()
     pool.join()
-    UserAverage_Life.objects.last().update(
-        similarity=(UserAverage_Recommendations.objects.aggregate(
-            Sum('similarity'))/UserAverage_Recommendations.objects.count()
-        )
-    )
+    life = UserAverage_Life.objects.last()
+    life.similarity = UserAverage_Recommendations.objects.aggregate(
+            Sum('similarity')
+        )/UserAverage_Recommendations.objects.count()
+    life.save()
     logger.info("[Finish User Average]")
