@@ -91,7 +91,7 @@ def score_gBar(songSetLimit, allItens=UserAverage_Recommendations.objects.all())
     logger.info("[Finish User Average Score (Graph Bar)]")
 
 
-def similarity_gScatter(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
+def similarity_gScatter(songSetLimit, allItens=UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Similarity (Graph Scatter)]")
     itemValues = [ float("{0:.3f}".format(item.similarity)) for item in allItens]
     itemMeanValues = np.mean(itemValues)
@@ -111,7 +111,7 @@ def similarity_gScatter(songSetLimit, allItens = UserAverage_Recommendations.obj
     logger.info("[Finish User Average Similarity (Graph Scatter)]")
 
 
-def similarity_gLine(songSetLimit, allItens = UserAverage_Recommendations.objects.all()):
+def similarity_gLine(songSetLimit, allItens=UserAverage_Recommendations.objects.all()):
     logger.info("[Start User Average Similarity (Graph Line)]")
     itemValues = [float("{0:.3f}".format(item.similarity)) for item in allItens]
     countList = Counter(sorted(itemValues))

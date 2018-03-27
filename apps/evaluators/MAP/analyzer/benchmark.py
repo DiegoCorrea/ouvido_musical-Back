@@ -268,8 +268,8 @@ def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.xlabel('ID da execução')
-    plt.ylabel('Tempo de execução (minutos)')
+    plt.xlabel('Round Id')
+    plt.ylabel('Round time (minute)')
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
         [benchmark for benchmark in allBenchmarks[size_list[0]]],
@@ -291,7 +291,9 @@ def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'all_bench_gLine.png'
+        + 'map_all_bench_gLine_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish Bench MAP (Graph Line)]")
@@ -323,7 +325,7 @@ def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.ylabel('Tempo de execução (minutos)')
+    plt.ylabel('Round time (minute)')
     plt.boxplot(
         [
             [benchmark for benchmark in allBenchmarks[size_list[0]]],
@@ -334,7 +336,9 @@ def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.savefig(
         str(directory)
-        + 'all_bench_gBoxPlot.png'
+        + 'map_all_bench_gBoxPlot_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish Bench MAP (Graph BoxPlot)]")

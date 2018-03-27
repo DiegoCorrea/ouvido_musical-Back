@@ -245,8 +245,8 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.xlabel('ID do execução')
-    plt.ylabel('Valor do MAP')
+    plt.xlabel('Round Id')
+    plt.ylabel('MAP value')
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[0]]))],
         [evaluation.value for evaluation in allEvaluations[size_list[0]]],
@@ -266,7 +266,11 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
         label=size_list[2]
     )
     plt.legend(loc='best')
-    plt.savefig(str(directory) + 'all_algorithm_gLine.png')
+    plt.savefig(
+        str(directory)
+        + 'map_all_algorithm_gLine_'
+        + str(at)
+        + '.png')
     plt.close()
     logger.info("[Finish MAP Value (Graph Line)]")
 
@@ -293,7 +297,7 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.ylabel('Valor do MAP')
+    plt.ylabel('MAP value')
     plt.boxplot(
         [
             [evaluation.value for evaluation in allEvaluations[size_list[0]]],
@@ -304,7 +308,9 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.savefig(
         str(directory)
-        + 'all_algorithm_gBoxPlot.png'
+        + 'map_all_algorithm_gBoxPlot_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish MAP Value (Graph BoxPlot)]")
