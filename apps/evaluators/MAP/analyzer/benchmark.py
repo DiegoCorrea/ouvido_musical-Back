@@ -241,7 +241,7 @@ def bench_gBar(songSetLimit, at=5):
 # ###################################################################### #
 
 
-def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
+def all_time_gLine(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start Bench MAP (Graph Line)]")
     allBenchmarks = {}
     for evalution in MAP.objects.filter(at=at):
@@ -291,7 +291,7 @@ def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'map_all_bench_gLine_'
+        + 'map_all_time_gLine_'
         + str(at)
         + '.png'
     )
@@ -299,7 +299,7 @@ def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Finish Bench MAP (Graph Line)]")
 
 
-def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
+def all_time_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start Bench MAP (Graph BoxPlot)]")
     allBenchmarks = {}
     for evalution in MAP.objects.filter(at=at):
@@ -336,7 +336,7 @@ def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.savefig(
         str(directory)
-        + 'map_all_bench_gBoxPlot_'
+        + 'map_all_time_gBoxPlot_'
         + str(at)
         + '.png'
     )

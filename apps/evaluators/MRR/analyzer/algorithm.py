@@ -233,8 +233,6 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/MRR/graphs/all/'
-        + str(at)
-        + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -246,8 +244,8 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.xlabel('ID do execução')
-    plt.ylabel('Valor do MRR')
+    plt.xlabel('Round Id')
+    plt.ylabel('MRR value')
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[0]]))],
         [evaluation.value for evaluation in allEvaluations[size_list[0]]],
@@ -267,7 +265,12 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
         label=size_list[2]
     )
     plt.legend(loc='best')
-    plt.savefig(str(directory) + 'all_algorithm_gLine.png')
+    plt.savefig(
+        str(directory)
+        + 'mrr_all_algorithm_gLine_'
+        + str(at)
+        + '.png'
+    )
     plt.close()
     logger.info("[Finish MRR Value (Graph Line)]")
 
@@ -282,8 +285,6 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/MRR/graphs/all/'
-        + str(at)
-        + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -294,7 +295,7 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.ylabel('Valor do MRR')
+    plt.ylabel('MRR value')
     plt.boxplot(
         [
             [evaluation.value for evaluation in allEvaluations[size_list[0]]],
@@ -305,7 +306,9 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.savefig(
         str(directory)
-        + 'all_algorithm_gBoxPlot.png'
+        + 'mrr_all_algorithm_gBoxPlot_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish MRR Value (Graph BoxPlot)]")

@@ -228,7 +228,7 @@ def bench_gBar(songSetLimit, at=5):
 # ###################################################################### #
 
 
-def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
+def all_time_gLine(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start Bench MRR (Graph Line)]")
     allBenchmarks = {}
     for evalution in MRR.objects.filter(at=at):
@@ -238,11 +238,10 @@ def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
             allBenchmarks[evalution.life.setSize].append(
                 (
                     evalution.benchmrr.finished_at - evalution.benchmrr.started_at
-                ).total_seconds() / 60.0
+                ).total_seconds()
             )
     directory = str(
         'files/apps/evaluators/MRR/graphs/all/'
-        + str(at) + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -255,8 +254,8 @@ def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.xlabel('ID da execução')
-    plt.ylabel('Tempo de execução (minutos)')
+    plt.xlabel('Round Id')
+    plt.ylabel('Round time (seconds)')
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
         [benchmark for benchmark in allBenchmarks[size_list[0]]],
@@ -278,13 +277,15 @@ def all_bench_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'all_bench_gLine.png'
+        + 'all_time_gLine_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish Bench MRR (Graph Line)]")
 
 
-def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
+def all_time_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     logger.info("[Start Bench MRR (Graph BoxPlot)]")
     allBenchmarks = {}
     for evalution in MRR.objects.filter(at=at):
@@ -294,11 +295,10 @@ def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
             allBenchmarks[evalution.life.setSize].append(
                 (
                     evalution.benchmrr.finished_at - evalution.benchmrr.started_at
-                ).total_seconds() / 60.0
+                ).total_seconds()
             )
     directory = str(
         'files/apps/evaluators/MRR/graphs/all/'
-        + str(at) + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -310,7 +310,7 @@ def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.ylabel('Tempo de execução (minutos)')
+    plt.ylabel('Round time (seconds)')
     plt.boxplot(
         [
             [benchmark for benchmark in allBenchmarks[size_list[0]]],
@@ -321,7 +321,9 @@ def all_bench_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.savefig(
         str(directory)
-        + 'all_bench_gBoxPlot.png'
+        + 'all_time_gBoxPlot_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish Bench MRR (Graph BoxPlot)]")
