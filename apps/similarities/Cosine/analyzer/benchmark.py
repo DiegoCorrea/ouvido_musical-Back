@@ -22,18 +22,18 @@ def all_bench_gLine(size_list):
                 ).total_seconds()
             )
     directory = str(
-        'files/apps/similarities/Cosine/graphs/all/'
+        'files/apps/similarities/Cosine/graphs/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
     plt.title(
-        'Title Cosine Similarity'
-        + '\nBenchmark'
+        'Cosine Similarity'
+        + '\nTime Latency'
     )
-    plt.xlabel('ID da execução')
-    plt.ylabel('Tempo de execução (Segundos)')
+    plt.xlabel('Round Id')
+    plt.ylabel('Time (seconds)')
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
         [benchmark for benchmark in allBenchmarks[size_list[0]]],
@@ -55,7 +55,7 @@ def all_bench_gLine(size_list):
     plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'all_bench_gLine.png'
+        + 'cosine_all_time_gLine.png'
     )
     plt.close()
     logger.info("[Finish Bench Csine (Graph Line)]")
@@ -75,16 +75,16 @@ def all_bench_gBoxPlot(size_list):
                 ).total_seconds()
             )
     directory = str(
-        'files/apps/similarities/Cosine/graphs/all/'
+        'files/apps/similarities/Cosine/graphs/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
     plt.title(
-        'Title Cosine Similarity'
-        + '\nBenchmark'
+        'Cosine Similarity'
+        + '\nTime Latency'
     )
-    plt.ylabel('Tempo de execução (Segundos)')
+    plt.ylabel('Round Time (seconds)')
     plt.boxplot(
         [
             [benchmark for benchmark in allBenchmarks[size_list[0]]],
@@ -95,7 +95,7 @@ def all_bench_gBoxPlot(size_list):
     )
     plt.savefig(
         str(directory)
-        + 'all_bench_gBoxPlot.png'
+        + 'cosine_all_time_gBoxPlot.png'
     )
     plt.close()
     logger.info("[Finish Bench Cosine (Graph BoxPlot)]")

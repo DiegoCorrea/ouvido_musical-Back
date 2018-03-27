@@ -1,7 +1,5 @@
 from .algorithm import CosineSimilarity
-from .models import CosineSimilarity_SongTitle
 from apps.data.songs.models import Song, SongSimilarity
-from django.utils import timezone
 from django.db import transaction
 from multiprocessing.dummy import Pool as ThreadPool
 from apps.CONSTANTS import MAX_THREAD
@@ -17,9 +15,7 @@ def saveTitleSimilarity(sBase):
     global similarityMatrix
     global songInterator
     logger.info("++ Song Psition: " + str(songInterator[sBase]['pos']))
-    for sComp in songInterator:
-        if songInterator[sBase]['pos'] >= songInterator[sComp]['pos']:
-            continue
+    for sComp in songInterator[songInterator[sBase]['pos']:]:
         try:
             SongSimilarity.objects.create(
                 songBase=songInterator[sBase]['obj'],
