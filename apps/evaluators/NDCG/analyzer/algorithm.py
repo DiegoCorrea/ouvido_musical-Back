@@ -252,8 +252,8 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.xlabel('ID do execução')
-    plt.ylabel('Valor do NDCG')
+    plt.xlabel('Round Id')
+    plt.ylabel('NDCG value')
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[0]]))],
         [evaluation.value for evaluation in allEvaluations[size_list[0]]],
@@ -275,7 +275,9 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'all_algorithm_gLine.png'
+        + 'ndcg_all_algorithm_gLine_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish NDCG Value (Graph Line)]")
@@ -291,8 +293,6 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/NDCG/graphs/all/'
-        + str(at)
-        + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -303,7 +303,7 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
         + '\n |u| - '
         + str(User.objects.count())
     )
-    plt.ylabel('Valor do NDCG')
+    plt.ylabel('NDCG value')
     plt.boxplot(
         [
             [evaluation.value for evaluation in allEvaluations[size_list[0]]],
@@ -314,7 +314,9 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.savefig(
         str(directory)
-        + 'all_algorithm_gBoxPlot.png'
+        + 'all_algorithm_gBoxPlot_'
+        + str(at)
+        + '.png'
     )
     plt.close()
     logger.info("[Finish NDCG Value (Graph BoxPlot)]")
