@@ -28,7 +28,7 @@ def calcUsersNDCG(at=5):
     logger.info("[Start Users NDCG]")
     result = [
         ndcg_at_k(
-            userScoreList(user.useraverage_recommendations_set.all()),
+            userScoreList(user.useraverage_recommendations_set.all().order_by("similarity").desc()),
             k=at,
             method=0
         ) for user in User.objects.all()
