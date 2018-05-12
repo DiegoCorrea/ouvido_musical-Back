@@ -1,4 +1,4 @@
-from .Cosine.views import runCosine
+from .Cosine.views import runCosine, TitleSimilarityWithObserver
 import logging
 logger = logging.getLogger(__name__)
 

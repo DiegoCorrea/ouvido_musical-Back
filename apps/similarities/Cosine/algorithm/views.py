@@ -1,8 +1,12 @@
 from .algorithm import CosineSimilarity
 from apps.data.songs.models import Song, SongSimilarity
+from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 from django.db import transaction
+from django.utils import timezone
 from multiprocessing.dummy import Pool as ThreadPool
 from apps.CONSTANTS import MAX_THREAD
+from random import sample
+import numpy as np
 
 import logging
 logger = logging.getLogger(__name__)
@@ -49,3 +53,31 @@ def TitleSimilarity():
         pool.close()
         pool.join()
     logger.info("[Finish Title Similarity]")
+
+
+def TitleSimilarityWithObserver(setSize):
+    logger.info("[Start Title Similarity]")
+    allSongs = sample(set(Song.objects.all()), setSize)
+    line = 0
+    similarityVale = []
+    startedAt = timezone.now()
+    similarityMatrix = CosineSimilarity([song.title for song in allSongs])
+    finishedAt = timezone.now()
+    for i in range(len(allSongs)):
+        for j in range(i, len(allSongs)):
+            if j == i:
+                continue
+            line += 1
+            similarityVale.append(similarityMatrix[i][j])
+    BenchCosine_SongTitle.objects.create(
+        setSize=setSize,
+        similarity=np.mean(similarityVale),
+        started_at=startedAt,
+        finished_at=finishedAt
+    )
+    logger.info(
+        "Benchmark: Start at - "
+        + str(startedAt)
+        + " || Finished at -"
+        + str(finishedAt)
+    )
