@@ -19,15 +19,17 @@ def saveTitleSimilarity(sBase):
     global similarityMatrix
     global songInterator
     logger.info("++ Song Psition: " + str(songInterator[sBase]['pos']))
-    for sComp in songInterator[songInterator[sBase]['pos']:]:
+    for sComp in songInterator:
+        if songInterator[sBase]['pos'] >= songInterator[sComp]['pos']:
+            continue
         try:
             SongSimilarity.objects.create(
                 songBase=songInterator[sBase]['obj'],
                 songCompare=songInterator[sComp]['obj'],
                 similarity=similarityMatrix[songInterator[sBase]['pos']][songInterator[sComp]['pos']]
             )
-        except Exception:
-            logger.info("-----Error Alert-----")
+        except Exception as e:
+            logger.error(str(e))
             continue
 
 

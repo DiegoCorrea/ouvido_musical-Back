@@ -1,5 +1,5 @@
 from .algorithm.views import TitleSimilarity, TitleSimilarityWithObserver
-from .analyzer.views import runAlgorithmAnalizers
+from .analyzer.views import runCosineAnalizers
 from apps.CONSTANTS import SET_SIZE_LIST, TOTAL_RUN
 import logging
 logger = logging.getLogger(__name__)
@@ -8,7 +8,6 @@ logger = logging.getLogger(__name__)
 def runCosine():
     logger.info("[Start Title Similarity with Cosine]")
     TitleSimilarity()
-    runAlgorithmAnalizers()
     logger.info("[Finish Title Similarity with Cosine]")
 
 
@@ -18,3 +17,4 @@ def runSimilaritiesWithConfig():
         for run in range(TOTAL_RUN):
             TitleSimilarityWithObserver(setSize=setSize)
     logger.info("[Finish Similarities]")
+    runCosineAnalizers()
