@@ -25,7 +25,8 @@ def calcUsersMRR(at=5):
     logger.info("[Start User MRR]")
     mrrList = []
     for user in User.objects.all():
-        userec = user.useraverage_recommendations_set.all().order_by("similarity").desc()[:at]
+        userec = user.useraverage_recommendations_set.all(
+                ).order_by("similarity").desc()[:at]
         if len(userec) == 0:
             continue
         mrrList.append(getMRR(userLikeArray(userec)))

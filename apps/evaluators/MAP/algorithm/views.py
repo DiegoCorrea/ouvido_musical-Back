@@ -8,7 +8,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def runMAP(at=5):
+def runMAP(at):
     logger.info("[Start MAP Evaluation]")
     startedAt = timezone.now()
     value = calcUsersMAP(at=at)
