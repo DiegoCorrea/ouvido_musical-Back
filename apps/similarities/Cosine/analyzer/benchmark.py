@@ -8,7 +8,7 @@ from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 logger = logging.getLogger(__name__)
 
 
-def all_bench_gLine(size_list):
+def all_time_gLine(size_list):
     logger.info("[Start Bench Cosine (Graph Line)]")
     allBenchmarks = {}
     for runner in size_list:
@@ -61,7 +61,7 @@ def all_bench_gLine(size_list):
     logger.info("[Finish Bench Csine (Graph Line)]")
 
 
-def all_bench_gBoxPlot(size_list):
+def all_time_gBoxPlot(size_list):
     logger.info("[Start Bench Cosine (Graph BoxPlot)]")
     allBenchmarks = {}
     for runner in size_list:

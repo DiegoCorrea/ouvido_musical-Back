@@ -4,8 +4,8 @@ from .algorithm import (
 )
 
 from .benchmark import (
-    all_bench_gLine,
-    all_bench_gBoxPlot
+    all_time_gLine,
+    all_time_gBoxPlot
 )
 from apps.CONSTANTS import SET_SIZE_LIST
 
@@ -16,8 +16,8 @@ def runAlgorithmAnalizers(size_list):
 
 
 def runBenchmarkAnalizers(size_list):
-    all_bench_gLine(size_list=size_list)
-    all_bench_gBoxPlot(size_list=size_list)
+    all_time_gLine(size_list=size_list)
+    all_time_gBoxPlot(size_list=size_list)
 
 
 def runCosineAnalizers(size_list=SET_SIZE_LIST):

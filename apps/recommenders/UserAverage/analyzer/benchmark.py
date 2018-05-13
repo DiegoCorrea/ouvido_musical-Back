@@ -12,7 +12,7 @@ from apps.recommenders.UserAverage.algorithm.models import (
 logger = logging.getLogger(__name__)
 
 
-def all_bench_gLine(size_list=[1500, 3000, 4500]):
+def all_time_gLine(size_list=[1500, 3000, 4500]):
     logger.info("[Start Bench User Average (Graph Line)]")
     allBenchmarks = {}
     for recommenderRunner in UserAverage_Life.objects.filter(
@@ -62,13 +62,13 @@ def all_bench_gLine(size_list=[1500, 3000, 4500]):
     plt.legend(loc='best')
     plt.savefig(
         str(directory)
-        + 'all_bench_gLine.png'
+        + 'all_time_gLine.png'
     )
     plt.close()
     logger.info("[Finish Bench User Average (Graph Line)]")
 
 
-def all_bench_gBoxPlot(size_list=[1500, 3000, 4500]):
+def all_time_gBoxPlot(size_list=[1500, 3000, 4500]):
     logger.info("[Start Bench User Average (Graph BoxPlot)]")
     allBenchmarks = {}
     for recommenderRunner in UserAverage_Life.objects.filter(
@@ -107,7 +107,7 @@ def all_bench_gBoxPlot(size_list=[1500, 3000, 4500]):
     )
     plt.savefig(
         str(directory)
-        + 'all_bench_gBoxPlot.png'
+        + 'all_time_gBoxPlot.png'
     )
     plt.close()
     logger.info("[Finish Bench User Average (Graph BoxPlot)]")

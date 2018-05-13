@@ -11,8 +11,8 @@ from .benchmark import (
     bench_gBoxPlot,
     bench_gLine,
     bench_gScatter,
-    all_bench_gBoxPlot,
-    all_bench_gLine
+    all_time_gBoxPlot,
+    all_time_gLine
 )
 
 
@@ -30,8 +30,8 @@ def runMAPBenchmarkGraph(songSetLimit, at):
     bench_gLine(at=at, songSetLimit=songSetLimit)
     bench_gBoxPlot(at=at, songSetLimit=songSetLimit)
     bench_gScatter(at=at, songSetLimit=songSetLimit)
-    all_bench_gBoxPlot(at=at)
-    all_bench_gLine(at=at)
+    all_time_gBoxPlot(at=at)
+    all_time_gLine(at=at)
 
 
 def runAllMAPAnalizers(songSetLimit, at):

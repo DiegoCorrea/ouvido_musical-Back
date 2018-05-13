@@ -6,8 +6,8 @@ from .algorithm import (
     similarity_gLine
 )
 from .benchmark import (
-    all_bench_gBoxPlot,
-    all_bench_gLine
+    all_time_gBoxPlot,
+    all_time_gLine
 )
 
 
@@ -16,8 +16,8 @@ def runUserAverageValueGraph(songSetLimit):
 
 
 def runUserAverageBenchmarkGraph():
-    all_bench_gBoxPlot()
-    all_bench_gLine()
+    all_time_gBoxPlot()
+    all_time_gLine()
 
 
 def runUserAverageAnalizers(songSetLimit):
