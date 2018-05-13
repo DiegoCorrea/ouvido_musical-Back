@@ -28,11 +28,11 @@ RECOMMENDATION_CONFIG = {
 
 
 def createUserModel(userPlayed_list):
-    songs_ids_list = copy.deepcopy(RECOMMENDATION_CONFIG.SONGDB_IDS)
+    songs_ids_list = copy.deepcopy(RECOMMENDATION_CONFIG['SONGDB_IDS'])
     for played in userPlayed_list:
         songs_ids_list.remove(played.song_id)
     try:
-        return sample(set(songs_ids_list), RECOMMENDATION_CONFIG.SONGSET_LIMIT)
+        return sample(set(songs_ids_list), RECOMMENDATION_CONFIG['SONGSET_LIMIT'])
     except ValueError:
         return sample(set(songs_ids_list), len(songs_ids_list))
 
@@ -84,7 +84,7 @@ def getUserAverageRecommendations(user):
                 UserAverage_Recommendations.objects.create(
                         song_id=song.id,
                         user_id=user.id,
-                        life_id=RECOMMENDATION_CONFIG.LIFE_ID,
+                        life_id=RECOMMENDATION_CONFIG['LIFE_ID'],
                         similarity=similarity,
                         iLike=bool(choice([True, False])),
                         score=randint(MIN_SCORE, MAX_SCORE))
@@ -97,9 +97,9 @@ def UserAverage(songSetLimit=Song.objects.count()):
     global RECOMMENDATION_CONFIG
     logger.info("[Start User Average]")
     life = UserAverage_Life.objects.create(setSize=songSetLimit)
-    RECOMMENDATION_CONFIG.SONGSET_LIMIT = songSetLimit
-    RECOMMENDATION_CONFIG.SONGDB_IDS = [song.id for song in Song.objects.all()]
-    RECOMMENDATION_CONFIG.LIFE_ID = life.id
+    RECOMMENDATION_CONFIG['SONGSET_LIMIT'] = songSetLimit
+    RECOMMENDATION_CONFIG['SONGDB_IDS'] = [song.id for song in Song.objects.all()]
+    RECOMMENDATION_CONFIG['LIFE_ID'] = life.id
     userList = User.objects.all()
     pool = ThreadPool(MAX_THREAD)
     pool.map(getUserAverageRecommendations, userList)
