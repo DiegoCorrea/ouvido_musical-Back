@@ -11,4 +11,4 @@ AT_LIST = [1, 3, 5, 10]
 MAX_SCORE = 3
 MIN_SCORE = 0
 
-GRAPH_SET_COLORS_LIST = ['red', 'green', 'blue']
+GRAPH_SET_COLORS_LIST = ['red', 'green', 'blue', 'yellow']
