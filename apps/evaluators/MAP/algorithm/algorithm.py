@@ -33,7 +33,7 @@ def calcUsersMAP(at=5):
     ap = []
     for user in User.objects.all():
         userec = user.useraverage_recommendations_set.all(
-                ).order_by("similarity").desc()[:at]
+                ).order_by("-similarity")[:at]
         if len(userec) == 0:
             continue
         ap.append(getAP(userLikeArray(userec)))

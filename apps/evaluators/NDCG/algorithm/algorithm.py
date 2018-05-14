@@ -29,7 +29,7 @@ def calcUsersNDCG(at=5):
     result = [
         ndcg_at_k(
             userScoreList(user.useraverage_recommendations_set.all(
-            ).order_by("similarity").desc()),
+            ).order_by("-similarity")),
             k=at,
             method=0
         ) for user in User.objects.all()
