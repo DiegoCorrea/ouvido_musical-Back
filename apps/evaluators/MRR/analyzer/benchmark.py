@@ -4,7 +4,7 @@ import logging
 import os
 
 from collections import Counter
-from apps.CONSTANTS import SET_SIZE_LIST
+from apps.CONSTANTS import SET_SIZE_LIST, START_VALIDE_RUN, TOTAL_RUN
 from apps.data.users.models import User
 from apps.evaluators.MRR.algorithm.models import MRR
 
@@ -257,20 +257,20 @@ def all_time_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.xlabel('Round Id')
     plt.ylabel('Round time (seconds)')
     plt.plot(
-        [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
-        [benchmark for benchmark in allBenchmarks[size_list[0]]],
+        [i+1 for i in range(len(allBenchmarks[size_list[0]][START_VALIDE_RUN:TOTAL_RUN]))],
+        [benchmark for benchmark in allBenchmarks[size_list[0]][START_VALIDE_RUN:TOTAL_RUN]],
         color='red',
         label=size_list[0]
     )
     plt.plot(
-        [i+1 for i in range(len(allBenchmarks[size_list[1]]))],
-        [benchmark for benchmark in allBenchmarks[size_list[1]]],
+        [i+1 for i in range(len(allBenchmarks[size_list[1]][START_VALIDE_RUN:TOTAL_RUN]))],
+        [benchmark for benchmark in allBenchmarks[size_list[1]][START_VALIDE_RUN:TOTAL_RUN]],
         color='green',
         label=size_list[1]
     )
     plt.plot(
-        [i+1 for i in range(len(allBenchmarks[size_list[2]]))],
-        [benchmark for benchmark in allBenchmarks[size_list[2]]],
+        [i+1 for i in range(len(allBenchmarks[size_list[2]][START_VALIDE_RUN:TOTAL_RUN]))],
+        [benchmark for benchmark in allBenchmarks[size_list[2]][START_VALIDE_RUN:TOTAL_RUN]],
         color='blue',
         label=size_list[2]
     )
@@ -313,9 +313,9 @@ def all_time_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     plt.ylabel('Round time (seconds)')
     plt.boxplot(
         [
-            [benchmark for benchmark in allBenchmarks[size_list[0]]],
-            [benchmark for benchmark in allBenchmarks[size_list[1]]],
-            [benchmark for benchmark in allBenchmarks[size_list[2]]]
+            [benchmark for benchmark in allBenchmarks[size_list[0]][START_VALIDE_RUN:TOTAL_RUN]],
+            [benchmark for benchmark in allBenchmarks[size_list[1]][START_VALIDE_RUN:TOTAL_RUN]],
+            [benchmark for benchmark in allBenchmarks[size_list[2]][START_VALIDE_RUN:TOTAL_RUN]]
         ],
         labels=[size_list[0], size_list[1], size_list[2]]
     )

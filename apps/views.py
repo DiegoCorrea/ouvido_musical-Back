@@ -6,7 +6,7 @@ from .recommenders.views import runRecommenders
 from .recommenders.UserAverage.algorithm.models import (
     UserAverage_Recommendations
 )
-from .evaluators.views import runEvaluations
+from .evaluators.views import runEvaluations, runAnalizerEvaluations
 from .CONSTANTS import SET_SIZE_LIST, AT_LIST, TOTAL_RUN
 
 logger = logging.getLogger(__name__)
@@ -49,3 +49,9 @@ def runTheSystem():
             recommendation_evaluate(songSetLimit)
             os.system('cls||clear')
     logger.info('Finalizando Script')
+
+
+def runGraphicsGenerator():
+    for songSetLimit in SET_SIZE_LIST:
+        for at in AT_LIST:
+            runAnalizerEvaluations(songSetLimit=songSetLimit, at=at)
