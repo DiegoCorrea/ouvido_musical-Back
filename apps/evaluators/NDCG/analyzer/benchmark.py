@@ -4,7 +4,12 @@ import logging
 import os
 
 from collections import Counter
-from apps.CONSTANTS import SET_SIZE_LIST, INTERVAL
+from apps.CONSTANTS import (
+    SET_SIZE_LIST,
+    START_VALIDE_RUN,
+    INTERVAL,
+    AT_LIST
+)
 from apps.data.users.models import User
 from apps.evaluators.NDCG.algorithm.models import NDCG
 
@@ -331,3 +336,42 @@ def all_time_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.close()
     logger.info("[Finish Bench NDCG (Graph BoxPlot)]")
+
+
+# ########################################################################## #
+# ########################################################################## #
+# ########################################################################## #
+
+
+def report_NDCG_time(at_list=AT_LIST, size_list=SET_SIZE_LIST):
+    logger.info("[Start NDCG Report]")
+    allEvaluations = {}
+    for at in at_list:
+        allEvaluations_at = {}
+        for evalution in NDCG.objects.filter(at=at):
+            if evalution.life.setSize not in allEvaluations_at:
+                allEvaluations_at.setdefault(evalution.life.setSize, [])
+                allEvaluations_at[evalution.life.setSize].append(evalution.benchndcg)
+            else:
+                allEvaluations_at[evalution.life.setSize].append(evalution.benchndcg)
+        allEvaluations[at] = allEvaluations_at
+    directory = str(
+        'files/apps/evaluators/NDCG/csv/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    toSaveFile = open(
+        directory + 'ndcg_time.csv',
+        'w+'
+    )
+    toSaveFile.write('at,size,mean\n')
+    for at in at_list:
+        for size in size_list:
+            meanAT = np.mean(
+                [
+                    (benchmark.finished_at - benchmark.started_at).total_seconds()/60.0
+                    for benchmark in allEvaluations[at][size][-INTERVAL:]]
+            )
+            toSaveFile.write(str(at) + ',' + str(size) + ',' + str(float("{0:.3f}".format(meanAT))) + '\n')
+            print('|' + str(at) + '|' + str(size) + '|' + str(float("{0:.3f}".format(meanAT))) + "\t|")
+    toSaveFile.close()

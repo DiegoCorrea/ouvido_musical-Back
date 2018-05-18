@@ -5,6 +5,13 @@ from .MAP.analyzer.views import runAllMAPAnalizers
 from .MRR.analyzer.views import runAllMRRAnalizers
 from .NDCG.analyzer.views import runAllNDCGAnalizers
 
+from .MRR.analyzer.algorithm import report_MRR_results
+from .MRR.analyzer.benchmark import report_MRR_time
+from .MAP.analyzer.algorithm import report_MAP_results
+from .MAP.analyzer.benchmark import report_MAP_time
+from .NDCG.analyzer.algorithm import report_NDCG_results
+from .NDCG.analyzer.benchmark import report_NDCG_time
+
 
 def runEvaluations(songSetLimit, at=5):
     runMAP(at=at)
@@ -25,3 +32,12 @@ def testAnalizersEvaluations():
     runAnalizerEvaluations(at=10, songSetLimit=3000)
     runAnalizerEvaluations(at=5, songSetLimit=4500)
     runAnalizerEvaluations(at=10, songSetLimit=4500)
+
+
+def csvResults():
+    report_MAP_results()
+    report_MAP_time()
+    report_MRR_results()
+    report_MRR_time()
+    report_NDCG_results()
+    report_NDCG_time()

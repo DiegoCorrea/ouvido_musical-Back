@@ -4,7 +4,11 @@ import logging
 import os
 
 from collections import Counter
-from apps.CONSTANTS import SET_SIZE_LIST, INTERVAL
+from apps.CONSTANTS import (
+    SET_SIZE_LIST,
+    INTERVAL,
+    AT_LIST
+)
 from apps.data.users.models import User
 from apps.evaluators.NDCG.algorithm.models import NDCG
 
@@ -318,3 +322,37 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.close()
     logger.info("[Finish NDCG Value (Graph BoxPlot)]")
+
+# ########################################################################## #
+# ########################################################################## #
+# ########################################################################## #
+
+
+def report_NDCG_results(at_list=AT_LIST, size_list=SET_SIZE_LIST):
+    logger.info("[Start NDCG Report]")
+    allEvaluations = {}
+    for at in at_list:
+        allEvaluations_at = {}
+        for evalution in NDCG.objects.filter(at=at):
+            if evalution.life.setSize not in allEvaluations_at:
+                allEvaluations_at.setdefault(evalution.life.setSize, [])
+                allEvaluations_at[evalution.life.setSize].append(evalution)
+            else:
+                allEvaluations_at[evalution.life.setSize].append(evalution)
+        allEvaluations[at] = allEvaluations_at
+    directory = str(
+        'files/apps/evaluators/NDCG/csv/'
+    )
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    toSaveFile = open(
+        directory + 'map_results.csv',
+        'w+'
+    )
+    toSaveFile.write('at,size,mean\n')
+    for at in at_list:
+        for size in size_list:
+            meanAT = np.mean([evaluation.value for evaluation in allEvaluations[at][size]])
+            toSaveFile.write(str(at) + ',' + str(size) + ',' + str(float("{0:.3f}".format(meanAT))) + '\n')
+            print('|' + str(at) + '|' + str(size) + '|' + str(float("{0:.3f}".format(meanAT))) + "\t|")
+    toSaveFile.close()
