@@ -4,7 +4,7 @@ import logging
 import os
 
 from collections import Counter
-from apps.CONSTANTS import SET_SIZE_LIST
+from apps.CONSTANTS import SET_SIZE_LIST, INTERVAL
 from apps.data.users.models import User
 from apps.evaluators.NDCG.algorithm.models import NDCG
 
@@ -239,8 +239,6 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/NDCG/graphs/all/'
-        + str(at)
-        + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -255,20 +253,20 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.xlabel('Round Id')
     plt.ylabel('NDCG value')
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[size_list[0]]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[0]]],
+        [i+1 for i in range(len(allEvaluations[size_list[0]][-INTERVAL:]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
         color='red',
         label=size_list[0]
         )
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[size_list[1]]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[1]]],
+        [i+1 for i in range(len(allEvaluations[size_list[1]][-INTERVAL:]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
         color='green',
         label=size_list[1]
     )
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[size_list[2]]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[2]]],
+        [i+1 for i in range(len(allEvaluations[size_list[2]][-INTERVAL:]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[2]][-INTERVAL:]],
         color='blue',
         label=size_list[2]
     )
@@ -306,9 +304,9 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     plt.ylabel('NDCG value')
     plt.boxplot(
         [
-            [evaluation.value for evaluation in allEvaluations[size_list[0]]],
-            [evaluation.value for evaluation in allEvaluations[size_list[1]]],
-            [evaluation.value for evaluation in allEvaluations[size_list[2]]]
+            [evaluation.value for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
+            [evaluation.value for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
+            [evaluation.value for evaluation in allEvaluations[size_list[2]][-INTERVAL:]]
         ],
         labels=[size_list[0], size_list[1], size_list[2]]
     )

@@ -4,7 +4,7 @@ import logging
 import os
 
 from collections import Counter
-from apps.CONSTANTS import SET_SIZE_LIST, START_VALIDE_RUN
+from apps.CONSTANTS import SET_SIZE_LIST, START_VALIDE_RUN, INTERVAL
 from apps.data.users.models import User
 from apps.evaluators.MAP.algorithm.models import MAP
 
@@ -232,8 +232,6 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/MAP/graphs/all/'
-        + str(at)
-        + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -248,20 +246,20 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.xlabel('Round Id')
     plt.ylabel('MAP value')
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[size_list[0]][START_VALIDE_RUN:]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[0]][START_VALIDE_RUN:]],
+        [i+1 for i in range(len(allEvaluations[size_list[0]][-INTERVAL:]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
         color='red',
         label=size_list[0]
         )
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[size_list[1]][START_VALIDE_RUN:]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[1]][START_VALIDE_RUN:]],
+        [i+1 for i in range(len(allEvaluations[size_list[1]][-INTERVAL:]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
         color='green',
         label=size_list[1]
     )
     plt.plot(
-        [i+1 for i in range(len(allEvaluations[size_list[2]][START_VALIDE_RUN:]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[2]][START_VALIDE_RUN:]],
+        [i+1 for i in range(len(allEvaluations[size_list[2]][-INTERVAL:]))],
+        [evaluation.value for evaluation in allEvaluations[size_list[2]][-INTERVAL:]],
         color='blue',
         label=size_list[2]
     )
@@ -285,8 +283,6 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
             allEvaluations[evalution.life.setSize].append(evalution)
     directory = str(
         'files/apps/evaluators/MAP/graphs/all/'
-        + str(at)
-        + '/'
     )
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -300,9 +296,9 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     plt.ylabel('MAP value')
     plt.boxplot(
         [
-            [evaluation.value for evaluation in allEvaluations[size_list[0]][START_VALIDE_RUN:]],
-            [evaluation.value for evaluation in allEvaluations[size_list[1]][START_VALIDE_RUN:]],
-            [evaluation.value for evaluation in allEvaluations[size_list[2]][START_VALIDE_RUN:]]
+            [evaluation.value for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
+            [evaluation.value for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
+            [evaluation.value for evaluation in allEvaluations[size_list[2]][-INTERVAL:]]
         ],
         labels=[size_list[0], size_list[1], size_list[2]]
     )
@@ -314,3 +310,20 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.close()
     logger.info("[Finish MAP Value (Graph BoxPlot)]")
+
+# ########################################################################## #
+# ########################################################################## #
+# ########################################################################## #
+
+
+def report_MAP(at, size_list=SET_SIZE_LIST):
+    logger.info("[Start MAP Report]")
+    allEvaluations = {}
+    for evalution in MAP.objects.filter(at=at):
+        if evalution.life.setSize not in allEvaluations:
+            allEvaluations.setdefault(evalution.life.setSize, [])
+        else:
+            allEvaluations[evalution.life.setSize].append(evalution)
+    for size in size_list:
+        meanSize = [evaluation.value for evaluation in allEvaluations[size][-INTERVAL:]]
+        print('|' + str(size) + '|' + str(meanSize) + "\t|")
