@@ -1,9 +1,6 @@
 from .algorithm import (
-    score_gBar,
-    recommended_gBar,
-    like_gBar,
-    similarity_gScatter,
-    similarity_gLine
+    all_similarity_gLine,
+    all_similarity_gBoxPlot
 )
 from .benchmark import (
     all_time_gBoxPlot,
@@ -11,8 +8,9 @@ from .benchmark import (
 )
 
 
-def runUserAverageValueGraph(songSetLimit):
-    pass
+def runUserAverageValueGraph():
+    all_similarity_gLine()
+    all_similarity_gBoxPlot()
 
 
 def runUserAverageBenchmarkGraph():
@@ -20,6 +18,6 @@ def runUserAverageBenchmarkGraph():
     all_time_gLine()
 
 
-def runUserAverageAnalizers(songSetLimit):
-    runUserAverageValueGraph(songSetLimit=songSetLimit)
+def runUserAverageAnalizers():
+    runUserAverageValueGraph()
     runUserAverageBenchmarkGraph()
