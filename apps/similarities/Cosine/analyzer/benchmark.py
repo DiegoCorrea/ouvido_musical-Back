@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import logging
 import os
 
-from apps.CONSTANTS import START_VALIDE_RUN, TOTAL_RUN
+from apps.CONSTANTS import START_VALIDE_RUN, TOTAL_RUN, GRAPH_SET_COLORS_LIST
 from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
@@ -28,28 +28,28 @@ def all_time_gLine(size_list):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title(
-        'Cosine Similarity'
-        + '\nTime Latency'
-    )
+    # plt.title(
+    #     'Cosine Similarity'
+    #     + '\nTime Latency'
+    # )
     plt.xlabel('Round Id')
-    plt.ylabel('Time (seconds)')
+    plt.ylabel('Time Latency (seconds)')
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
         [benchmark for benchmark in allBenchmarks[size_list[0]]],
-        color='red',
+        color=GRAPH_SET_COLORS_LIST[0],
         label=size_list[0]
     )
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[1]]))],
         [benchmark for benchmark in allBenchmarks[size_list[1]]],
-        color='green',
+        color=GRAPH_SET_COLORS_LIST[1],
         label=size_list[1]
     )
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[2]]))],
         [benchmark for benchmark in allBenchmarks[size_list[2]]],
-        color='blue',
+        color=GRAPH_SET_COLORS_LIST[2],
         label=size_list[2]
     )
     plt.legend(loc='best')
@@ -80,10 +80,10 @@ def all_time_gBoxPlot(size_list):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title(
-        'Cosine Similarity'
-        + '\nTime Latency'
-    )
+    # plt.title(
+    #     'Cosine Similarity'
+    #     + '\nTime Latency'
+    # )
     plt.ylabel('Round Time (seconds)')
     plt.boxplot(
         [

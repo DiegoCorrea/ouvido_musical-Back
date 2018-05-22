@@ -2,20 +2,24 @@ import matplotlib.pyplot as plt
 import os
 import logging
 
-from apps.CONSTANTS import START_VALIDE_RUN, TOTAL_RUN
+from apps.CONSTANTS import (
+    SET_SIZE_LIST,
+    INTERVAL,
+    GRAPH_SET_COLORS_LIST
+)
 from apps.similarities.Cosine.benchmark.models import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
 
 
-def all_similarity_gLine(size_list):
+def all_similarity_gLine(size_list=SET_SIZE_LIST):
     logger.info("[Start Cosine - Similarity (Graph Line)]")
     allBenchmarks = {}
     for runner in size_list:
         allBenchmarks.setdefault(runner, [])
         for benchmark in BenchCosine_SongTitle.objects.filter(
             setSize=runner
-        )[START_VALIDE_RUN:TOTAL_RUN]:
+        ):
             allBenchmarks[runner].append(benchmark.similarity)
     directory = str(
         'files/apps/similarities/Cosine/graphs/'
@@ -24,27 +28,27 @@ def all_similarity_gLine(size_list):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title(
-        'Cosine Similarity'
-    )
+    # plt.title(
+    #     'Cosine Similarity'
+    # )
     plt.xlabel('Round Id')
     plt.ylabel('Similarity value')
     plt.plot(
-        [i+1 for i in range(len(allBenchmarks[size_list[0]]))],
-        [benchmark for benchmark in allBenchmarks[size_list[0]]],
-        color='red',
+        [i+1 for i in range(len(allBenchmarks[size_list[0]][-INTERVAL:]))],
+        [benchmark for benchmark in allBenchmarks[size_list[0]][-INTERVAL:]],
+        color=GRAPH_SET_COLORS_LIST[0],
         label=size_list[0]
     )
     plt.plot(
-        [i+1 for i in range(len(allBenchmarks[size_list[1]]))],
-        [benchmark for benchmark in allBenchmarks[size_list[1]]],
-        color='green',
+        [i+1 for i in range(len(allBenchmarks[size_list[1]][-INTERVAL:]))],
+        [benchmark for benchmark in allBenchmarks[size_list[1]][-INTERVAL:]],
+        color=GRAPH_SET_COLORS_LIST[1],
         label=size_list[1]
     )
     plt.plot(
-        [i+1 for i in range(len(allBenchmarks[size_list[2]]))],
-        [benchmark for benchmark in allBenchmarks[size_list[2]]],
-        color='blue',
+        [i+1 for i in range(len(allBenchmarks[size_list[2]][-INTERVAL:]))],
+        [benchmark for benchmark in allBenchmarks[size_list[2]][-INTERVAL:]],
+        color=GRAPH_SET_COLORS_LIST[2],
         label=size_list[2]
     )
     plt.legend(loc='best')
@@ -56,7 +60,7 @@ def all_similarity_gLine(size_list):
     logger.info("[Finish Cosine Similarity (Graph Line)]")
 
 
-def all_similarity_gBoxPlot(size_list):
+def all_similarity_gBoxPlot(size_list=SET_SIZE_LIST):
     logger.info("[Start Cosine Similarity (Graph BoxPlot)]")
     allBenchmarks = {}
     for runner in size_list:
@@ -69,15 +73,15 @@ def all_similarity_gBoxPlot(size_list):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title(
-        'Cosine Similarity'
-    )
+    # plt.title(
+    #     'Cosine Similarity'
+    # )
     plt.ylabel('Similarity value')
     plt.boxplot(
         [
-            [benchmark for benchmark in allBenchmarks[size_list[0]]],
-            [benchmark for benchmark in allBenchmarks[size_list[1]]],
-            [benchmark for benchmark in allBenchmarks[size_list[2]]]
+            [benchmark for benchmark in allBenchmarks[size_list[0]][-INTERVAL:]],
+            [benchmark for benchmark in allBenchmarks[size_list[1]][-INTERVAL:]],
+            [benchmark for benchmark in allBenchmarks[size_list[2]][-INTERVAL:]]
         ],
         labels=[size_list[0], size_list[1], size_list[2]]
     )
