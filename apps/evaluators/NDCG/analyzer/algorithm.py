@@ -7,9 +7,9 @@ from collections import Counter
 from apps.CONSTANTS import (
     SET_SIZE_LIST,
     INTERVAL,
-    AT_LIST
+    AT_LIST,
+    GRAPH_SET_COLORS_LIST
 )
-from apps.data.users.models import User
 from apps.evaluators.NDCG.algorithm.models import NDCG
 
 logger = logging.getLogger(__name__)
@@ -248,30 +248,30 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title(
-        'NDCG - Normalize Discounted Cumulative Gain@'
-        + str(at)
-        + '\n |u| - '
-        + str(User.objects.count())
-    )
+    # plt.title(
+    #    'NDCG - Normalize Discounted Cumulative Gain@'
+    #    + str(at)
+    #    + '\n |u| - '
+    #    + str(User.objects.count())
+    # )
     plt.xlabel('Round Id')
     plt.ylabel('NDCG value')
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[0]][-INTERVAL:]))],
         [evaluation.value for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
-        color='red',
+        color=GRAPH_SET_COLORS_LIST[0],
         label=size_list[0]
         )
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[1]][-INTERVAL:]))],
         [evaluation.value for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
-        color='green',
+        color=GRAPH_SET_COLORS_LIST[1],
         label=size_list[1]
     )
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[2]][-INTERVAL:]))],
         [evaluation.value for evaluation in allEvaluations[size_list[2]][-INTERVAL:]],
-        color='blue',
+        color=GRAPH_SET_COLORS_LIST[2],
         label=size_list[2]
     )
     plt.legend(loc='best')
@@ -299,12 +299,13 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title(
-        'NDCG - Normalize Discounted Cumulative Gain@'
-        + str(at)
-        + '\n |u| - '
-        + str(User.objects.count())
-    )
+    plt.grid(True)
+    # plt.title(
+    #    'NDCG - Normalize Discounted Cumulative Gain@'
+    #    + str(at)
+    #    + '\n |u| - '
+    #    + str(User.objects.count())
+    # )
     plt.ylabel('NDCG value')
     plt.boxplot(
         [
@@ -316,7 +317,7 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     )
     plt.savefig(
         str(directory)
-        + 'all_algorithm_gBoxPlot_'
+        + 'ndcg_all_algorithm_gBoxPlot_'
         + str(at)
         + '.png'
     )

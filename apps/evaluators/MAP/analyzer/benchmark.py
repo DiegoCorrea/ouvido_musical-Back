@@ -6,11 +6,11 @@ import os
 from collections import Counter
 from apps.CONSTANTS import (
     SET_SIZE_LIST,
-    START_VALIDE_RUN,
     INTERVAL,
-    AT_LIST
+    AT_LIST,
+    GRAPH_SET_COLORS_LIST
 )
-from apps.data.users.models import User
+
 from apps.evaluators.MAP.algorithm.models import MAP
 
 logger = logging.getLogger(__name__)
@@ -256,7 +256,7 @@ def all_time_gLine(at=5, size_list=SET_SIZE_LIST):
             allBenchmarks[evalution.life.setSize].append(
                 (
                     evalution.benchmap.finished_at - evalution.benchmap.started_at
-                ).total_seconds() / 60.0
+                ).total_seconds()
             )
     directory = str(
         'files/apps/evaluators/MAP/graphs/all/'
@@ -265,31 +265,31 @@ def all_time_gLine(at=5, size_list=SET_SIZE_LIST):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title(
-        'MAP - Mean Averange Precision@'
-        + str(at)
-        + ' Benchmark'
-        + '\n |u| - '
-        + str(User.objects.count())
-    )
+    # plt.title(
+    #    'MAP - Mean Averange Precision@'
+    #    + str(at)
+    #    + ' Benchmark'
+    #    + '\n |u| - '
+    #    + str(User.objects.count())
+    # )
     plt.xlabel('Round Id')
-    plt.ylabel('Round time (minute)')
+    plt.ylabel('Time Latency (seconds)')
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[0]][-INTERVAL:]))],
         [benchmark for benchmark in allBenchmarks[size_list[0]][-INTERVAL:]],
-        color='red',
+        color=GRAPH_SET_COLORS_LIST[0],
         label=size_list[0]
     )
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[1]][-INTERVAL:]))],
         [benchmark for benchmark in allBenchmarks[size_list[1]][-INTERVAL:]],
-        color='green',
+        color=GRAPH_SET_COLORS_LIST[1],
         label=size_list[1]
     )
     plt.plot(
         [i+1 for i in range(len(allBenchmarks[size_list[2]][-INTERVAL:]))],
         [benchmark for benchmark in allBenchmarks[size_list[2]][-INTERVAL:]],
-        color='blue',
+        color=GRAPH_SET_COLORS_LIST[2],
         label=size_list[2]
     )
     plt.legend(loc='best')
@@ -313,7 +313,7 @@ def all_time_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
             allBenchmarks[evalution.life.setSize].append(
                 (
                     evalution.benchmap.finished_at - evalution.benchmap.started_at
-                ).total_seconds() / 60.0
+                ).total_seconds()
             )
     directory = str(
         'files/apps/evaluators/MAP/graphs/all/'
@@ -321,14 +321,15 @@ def all_time_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title(
-        'MAP - Mean Averange Precision@'
-        + str(at)
-        + ' Benchmark'
-        + '\n |u| - '
-        + str(User.objects.count())
-    )
-    plt.ylabel('Round time (minute)')
+    plt.grid(True)
+    # plt.title(
+    #    'MAP - Mean Averange Precision@'
+    #    + str(at)
+    #    + ' Benchmark'
+    #    + '\n |u| - '
+    #    + str(User.objects.count())
+    # )
+    plt.ylabel('Round time (seconds)')
     plt.boxplot(
         [
             [benchmark for benchmark in allBenchmarks[size_list[0]][-INTERVAL:]],

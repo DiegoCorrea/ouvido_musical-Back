@@ -25,15 +25,6 @@ def runAnalizerEvaluations(songSetLimit, at=5):
     runAllNDCGAnalizers(at=at, songSetLimit=songSetLimit)
 
 
-def testAnalizersEvaluations():
-    runAnalizerEvaluations(at=5, songSetLimit=1500)
-    runAnalizerEvaluations(at=10, songSetLimit=1500)
-    runAnalizerEvaluations(at=5, songSetLimit=3000)
-    runAnalizerEvaluations(at=10, songSetLimit=3000)
-    runAnalizerEvaluations(at=5, songSetLimit=4500)
-    runAnalizerEvaluations(at=10, songSetLimit=4500)
-
-
 def csvResults():
     report_MAP_results()
     report_MAP_time()

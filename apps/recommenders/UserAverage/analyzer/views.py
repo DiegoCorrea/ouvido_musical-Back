@@ -8,16 +8,16 @@ from .benchmark import (
 )
 
 
-def runUserAverageValueGraph():
+def runUserAverageValueGraphics():
     all_similarity_gLine()
     all_similarity_gBoxPlot()
 
 
-def runUserAverageBenchmarkGraph():
+def runUserAverageBenchmarkGraphics():
     all_time_gBoxPlot()
     all_time_gLine()
 
 
-def runUserAverageAnalizers():
-    runUserAverageValueGraph()
-    runUserAverageBenchmarkGraph()
+def userAverageGraphics():
+    runUserAverageValueGraphics()
+    runUserAverageBenchmarkGraphics()

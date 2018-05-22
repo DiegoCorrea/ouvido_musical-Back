@@ -1,5 +1,4 @@
 from .UserAverage.algorithm.views import runUserAverage
-from .UserAverage.analyzer.views import runUserAverageAnalizers
 import logging
 logger = logging.getLogger(__name__)
 

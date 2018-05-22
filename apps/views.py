@@ -1,12 +1,13 @@
 import os
 import logging
 from .data.userSongRecommendation.models import UserSongRecommendations
-from .similarities.views import runSimilarities
 from .recommenders.views import runRecommenders
 from .recommenders.UserAverage.algorithm.models import (
     UserAverage_Recommendations
 )
 from .evaluators.views import runEvaluations, runAnalizerEvaluations
+from .recommenders.UserAverage.analyzer.views import userAverageGraphics
+from .similarities.Cosine.analyzer.views import cosineGraphics
 from .CONSTANTS import SET_SIZE_LIST, AT_LIST, TOTAL_RUN
 
 logger = logging.getLogger(__name__)
@@ -52,6 +53,8 @@ def runTheSystem():
 
 
 def runGraphicsGenerator():
+    cosineGraphics()
+    userAverageGraphics()
     for songSetLimit in SET_SIZE_LIST:
         for at in AT_LIST:
             runAnalizerEvaluations(songSetLimit=songSetLimit, at=at)

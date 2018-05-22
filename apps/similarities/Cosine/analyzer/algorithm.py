@@ -73,6 +73,7 @@ def all_similarity_gBoxPlot(size_list=SET_SIZE_LIST):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
+    plt.grid(True)
     # plt.title(
     #     'Cosine Similarity'
     # )

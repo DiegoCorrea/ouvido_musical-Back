@@ -80,6 +80,7 @@ def all_time_gBoxPlot(size_list):
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
+    plt.grid(True)
     # plt.title(
     #     'Cosine Similarity'
     #     + '\nTime Latency'

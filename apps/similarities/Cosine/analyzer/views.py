@@ -20,6 +20,6 @@ def runBenchmarkAnalizers(size_list):
     all_time_gBoxPlot(size_list=size_list)
 
 
-def runCosineAnalizers(size_list=SET_SIZE_LIST):
+def cosineGraphics(size_list=SET_SIZE_LIST):
     runAlgorithmAnalizers(size_list=size_list)
     runBenchmarkAnalizers(size_list=size_list)
