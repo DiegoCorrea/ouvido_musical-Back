@@ -8,123 +8,91 @@ from apps.recommenders.UserAverage.algorithm.models import (
     UserAverage_Recommendations,
     UserAverage_Life
 )
+from apps.CONSTANTS import (
+    SET_SIZE_LIST,
+    START_VALIDE_RUN,
+    INTERVAL,
+    AT_LIST,
+    GRAPH_SET_COLORS_LIST
+)
 
 logger = logging.getLogger(__name__)
 
 
-def like_gBar(songSetLimit, allItens=UserAverage_Recommendations.objects.all()):
-    logger.info("[Start User Average Recomended (Graph Bar)]")
-    countList = Counter([item.iLike for item in allItens])
-    logger.debug('User Averange Benchmark -> List len: ' + str(len(countList)))
+def all_similarity_gLine(size_list=SET_SIZE_LIST):
+    logger.info("[Start User Average - Similarity (Graph Line)]")
+    allSimilarities = {}
+    for runner in size_list:
+        allSimilarities.setdefault(runner, [])
+        allSimilarities[runner] = [life.similarity for life in UserAverage_Life.objects.filter(setSize=runner)]
     directory = str(
-        'files/apps/recommenders/UserAverange/graphs/'
-        + str(songSetLimit)
-        + '/algorithm/'
-        + str(allItens.last().life_id)
-        + '/'
+        'files/apps/recommenders/UserAverage/graphs/'
     )
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    plt.figure()
-    plt.title(
-        'User Average - Set '
-        + str(songSetLimit)
-        + '\n - Gostou'
-    )
-    plt.ylabel('Quantidade de votos')
-    plt.xlabel('Gostou')
-    plt.bar([str(item) for item in countList.keys()], countList.values())
-    plt.legend(loc='best')
-    plt.savefig(str(directory) + 'like_gBar.png')
-    plt.close()
-    logger.info("[Finish User Average Score (Graph Bar)]")
-
-
-def recommended_gBar(songSetLimit, allItens=UserAverage_Recommendations.objects.all()):
-    logger.info("[Start User Average Recomended (Graph Bar)]")
-    countList = Counter([item.song_id for item in allItens])
-    countListValues = Counter(countList.values())
-    logger.debug('User Averange Benchmark -> List len: ' + str(len(countList)))
-    directory = str(
-        'files/apps/recommenders/UserAverange/graphs/'
-        + str(songSetLimit)
-        + '/algorithm/'
-        + str(allItens.last().life_id)
-        + '/'
-    )
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    plt.figure()
-    plt.title(
-        'User Average - Set '
-        + str(songSetLimit)
-        + '\n - Score'
-    )
-    plt.ylabel('Quantidade de músicas')
-    plt.xlabel('Vezes recomendada')
-    plt.bar(countListValues.keys(), countListValues.values())
-    plt.legend(loc='best')
-    plt.savefig(str(directory) + 'recommended_gBar.png')
-    plt.close()
-    logger.info("[Finish User Average Score (Graph Bar)]")
-
-
-def score_gBar(songSetLimit, allItens=UserAverage_Recommendations.objects.all()):
-    logger.info("[Start User Average Score (Graph Bar)]")
-    countList = Counter([evalution.score for evalution in allItens])
-    logger.debug('User Averange Score -> List len: ' + str(len(countList)))
-    directory = str(
-        'files/apps/recommenders/UserAverange/graphs/'
-        + str(songSetLimit)
-        + '/algorithm/'
-        + str(allItens.last().life_id)
-        + '/')
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    plt.figure()
-    plt.title('User Average - Set '+ str(songSetLimit) +'\n - Score')
-    plt.ylabel('Quantidade de músicas')
-    plt.xlabel('Nota')
-    plt.bar(countList.keys(), countList.values())
-    plt.savefig(str(directory) + 'score_gBar.png')
-    plt.close()
-    logger.info("[Finish User Average Score (Graph Bar)]")
-
-
-def similarity_gScatter(songSetLimit, allItens=UserAverage_Recommendations.objects.all()):
-    logger.info("[Start User Average Similarity (Graph Scatter)]")
-    itemValues = [ float("{0:.3f}".format(item.similarity)) for item in allItens]
-    itemMeanValues = np.mean(itemValues)
-    logger.debug('User Average Similarity -> Mean: ' + str(len(itemValues)))
-    directory = str('files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life_id) + '/')
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
     plt.grid(True)
-    plt.title('User Average - Set '+ str(songSetLimit) +'\n - Similarity')
-    plt.ylabel('Similaridade')
-    plt.xlabel('Similaridade')
-    plt.scatter(itemValues, itemValues, label='Media: ' + str(float("{0:.3f}".format(itemMeanValues))))
-    plt.legend(loc='upper left')
-    plt.savefig(str(directory) + 'similarity_gScatter.png')
+    # plt.title(
+    #     'User Average'
+    # )
+    plt.xlabel('Round Id')
+    plt.ylabel('Similarity value')
+    plt.plot(
+        [i+1 for i in range(len(allSimilarities[size_list[0]][-INTERVAL:]))],
+        [benchmark for benchmark in allSimilarities[size_list[0]][-INTERVAL:]],
+        color=GRAPH_SET_COLORS_LIST[0],
+        label=size_list[0]
+    )
+    plt.plot(
+        [i+1 for i in range(len(allSimilarities[size_list[1]][-INTERVAL:]))],
+        [benchmark for benchmark in allSimilarities[size_list[1]][-INTERVAL:]],
+        color=GRAPH_SET_COLORS_LIST[1],
+        label=size_list[1]
+    )
+    plt.plot(
+        [i+1 for i in range(len(allSimilarities[size_list[2]][-INTERVAL:]))],
+        [benchmark for benchmark in allSimilarities[size_list[2]][-INTERVAL:]],
+        color=GRAPH_SET_COLORS_LIST[2],
+        label=size_list[2]
+    )
+    plt.legend(loc='best')
+    plt.savefig(
+        str(directory)
+        + 'userAverage_all_similarity_gLine.png'
+    )
     plt.close()
-    logger.info("[Finish User Average Similarity (Graph Scatter)]")
+    logger.info("[Finish UserAverage - Similarity (Graph Line)]")
 
 
-def similarity_gLine(songSetLimit, allItens=UserAverage_Recommendations.objects.all()):
-    logger.info("[Start User Average Similarity (Graph Line)]")
-    itemValues = [float("{0:.3f}".format(item.similarity)) for item in allItens]
-    countList = Counter(sorted(itemValues))
-    logger.debug('User Average Similarity -> List len: ' + str(len(itemValues)))
-    directory = str('files/apps/recommenders/UserAverange/graphs/' + str(songSetLimit) + '/algorithm/' + str(allItens.last().life_id) + '/')
+def all_similarity_gBoxPlot(size_list=SET_SIZE_LIST):
+    logger.info("[Start User Average - Similarity (Graph Box)]")
+    allSimilarities = {}
+    for runner in size_list:
+        allSimilarities.setdefault(runner, [])
+        allSimilarities[runner] = [life.similarity for life in UserAverage_Life.objects.filter(setSize=runner)]
+    directory = str(
+        'files/apps/recommenders/UserAverage/graphs/'
+    )
     if not os.path.exists(directory):
         os.makedirs(directory)
     plt.figure()
-    plt.title('User Average - Set '+ str(songSetLimit) +'\n - Similarity')
-    plt.ylabel('Quantidade de similares')
-    plt.xlabel('Similaridade')
-    plt.plot(countList.keys(),countList.values())
+    plt.grid(True)
+    # plt.title(
+    #     'User Average'
+    # )
+    plt.ylabel('Similarity value')
+    plt.boxplot(
+        [
+            [evaluation for evaluation in allSimilarities[size_list[0]][-INTERVAL:]],
+            [evaluation for evaluation in allSimilarities[size_list[1]][-INTERVAL:]],
+            [evaluation for evaluation in allSimilarities[size_list[2]][-INTERVAL:]]
+        ],
+        labels=[size_list[0], size_list[1], size_list[2]]
+    )
     plt.legend(loc='best')
-    plt.savefig(str(directory) + 'similarity_gBar.png')
+    plt.savefig(
+        str(directory)
+        + 'userAverage_all_similarity_gBox.png'
+    )
     plt.close()
-    logger.info("[Finish User Average Similarity (Graph Line)]")
+    logger.info("[Finish UserAverage - Similarity (Graph Box)]")
