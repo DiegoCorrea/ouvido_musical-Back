@@ -258,19 +258,19 @@ def all_value_gLine(at=5, size_list=SET_SIZE_LIST):
     plt.ylabel('NDCG value')
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[0]][-INTERVAL:]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
+        [float("{0:.3f}".format(evaluation.value)) for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
         color=GRAPH_SET_COLORS_LIST[0],
         label=size_list[0]
         )
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[1]][-INTERVAL:]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
+        [float("{0:.3f}".format(evaluation.value)) for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
         color=GRAPH_SET_COLORS_LIST[1],
         label=size_list[1]
     )
     plt.plot(
         [i+1 for i in range(len(allEvaluations[size_list[2]][-INTERVAL:]))],
-        [evaluation.value for evaluation in allEvaluations[size_list[2]][-INTERVAL:]],
+        [float("{0:.3f}".format(evaluation.value)) for evaluation in allEvaluations[size_list[2]][-INTERVAL:]],
         color=GRAPH_SET_COLORS_LIST[2],
         label=size_list[2]
     )
@@ -309,9 +309,9 @@ def all_value_gBoxPlot(at=5, size_list=SET_SIZE_LIST):
     plt.ylabel('NDCG value')
     plt.boxplot(
         [
-            [evaluation.value for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
-            [evaluation.value for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
-            [evaluation.value for evaluation in allEvaluations[size_list[2]][-INTERVAL:]]
+            [float("{0:.3f}".format(evaluation.value)) for evaluation in allEvaluations[size_list[0]][-INTERVAL:]],
+            [float("{0:.3f}".format(evaluation.value)) for evaluation in allEvaluations[size_list[1]][-INTERVAL:]],
+            [float("{0:.3f}".format(evaluation.value)) for evaluation in allEvaluations[size_list[2]][-INTERVAL:]]
         ],
         labels=[size_list[0], size_list[1], size_list[2]]
     )
