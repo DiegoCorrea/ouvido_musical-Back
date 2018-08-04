@@ -22,5 +22,5 @@ Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:
 3. `\q`  
 
 ### Clean pyc  
-1. Limpa todo o cache: `find . -name \*.pyc -delete`  
-2. Clean migrations: `find . -path "*/migrations/*.py" -not -name "__init__.py" -delete`
+1. Limpa todo o cache: `find . -name apps/*.pyc -delete`  
+2. Clean migrations: `find . -path "apps/migrations/*.py" -not -name "__init__.py" -delete`

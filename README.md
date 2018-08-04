@@ -40,6 +40,6 @@
 
 ## Importando o set para o Postgres  
 1. Entrar no painel do banco: `sudo -u postgres psql ouvido_musical`  
-2. Carregar os dados extraidos no banco: `\i datasets/oneMillionSongs/{pasta_do_set}/load.sql;`  
+2. Carregar os dados extraidos no banco: `\i datasets/oneMillionSongs/sets/{pasta_do_set}/load.sql;`  
 3. `\q`  
 
