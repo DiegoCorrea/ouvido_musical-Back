@@ -1,7 +1,7 @@
 # Ouvido Musical Back End  
 ## Instalação  
 1. Atualização do Ubuntu: `sudo apt update && sudo apt upgrade -y`  
-2. Instalação do Pip 3 e Postgres: `sudo apt install python3-pip python3-dev python3-venv libpq-dev postgresql postgresql-contrib build-essential libssl-dev libffi-dev zip`  
+2. Instalação do Pip 3 e Postgres: `sudo apt install python3-pip python3-dev python3-venv libpq-dev postgresql postgresql-contrib build-essential libssl-dev libffi-dev zip unzip`  
 3. Instale a Virtual Environment: `sudo pip3 install virtualenv`  
 
 ## Configuração  
@@ -13,7 +13,7 @@
 3.3. Baixe a base de palavras: `nltk.download('wordnet')`    
 4. ``  
 
-## O SGBD  
+## O Postgres  
 1. `sudo -u postgres psql`  
 2. `CREATE DATABASE ouvidoMusical;`  
 3. `CREATE USER ouvidoMusicalAPI WITH PASSWORD 'lovelovelove';`  
@@ -28,4 +28,9 @@
 2. Aplicando migração ao banco: `python manage.py migrate`  
 
 ## Extraindo o dataset  
-1. 
+1. Descompactar o dataset: `cd datasets/oneMillionSongs/ && unzip original_set.zip && cd ../../`  
+2. Abra o terminal do Django: `python manage.py shell_plus`  
+3. Importe a função: `from datasets.oneMillionSongs.clean_set import clean_all_files`  
+4. Execute a função: `clean_all_files()`  
+5. Importe o arquivo: `from datasets.oneMillionSongs.mining import main`  
+6. Execute a função: `main()`  

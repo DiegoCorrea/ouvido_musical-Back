@@ -1,3 +1,6 @@
+import os
+
+
 def clean_get_DistinctSongs():
     print ('*'*30)
     print ('* Limpando músicas duplicadas')
@@ -5,11 +8,11 @@ def clean_get_DistinctSongs():
     distinctList = []
     status = 0
     toSaveFile = open(
-        'config/data/oneMillionSongs/originalCleanEntry/songs.csv',
+        'datasets/oneMillionSongs/clean_set/songs.csv',
         'w+'
     )
     toSaveFile.write('id,title,album,artist,year\n')
-    for line in open('config/data/oneMillionSongs/originalEntry/songs.csv', 'r+'):
+    for line in open('datasets/oneMillionSongs/original_set/songs.csv', 'r+'):
         lineSplit = line.split(',')
         status += 1
         if (status % 10000 == 0):
@@ -30,7 +33,7 @@ def clean_get_DistinctPlayCount():
     print ('*'*30)
     distinctList = {}
     status = 0
-    for line in open('config/data/oneMillionSongs/originalEntry/playCount.csv', 'r+'):
+    for line in open('datasets/oneMillionSongs/original_set/playCount.csv', 'r+'):
         status += 1
         if (status % 10000 == 0):
             print ("-> [", status, "]")
@@ -46,7 +49,7 @@ def clean_get_DistinctPlayCount():
     print ('- Total Distintos: ', len(distinctList), ' -')
     print ('- Salvando no Arquivo. Aguarde alguns minutos! -')
     toSaveFile = open(
-        'config/data/oneMillionSongs/originalCleanEntry/playCount.csv',
+        'datasets/oneMillionSongs/clean_set/playCount.csv',
         'w+'
     )
     toSaveFile.write('user_id,song_id,play_count\n')
@@ -55,3 +58,11 @@ def clean_get_DistinctPlayCount():
             toSaveFile.write(user + ',' + song + ',' + play)
     toSaveFile.close()
     print ('- Distintos gerado e salvo. Finalizando o script! -')
+
+
+def clean_all_files():
+    directory = 'datasets/oneMillionSongs/clean_set/'
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    clean_get_DistinctSongs()
+    clean_get_DistinctPlayCount()

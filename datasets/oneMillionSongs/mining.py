@@ -16,14 +16,14 @@ def getSongs(name, limit):
     if not os.path.exists(directory):
         os.makedirs(directory)
     toSaveFile = open(
-        'config/data/oneMillionSongs/sets/' + str(name) + '/songs.csv',
+        'datasets/oneMillionSongs/sets/' + str(name) + '/songs.csv',
         'w+'
     )
     toSaveFile.write('id,title\n')
     songSet = sample(
         set(
             open(
-                'config/data/oneMillionSongs/originalCleanEntry/songs.csv',
+                'datasets/oneMillionSongs/clean_set/songs.csv',
                 'r+'
                 )
         ), limit
@@ -53,12 +53,12 @@ def getPlayCount(name, limit, userLimit):
     if not os.path.exists(directory):
         os.makedirs(directory)
     toSaveFile = open(
-        'config/data/oneMillionSongs/sets/' + str(name) + '/playCount.csv',
+        'datasets/oneMillionSongs/sets/' + str(name) + '/playCount.csv',
         'w+'
     )
     toSaveFile.write('user_id,song_id,play_count\n')
     for line in open(
-        'config/data/oneMillionSongs/originalCleanEntry/playCount.csv',
+        'datasets/oneMillionSongs/clean_set/playCount.csv',
         'r+'
     ):
         status += 1
@@ -77,7 +77,7 @@ def getPlayCount(name, limit, userLimit):
     userDict = set(userPlayList)
     print ('- Total de usuarios: ', len(userDict))
     usersToSaveFile = open(
-        'config/data/oneMillionSongs/sets/' + str(name) + '/users.csv',
+        'datasets/oneMillionSongs/sets/' + str(name) + '/users.csv',
         'w+'
     )
     usersToSaveFile.write('id\n')
@@ -91,7 +91,7 @@ def getPlayCount(name, limit, userLimit):
 def start(name, limit, userLimit=None):
     global directory
     global songDict
-    directory = 'config/data/oneMillionSongs/sets/' + str(name)
+    directory = 'datasets/oneMillionSongs/sets/' + str(name)
     getSongs(name, limit)
     songDict = set(songList)
     getPlayCount(name, limit, userLimit)
@@ -99,7 +99,5 @@ def start(name, limit, userLimit=None):
 
 ##########
 def main():
-    start(name="thousand", limit=1000)
-    start(name="two_thousand", limit=2000)
-    start(name="three_thousand", limit=3000)
+    start(name="five_thousand", limit=5000)
     start(name="ten_thousand", limit=10000)

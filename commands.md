@@ -4,7 +4,7 @@
 3. Linux visualizar processadores: `htop`
 
 ### Terminal Django/Projeto  
-1. `python3.6 manage.py shell_plus`  
+1. `python manage.py shell_plus`  
 
 ### Banco de dados   
 Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:  
