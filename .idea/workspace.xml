@@ -2,8 +2,183 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/recommenders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/tecnics/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/songs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/songs/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/songs/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/songs/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/songs/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/data/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/analyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/benchmark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/analyzer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/analyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/benchmark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/analyzer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/analyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/benchmark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/analyzer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/evaluators/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/analyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/benchmark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/analyzer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/recommenders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/benchmark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/analyzer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/similarities/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/system_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system_overview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/createDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/createDB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/loadData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/loadData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ouvidoMusical/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ouvidoMusical/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/IPython/core/displaypub.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/IPython/core/displaypub.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/utils/safestring.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/utils/safestring.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_extensions/management/commands/reset_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_extensions/management/commands/reset_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/numpy/lib/_datasource.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/numpy/lib/_datasource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pandas/tests/generic/test_generic.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pandas/tests/generic/test_generic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/sklearn/kernel_approximation.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/sklearn/kernel_approximation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/django/contrib/sessions/backends/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/django/contrib/sessions/backends/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/matplotlib/animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/matplotlib/animation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/nltk/corpus/reader/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/nltk/corpus/reader/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/numpy/linalg/linalg.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/numpy/linalg/linalg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/pandas/tests/io/generate_legacy_storage_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/pandas/tests/io/generate_legacy_storage_files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/psycopg2/extras.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/psycopg2/extras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/interpolate/_cubic.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/interpolate/_cubic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/odr/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/odr/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/signal/signaltools.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/signal/signaltools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/sparse/csr.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/scipy/sparse/csr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/sklearn/gaussian_process/tests/test_gaussian_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64/python3.6/site-packages/sklearn/gaussian_process/tests/test_gaussian_process.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,61 +190,68 @@
     <session id="-630249398">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="5" />
+          <entry key="log" value="1" />
           <entry key="md" value="2" />
-          <entry key="py" value="6" />
-          <entry key="sql" value="3" />
-          <entry key="txt" value="1" />
+          <entry key="py" value="25" />
+          <entry key="sql" value="5" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="5" />
-          <entry key="DBN-SQL" value="3" />
+          <entry key="DBN-SQL" value="5" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="6" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="49" />
-          <entry key="py" value="70" />
-          <entry key="sql" value="9" />
-          <entry key="txt" value="78" />
+          <entry key="py" value="152" />
+          <entry key="sql" value="11" />
+          <entry key="txt" value="112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="DBN-SQL" value="9" />
+          <entry key="DBN-SQL" value="11" />
           <entry key="Markdown" value="49" />
-          <entry key="PLAIN_TEXT" value="78" />
-          <entry key="Python" value="70" />
+          <entry key="PLAIN_TEXT" value="112" />
+          <entry key="Python" value="152" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="135">
-                <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/ouvidoMusical/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="39" column="49" lean-forward="true" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,14 +261,19 @@
       <list>
         <option value="$PROJECT_DIR$/apps/data/songs/models.py" />
         <option value="$PROJECT_DIR$/commands.md" />
-        <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/datasets/createDB.sql" />
+        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/models.py" />
+        <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
+        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/models.py" />
+        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/apps.py" />
+        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/apps.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="x" value="67" />
     <option name="y" value="25" />
     <option name="width" value="1853" />
@@ -113,50 +300,32 @@
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="metadata" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="songs" type="462c0819:PsiDirectoryNode" />
+              <item name="metadata" type="462c0819:PsiDirectoryNode" />
+              <item name="user_preferences" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="tecnics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
-              <item name="sets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
-              <item name="sets" type="462c0819:PsiDirectoryNode" />
-              <item name="five_thousand" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="tecnics" type="462c0819:PsiDirectoryNode" />
+              <item name="content_based_metadata" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="ouvidoMusical" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -167,6 +336,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/tecnics" />
+      <recent name="$PROJECT_DIR$/apps/kemures" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -212,32 +387,39 @@
       <option name="project" value="LOCAL" />
       <updated>1533394460074</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adicionando install requirements">
+      <created>1533394566804</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533394566804</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="0" y="-30" width="1920" height="1110" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project Explorer" />
-      <window_info id="DB Browser" />
-      <window_info id="Job Explorer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.107538216" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="DB Execution Console" />
-      <window_info anchor="bottom" id="Console" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Project Explorer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="DB Browser" order="4" />
+      <window_info id="Job Explorer" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49973643" weight="0.32935324" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Console" order="7" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002636" side_tool="true" weight="0.32935324" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -249,7 +431,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mining funcionando" />
     <MESSAGE value="adicionando dados no banco e novas migrações e requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="adicionando dados no banco e novas migrações e requirements" />
+    <MESSAGE value="adicionando install requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionando install requirements" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set.py">
@@ -275,10 +458,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data/songs/apps.py">
+    <entry file="file://$PROJECT_DIR$/apps/metadata/songs/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data/songs/models.py">
+    <entry file="file://$PROJECT_DIR$/apps/metadata/songs/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
@@ -298,13 +481,6 @@
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ouvidoMusical/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -316,19 +492,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="659">
           <caret line="99" column="385" lean-forward="true" selection-start-line="99" selection-start-column="385" selection-end-line="99" selection-end-column="385" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+          <first_editor relative-caret-position="645">
+            <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploads/README.txt" />
+    <entry file="file://$PROJECT_DIR$/logs/main.log">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/main_debug.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/loadData.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#47#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/users/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="43" lean-forward="true" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ouvidoMusical/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="39" column="49" lean-forward="true" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
         </state>
       </provider>
     </entry>
