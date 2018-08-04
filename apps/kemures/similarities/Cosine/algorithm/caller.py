@@ -1,10 +1,10 @@
 from .algorithm import CosineSimilarity
 from apps.metadata.songs.models import Song, SongSimilarity
-from apps.kemures.similarities.Cosine.benchmark import BenchCosine_SongTitle
+from apps.kemures.similarities.Cosine.runtime import CosineSimilarityRunTime
 from django.db import transaction
 from django.utils import timezone
-from multiprocessing.dummy import Pool as ThreadPool
-from apps.metadata.CONSTANTS import MAX_THREAD
+from multiprocessing import Pool as ThreadPool
+from apps.kemures.CONSTANTS import MAX_THREAD
 from random import sample
 import numpy as np
 
@@ -71,7 +71,7 @@ def TitleSimilarityWithObserver(setSize):
                 continue
             line += 1
             similarityVale.append(similarityMatrix[i][j])
-    BenchCosine_SongTitle.objects.create(
+    CosineSimilarityRunTime.objects.create(
         setSize=setSize,
         similarity=np.mean(similarityVale),
         started_at=startedAt,
@@ -83,3 +83,17 @@ def TitleSimilarityWithObserver(setSize):
         + " || Finished at -"
         + str(finishedAt)
     )
+
+
+# ######################################################################################################################
+
+
+def main(song_df):
+    pool = ThreadPool(MAX_THREAD)
+    all_feature_distance = pool.map(CosineSimilarity, zip(song_df, song_features))
+    pool.close()
+    pool.join()
+    distance_matrix = np.zeros(song_set['song_id'].count())
+    for (matrix, feature_weight) in zip(all_feature_distance, classifier_important):
+        distance_matrix = np.add(distance_matrix, matrix*feature_weight)
+    return distance_matrix

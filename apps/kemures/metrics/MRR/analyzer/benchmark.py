@@ -4,7 +4,7 @@ import logging
 import os
 
 from collections import Counter
-from apps.metadata.CONSTANTS import (
+from apps.kemures.CONSTANTS import (
     SET_SIZE_LIST,
     INTERVAL,
     AT_LIST,
@@ -44,7 +44,7 @@ def bench_gLine(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MRR/graphs/'
         + str(songSetLimit)
-        + '/benchmark/'
+        + '/runtime/'
         + str(at) + '/'
     )
     if not os.path.exists(directory):
@@ -115,7 +115,7 @@ def bench_gScatter(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MRR/graphs/'
         + str(songSetLimit)
-        + '/benchmark/'
+        + '/runtime/'
         + str(at) + '/'
     )
     if not os.path.exists(directory):
@@ -159,7 +159,7 @@ def bench_gBoxPlot(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MRR/graphs/'
         + str(songSetLimit)
-        + '/benchmark/'
+        + '/runtime/'
         + str(at) + '/'
     )
     if not os.path.exists(directory):
@@ -200,7 +200,7 @@ def bench_gBar(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MRR/graphs/'
         + str(songSetLimit)
-        + '/benchmark/'
+        + '/runtime/'
         + str(at) + '/'
     )
     if not os.path.exists(directory):

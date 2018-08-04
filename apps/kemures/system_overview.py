@@ -1,11 +1,11 @@
 from apps.metadata.users.models import User
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPlaySong
-from apps.kemures.similarities.Cosine.benchmark import BenchCosine_SongTitle
+from apps.kemures.similarities.Cosine.runtime import BenchCosine_SongTitle
 from apps.kemures.recommenders.UserAverage import UserAverage_Life
 from django.db.models import Sum
 
-from apps.metadata.CONSTANTS import SET_SIZE_LIST, START_VALIDE_RUN, TOTAL_RUN, INTERVAL
+from apps.kemures.CONSTANTS import SET_SIZE_LIST, START_VALIDE_RUN, TOTAL_RUN, INTERVAL
 
 
 def system_statistical():

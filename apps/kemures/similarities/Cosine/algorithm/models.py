@@ -5,7 +5,7 @@ from django.db import models
 from apps.metadata.songs.models import Song
 
 
-class CosineSimilarity_SongTitle(models.Model):
+class CosineSimilarity(models.Model):
     # IDS
     songBase = models.ForeignKey(
         Song,
@@ -18,7 +18,9 @@ class CosineSimilarity_SongTitle(models.Model):
         related_name='CosineSimilarity_SongTitle_left', on_delete=models.CASCADE
     )
     # Datas
-    similarity = models.FloatField(default=0, unique=False)
+    title = models.FloatField(default=0, unique=False)
+    album = models.FloatField(default=0, unique=False)
+    artist = models.FloatField(default=0, unique=False)
     # Timers
     created_at = models.DateTimeField(auto_now_add=True)
 

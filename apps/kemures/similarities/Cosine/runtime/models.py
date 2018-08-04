@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-class BenchCosine_SongTitle(models.Model):
+class CosineSimilarityRunTime(models.Model):
     setSize = models.IntegerField(default=0)
     similarity = models.FloatField(default=0.0)
     started_at = models.DateTimeField()

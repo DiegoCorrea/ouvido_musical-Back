@@ -1,9 +1,9 @@
-from .Cosine.views import runCosine
+from .Cosine.handle import Cosine
 import logging
 logger = logging.getLogger(__name__)
 
 
 def runSimilarities():
     logger.info("[Start Similarities]")
-    runCosine()
+    cos = Cosine()
     logger.info("[Finish Similarities]")

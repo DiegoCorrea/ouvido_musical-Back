@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import logging
 import os
 
-from apps.metadata.CONSTANTS import START_VALIDE_RUN, TOTAL_RUN, GRAPH_SET_COLORS_LIST
-from apps.kemures.similarities.Cosine.benchmark import BenchCosine_SongTitle
+from apps.kemures.CONSTANTS import START_VALIDE_RUN, TOTAL_RUN, GRAPH_SET_COLORS_LIST
+from apps.kemures.similarities.Cosine.runtime import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
 

@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 import os
 import logging
 
-from apps.metadata.CONSTANTS import (
+from apps.kemures.CONSTANTS import (
     SET_SIZE_LIST,
     INTERVAL,
     GRAPH_SET_COLORS_LIST
 )
-from apps.kemures.similarities.Cosine.benchmark import BenchCosine_SongTitle
+from apps.kemures.similarities.Cosine.runtime import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
 

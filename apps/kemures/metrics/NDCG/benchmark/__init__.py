@@ -1,1 +1,1 @@
-default_app_config = 'apps.metrics.NDCG.benchmark.apps.NDCGBenchmarkConfig'
+default_app_config = 'apps.metrics.NDCG.runtime.apps.NDCGBenchmarkConfig'

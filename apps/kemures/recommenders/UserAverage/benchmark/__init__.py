@@ -1,1 +1,1 @@
-default_app_config = 'apps.recommenders.UserAverage.benchmark.apps.UserAverageBenchmarkConfig'
+default_app_config = 'apps.recommenders.UserAverage.runtime.apps.UserAverageBenchmarkConfig'

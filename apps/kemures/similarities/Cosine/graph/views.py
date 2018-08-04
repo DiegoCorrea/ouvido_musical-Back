@@ -7,7 +7,7 @@ from .benchmark import (
     all_time_gLine,
     all_time_gBoxPlot
 )
-from apps.metadata.CONSTANTS import SET_SIZE_LIST
+from apps.kemures.CONSTANTS import SET_SIZE_LIST
 
 
 def runAlgorithmAnalizers(size_list):
