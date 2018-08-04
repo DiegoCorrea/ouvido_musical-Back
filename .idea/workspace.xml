@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="34857d62-255a-4a94-9c9b-80d7880da87b" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="34857d62-255a-4a94-9c9b-80d7880da87b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/complete_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/complete_install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/ambient.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/createDB.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/loadData.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/cleanEntry.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/dataset_average.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/mining.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/tenThousand/loadData.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/ten_thousand/loadData.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/threeThousand/loadData.sql" beforeDir="false" />
+    </list>
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,26 +38,42 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< HEAD
           <entry key="gitignore" value="3" />
           <entry key="md" value="6" />
           <entry key="py" value="17" />
           <entry key="sh" value="1" />
           <entry key="sql" value="4" />
+=======
+          <entry key="gitignore" value="1" />
+          <entry key="md" value="6" />
+          <entry key="py" value="17" />
+          <entry key="sh" value="1" />
+          <entry key="sql" value="2" />
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="DBN-SQL" value="2" />
           <entry key="Markdown" value="6" />
           <entry key="PLAIN_TEXT" value="5" />
+=======
+          <entry key="Markdown" value="6" />
+          <entry key="PLAIN_TEXT" value="3" />
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
           <entry key="Python" value="17" />
           <entry key="SQL" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="gitignore" value="10" />
+=======
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
           <entry key="md" value="704" />
           <entry key="py" value="39" />
           <entry key="sql" value="2" />
@@ -48,7 +82,10 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="704" />
+<<<<<<< HEAD
           <entry key="PLAIN_TEXT" value="10" />
+=======
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
           <entry key="Python" value="39" />
           <entry key="SQL" value="2" />
         </counts>
@@ -56,12 +93,33 @@
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="808">
               <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+=======
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="450">
+                <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
             </state>
           </provider>
         </entry>
@@ -91,7 +149,10 @@
         <option value="$PROJECT_DIR$/complete_install.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/datasets/createDB.sql" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/.gitignore" />
+=======
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
       </list>
     </option>
   </component>
@@ -120,12 +181,15 @@
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="datasets" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="datasets" type="462c0819:PsiDirectoryNode" />
               <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
             </path>
           </expand>
           <select />
@@ -200,7 +264,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/requirements.txt" />
+=======
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
     <entry file="file://$PROJECT_DIR$/apps/data/songs/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
@@ -308,6 +382,16 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="82" column="4" lean-forward="true" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
     <entry file="file://$PROJECT_DIR$/complete_install.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -318,6 +402,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/datasets/ambient.sh" />
     <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -330,22 +415,36 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/datasets/loadData.sql">
+=======
+    <entry file="file://$PROJECT_DIR$/datasets/ambient.sh">
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="450">
+<<<<<<< HEAD
             <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+=======
+            <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="808">
           <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+=======
+    <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
+>>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
         </state>
       </provider>
     </entry>
