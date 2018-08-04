@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'ouvidoMusical.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ouvido_musical_ten_thousand',
+        'NAME': 'ouvidomusical',
         'USER': 'ouvidomusicalapi',
         'PASSWORD': 'lovelovelove',
         'HOST': 'localhost',

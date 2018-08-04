@@ -9,8 +9,8 @@ from apps.data.songs.models import Song
 
 class UserSongRecommendations(models.Model):
     # IDS
-    user = models.ForeignKey(User, unique=False)
-    song = models.ForeignKey(Song, unique=False)
+    user = models.ForeignKey(User, unique=False, on_delete=models.CASCADE)
+    song = models.ForeignKey(Song, unique=False, on_delete=models.CASCADE)
     # Datas
     similarity = models.FloatField(default=0.0, unique=False)
     iLike = models.BooleanField(default=False)

@@ -31,10 +31,10 @@ class Song(models.Model):
 class SongSimilarity(models.Model):
     # IDS
     songBase = models.ForeignKey(
-        Song, unique=False, related_name='SongSimilarity_right'
+        Song, unique=False, related_name='SongSimilarity_right', on_delete=models.CASCADE
     )
     songCompare = models.ForeignKey(
-        Song, unique=False, related_name='SongSimilarity_left'
+        Song, unique=False, related_name='SongSimilarity_left', on_delete=models.CASCADE
     )
     # Datas
     similarity = models.FloatField(default=0.0, unique=False)

@@ -5,6 +5,6 @@ from apps.evaluators.NDCG.algorithm.models import NDCG
 
 
 class BenchNDCG(models.Model):
-    id = models.OneToOneField(NDCG, primary_key=True)
+    id = models.OneToOneField(NDCG, primary_key=True, on_delete=models.CASCADE)
     started_at = models.DateTimeField()
     finished_at = models.DateTimeField()
