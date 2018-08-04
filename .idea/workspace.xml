@@ -2,42 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/benchmark.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/analyzer/benchmark.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/benchmark.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/benchmark.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/caller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/benchmark.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/analyzer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/handle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/metadata/CONSTANTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/CONSTANTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/metadata/system_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/system_overview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/songs/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/user_preferences/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ouvidoMusical/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ouvidoMusical/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,8 +82,8 @@
         <counts>
           <entry key="csv" value="5" />
           <entry key="log" value="1" />
-          <entry key="md" value="2" />
-          <entry key="py" value="45" />
+          <entry key="md" value="4" />
+          <entry key="py" value="86" />
           <entry key="sql" value="5" />
           <entry key="txt" value="2" />
         </counts>
@@ -70,26 +92,26 @@
         <counts>
           <entry key="CSV" value="5" />
           <entry key="DBN-SQL" value="5" />
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="45" />
+          <entry key="Python" value="86" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="18" />
+          <entry key="dummy" value="28" />
           <entry key="md" value="49" />
-          <entry key="py" value="562" />
+          <entry key="py" value="716" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="150" />
+          <entry key="txt" value="170" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DBN-SQL" value="11" />
           <entry key="Markdown" value="49" />
-          <entry key="PLAIN_TEXT" value="168" />
-          <entry key="Python" value="562" />
+          <entry key="PLAIN_TEXT" value="198" />
+          <entry key="Python" value="716" />
         </counts>
       </usages-collector>
     </session>
@@ -97,42 +119,93 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/views.py">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="300">
+              <caret line="20" column="45" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="45" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/handle.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#74#0" expanded="true" />
-                <marker date="1533411906054" expanded="true" signature="183:188" ph="..." />
-                <marker date="1533411906054" expanded="true" signature="207:271" ph="..." />
-                <marker date="1533411906054" expanded="true" signature="266:267" ph="..." />
-                <marker date="1533411906054" expanded="true" signature="292:301" ph="..." />
-                <marker date="1533411906054" expanded="true" signature="486:495" ph="..." />
+                <element signature="e#24#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/caller.py">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="65" />
+            <state relative-caret-position="45">
+              <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ouvidoMusical/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#24#63#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -145,6 +218,21 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>apps.similarities</find>
+      <find>apps.recommenders</find>
+      <find>apps.metrics</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>apps.kemures.similarities</replace>
+      <replace>apps.kemures.recommenders</replace>
+      <replace>apps.kemures.metrics</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -159,7 +247,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/datasets/createDB.sql" />
         <option value="$PROJECT_DIR$/apps/metadata/user_preferences/models.py" />
-        <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
         <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/models.py" />
         <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/apps.py" />
         <option value="$PROJECT_DIR$/apps/metadata/user_preferences/apps.py" />
@@ -170,6 +257,24 @@
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/views.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/views.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/handle.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/apps.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/apps.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/apps.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/apps.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/apps.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py" />
+        <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/models.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/models.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/models.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/models.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/models.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/models.py" />
       </list>
     </option>
   </component>
@@ -207,15 +312,123 @@
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="similarities" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="similarities" type="462c0819:PsiDirectoryNode" />
-              <item name="Cosine" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="MAP" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="MAP" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="MAP" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="MRR" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="MRR" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="MRR" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="NDCG" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="NDCG" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+              <item name="NDCG" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="recommenders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="recommenders" type="462c0819:PsiDirectoryNode" />
+              <item name="UserAverage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="recommenders" type="462c0819:PsiDirectoryNode" />
+              <item name="UserAverage" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="recommenders" type="462c0819:PsiDirectoryNode" />
+              <item name="UserAverage" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="ouvidoMusical" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -292,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533408538826</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refatorando o cosine">
+      <created>1533412071954</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1533412071954</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -331,79 +551,10 @@
     <MESSAGE value="adicionando dados no banco e novas migrações e requirements" />
     <MESSAGE value="adicionando install requirements" />
     <MESSAGE value="Iniciando refatoração total do sistema" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciando refatoração total do sistema" />
+    <MESSAGE value="refatorando o cosine" />
+    <option name="LAST_COMMIT_MESSAGE" value="refatorando o cosine" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/original_set/songs.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="794">
-          <caret line="15525" column="81" selection-start-line="15525" selection-start-column="80" selection-end-line="15525" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/playCount.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/playCount.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/songs.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state>
-          <caret selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/metadata/songs/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/metadata/songs/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="360">
-            <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="99" column="385" lean-forward="true" selection-start-line="99" selection-start-column="385" selection-end-line="99" selection-end-column="385" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="645">
-            <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploads/README.txt" />
     <entry file="file://$PROJECT_DIR$/logs/main.log">
       <provider editor-type-id="text-editor" />
@@ -494,35 +645,11 @@
     <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/views.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ouvidoMusical/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="39" column="49" lean-forward="true" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/CONSTANTS.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/system_overview.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="29" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -561,16 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/caller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/handle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -583,6 +700,197 @@
             <marker date="1533411906054" expanded="true" signature="292:301" ph="..." />
             <marker date="1533411906054" expanded="true" signature="486:495" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/caller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="645">
+            <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="375">
+            <caret line="25" column="90" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="90" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="97" selection-start-column="97" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="91" selection-start-column="91" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="52" selection-start-column="52" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="68" selection-start-column="68" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="64" selection-start-column="64" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ouvidoMusical/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/algorithm/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="45" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
         </state>
       </provider>
     </entry>

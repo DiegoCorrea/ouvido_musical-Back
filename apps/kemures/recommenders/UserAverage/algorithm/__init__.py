@@ -1,1 +1,1 @@
-default_app_config = 'apps.recommenders.UserAverage.algorithm.apps.UserAverageConfig'
+default_app_config = 'apps.kemures.recommenders.UserAverage.algorithm.apps.UserAverageConfig'

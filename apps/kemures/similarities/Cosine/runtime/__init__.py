@@ -1,1 +1,1 @@
-default_app_config = 'apps.similarities.Cosine.runtime.apps.CosineBenchmarkConfig'
+default_app_config = 'apps.kemures.similarities.Cosine.runtime.apps.CosineSimilarityRunTimeConfig'

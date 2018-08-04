@@ -1,6 +1,6 @@
 from .algorithm import calcUsersMRR
 from .models import MRR
-from apps.kemures.metrics.MRR.benchmark.models import BenchMRR
+from apps.kemures.metrics.MRR.runtime.models import BenchMRR
 from django.utils import timezone
 from apps.kemures.recommenders.UserAverage import UserAverage_Life
 

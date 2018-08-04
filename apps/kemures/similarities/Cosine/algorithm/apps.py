@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class CosineConfig(AppConfig):
-    name = 'apps.similarities.Cosine.algorithm'
+    name = 'apps.kemures.similarities.Cosine.algorithm'
     label = 'cosine'

@@ -1,1 +1,1 @@
-default_app_config = 'apps.metrics.MRR.algorithm.apps.MRRConfig'
+default_app_config = 'apps.kemures.metrics.MRR.algorithm.apps.MRRConfig'

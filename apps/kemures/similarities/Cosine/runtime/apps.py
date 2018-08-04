@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class CosineSimilarityRunTimeConfig(AppConfig):
-    name = 'apps.similarities.Cosine.runtime'
+    name = 'apps.kemures.similarities.Cosine.runtime'
     label = 'CosineSimilarityRunTime'

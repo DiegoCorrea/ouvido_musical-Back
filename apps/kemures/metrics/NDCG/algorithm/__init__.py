@@ -1,1 +1,1 @@
-default_app_config = 'apps.metrics.NDCG.algorithm.apps.NDCGConfig'
+default_app_config = 'apps.kemures.metrics.NDCG.algorithm.apps.NDCGConfig'

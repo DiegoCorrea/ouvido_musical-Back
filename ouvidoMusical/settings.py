@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'ouvidoMusical',
     'apps.metadata.songs',
     'apps.metadata.users',
-    'apps.mdetadata.user_preferences',
+    'apps.metadata.user_preferences',
     'apps.tecnics.content_based_metadata',
     'apps.kemures.similarities.Cosine.algorithm',
     'apps.kemures.similarities.Cosine.runtime',

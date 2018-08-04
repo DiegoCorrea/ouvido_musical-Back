@@ -1,1 +1,1 @@
-default_app_config = 'apps.metrics.MAP.algorithm.apps.MAPConfig'
+default_app_config = 'apps.kemures.metrics.MAP.algorithm.apps.MAPConfig'
