@@ -5,13 +5,15 @@
 3. Instale a Virtual Environment: `sudo pip3 install virtualenv`  
 
 ## Configuração  
-1. Inicie a Virtual Env: `source venv/bin/activate`  
-2. Carregue os arquivos no requirements: ``  
-3. Acesse o Python: `python`  
-3.1. Importe o nltk: `import nltk`  
-3.2. Baixe a base de palavras: `nltk.download('wordnet')`  
-3.3. Baixe a base de palavras: `nltk.download('wordnet')`    
-4. ``  
+1. Criando a Virtual Env local: `virtualenv venv`  
+2. Inicie a Virtual Env: `source venv/bin/activate`  
+3. Carregue os arquivos no requirements: ``  
+4. Acesse o Python: `python`  
+4.1. Importe o nltk: `import nltk`  
+4.2. Baixe a base de palavras: `nltk.download('wordnet')`  
+4.3. Baixe a base de palavras: `nltk.download('wordnet')`  
+4.4. `exit()`        
+5. Instalando os modulos: `pip install requirements.txt`  
 
 ## O Postgres  
 1. `sudo -u postgres psql`  
@@ -34,3 +36,10 @@
 4. Execute a função: `clean_all_files()`  
 5. Importe o arquivo: `from datasets.oneMillionSongs.mining import main`  
 6. Execute a função: `main()`  
+7. `exit()`  
+
+## Importando o set para o Postgres  
+1. Entrar no painel do banco: `sudo -u postgres psql ouvido_musical`  
+2. Carregar os dados extraidos no banco: `\i datasets/oneMillionSongs/{pasta_do_set}/load.sql;`  
+3. `\q`  
+

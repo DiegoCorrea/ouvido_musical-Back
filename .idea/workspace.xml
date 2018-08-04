@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="34857d62-255a-4a94-9c9b-80d7880da87b" name="Default Changelist" comment="" />
-=======
-    <list default="true" id="34857d62-255a-4a94-9c9b-80d7880da87b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ouvido_musical-Back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ouvido_musical-Back.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/complete_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/complete_install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/ambient.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/createDB.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/loadData.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/cleanEntry.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/dataset_average.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/mining.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/tenThousand/loadData.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/ten_thousand/loadData.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/threeThousand/loadData.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" afterDir="false" />
     </list>
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,84 +18,44 @@
     <session id="-630249398">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-<<<<<<< HEAD
-          <entry key="gitignore" value="3" />
-          <entry key="md" value="6" />
-          <entry key="py" value="17" />
-          <entry key="sh" value="1" />
-          <entry key="sql" value="4" />
-=======
-          <entry key="gitignore" value="1" />
-          <entry key="md" value="6" />
-          <entry key="py" value="17" />
-          <entry key="sh" value="1" />
-          <entry key="sql" value="2" />
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
-          <entry key="txt" value="1" />
+          <entry key="csv" value="5" />
+          <entry key="md" value="1" />
+          <entry key="py" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-<<<<<<< HEAD
-          <entry key="DBN-SQL" value="2" />
-          <entry key="Markdown" value="6" />
-          <entry key="PLAIN_TEXT" value="5" />
-=======
-          <entry key="Markdown" value="6" />
-          <entry key="PLAIN_TEXT" value="3" />
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
-          <entry key="Python" value="17" />
-          <entry key="SQL" value="2" />
+          <entry key="CSV" value="5" />
+          <entry key="Markdown" value="1" />
+          <entry key="Python" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-<<<<<<< HEAD
-          <entry key="gitignore" value="10" />
-=======
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
-          <entry key="md" value="704" />
-          <entry key="py" value="39" />
-          <entry key="sql" value="2" />
+          <entry key="py" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="704" />
-<<<<<<< HEAD
-          <entry key="PLAIN_TEXT" value="10" />
-=======
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
-          <entry key="Python" value="39" />
-          <entry key="SQL" value="2" />
+          <entry key="Python" value="43" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-=======
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="450">
-                <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+              <first_editor relative-caret-position="540">
+                <caret line="36" column="71" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="71" />
               </first_editor>
               <second_editor />
             </state>
@@ -115,11 +63,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
+        <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
+            <state relative-caret-position="555">
+              <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,27 +82,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/commands.md" />
-        <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
-        <option value="$PROJECT_DIR$/apps/data/songs/models.py" />
-        <option value="$PROJECT_DIR$/apps/data/userPlaySong/models.py" />
-        <option value="$PROJECT_DIR$/apps/data/userSongRecommendation/models.py" />
-        <option value="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/models.py" />
-        <option value="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/models.py" />
-        <option value="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/models.py" />
-        <option value="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/models.py" />
-        <option value="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/models.py" />
-        <option value="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/models.py" />
-        <option value="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/models.py" />
-        <option value="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/models.py" />
-        <option value="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/models.py" />
-        <option value="$PROJECT_DIR$/complete_install.md" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/datasets/createDB.sql" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/.gitignore" />
-=======
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
+        <option value="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" />
       </list>
     </option>
   </component>
@@ -161,9 +91,6 @@
     <option name="y" value="25" />
     <option name="width" value="1853" />
     <option name="height" value="1055" />
-  </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -181,15 +108,34 @@
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="datasets" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="datasets" type="462c0819:PsiDirectoryNode" />
               <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
-=======
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+              <item name="clean_set" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+              <item name="sets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+              <item name="sets" type="462c0819:PsiDirectoryNode" />
+              <item name="five_thousand" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -199,13 +145,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/datasets" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -224,11 +164,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="34857d62-255a-4a94-9c9b-80d7880da87b" name="Default Changelist" comment="" />
-      <created>1533334037736</created>
+      <changelist id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="" />
+      <created>1533354582116</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1533334037736</updated>
+      <updated>1533354582116</updated>
     </task>
     <servers />
   </component>
@@ -236,25 +176,25 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="DB Browser" />
       <window_info id="Project Explorer" />
+      <window_info id="DB Browser" />
       <window_info id="Job Explorer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18797815" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Console" />
       <window_info anchor="bottom" id="DB Execution Console" />
+      <window_info anchor="bottom" id="Console" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -264,187 +204,46 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/requirements.txt" />
-=======
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
-    <entry file="file://$PROJECT_DIR$/apps/data/songs/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data/userPlaySong/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="94" selection-start-line="8" selection-start-column="94" selection-end-line="8" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data/userSongRecommendation/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="47" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="47" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ouvidoMusical/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/similarities/Cosine/algorithm/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/similarities/Cosine/benchmark/models.py">
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="87" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="87" />
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/original_set/songs.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="794">
+          <caret line="15525" column="81" selection-start-line="15525" selection-start-column="80" selection-end-line="15525" selection-end-column="81" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="85" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/evaluators/MAP/algorithm/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/evaluators/MRR/algorithm/apps.py">
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/playCount.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/evaluators/MRR/algorithm/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/playCount.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/songs.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state>
+          <caret selection-end-column="21" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/evaluators/MAP/benchmark/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/evaluators/MRR/benchmark/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="82" column="4" lean-forward="true" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
-    <entry file="file://$PROJECT_DIR$/complete_install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" selection-start-line="14" selection-end-line="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/datasets/ambient.sh" />
-    <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/loadData.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/loadData.sql">
-=======
-    <entry file="file://$PROJECT_DIR$/datasets/ambient.sh">
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="450">
-<<<<<<< HEAD
-            <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
-=======
-            <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
+          <first_editor relative-caret-position="540">
+            <caret line="36" column="71" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="71" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-=======
-    <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
->>>>>>> 44643f4ff6313957b12f11aff68534d1302fc984
+        <state relative-caret-position="555">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,14 +1,12 @@
 from random import sample
 import os
-songList = []
-songDict = None
 userPlayList = []
 directory = ''
 
 
 def getSongs(name, limit):
-    global songList
     global directory
+    song_list = []
     print('*'*30)
     print('* Minerando ', str(limit), ' músicas *')
     print('*'*30)
@@ -19,7 +17,7 @@ def getSongs(name, limit):
         'datasets/oneMillionSongs/sets/' + str(name) + '/songs.csv',
         'w+'
     )
-    toSaveFile.write('id,title\n')
+    toSaveFile.write('id,title,album,artist\n')
     songSet = sample(
         set(
             open(
@@ -32,18 +30,18 @@ def getSongs(name, limit):
         if (status % 1000 == 0):
             print ("-> [", status, "]")
         lineSplit = line.split(',')
-        songList.append(lineSplit[0])
-        toSaveFile.write(lineSplit[0] + ',' + lineSplit[1] + '\n')
+        song_list.append(lineSplit[0])
+        toSaveFile.write(lineSplit[0] + ',' + lineSplit[1] + ',' + lineSplit[2] + ',' + lineSplit[3] + '\n')
         if (status > limit):
             break
         status += 1
-    print ('- Total de Musicas: ', len(songList))
+    print ('- Total de Musicas: ', len(song_list))
     toSaveFile.close()
     print ('- Finalizando o script!')
+    return song_list
 
 
-def getPlayCount(name, limit, userLimit):
-    global songDict
+def getPlayCount(song_list, name, limit, userLimit):
     global userPlayList
     global directory
     print ('*'*30)
@@ -67,21 +65,18 @@ def getPlayCount(name, limit, userLimit):
         if (status % 1000 == 0):
             print ("-> [", status, "]")
         lineSplit = line.split(',')
-        if (lineSplit[1] not in songDict):
-            continue
-        if (len(userPlayList) >= userLimit and lineSplit[0] not in userPlayList):
+        if (lineSplit[1] not in song_list):
             continue
         if lineSplit[0] not in userPlayList:
             userPlayList.append(lineSplit[0])
         toSaveFile.write(line)
-    userDict = set(userPlayList)
-    print ('- Total de usuarios: ', len(userDict))
+    print ('- Total de usuarios: ', len(userPlayList))
     usersToSaveFile = open(
         'datasets/oneMillionSongs/sets/' + str(name) + '/users.csv',
         'w+'
     )
     usersToSaveFile.write('id\n')
-    for user in userDict:
+    for user in userPlayList:
         usersToSaveFile.write(user + "\n")
     toSaveFile.close()
     usersToSaveFile.close()
@@ -92,12 +87,22 @@ def start(name, limit, userLimit=None):
     global directory
     global songDict
     directory = 'datasets/oneMillionSongs/sets/' + str(name)
-    getSongs(name, limit)
-    songDict = set(songList)
-    getPlayCount(name, limit, userLimit)
+    song_list = getSongs(name, limit)
+    getPlayCount(song_list, name, limit, userLimit)
 
+
+def generate_load(name):
+    name = str(name)
+    toSaveFile = open(
+        'datasets/oneMillionSongs/sets/' + name + '/load.sql',
+        'w+'
+    )
+    toSaveFile.write("\COPY songs_song FROM \'datasets/oneMillionSongs/sets/" + name + "/songs.csv\' DELIMITER \',\' CSV HEADER;\n"+"\COPY users_user FROM \'datasets/oneMillionSongs/sets/" + name + "/users.csv\' CSV HEADER;\n"+"\COPY \"userPlaySong_userplaysong\"(user_id,song_id,play_count) FROM 'datasets/oneMillionSongs/sets/" + name + "/userPlaySong.csv' DELIMITER ',' CSV HEADER;\n")
+    toSaveFile.close()
 
 ##########
 def main():
     start(name="five_thousand", limit=5000)
+    generate_load(name="five_thousand")
     start(name="ten_thousand", limit=10000)
+    generate_load(name="ten_thousand")
