@@ -17,7 +17,7 @@
 
 ## O Postgres  
 1. `sudo -u postgres psql`  
-2. `CREATE DATABASE ouvidoMusical;`  
+2. `CREATE DATABASE ouvido_musical;`  
 3. `CREATE USER ouvidoMusicalAPI WITH PASSWORD 'lovelovelove';`  
 4. `ALTER ROLE ouvidoMusicalAPI SET client_encoding TO 'utf8';`  
 5. `ALTER ROLE ouvidoMusicalAPI SET default_transaction_isolation TO 'read committed';`  

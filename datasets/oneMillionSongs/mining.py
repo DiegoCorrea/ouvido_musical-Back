@@ -97,7 +97,7 @@ def generate_load(name):
         'datasets/oneMillionSongs/sets/' + name + '/load.sql',
         'w+'
     )
-    toSaveFile.write("\COPY songs_song FROM \'datasets/oneMillionSongs/sets/" + name + "/songs.csv\' DELIMITER \',\' CSV HEADER;\n"+"\COPY users_user FROM \'datasets/oneMillionSongs/sets/" + name + "/users.csv\' CSV HEADER;\n"+"\COPY \"userPlaySong_userplaysong\"(user_id,song_id,play_count) FROM 'datasets/oneMillionSongs/sets/" + name + "/userPlaySong.csv' DELIMITER ',' CSV HEADER;\n")
+    toSaveFile.write("\COPY songs_song FROM \'datasets/oneMillionSongs/sets/" + name + "/songs.csv\' DELIMITER \',\' CSV HEADER;\n"+"\COPY users_user FROM \'datasets/oneMillionSongs/sets/" + name + "/users.csv\' CSV HEADER;\n"+"\COPY \"userPlaySong_userplaysong\"(user_id,song_id,play_count) FROM 'datasets/oneMillionSongs/sets/" + name + "/userCount.csv' DELIMITER ',' CSV HEADER;\n")
     toSaveFile.close()
 
 ##########

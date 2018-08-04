@@ -11,6 +11,8 @@ class Song(models.Model):
         primary_key=True, default=uuid.uuid1().hex
     )
     title = models.CharField(max_length=511, unique=False)
+    album = models.CharField(max_length=511, unique=False)
+    artist = models.CharField(max_length=511, unique=False)
 
     def getSimilaries(self, songIDList):
         right_b = self.SongSimilarity_right.filter(songBase_id__in=songIDList)
