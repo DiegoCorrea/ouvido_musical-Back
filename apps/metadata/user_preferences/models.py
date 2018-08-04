@@ -4,7 +4,7 @@ from apps.metadata.users.models import User
 from apps.metadata.songs.models import Song
 
 
-class UserPreferences(models.Model):
+class UserPreference(models.Model):
     user = models.ForeignKey(User, unique=False, on_delete=models.CASCADE)
     song = models.ForeignKey(Song, unique=False, related_name='song', on_delete=models.CASCADE)
     play_count = models.IntegerField(default=0, unique=False)
