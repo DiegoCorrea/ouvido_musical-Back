@@ -1,45 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="mining funcionando">
+    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/data/songs/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0002_auto_20180128_2257.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0003_auto_20180129_2004.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0004_auto_20180512_0240.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0005_auto_20180513_2320.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0006_auto_20180514_0206.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0007_auto_20180804_0012.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/migrations/0008_auto_20180804_0012.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/data/userPlaySong/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/data/userSongRecommendation/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/migrations/0002_auto_20180129_2004.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/data/users/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0002_auto_20180128_2257.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0003_auto_20180129_2004.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0004_auto_20180512_0240.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0005_auto_20180513_2320.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0006_auto_20180514_0206.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0007_auto_20180804_0012.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/users/migrations/0008_auto_20180804_0012.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/migrations/0002_useraverage_life_score.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/migrations/0003_useraverage_life_length.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/migrations/0002_remove_cosinesimilarity_songtitle_updated_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/similarities/Cosine/benchmark/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands.md" beforeDir="false" afterPath="$PROJECT_DIR$/commands.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusical/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ouvidoMusical/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,17 +39,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="18" />
+          <entry key="md" value="49" />
           <entry key="py" value="70" />
           <entry key="sql" value="9" />
-          <entry key="txt" value="19" />
+          <entry key="txt" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DBN-SQL" value="9" />
-          <entry key="Markdown" value="18" />
-          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="Markdown" value="49" />
+          <entry key="PLAIN_TEXT" value="78" />
           <entry key="Python" value="70" />
         </counts>
       </usages-collector>
@@ -93,26 +57,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="630">
-                <caret line="42" column="74" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="74" />
+              <first_editor relative-caret-position="135">
+                <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
-              <caret line="99" column="345" selection-start-line="99" selection-start-column="345" selection-end-line="99" selection-end-column="345" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -128,9 +80,9 @@
         <option value="$PROJECT_DIR$/apps/data/songs/models.py" />
         <option value="$PROJECT_DIR$/commands.md" />
         <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -253,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533392961328</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="adicionando dados no banco e novas migrações e requirements">
+      <created>1533394460074</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1533394460074</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -289,7 +248,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mining funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="mining funcionando" />
+    <MESSAGE value="adicionando dados no banco e novas migrações e requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionando dados no banco e novas migrações e requirements" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set.py">
@@ -352,23 +312,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="630">
-            <caret line="42" column="74" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="74" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="659">
-          <caret line="99" column="345" selection-start-line="99" selection-start-column="345" selection-end-line="99" selection-end-column="345" />
+          <caret line="99" column="385" lean-forward="true" selection-start-line="99" selection-start-column="385" selection-end-line="99" selection-end-column="385" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

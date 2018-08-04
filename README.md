@@ -7,7 +7,7 @@
 ## Configuração  
 1. Criando a Virtual Env local: `virtualenv venv`  
 2. Inicie a Virtual Env: `source venv/bin/activate`  
-3. Carregue os arquivos no requirements: ``  
+3. Carregue os arquivos no requirements: `pip install -r requirements.txt`  
 4. Acesse o Python: `python`  
 4.1. Importe o nltk: `import nltk`  
 4.2. Baixe a base de palavras: `nltk.download('wordnet')`  
