@@ -12,7 +12,6 @@ Sistema de Recomendação em Musica
 6.2. Baixe a base de palavras: `nltk.download('wordnet')`    
 
 ### Configurando o Banco  
-Caso precise de maiores informações acesse o link: `https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-16-04`  
 1. `sudo -u postgres psql`  
 2. `CREATE DATABASE ouvidoMusical;`  
 3. `CREATE USER ouvidoMusicalAPI WITH PASSWORD 'lovelovelove';`  
@@ -27,7 +26,6 @@ Caso precise de maiores informações acesse o link: `https://www.digitalocean.c
 Caso não exista a pasta:  
 1. `virtualenv venv`  
 2. `source venv/bin/activate`    
-4. `django-admin.py startproject venv .`  
 
 ### Iniciando Servidor
 1. Acessando o env: `source venv/bin/activate`  
