@@ -2,90 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34857d62-255a-4a94-9c9b-80d7880da87b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/complete_install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README2.md" beforeDir="false" afterPath="$PROJECT_DIR$/commands.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/songs/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/data/songs/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/userPlaySong/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/data/userPlaySong/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/data/userSongRecommendation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/data/userSongRecommendation/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MAP/algorithm/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MRR/algorithm/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/NDCG/algorithm/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/recommenders/UserAverage/algorithm/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/recommenders/UserAverage/benchmark/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/similarities/Cosine/algorithm/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusical/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ouvidoMusical/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/activate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/activate.csh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/activate.fish" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/activate_this.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/chardetect" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/csv2rdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/dill_unpickle.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/django-admin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/django-admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/easy_install" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/easy_install-2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/easy_install-3.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/f2py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/ftfy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/get_objgraph.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/iptest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/iptest3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/ipython" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/ipython3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jsonschema" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-bundlerextension" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-kernelspec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-migrate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-nbconvert" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-nbextension" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-notebook" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-run" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-serverextension" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-troubleshoot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/jupyter-trust" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/pbr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/pip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/pip2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/pip2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/pip3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/pip3.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/plac_runner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/pygmentize" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/python" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/python-config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/python2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/python2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/python3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/python3.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/rdf2dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/rdfgraphisomorphism" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/rdfpipe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/rdfs2dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/tqdm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/virtualenv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/virtualenv-clone" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/virtualenvwrapper.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/virtualenvwrapper_lazy.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/bin/wheel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/include/python2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/include/python3.6m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/local/bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/local/include" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/local/lib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/pip-selfcheck.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/share/jupyter/kernels/python3/kernel.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/share/jupyter/kernels/python3/logo-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/share/jupyter/kernels/python3/logo-64x64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ouvidoMusicalenv/share/man/man1/ipython.1.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/complete_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/complete_install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/ambient.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/createDB.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/loadData.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/cleanEntry.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/dataset_average.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/mining.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/tenThousand/loadData.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/ten_thousand/loadData.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data/oneMillionSongs/sets/threeThousand/loadData.sql" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,28 +32,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="md" value="4" />
+          <entry key="gitignore" value="1" />
+          <entry key="md" value="6" />
           <entry key="py" value="17" />
+          <entry key="sh" value="1" />
+          <entry key="sql" value="2" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="4" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Markdown" value="6" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="Python" value="17" />
+          <entry key="SQL" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="658" />
+          <entry key="md" value="704" />
           <entry key="py" value="39" />
+          <entry key="sql" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="658" />
+          <entry key="Markdown" value="704" />
           <entry key="Python" value="39" />
+          <entry key="SQL" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -132,28 +67,22 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/evaluators/MAP/benchmark/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/evaluators/MRR/benchmark/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="450">
+                <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/models.py">
+        <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
+            <state>
+              <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -168,8 +97,6 @@
       <list>
         <option value="$PROJECT_DIR$/commands.md" />
         <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
-        <option value="$PROJECT_DIR$/complete_install.md" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/apps/data/songs/models.py" />
         <option value="$PROJECT_DIR$/apps/data/userPlaySong/models.py" />
         <option value="$PROJECT_DIR$/apps/data/userSongRecommendation/models.py" />
@@ -182,6 +109,9 @@
         <option value="$PROJECT_DIR$/apps/evaluators/MAP/benchmark/models.py" />
         <option value="$PROJECT_DIR$/apps/evaluators/MRR/benchmark/models.py" />
         <option value="$PROJECT_DIR$/apps/evaluators/NDCG/benchmark/models.py" />
+        <option value="$PROJECT_DIR$/complete_install.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/datasets/createDB.sql" />
       </list>
     </option>
   </component>
@@ -209,58 +139,7 @@
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluators" type="462c0819:PsiDirectoryNode" />
-              <item name="MAP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluators" type="462c0819:PsiDirectoryNode" />
-              <item name="MAP" type="462c0819:PsiDirectoryNode" />
-              <item name="benchmark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluators" type="462c0819:PsiDirectoryNode" />
-              <item name="MRR" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluators" type="462c0819:PsiDirectoryNode" />
-              <item name="MRR" type="462c0819:PsiDirectoryNode" />
-              <item name="benchmark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluators" type="462c0819:PsiDirectoryNode" />
-              <item name="NDCG" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluators" type="462c0819:PsiDirectoryNode" />
-              <item name="NDCG" type="462c0819:PsiDirectoryNode" />
-              <item name="benchmark" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -272,6 +151,11 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/datasets" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -332,16 +216,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
-            <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/data/songs/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
@@ -374,16 +248,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="30">
             <caret line="2" column="47" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="47" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/complete_install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="540">
-            <caret line="36" selection-start-line="36" selection-end-line="37" selection-end-column="60" />
           </first_editor>
           <second_editor />
         </state>
@@ -465,6 +329,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="82" column="4" lean-forward="true" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/complete_install.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="210">
+            <caret line="14" selection-start-line="14" selection-end-line="14" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/ambient.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="450">
+            <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/createDB.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
         </state>
       </provider>
     </entry>

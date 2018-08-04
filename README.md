@@ -9,7 +9,7 @@
 2. Carregue os arquivos no requirements: ``  
 3. Acesse o Python: `python`  
 3.1. Importe o nltk: `import nltk`  
-3.2. Baixe a base de palavras: `nltk.download('wordnet')`
+3.2. Baixe a base de palavras: `nltk.download('wordnet')`  
 3.3. Baixe a base de palavras: `nltk.download('wordnet')`    
 4. ``  
 
@@ -26,3 +26,6 @@
 ## Migrações do banco  
 1. Criando migração do banco: `python manage.py makemigrations`  
 2. Aplicando migração ao banco: `python manage.py migrate`  
+
+## Extraindo o dataset  
+1. 
