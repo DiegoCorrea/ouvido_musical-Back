@@ -4,6 +4,8 @@ from django.db import models
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverage_Life
 
 # Create your models here.
+
+
 class UserAverageRunTime(models.Model):
     life = models.OneToOneField(UserAverage_Life, unique=True, on_delete=models.CASCADE)
     started_at = models.DateTimeField()
