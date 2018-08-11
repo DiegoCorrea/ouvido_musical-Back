@@ -4,7 +4,7 @@ from django.db import transaction
 from django.db.models import Sum
 from multiprocessing.dummy import Pool as ThreadPool
 
-from apps.kemures.CONSTANTS import (
+from apps.kemures.kernel_var import (
     MAX_SCORE,
     MIN_SCORE,
     MAX_THREAD,

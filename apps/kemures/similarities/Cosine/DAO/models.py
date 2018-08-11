@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-import uuid
+
 from django.db import models
 
 from apps.metadata.songs.models import Song

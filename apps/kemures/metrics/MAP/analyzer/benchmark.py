@@ -4,7 +4,7 @@ import logging
 import os
 
 from collections import Counter
-from apps.kemures.CONSTANTS import (
+from apps.kemures.kernel_var import (
     SET_SIZE_LIST,
     INTERVAL,
     AT_LIST,

@@ -24,3 +24,6 @@ Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:
 ### Clean pyc  
 1. Limpa todo o cache: `find . -name apps/*.pyc -delete`  
 2. Clean migrations: `find . -path "apps/migrations/*.py" -not -name "__init__.py" -delete`
+
+### Pip
+1. Reinstalar todos os modulos forçadamente: `pip install --upgrade -r requirements.txt --force-reinstall`  

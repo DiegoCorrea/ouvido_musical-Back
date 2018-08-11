@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-from apps.kemures.recommenders.UserAverage.algorithm.models import UserAverage_Life
+from apps.kemures.recommenders.UserAverage.DAO.models import UserAverage_Life
 
 # Create your models here.
 class UserAverageRunTime(models.Model):

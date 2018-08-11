@@ -11,7 +11,7 @@
 4. Acesse o Python: `python`  
 4.1. Importe o nltk: `import nltk`  
 4.2. Baixe a base de palavras: `nltk.download('wordnet')`  
-4.3. Baixe a base de palavras: `nltk.download('wordnet')`  
+4.3. Baixe a base de palavras: `nltk.download('punkt')`  
 4.4. `exit()`        
 5. Instalando os modulos: `pip install requirements.txt`  
 

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import os
 import logging
 
-from apps.kemures.CONSTANTS import (
+from apps.kemures.kernel_var import (
     SET_SIZE_LIST,
     INTERVAL,
     GRAPH_SET_COLORS_LIST

@@ -8,7 +8,7 @@ from apps.kemures.recommenders.UserAverage import (
 from apps.kemures.metrics import runEvaluations, runAnalizerEvaluations
 from apps.kemures.recommenders.UserAverage import userAverageGraphics
 from apps.kemures.similarities.Cosine.graph.views import cosineGraphics
-from apps.kemures.CONSTANTS import SET_SIZE_LIST, AT_LIST, TOTAL_RUN
+from apps.kemures.kernel_var import SET_SIZE_LIST, AT_LIST, TOTAL_RUN
 
 logger = logging.getLogger(__name__)
 

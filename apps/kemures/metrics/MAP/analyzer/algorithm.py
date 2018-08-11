@@ -4,7 +4,7 @@ import logging
 import os
 
 from collections import Counter
-from apps.kemures.CONSTANTS import (
+from apps.kemures.kernel_var import (
     SET_SIZE_LIST,
     INTERVAL,
     AT_LIST,
@@ -43,7 +43,7 @@ def value_gLine(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MAP/graphs/'
         + str(songSetLimit)
-        + '/algorithm/'
+        + '/DAO/'
         + str(at)
         + '/'
     )
@@ -111,7 +111,7 @@ def value_gScatter(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MAP/graphs/'
         + str(songSetLimit)
-        + '/algorithm/'
+        + '/DAO/'
         + str(at)
         + '/'
     )
@@ -156,7 +156,7 @@ def value_gBoxPlot(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MAP/graphs/'
         + str(songSetLimit)
-        + '/algorithm/'
+        + '/DAO/'
         + str(at)
         + '/'
     )
@@ -194,7 +194,7 @@ def value_gBar(songSetLimit, at=5):
     directory = str(
         'files/apps/metrics/MAP/graphs/'
         + str(songSetLimit)
-        + '/algorithm/'
+        + '/DAO/'
         + str(at)
         + '/'
     )

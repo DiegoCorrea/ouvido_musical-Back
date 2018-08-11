@@ -5,7 +5,7 @@ from apps.kemures.similarities.Cosine.runtime import BenchCosine_SongTitle
 from apps.kemures.recommenders.UserAverage import UserAverage_Life
 from django.db.models import Sum
 
-from apps.kemures.CONSTANTS import SET_SIZE_LIST, START_VALIDE_RUN, TOTAL_RUN, INTERVAL
+from apps.kemures.kernel_var import SET_SIZE_LIST, START_VALIDE_RUN, TOTAL_RUN, INTERVAL
 
 
 def system_statistical():

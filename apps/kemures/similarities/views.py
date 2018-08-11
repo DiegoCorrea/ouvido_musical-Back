@@ -1,4 +1,4 @@
-from .Cosine.handle import Cosine
+from .Cosine.cosine_controller import Cosine
 import logging
 logger = logging.getLogger(__name__)
 

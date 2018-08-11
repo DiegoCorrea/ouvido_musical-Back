@@ -1,10 +1,9 @@
-from .algorithm import CosineSimilarity
 from apps.metadata.songs.models import Song, SongSimilarity
 from apps.kemures.similarities.Cosine.runtime import CosineSimilarityRunTime
 from django.db import transaction
 from django.utils import timezone
 from multiprocessing import Pool as ThreadPool
-from apps.kemures.CONSTANTS import MAX_THREAD
+from apps.kemures.kernel_var import MAX_THREAD
 from random import sample
 import numpy as np
 
@@ -93,7 +92,7 @@ def main(song_df):
     all_feature_distance = pool.map(CosineSimilarity, zip(song_df, song_features))
     pool.close()
     pool.join()
-    distance_matrix = np.zeros(song_set['song_id'].count())
+    distance_matrix = np.zeros(song_df['song_id'].count())
     for (matrix, feature_weight) in zip(all_feature_distance, classifier_important):
         distance_matrix = np.add(distance_matrix, matrix*feature_weight)
     return distance_matrix

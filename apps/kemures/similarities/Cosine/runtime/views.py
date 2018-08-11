@@ -2,9 +2,9 @@ import logging
 
 from random import sample
 from django.utils import timezone
-from apps.kemures.CONSTANTS import TOTAL_RUN, SET_SIZE_LIST
+from apps.kemures.kernel_var import TOTAL_RUN, SET_SIZE_LIST
 from apps.metadata.songs.models import Song
-from apps.kemures.similarities.Cosine.algorithm import CosineSimilarity
+from apps.kemures.similarities.Cosine.DAO import CosineSimilarity
 from apps.kemures.similarities.Cosine.runtime import BenchCosine_SongTitle
 
 logger = logging.getLogger(__name__)
