@@ -82,17 +82,3 @@ def TitleSimilarityWithObserver(setSize):
         + " || Finished at -"
         + str(finishedAt)
     )
-
-
-# ######################################################################################################################
-
-
-def main(song_df):
-    pool = ThreadPool(MAX_THREAD)
-    all_feature_distance = pool.map(CosineSimilarity, zip(song_df, song_features))
-    pool.close()
-    pool.join()
-    distance_matrix = np.zeros(song_df['song_id'].count())
-    for (matrix, feature_weight) in zip(all_feature_distance, classifier_important):
-        distance_matrix = np.add(distance_matrix, matrix*feature_weight)
-    return distance_matrix

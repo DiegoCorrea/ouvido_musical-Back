@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
+# O.S. and Python/Django Calls
 import string
 import logging
 from random import sample
 from django.utils import timezone
 from multiprocessing import Pool as ThreadPool
-
+# Modules Calls
 import nltk
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-
+# Application Calls
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
 from apps.kemures.kernel_var import MAX_THREAD
 from apps.metadata.songs.models import Song
@@ -17,7 +18,7 @@ from apps.metadata.songs.models import Song
 logger = logging.getLogger(__name__)
 
 
-class Cosine:
+class CosineController:
     def __init__(self, song_model_size):
         self.song_model_size = song_model_size
         self.metadata_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
@@ -83,3 +84,6 @@ class Cosine:
         # for (matrix, feature_weight) in zip(feature_matrix_similarity, classifier_important):
         #    similarity_matrix = np.add(similarity_matrix, matrix * feature_weight)
         return feature_matrix_similarity
+
+    def save_matrix_similarity_metadata(self):
+        pass
