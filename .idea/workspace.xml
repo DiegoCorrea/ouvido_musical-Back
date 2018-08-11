@@ -4,14 +4,14 @@
     <bookmark url="file://$PROJECT_DIR$/apps/kemures/kernel_var.py" line="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" afterDir="false" />
+    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="Cosine Ovweview adicionanda e gerando graficos de tempo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/caller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/caller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/caller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/algorithm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/benchmark.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/views.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +34,7 @@
           <entry key="csv" value="5" />
           <entry key="log" value="1" />
           <entry key="md" value="9" />
-          <entry key="py" value="156" />
+          <entry key="py" value="158" />
           <entry key="sql" value="6" />
           <entry key="txt" value="4" />
         </counts>
@@ -45,7 +45,7 @@
           <entry key="DBN-SQL" value="6" />
           <entry key="Markdown" value="9" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="156" />
+          <entry key="Python" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -54,105 +54,21 @@
           <entry key="md" value="111" />
           <entry key="py" value="2564" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="302" />
+          <entry key="txt" value="357" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DBN-SQL" value="11" />
           <entry key="Markdown" value="111" />
-          <entry key="PLAIN_TEXT" value="359" />
+          <entry key="PLAIN_TEXT" value="414" />
           <entry key="Python" value="2564" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="28" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="28" />
-                  <folding>
-                    <element signature="e#31#45#0" expanded="true" />
-                    <marker date="1534026178658" expanded="true" signature="351:352" ph="..." />
-                    <marker date="1534026178658" expanded="true" signature="351:356" ph="..." />
-                    <marker date="1534026178658" expanded="true" signature="446:447" ph="..." />
-                    <marker date="1534026178658" expanded="true" signature="446:451" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="684">
-                  <caret line="58" column="142" lean-forward="true" selection-start-line="58" selection-start-column="142" selection-end-line="58" selection-end-column="142" />
-                  <folding>
-                    <element signature="e#31#40#0" expanded="true" />
-                    <marker date="1534027416506" expanded="true" signature="398:403" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_var.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="9" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-                  <folding>
-                    <marker date="1534023645914" expanded="true" signature="1525:1642" ph="..." />
-                    <marker date="1534023645914" expanded="true" signature="1604:1642" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" selection-start-line="9" selection-end-line="9" />
-                  <folding>
-                    <element signature="e#24#63#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -225,8 +141,8 @@
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/caller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_var.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
       </list>
     </option>
   </component>
@@ -268,24 +184,7 @@
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="metrics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="metrics" type="462c0819:PsiDirectoryNode" />
-              <item name="MAP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="metrics" type="462c0819:PsiDirectoryNode" />
-              <item name="MAP" type="462c0819:PsiDirectoryNode" />
-              <item name="analyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="similarities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
@@ -394,12 +293,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534019464084</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cosine Ovweview adicionanda e gerando graficos de tempo">
+      <created>1534027527747</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1534027527747</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-30" width="1920" height="1110" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14918292" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -461,16 +366,10 @@
     <MESSAGE value="refatoração dos models funcionando" />
     <MESSAGE value="refatoração carregando dados no banco" />
     <MESSAGE value="Cosine Similarity refatorada para classe e funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cosine Similarity refatorada para classe e funcionando" />
+    <MESSAGE value="Cosine Ovweview adicionanda e gerando graficos de tempo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cosine Ovweview adicionanda e gerando graficos de tempo" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/views.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -729,16 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/caller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="40" column="74" lean-forward="true" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/graph/benchmark.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-105">
@@ -766,48 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_var.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="9" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding>
-            <marker date="1534023645914" expanded="true" signature="1525:1642" ph="..." />
-            <marker date="1534023645914" expanded="true" signature="1604:1642" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="e#31#45#0" expanded="true" />
-            <marker date="1534026178658" expanded="true" signature="351:352" ph="..." />
-            <marker date="1534026178658" expanded="true" signature="351:356" ph="..." />
-            <marker date="1534026178658" expanded="true" signature="446:447" ph="..." />
-            <marker date="1534026178658" expanded="true" signature="446:451" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-675">
@@ -830,10 +677,72 @@
     <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
-          <caret line="58" column="142" lean-forward="true" selection-start-line="58" selection-start-column="142" selection-end-line="58" selection-end-column="142" />
+          <caret line="58" column="142" selection-start-line="58" selection-start-column="142" selection-end-line="58" selection-end-column="142" />
           <folding>
             <element signature="e#31#40#0" expanded="true" />
             <marker date="1534027416506" expanded="true" signature="398:403" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_var.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="9" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/caller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="40" column="74" lean-forward="true" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="87" column="19" lean-forward="true" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="19" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+            <marker date="1534023645914" expanded="true" signature="1525:1642" ph="..." />
+            <marker date="1534023645914" expanded="true" signature="1604:1642" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="e#31#45#0" expanded="true" />
+            <marker date="1534026178658" expanded="true" signature="351:352" ph="..." />
+            <marker date="1534026178658" expanded="true" signature="351:356" ph="..." />
+            <marker date="1534026178658" expanded="true" signature="446:447" ph="..." />
+            <marker date="1534026178658" expanded="true" signature="446:451" ph="..." />
           </folding>
         </state>
       </provider>
