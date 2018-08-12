@@ -52,11 +52,11 @@ class UserAverageController:
         __user_model_df = self.users_preferences_df.loc[self.users_preferences_df['user_id'] == user]
         __song_model_df = self.song_model_df.loc[~self.song_model_df['id'].isin(__user_model_df['song_id'])]
         __user_similar_songs_df = self.similarity_metadata_df.loc[__user_model_df['song_id'].tolist()]
-        logger.info(__user_similar_songs_df)
+        # logger.info(__user_similar_songs_df)
         recommendation_list = {}
         for column in __user_similar_songs_df.columns:
             recommendation_list[column] = float(sum(__user_similar_songs_df[column].tolist()))/float(__user_similar_songs_df[column].count())
-        logger.info(recommendation_list)
+        # logger.info(recommendation_list)
         user_recommendations_df = pd.DataFrame(columns=['user_id', 'song_id', 'similarity', 'iLike', 'score'])
         for song in recommendation_list:
             user_recommendations_df.append(
@@ -74,8 +74,8 @@ class UserAverageController:
         users_recommendations_df = pool.map(self.get_user_average_recommendations, self.user_list[:20])
         pool.close()
         pool.join()
-        logger.info("[Finish User Average]")
         recommendations_df = pd.DataFrame(columns=['user_id', 'song_id', 'similarity', 'iLike', 'score'])
         for df in users_recommendations_df:
             recommendations_df.append(df, ignore_index=True)
+        logger.info("[Finish User Average]")
         return recommendations_df
