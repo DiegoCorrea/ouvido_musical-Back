@@ -73,7 +73,7 @@ class CosineController:
         return (tfidf * tfidf.T).toarray()
 
     def __start_cosine(self):
-        matrix_metadata = [self.metadata_df[column].tolist() for column in self.metadata_df.columns if column == 'id']
+        matrix_metadata = [self.metadata_df[column].tolist() for column in self.metadata_df.columns if column != 'id']
         pool = ThreadPool(MAX_THREAD)
         feature_matrix_similarity = pool.map(self.CosineSimilarity, matrix_metadata)
         pool.close()

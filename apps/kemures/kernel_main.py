@@ -13,19 +13,20 @@ from apps.kemures.kernel_var import SONG_MODEL_SIZE_LIST, TOTAL_RUN
 logger = logging.getLogger(__name__)
 
 
-def one_run_kernel(song_model_size=500):
+def one_run_kernel(song_model_size=100):
     song_model_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
     users_preferences_df = pd.DataFrame.from_records(list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
     cos = CosineController(song_model_size, song_model_df)
     cos.run_cosine_metadata()
-    user_ave = UserAverageController(
-        similarity_metadata_df=cos.get_similarity_metadata_df(),
-        song_model_size=song_model_size,
-        song_model_df=song_model_df,
-        users_preferences_df=users_preferences_df
-    )
-    user_ave.run_user_average()
-    return user_ave.get_recommendations_df()
+    logger.info(cos.get_similarity_metadata_df())
+    #user_ave = UserAverageController(
+    #    similarity_metadata_df=cos.get_similarity_metadata_df(),
+    #    song_model_size=song_model_size,
+    #    song_model_df=song_model_df,
+    #    users_preferences_df=users_preferences_df
+    #)
+    #user_ave.run_user_average()
+    #return user_ave.get_recommendations_df()
 
 
 def with_config_run_kernel():
