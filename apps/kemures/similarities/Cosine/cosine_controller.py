@@ -2,7 +2,6 @@
 # O.S. and Python/Django Calls
 import string
 import logging
-from random import sample
 from django.utils import timezone
 from multiprocessing import Pool as ThreadPool
 # Modules Calls
@@ -13,15 +12,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 # Application Calls
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
 from apps.kemures.kernel_var import MAX_THREAD
-from apps.metadata.songs.models import Song
 
 logger = logging.getLogger(__name__)
 
 
 class CosineController:
-    def __init__(self, song_model_size):
+    def __init__(self, song_model_size, song_model_df):
         self.song_model_size = song_model_size
-        self.metadata_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
+        self.metadata_df = song_model_df
         self.matrix_similarity_metadata = np.zeros(self.metadata_df['id'].count())
 
     def run_cosine_metadata(self):

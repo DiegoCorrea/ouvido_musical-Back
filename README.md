@@ -31,7 +31,7 @@
 
 ## Extraindo o dataset  
 1. Descompactar o dataset: `cd datasets/oneMillionSongs/ && unzip original_set.zip && cd ../../`  
-2. Abra o terminal do Django: `python manage.py shell_plus`  
+2. Abra o terminal do Django: `python manage.py shell_plus --ipython`  
 3. Importe a função: `from datasets.oneMillionSongs.clean_set import clean_all_files`  
 4. Execute a função: `clean_all_files()`  
 5. Importe o arquivo: `from datasets.oneMillionSongs.mining import main`  

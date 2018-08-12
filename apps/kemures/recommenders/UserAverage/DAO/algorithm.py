@@ -12,8 +12,8 @@ from apps.kemures.kernel_var import (
 )
 from apps.metadata.users.models import User
 from apps.metadata.songs.models import Song
-from apps.metadata.user_preferences.models import UserPlaySong
-from .models import UserAverage_Recommendations, UserAverage_Life
+from apps.metadata.user_preferences.models import UserPreference
+from .models import UserAverageRecommendations, UserAverageLife
 
 import copy
 import logging
@@ -42,7 +42,7 @@ def getUserAverageRecommendations(user):
     recommendations = {}
     userModel = None
     #
-    userPlayed_list = UserPlaySong.objects.filter(user_id=user.id)
+    userPlayed_list = UserPreference.objects.filter(user_id=user.id)
     userModel = createUserModel(userPlayed_list=userPlayed_list)
     for songPlayed in userPlayed_list:
         similaresSide = songPlayed.song.getSimilaries(songIDList=userModel)

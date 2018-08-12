@@ -4,13 +4,14 @@
 3. Linux visualizar processadores: `htop`
 
 ### Terminal Django/Projeto  
-1. `python manage.py shell_plus`  
+1. `python manage.py shell_plus --ipython`  
 
 ### Banco de dados   
 Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:  
 1. Acessar o terminal do postgres, a partir da pasta do projeto: `sudo -u postgres psql`  
 2. Executar o script: `\i config/data/createDB.sql;`  
 3. Sair do terminal do postgres: `\q`  
+4. Deletar Banco de Dados: `DROP DATABASE ouvido_musical;`  
 
 ### Criando tabelas no banco  
 1. `python3.6 manage.py makemigrations`  
