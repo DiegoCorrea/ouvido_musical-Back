@@ -53,21 +53,22 @@ class UserAverageController:
         __user_model_df = self.users_preferences_df.loc[self.users_preferences_df['user_id'] == user]
         __song_model_df = self.song_model_df.loc[~self.song_model_df['id'].isin(__user_model_df['song_id'])]
         __user_similar_songs_df = self.similarity_metadata_df.loc[__user_model_df['song_id'].tolist()]
-        # logger.info(__user_similar_songs_df)
+        __user_similar_songs_df.drop(columns=__user_similar_songs_df.index.values.tolist())
         recommendation_list = {}
         for column in __user_similar_songs_df.columns:
-            similarity = float(sum(__user_similar_songs_df[column].tolist()))/float(__user_similar_songs_df[column].count())
+            soma = float(sum(__user_similar_songs_df[column].tolist()))
+            divisor = float(__user_similar_songs_df[column].count())
+            logger.info(str(soma) + ' /// ' + str(divisor) + '\n')
+            similarity = soma/divisor
             if similarity == 0.0:
                 continue
             recommendation_list[column] = similarity
-        # logger.info(recommendation_list)
         user_recommendations_df = pd.DataFrame(columns=self.recommendations_columns)
         for song in recommendation_list:
             df = pd.DataFrame(
                 data=[[user, song, recommendation_list[song], True, 1]],
                 columns=self.recommendations_columns,
             )
-            #logger.info(df)
             user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)
 
         return user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[0:RECOMMENDATION_LIST_SIZE]
@@ -75,7 +76,7 @@ class UserAverageController:
     def __start_user_average(self):
         logger.info("[Start User Average]")
         pool = ThreadPool(MAX_THREAD)
-        users_recommendations_df = pool.map(self.get_user_average_recommendations, self.user_list[:20])
+        users_recommendations_df = pool.map(self.get_user_average_recommendations, self.user_list[:10])
         pool.close()
         pool.join()
         recommendations_df = pd.DataFrame(columns=self.recommendations_columns)
