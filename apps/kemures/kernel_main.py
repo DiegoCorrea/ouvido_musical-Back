@@ -19,12 +19,12 @@ def one_run_kernel(song_model_size=1500):
     cos = CosineController(song_model_size, song_model_df)
     cos.run_cosine_metadata()
     user_ave = UserAverageController(
-        matrix_similarity_metadata=cos.get_matrix_similarity_metadata(),
+        similarity_metadata_df=cos.get_similarity_metadata_df(),
         song_model_size=song_model_size,
         song_model_df=song_model_df,
         users_preferences_df=users_preferences_df
     )
-    # user_ave.run_user_average()
+    #user_ave.run_user_average()
 
 
 def with_config_run_kernel():

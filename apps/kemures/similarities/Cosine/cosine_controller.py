@@ -20,12 +20,12 @@ class CosineController:
     def __init__(self, song_model_size, song_model_df):
         self.song_model_size = song_model_size
         self.metadata_df = song_model_df
-        self.matrix_similarity_metadata = np.zeros(self.metadata_df['id'].count())
+        self.similarity_metadata_df = np.zeros(self.metadata_df['id'].count())
 
     def run_cosine_metadata(self):
         logger.info("[Start Run Cosine Metadata]")
         started_at = timezone.now()
-        self.matrix_similarity_metadata = self.__start_cosine()
+        self.similarity_metadata_df = self.__start_cosine()
         finished_at = timezone.now()
         CosineSimilarityRunTime.objects.create(
             song_model_size=self.song_model_size,
@@ -40,8 +40,8 @@ class CosineController:
         )
         logger.info("[Finish Run Cosine Metadata]")
 
-    def get_matrix_similarity_metadata(self):
-        return self.matrix_similarity_metadata
+    def get_similarity_metadata_df(self):
+        return self.similarity_metadata_df
 
     def get_metadata_df(self):
         return self.metadata_df
@@ -78,10 +78,10 @@ class CosineController:
         feature_matrix_similarity = pool.map(self.CosineSimilarity, matrix_metadata)
         pool.close()
         pool.join()
-        # similarity_matrix = np.zeros(self.metadata_df['song_id'].count())
-        # for (matrix, feature_weight) in zip(feature_matrix_similarity, classifier_important):
-        #    similarity_matrix = np.add(similarity_matrix, matrix * feature_weight)
-        return feature_matrix_similarity
+        similarity_matrix = np.zeros(self.metadata_df['id'].count())
+        for matrix in feature_matrix_similarity:
+            similarity_matrix = np.add(similarity_matrix, matrix)
+        return pd.DataFrame(data=similarity_matrix, index=self.metadata_df['id'].tolist(), columns=self.metadata_df['id'].tolist())
 
     def save_matrix_similarity_metadata(self):
         pass

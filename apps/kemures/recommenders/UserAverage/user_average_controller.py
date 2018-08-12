@@ -15,8 +15,8 @@ logger = logging.getLogger(__name__)
 
 
 class UserAverageController:
-    def __init__(self, matrix_similarity_metadata, song_model_size, song_model_df, users_preferences_df):
-        self.matrix_similarity_metadata = matrix_similarity_metadata
+    def __init__(self, similarity_metadata_df, song_model_size, song_model_df, users_preferences_df):
+        self.similarity_metadata_df = similarity_metadata_df
         self.song_model_size = song_model_size
         self.life = None
         self.recommendations_df = pd.DataFrame()
@@ -41,11 +41,63 @@ class UserAverageController:
         )
         logger.info("[Start Run User Average] - Benchmark")
 
+    def __get_user_average_recommendations(self, user):
+        logger.info("[Start Get User Recommendation] - id: " + str(user))
+        __user_model_df = self.users_preferences_df.loc[self.users_preferences_df['user_id'] == user]
+        __song_model_df = self.song_model_df.loc[self.song_model_df['id'] == __user_model_df['song_id'].tolist()]
+        for user_preference in __user_model_df:
+            base = __song_model_df.index.get_indexer_for((__song_model_df[__song_model_df.id == user_preference['song_id']].index))
+            similaresSide = songPlayed.song.getSimilaries(songIDList=userModel)
+            for songSimi in similaresSide:
+                if songSimi.similarity == 0.0:
+                    continue
+                if songSimi.songBase == songPlayed.song:
+                    if songSimi.songCompare in recommendations:
+                        recommendations[songSimi.songCompare].append(
+                            songSimi.similarity
+                        )
+                    else:
+                        recommendations.setdefault(songSimi.songCompare, [])
+                        recommendations[songSimi.songCompare].append(
+                            songSimi.similarity
+                        )
+                else:
+                    if songSimi.songBase in recommendations:
+                        recommendations[songSimi.songBase].append(
+                            songSimi.similarity
+                        )
+                    else:
+                        recommendations.setdefault(songSimi.songBase, [])
+                        recommendations[songSimi.songBase].append(
+                            songSimi.similarity
+                        )
+        rec = {}
+        for (song, values) in recommendations.items():
+            rec.setdefault(song, sum(values) / len(values))
+        orderedRecomendation = sorted(
+            rec.items(),
+            key=lambda t: t[1],
+            reverse=True
+        )[:RECOMMENDATION_LIMIT]
+        with transaction.atomic():
+            for (song, similarity) in orderedRecomendation:
+                try:
+                    UserAverage_Recommendations.objects.create(
+                        song_id=song.id,
+                        user_id=user.id,
+                        life_id=RECOMMENDATION_CONFIG['LIFE_ID'],
+                        similarity=similarity,
+                        iLike=bool(choice([True, False])),
+                        score=randint(MIN_SCORE, MAX_SCORE))
+                except Exception as e:
+                    logger.error(str(e))
+                    continue
+
     def __start_user_average(self):
         logger.info("[Start User Average]")
         self.life = UserAverageLife.objects.create(song_model_size=self.song_model_size)
         pool = ThreadPool(MAX_THREAD)
-        user_recommendations_df = pool.map(getUserAverageRecommendations, self.user_df['id'].tolist())
+        user_recommendations_df = pool.map(self.__get_user_average_recommendations, self.user_df['id'].tolist())
         pool.close()
         pool.join()
         logger.info("[Finish User Average]")
