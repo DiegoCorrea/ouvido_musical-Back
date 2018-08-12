@@ -8,5 +8,6 @@ from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 
 class UserAverageRunTime(models.Model):
     life = models.OneToOneField(UserAverageLife, unique=True, on_delete=models.CASCADE)
+    song_model_size = models.IntegerField()
     started_at = models.DateTimeField()
     finished_at = models.DateTimeField()
