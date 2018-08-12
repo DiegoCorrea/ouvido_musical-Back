@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,9 +50,9 @@
           <entry key="dummy" value="57" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="4656" />
+          <entry key="py" value="4847" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="669" />
+          <entry key="txt" value="725" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -61,8 +60,8 @@
           <entry key="DBN-SQL" value="11" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="726" />
-          <entry key="Python" value="4656" />
+          <entry key="PLAIN_TEXT" value="782" />
+          <entry key="Python" value="4847" />
         </counts>
       </usages-collector>
     </session>
@@ -105,7 +104,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -118,15 +117,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+            <state relative-caret-position="773">
+              <caret line="72" column="91" selection-start-line="72" selection-start-column="91" selection-end-line="72" selection-end-column="91" />
               <folding>
                 <element signature="e#55#69#0" expanded="true" />
-                <marker date="1534088595214" expanded="true" signature="548:553" ph="..." />
-                <marker date="1534088595214" expanded="true" signature="1105:1150" ph="..." />
+                <marker date="1534092393769" expanded="true" signature="548:553" ph="..." />
+                <marker date="1534092393769" expanded="true" signature="1235:1280" ph="..." />
               </folding>
             </state>
           </provider>
@@ -211,8 +210,8 @@
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_var.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" />
       </list>
     </option>
   </component>
@@ -487,7 +486,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534088222198</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="retirando log">
+      <created>1534088744728</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1534088744728</updated>
+    </task>
+    <task id="LOCAL-00021" summary="user recommendation entregando uma lista">
+      <created>1534091765515</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1534091765515</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -564,7 +577,9 @@
     <MESSAGE value="user average calculando e retornando no map" />
     <MESSAGE value="calculando as recomendações" />
     <MESSAGE value="cosine buf consertado, valores retornando corretamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="cosine buf consertado, valores retornando corretamente" />
+    <MESSAGE value="retirando log" />
+    <MESSAGE value="user recommendation entregando uma lista" />
+    <option name="LAST_COMMIT_MESSAGE" value="user recommendation entregando uma lista" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/apps.py">
@@ -822,18 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
-          <folding>
-            <element signature="e#55#69#0" expanded="true" />
-            <marker date="1534088595214" expanded="true" signature="548:553" ph="..." />
-            <marker date="1534088595214" expanded="true" signature="1105:1150" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -841,6 +844,18 @@
           <folding>
             <marker date="1534088633083" expanded="true" signature="622:623" ph="..." />
             <marker date="1534088633083" expanded="true" signature="622:627" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="72" column="91" selection-start-line="72" selection-start-column="91" selection-end-line="72" selection-end-column="91" />
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+            <marker date="1534092393769" expanded="true" signature="548:553" ph="..." />
+            <marker date="1534092393769" expanded="true" signature="1235:1280" ph="..." />
           </folding>
         </state>
       </provider>

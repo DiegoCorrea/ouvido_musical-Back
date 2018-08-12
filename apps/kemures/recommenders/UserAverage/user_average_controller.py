@@ -69,7 +69,8 @@ class UserAverageController:
             )
             #logger.info(df)
             user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)
-        return user_recommendations_df
+
+        return user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[0:RECOMMENDATION_LIST_SIZE]
 
     def __start_user_average(self):
         logger.info("[Start User Average]")
