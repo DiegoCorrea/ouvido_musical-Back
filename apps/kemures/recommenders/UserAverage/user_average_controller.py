@@ -24,8 +24,11 @@ class UserAverageController:
         self.users_preferences_df = users_preferences_df
         self.user_list = users_preferences_df['user_id'].unique().tolist()
 
+    def get_recommendations_df(self):
+        return self.recommendations_df
+
     def run_user_average(self):
-        logger.info("[Start Run User Average - Benchmark]")
+        logger.info("[Start Run User Average]")
         started_at = timezone.now()
         self.recommendations_df = self.__start_user_average()
         finished_at = timezone.now()
@@ -41,20 +44,33 @@ class UserAverageController:
             + " || Finished at -"
             + str(finished_at)
         )
-        logger.info("[Start Run User Average] - Benchmark")
+        logger.info("[Start Run User Average]")
 
     def get_user_average_recommendations(self, user):
         logger.info("[Start Get User Recommendation] - id: " + str(user))
         __user_model_df = self.users_preferences_df.loc[self.users_preferences_df['user_id'] == user]
         __song_model_df = self.song_model_df.loc[~self.song_model_df['id'].isin(__user_model_df['song_id'])]
-        __similar_df = self.similarity_metadata_df.loc[__user_model_df['song_id'].tolist()]
+        __user_similar_songs_df = self.similarity_metadata_df.loc[__user_model_df['song_id'].tolist()]
+        recommendation_list = {}
+        for column in __user_similar_songs_df.columns:
+            recommendation_list[column] = float(sum(__user_similar_songs_df[column].tolist()))/float(__user_similar_songs_df[column].count())
+        user_recommendations_df = pd.DataFrame(columns=['user_id', 'song_id', 'similarity', 'iLike', 'score'])
+        for song in recommendation_list:
+            user_recommendations_df.append(
+                pd.DataFrame(
+                    data=[[user, song, recommendation_list[song], True, 1]],
+                    columns=['user_id', 'song_id', 'similarity', 'iLike', 'score']
+                ),
+                ignore_index=True
+            )
+        return user_recommendations_df
 
     def __start_user_average(self):
         logger.info("[Start User Average]")
         self.life = UserAverageLife.objects.create(song_model_size=self.song_model_size)
         pool = ThreadPool(MAX_THREAD)
-        user_recommendations_df = pool.map(self.get_user_average_recommendations, self.user_list)
+        users_recommendations_df = pool.map(self.get_user_average_recommendations, self.user_list)
         pool.close()
         pool.join()
         logger.info("[Finish User Average]")
-        return user_recommendations_df
+        return users_recommendations_df
