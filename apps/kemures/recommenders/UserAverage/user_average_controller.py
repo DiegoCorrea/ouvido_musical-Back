@@ -20,7 +20,7 @@ class UserAverageController:
         self.similarity_metadata_df = similarity_metadata_df
         self.song_model_size = song_model_size
         self.life = UserAverageLife.objects.create(song_model_size=song_model_size)
-        self.recommendations_columns = ['user_id', 'song_id', 'similarity', 'iLike', 'score']
+        self.recommendations_columns = ['user_id', 'song_id', 'similarity']
         self.recommendations_df = pd.DataFrame(columns=self.recommendations_columns)
         self.song_model_df = song_model_df
         self.users_preferences_df = users_preferences_df
@@ -64,7 +64,7 @@ class UserAverageController:
         user_recommendations_df = pd.DataFrame(columns=self.recommendations_columns)
         for song in recommendation_list:
             df = pd.DataFrame(
-                data=[[user, song, recommendation_list[song], None, None]],
+                data=[[user, song, recommendation_list[song]]],
                 columns=self.recommendations_columns,
             )
             user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)

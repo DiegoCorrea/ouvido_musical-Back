@@ -7,6 +7,8 @@ from apps.kemures.similarities.Cosine.cosine_controller import CosineController
 from apps.kemures.similarities.Cosine.cosine_overview import CosineOverview
 from apps.kemures.recommenders.UserAverage.user_average_controller import UserAverageController
 from apps.kemures.recommenders.UserAverage.user_average_overview import UserAverageOverview
+from apps.kemures.metrics.MAP.map_controller import MAPController
+from apps.kemures.relevance_overview.relecance_overview import RelevanceOverview
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
 from apps.kemures.kernel_var import SONG_MODEL_SIZE_LIST, TOTAL_RUN
@@ -29,7 +31,11 @@ def one_run_kernel(song_model_size=1500):
         users_preferences_df=users_preferences_df
     )
     user_ave.run_user_average()
-    return user_ave.get_recommendations_df()
+    rel_over = RelevanceOverview(recommendations_df=user_ave.get_recommendations_df())
+    rel_over.evaluate_recommendations()
+    # map_metric = MAPController()
+    # map_metric.run_full_map()
+    return rel_over.get_evaluated_recommendations()
 
 
 def with_config_run_kernel():
