@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class CosineOverview:
     def __init__(self, song_model_size_list=SONG_MODEL_SIZE_LIST):
         self.directory = str(
-            'files/apps/similarities/Cosine/graphs/'
+            'files/apps/similarities/cosine/graphs/'
         )
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
