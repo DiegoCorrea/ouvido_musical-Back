@@ -19,9 +19,10 @@ logger = logging.getLogger(__name__)
 def one_run_kernel(song_model_size=1500):
     song_model_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
     users_preferences_df = pd.DataFrame.from_records(list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
-    if users_preferences_df.empty:
-        logger.info("Músicas selecionadas são estão entre as preferencias dos usuarios. Finalizando")
-        exit()
+    while users_preferences_df.empty:
+        song_model_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
+        users_preferences_df = pd.DataFrame.from_records(
+            list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
     cos = CosineController(song_model_size, song_model_df)
     cos.run_cosine_metadata()
     user_ave = UserAverageController(
@@ -35,7 +36,6 @@ def one_run_kernel(song_model_size=1500):
     rel_over.evaluate_recommendations()
     map_metric = MAPController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
     map_metric.run_full_map()
-    return rel_over.get_evaluated_recommendations()
 
 
 def with_config_run_kernel():
@@ -49,22 +49,7 @@ def with_config_run_kernel():
                 + str(i)
             )
             logger.info("*" * 30)
-            song_model_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
-            users_preferences_df = pd.DataFrame.from_records(
-                list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
-            while users_preferences_df.empty:
-                song_model_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
-                users_preferences_df = pd.DataFrame.from_records(
-                    list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
-            cos = CosineController(song_model_size, song_model_df)
-            cos.run_cosine_metadata()
-            user_ave = UserAverageController(
-                similarity_metadata_df=cos.get_similarity_metadata_df(),
-                song_model_size=song_model_size,
-                song_model_df=song_model_df,
-                users_preferences_df=users_preferences_df
-            )
-            user_ave.run_user_average()
+            one_run_kernel(song_model_size=song_model_size)
     cos_over = CosineOverview()
     cos_over.make_graphics()
     user_over = UserAverageOverview()
