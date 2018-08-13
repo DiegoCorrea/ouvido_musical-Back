@@ -53,24 +53,21 @@ class UserAverageController:
         __user_model_df = self.users_preferences_df.loc[self.users_preferences_df['user_id'] == user]
         __song_model_df = self.song_model_df.loc[~self.song_model_df['id'].isin(__user_model_df['song_id'])]
         __user_similar_songs_df = self.similarity_metadata_df.loc[__user_model_df['song_id'].tolist()]
-        __user_similar_songs_df.drop(columns=__user_similar_songs_df.index.values.tolist())
+        index_list = __user_similar_songs_df.index.values.tolist()
+        __user_similar_songs_df.drop(columns=index_list)
         recommendation_list = {}
         for column in __user_similar_songs_df.columns:
-            soma = float(sum(__user_similar_songs_df[column].tolist()))
-            divisor = float(__user_similar_songs_df[column].count())
-            logger.info(str(soma) + ' /// ' + str(divisor) + '\n')
-            similarity = soma/divisor
-            if similarity == 0.0:
+            similarity = float(sum(__user_similar_songs_df[column].tolist()))/float(__user_similar_songs_df[column].count())
+            if similarity == 0.0 or column in index_list:
                 continue
             recommendation_list[column] = similarity
         user_recommendations_df = pd.DataFrame(columns=self.recommendations_columns)
         for song in recommendation_list:
             df = pd.DataFrame(
-                data=[[user, song, recommendation_list[song], True, 1]],
+                data=[[user, song, recommendation_list[song], None, None]],
                 columns=self.recommendations_columns,
             )
             user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)
-
         return user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[0:RECOMMENDATION_LIST_SIZE]
 
     def __start_user_average(self):

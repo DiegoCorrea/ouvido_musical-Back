@@ -50,7 +50,7 @@
           <entry key="dummy" value="57" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="4975" />
+          <entry key="py" value="5043" />
           <entry key="sql" value="11" />
           <entry key="txt" value="741" />
         </counts>
@@ -61,7 +61,7 @@
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
           <entry key="PLAIN_TEXT" value="798" />
-          <entry key="Python" value="4975" />
+          <entry key="Python" value="5043" />
         </counts>
       </usages-collector>
     </session>
@@ -90,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="48" />
+            <state relative-caret-position="578">
+              <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
               <folding>
                 <element signature="e#55#68#0" expanded="true" />
                 <marker date="1534088151707" expanded="true" signature="1386:1499" ph="..." />
@@ -117,15 +117,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
+            <state relative-caret-position="608">
+              <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
               <folding>
                 <element signature="e#55#69#0" expanded="true" />
-                <marker date="1534099814194" expanded="true" signature="548:553" ph="..." />
-                <marker date="1534099814194" expanded="true" signature="1235:1280" ph="..." />
+                <marker date="1534123931365" expanded="true" signature="548:553" ph="..." />
+                <marker date="1534123931365" expanded="true" signature="1235:1280" ph="..." />
               </folding>
             </state>
           </provider>
@@ -507,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534092504978</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="user recommendation entregando a lista limitada">
+      <created>1534100239162</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1534100239162</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -844,26 +851,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
-          <folding>
-            <element signature="e#55#69#0" expanded="true" />
-            <marker date="1534099814194" expanded="true" signature="548:553" ph="..." />
-            <marker date="1534099814194" expanded="true" signature="1235:1280" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="48" />
+        <state relative-caret-position="578">
+          <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
           <folding>
             <element signature="e#55#68#0" expanded="true" />
             <marker date="1534088151707" expanded="true" signature="1386:1499" ph="..." />
             <marker date="1534088151707" expanded="true" signature="1461:1499" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+            <marker date="1534123931365" expanded="true" signature="548:553" ph="..." />
+            <marker date="1534123931365" expanded="true" signature="1235:1280" ph="..." />
           </folding>
         </state>
       </provider>
