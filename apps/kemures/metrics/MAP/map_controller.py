@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 
 
 class MAPController:
-    def __init__(self, recommendation_results_df, at_size_list=AT_LIST):
-        self.recommendation_results_df = recommendation_results_df
+    def __init__(self, evaluated_recommendations_df, at_size_list=AT_LIST):
+        self.evaluated_recommendations_df = evaluated_recommendations_df
         self.at_size_list = at_size_list
 
     def __get_ap_from_list(self, relevance_array):
@@ -29,17 +29,17 @@ class MAPController:
             hit_list.append(relevant / (i + 1))
         ap = sum(hit_list)
         if ap > 0.0:
-            return ap / relevant
+            return ap / n_relevances
         else:
             return 0.0
 
     def __calc_users_map(self, at):
         logger.info("[Start User MAP]")
         ap = []
-        for user in self.recommendation_results_df['user_id'].unique().tolist():
-            __user_recommendation_model = self.recommendation_results_df.loc[self.recommendation_results_df['user_id'] == user]
+        for user in self.evaluated_recommendations_df['user_id'].unique().tolist():
+            __user_recommendation_model = self.evaluated_recommendations_df.loc[self.evaluated_recommendations_df['user_id'] == user]
             __user_recommendation_model.sort_values(by=['similarity'], ascending=False)
-            ap.append(self.__get_ap_from_list(__user_recommendation_model['iLike'].tolist()))
+            ap.append(self.__get_ap_from_list(__user_recommendation_model['iLike'].tolist()[:at]))
         map_result = np.mean(ap)
         logger.debug("Mean Average Precision@%d: %f", at, map_result)
         logger.debug("Total Users Rated: %d", len(ap))
@@ -62,7 +62,9 @@ class MAPController:
             finished_at=finished_at
         )
         logger.info(
-            "Run Time: Start at - "
+            "Run Time[ "
+            + str(value)
+            + " ]: Start at - "
             + str(started_at)
             + " || Finished at -"
             + str(finished_at)
