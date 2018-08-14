@@ -1,4 +1,4 @@
-# O.S. and Python/Django Calls
+# Python and Pip Modules Calls
 import logging
 import pandas as pd
 from random import sample
@@ -8,6 +8,8 @@ from apps.kemures.similarities.Cosine.cosine_overview import CosineOverview
 from apps.kemures.recommenders.UserAverage.user_average_controller import UserAverageController
 from apps.kemures.recommenders.UserAverage.user_average_overview import UserAverageOverview
 from apps.kemures.metrics.MAP.map_controller import MAPController
+from apps.kemures.metrics.MRR.mrr_controller import MRRController
+from apps.kemures.metrics.NDCG.ndcg_controller import NDCGController
 from apps.kemures.relevance_overview.relevance_overview import RelevanceOverview
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
@@ -35,7 +37,11 @@ def one_run_kernel(song_model_size=1500):
     rel_over = RelevanceOverview(recommendations_df=user_ave.get_recommendations_df())
     rel_over.evaluate_recommendations()
     map_metric = MAPController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
-    map_metric.run_full_map()
+    map_metric.run_for_all_at_size()
+    mrr_metric = MRRController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
+    mrr_metric.run_for_all_at_size()
+    ndcg_metric = NDCGController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
+    ndcg_metric.run_for_all_at_size()
 
 
 def with_config_run_kernel():
