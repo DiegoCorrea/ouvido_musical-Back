@@ -67,7 +67,4 @@ def with_config_run_kernel():
             )
             logger.info("*" * 30)
             one_run_kernel(song_model_size=song_model_size)
-    cos_over = CosineOverview()
-    cos_over.make_graphics()
-    user_over = UserAverageOverview()
-    user_over.make_graphics()
+    make_graphics()
