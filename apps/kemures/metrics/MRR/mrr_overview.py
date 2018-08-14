@@ -41,7 +41,7 @@ class MRROverview:
         self.__all_time_graph_box_plot()
 
     def __all_time_graph_line(self):
-        self.__logger.info("[Start Map Overview - Run Time - (Graph Line)]")
+        self.__logger.info("[Start MRR Overview - Run Time - (Graph Line)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -65,10 +65,10 @@ class MRROverview:
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish Map Overview - Run Time - (Graph Line)]")
+        self.__logger.info("[Finish MRR Overview - Run Time - (Graph Line)]")
 
     def __all_time_graph_box_plot(self):
-        self.__logger.info("[Start Map Overview - Run Time - (Graph Box Plot)]")
+        self.__logger.info("[Start MRR Overview - Run Time - (Graph Box Plot)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -91,14 +91,14 @@ class MRROverview:
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish Map Overview - Run Time - (Graph Box Plot)]")
+        self.__logger.info("[Finish MRR Overview - Run Time - (Graph Box Plot)]")
 
     def make_results_graphics(self):
         self.__all_results_graph_line()
         self.__all_results_graph_box_plot()
 
     def __all_results_graph_line(self):
-        self.__logger.info("[Start Map Overview - Results - (Graph Line)]")
+        self.__logger.info("[Start MRR Overview - Results - (Graph Line)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -121,10 +121,10 @@ class MRROverview:
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish Map Overview - Results - (Graph Line)]")
+        self.__logger.info("[Finish MRR Overview - Results - (Graph Line)]")
 
     def __all_results_graph_box_plot(self):
-        self.__logger.info("[Start Map Overview - Results - (Graph Box Plot)]")
+        self.__logger.info("[Start MRR Overview - Results - (Graph Box Plot)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -146,4 +146,4 @@ class MRROverview:
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish Map Overview - Results - (Graph Box Plot)]")
+        self.__logger.info("[Finish MRR Overview - Results - (Graph Box Plot)]")
