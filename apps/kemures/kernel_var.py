@@ -11,3 +11,6 @@ START_VALIDE_RUN = 5
 INTERVAL = 10
 
 AT_LIST = [1, 4, 7, 10]
+
+# List of paths to save Graphics and CSV
+COSINE_PATH_GRAPHICS = 'files/apps/similarities/cosine/graphs/'

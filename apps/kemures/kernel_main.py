@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 def make_graphics():
     cos_over = CosineOverview()
-    cos_over.make_graphics()
+    cos_over.make_time_graphics()
     user_over = UserAverageOverview()
     user_over.make_graphics()
     map_over = MAPOverview()
