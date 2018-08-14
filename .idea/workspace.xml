@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/lowe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/lowe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,22 +29,22 @@
         <counts>
           <entry key="csv" value="5" />
           <entry key="log" value="6" />
-          <entry key="md" value="15" />
+          <entry key="md" value="16" />
           <entry key="png" value="4" />
-          <entry key="py" value="378" />
-          <entry key="sql" value="6" />
+          <entry key="py" value="380" />
+          <entry key="sql" value="9" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="5" />
-          <entry key="DBN-SQL" value="6" />
+          <entry key="DBN-SQL" value="9" />
           <entry key="Image" value="4" />
           <entry key="Log" value="5" />
-          <entry key="Markdown" value="15" />
+          <entry key="Markdown" value="16" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="378" />
+          <entry key="Python" value="380" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -73,16 +53,16 @@
           <entry key="log" value="2" />
           <entry key="md" value="145" />
           <entry key="py" value="8270" />
-          <entry key="sql" value="11" />
-          <entry key="txt" value="1546" />
+          <entry key="sql" value="20" />
+          <entry key="txt" value="1580" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="DBN-SQL" value="11" />
+          <entry key="DBN-SQL" value="20" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1604" />
+          <entry key="PLAIN_TEXT" value="1638" />
           <entry key="Python" value="8270" />
         </counts>
       </usages-collector>
@@ -91,15 +71,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
+        <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="818">
-              <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
-              <folding>
-                <element signature="e#55#69#0" expanded="true" />
-                <marker date="1534280143396" expanded="true" signature="1148:1594" ph="..." />
-                <marker date="1534280143396" expanded="true" signature="1652:1653" ph="..." />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="126" selection-start-line="2" selection-start-column="126" selection-end-line="2" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -179,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/apps.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/apps.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/__init__.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/apps.py" />
@@ -230,6 +204,7 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
+        <option value="$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql" />
       </list>
     </option>
   </component>
@@ -257,13 +232,28 @@
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+              <item name="sets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+              <item name="sets" type="462c0819:PsiDirectoryNode" />
+              <item name="ten_thousand" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -421,20 +411,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00004" summary="adicionando install requirements">
-      <created>1533394566804</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1533394566804</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Iniciando refatoração total do sistema">
-      <created>1533408538826</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1533408538826</updated>
     </task>
     <task id="LOCAL-00006" summary="refatorando o cosine">
       <created>1533412071954</created>
@@ -765,7 +741,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534275848018</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="reformulação de variaveis">
+      <created>1534280158898</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1534280158898</updated>
+    </task>
+    <task id="LOCAL-00054" summary="migrate">
+      <created>1534280341905</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1534280341905</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -824,8 +814,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="relevance funcionando" />
-    <MESSAGE value="map entregando valor" />
     <MESSAGE value="modificando chamada inicial" />
     <MESSAGE value="novos tamanhos de dados" />
     <MESSAGE value="map overview gerando grafico" />
@@ -849,20 +837,11 @@
     <MESSAGE value="mudando nome do diretorio" />
     <MESSAGE value="utf8 nas classes" />
     <MESSAGE value="cosine controller iniciando generalização" />
-    <option name="LAST_COMMIT_MESSAGE" value="cosine controller iniciando generalização" />
+    <MESSAGE value="reformulação de variaveis" />
+    <MESSAGE value="migrate" />
+    <option name="LAST_COMMIT_MESSAGE" value="migrate" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/algorithm.py" />
-    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/main.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/main_debug.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="-1595">
@@ -933,16 +912,6 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1175,6 +1144,40 @@
             <marker date="1534280143396" expanded="true" signature="1148:1594" ph="..." />
             <marker date="1534280143396" expanded="true" signature="1652:1653" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="98" column="5" lean-forward="true" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="126" selection-start-line="2" selection-start-column="126" selection-end-line="2" selection-end-column="126" />
         </state>
       </provider>
     </entry>
