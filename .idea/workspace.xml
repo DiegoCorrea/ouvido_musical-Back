@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +54,7 @@
           <entry key="md" value="145" />
           <entry key="py" value="7337" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="1111" />
+          <entry key="txt" value="1142" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -62,7 +62,7 @@
           <entry key="DBN-SQL" value="11" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1169" />
+          <entry key="PLAIN_TEXT" value="1200" />
           <entry key="Python" value="7337" />
         </counts>
       </usages-collector>
@@ -75,11 +75,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="788">
-                  <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#24#33#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="60">
+                  <caret line="4" selection-start-line="4" selection-end-line="4" />
                 </state>
               </provider>
             </entry>
@@ -98,43 +95,6 @@
                     <marker date="1534217105702" expanded="true" signature="1037:1269" ph="..." />
                     <marker date="1534217105702" expanded="true" signature="1310:1311" ph="..." />
                     <marker date="1534217105702" expanded="true" signature="1310:1315" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-186">
-                  <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="19" />
-                  <folding>
-                    <marker date="1534205650620" expanded="true" signature="377:382" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="188">
-                  <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-                  <folding>
-                    <element signature="e#31#40#0" expanded="true" />
-                    <marker date="1534044932717" expanded="true" signature="351:356" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#24#63#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -227,8 +187,8 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
       </list>
     </option>
   </component>
@@ -695,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534217037021</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="chamada para make graphics">
+      <created>1534217132623</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1534217132623</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -754,7 +721,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="iniciando refatoração de User Average" />
     <MESSAGE value="User Average class sendo criada" />
     <MESSAGE value="cosine retoando dataframe" />
     <MESSAGE value="user average overview iniciando" />
@@ -779,7 +745,8 @@
     <MESSAGE value="ndcg refatorado" />
     <MESSAGE value="chamando as classes das metricas" />
     <MESSAGE value="map analyzer refatorado para map overview" />
-    <option name="LAST_COMMIT_MESSAGE" value="map analyzer refatorado para map overview" />
+    <MESSAGE value="chamada para make graphics" />
+    <option name="LAST_COMMIT_MESSAGE" value="chamada para make graphics" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/models.py">
@@ -1091,16 +1058,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
-          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="834">
@@ -1111,6 +1068,13 @@
             <marker date="1534217105702" expanded="true" signature="1310:1311" ph="..." />
             <marker date="1534217105702" expanded="true" signature="1310:1315" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>

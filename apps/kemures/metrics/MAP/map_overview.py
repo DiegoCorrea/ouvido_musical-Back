@@ -2,7 +2,6 @@
 # Python and Pip Modules Calls
 import os
 import logging
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 # Application Calls
