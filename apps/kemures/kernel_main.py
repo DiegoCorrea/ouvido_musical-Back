@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Python and Pip Modules Calls
 import logging
 import pandas as pd
@@ -17,8 +18,6 @@ from apps.kemures.relevance_overview.relevance_overview import RelevanceOverview
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
 from apps.kemures.kernel_var import SONG_MODEL_SIZE_LIST, TOTAL_RUN
-
-logger = logging.getLogger(__name__)
 
 
 def make_graphics():
@@ -64,6 +63,7 @@ def one_run_kernel(song_model_size=1500):
 
 
 def with_config_run_kernel():
+    logger = logging.getLogger(__name__)
     for song_model_size in SONG_MODEL_SIZE_LIST:
         for i in range(TOTAL_RUN):
             logger.info("*" * 30)

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Python and Pip Modules Calls
 import os
 import logging
