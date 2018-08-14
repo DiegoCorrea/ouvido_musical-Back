@@ -25,7 +25,7 @@ def make_graphics():
     cos_over = CosineOverview()
     cos_over.make_time_graphics()
     user_over = UserAverageOverview()
-    user_over.make_graphics()
+    user_over.make_time_graphics()
     map_over = MAPOverview()
     map_over.make_results_graphics()
     map_over.make_time_graphics()

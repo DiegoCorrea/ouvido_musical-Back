@@ -14,3 +14,4 @@ AT_LIST = [1, 4, 7, 10]
 
 # List of paths to save Graphics and CSV
 COSINE_PATH_GRAPHICS = 'files/apps/similarities/cosine/graphs/'
+USER_AVERAGE_PATH_GRAPHICS = 'files/apps/recommenders/UserAverage/graphs/'

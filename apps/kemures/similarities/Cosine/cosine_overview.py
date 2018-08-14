@@ -45,7 +45,7 @@ class CosineOverview:
         self.__logger.info("[Finish Cosine - Run Time - (Graph Line)]")
 
     def __all_time_graph_box_plot(self):
-        self.__logger.info("[Start Cosine - Run Time - (Graph BoxPlot)]")
+        self.__logger.info("[Start Cosine - Run Time - (Graph Box Plot)]")
         plt.figure()
         plt.grid(True)
         plt.xlabel('Tamanho do modelos das músicas')
