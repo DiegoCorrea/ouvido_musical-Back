@@ -6,24 +6,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # Application Calls
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
-from apps.kemures.metrics.MAP.DAO.models import MAP
-from apps.kemures.metrics.MAP.runtime.models import MAPRunTime
+from apps.kemures.metrics.MRR.DAO.models import MRR
+from apps.kemures.metrics.MRR.runtime.models import MRRRunTime
 from apps.kemures.kernel_var import AT_LIST, SONG_MODEL_SIZE_LIST
 
 
-class MAPOverview:
+class MRROverview:
     def __init__(self, song_model_size_list=SONG_MODEL_SIZE_LIST, at_size_list=AT_LIST):
         self.__logger = logging.getLogger(__name__)
         self.__directory = str(
-            'files/apps/metrics/map/graphs/'
+            'files/apps/metrics/mrr/graphs/'
         )
         if not os.path.exists(self.__directory):
             os.makedirs(self.__directory)
         self.__at_size_list = at_size_list
         self.__song_model_size_list = song_model_size_list
         rounds_df = pd.DataFrame.from_records(list(UserAverageLife.objects.all().values()))
-        metric_df = pd.DataFrame.from_records(list(MAP.objects.all().values()))
-        metric_run_time_df = pd.DataFrame.from_records(list(MAPRunTime.objects.all().values()))
+        metric_df = pd.DataFrame.from_records(list(MRR.objects.all().values()))
+        metric_run_time_df = pd.DataFrame.from_records(list(MRRRunTime.objects.all().values()))
         self.__rounds_collection = pd.DataFrame()
         self.__rounds_collection['song_model_size'] = metric_df['life_id']
         self.__rounds_collection['value'] = metric_df['value']
@@ -41,7 +41,7 @@ class MAPOverview:
         self.__all_time_graph_box_plot()
 
     def __all_time_graph_line(self):
-        self.__logger.info("[Start MAP Overview - Run Time - (Graph Line)]")
+        self.__logger.info("[Start Map Overview - Run Time - (Graph Line)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -60,15 +60,15 @@ class MAPOverview:
             plt.legend(loc='best')
             plt.savefig(
                 self.__directory
-                + 'map_all_time_graph_line_'
+                + 'mrr_all_time_graph_line_'
                 + str(at)
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish MAP Overview - Run Time - (Graph Line)]")
+        self.__logger.info("[Finish Map Overview - Run Time - (Graph Line)]")
 
     def __all_time_graph_box_plot(self):
-        self.__logger.info("[Start MAP Overview - Run Time - (Graph Box Plot)]")
+        self.__logger.info("[Start Map Overview - Run Time - (Graph Box Plot)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -86,19 +86,19 @@ class MAPOverview:
             )
             plt.savefig(
                 self.__directory
-                + 'map_all_time_graph_box_plot_'
+                + 'mrr_all_time_graph_box_plot_'
                 + str(at)
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish MAP Overview - Run Time - (Graph Box Plot)]")
+        self.__logger.info("[Finish Map Overview - Run Time - (Graph Box Plot)]")
 
     def make_results_graphics(self):
         self.__all_results_graph_line()
         self.__all_results_graph_box_plot()
 
     def __all_results_graph_line(self):
-        self.__logger.info("[Start MAP Overview - Results - (Graph Line)]")
+        self.__logger.info("[Start Map Overview - Results - (Graph Line)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -116,15 +116,15 @@ class MAPOverview:
             plt.legend(loc='best')
             plt.savefig(
                 self.__directory
-                + 'map_all_results_graph_line_'
+                + 'mrr_all_results_graph_line_'
                 + str(at)
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish MAP Overview - Results - (Graph Line)]")
+        self.__logger.info("[Finish Map Overview - Results - (Graph Line)]")
 
     def __all_results_graph_box_plot(self):
-        self.__logger.info("[Start MAP Overview - Results - (Graph Box Plot)]")
+        self.__logger.info("[Start Map Overview - Results - (Graph Box Plot)]")
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
@@ -141,9 +141,9 @@ class MAPOverview:
             )
             plt.savefig(
                 self.__directory
-                + 'map_all_results_graph_box_plot_'
+                + 'mrr_all_results_graph_box_plot_'
                 + str(at)
                 + '.png'
             )
             plt.close()
-        self.__logger.info("[Finish MAP Overview - Results - (Graph Box Plot)]")
+        self.__logger.info("[Finish Map Overview - Results - (Graph Box Plot)]")

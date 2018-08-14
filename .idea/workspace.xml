@@ -55,7 +55,7 @@
           <entry key="md" value="145" />
           <entry key="py" value="7349" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="1175" />
+          <entry key="txt" value="1214" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -63,7 +63,7 @@
           <entry key="DBN-SQL" value="11" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1233" />
+          <entry key="PLAIN_TEXT" value="1272" />
           <entry key="Python" value="7349" />
         </counts>
       </usages-collector>
@@ -76,8 +76,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+                <state relative-caret-position="402">
+                  <caret line="46" column="26" lean-forward="true" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
                   <folding>
                     <element signature="e#24#33#0" expanded="true" />
                   </folding>
@@ -106,8 +106,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+                <state relative-caret-position="615">
+                  <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
                   <folding>
                     <element signature="e#55#64#0" expanded="true" />
                   </folding>
@@ -135,6 +135,7 @@
       <find>self.at_size_list</find>
       <find>logger</find>
       <find>map</find>
+      <find>Map</find>
     </findStrings>
     <replaceStrings>
       <replace>apps.kemures.similarities</replace>
@@ -143,6 +144,7 @@
       <replace>self.__at_size_list</replace>
       <replace>self.__logger</replace>
       <replace>mrr</replace>
+      <replace>MAP</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -203,8 +205,8 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
       </list>
     </option>
   </component>
@@ -693,7 +695,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534217185911</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="melhorando generalização no constructor">
+      <created>1534217346699</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1534217346699</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -752,7 +761,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cosine retoando dataframe" />
     <MESSAGE value="user average overview iniciando" />
     <MESSAGE value="deletando pasta" />
     <MESSAGE value="user average calculando e retornando no map" />
@@ -777,7 +785,8 @@
     <MESSAGE value="map analyzer refatorado para map overview" />
     <MESSAGE value="chamada para make graphics" />
     <MESSAGE value="deletando chamda do numpy sem uso" />
-    <option name="LAST_COMMIT_MESSAGE" value="deletando chamda do numpy sem uso" />
+    <MESSAGE value="melhorando generalização no constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="melhorando generalização no constructor" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/complete_install.md">
@@ -1094,22 +1103,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+        <state relative-caret-position="615">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
           <folding>
-            <element signature="e#24#33#0" expanded="true" />
+            <element signature="e#55#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        <state relative-caret-position="402">
+          <caret line="46" column="26" lean-forward="true" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
           <folding>
-            <element signature="e#55#64#0" expanded="true" />
+            <element signature="e#24#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
