@@ -17,7 +17,7 @@ from apps.kemures.metrics.NDCG.ndcg_overview import NDCGOverview
 from apps.kemures.relevance_overview.relevance_overview import RelevanceOverview
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
-from apps.kemures.kernel_var import SONG_MODEL_SIZE_LIST, TOTAL_RUN
+from apps.kemures.kernel_var import SONG_SET_SIZE_LIST, TOTAL_RUN
 
 
 def make_graphics():
@@ -36,22 +36,26 @@ def make_graphics():
     ndcg_over.make_time_graphics()
 
 
-def one_run_kernel(song_model_size=1500):
-    song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
-    users_preferences_df = pd.DataFrame.from_records(list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
+def one_run_kernel(song_set_size=1500, user_set_size=100):
+    song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_set_size))
+    users_preferences_df = pd.DataFrame.from_records(
+        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
+    users_preferences_df = users_preferences_df.loc[
+        users_preferences_df['user_id'].isin(sample(users_preferences_df['user_id'].tolist(), user_set_size))]
     while users_preferences_df.empty:
-        song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
+        song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_set_size))
         users_preferences_df = pd.DataFrame.from_records(
             list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
+        users_preferences_df = users_preferences_df.loc[
+            users_preferences_df['user_id'].isin(sample(users_preferences_df['user_id'].tolist(), user_set_size))]
     cos = CosineController(song_set_df=song_set_df)
     cos.run_similarity()
     user_ave = UserAverageController(
-        similarity_metadata_df=cos.get_song_similarity_df(),
-        song_model_size=song_model_size,
-        song_model_df=song_set_df,
+        similarity_data_df=cos.get_song_similarity_df(),
+        song_set_df=song_set_df,
         users_preferences_df=users_preferences_df
     )
-    user_ave.run_user_average()
+    user_ave.run_recommender()
     rel_over = RelevanceOverview(recommendations_df=user_ave.get_recommendations_df())
     rel_over.evaluate_recommendations()
     map_metric = MAPController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
@@ -64,15 +68,15 @@ def one_run_kernel(song_model_size=1500):
 
 def with_config_run_kernel():
     logger = logging.getLogger(__name__)
-    for song_model_size in SONG_MODEL_SIZE_LIST:
+    for song_set_size in SONG_SET_SIZE_LIST:
         for i in range(TOTAL_RUN):
-            logger.info("*" * 30)
+            logger.info("*" * 60)
             logger.info(
                 "*\tTamanho do modelo de músicas ("
-                + str(song_model_size)
+                + str(song_set_size)
                 + ") Rodada: "
                 + str(i)
             )
-            logger.info("*" * 30)
-            one_run_kernel(song_model_size=song_model_size)
+            logger.info("*" * 60)
+            one_run_kernel(song_set_size=song_set_size)
     make_graphics()

@@ -7,29 +7,20 @@ from apps.metadata.songs.models import Song
 
 
 class UserAverageLife(models.Model):
-    song_model_size = models.IntegerField()
+    song_set_size = models.IntegerField()
 
 
 class UserAverageRecommendations(models.Model):
-    # IDS
+    # ID
     user = models.ForeignKey(User, unique=False, on_delete=models.CASCADE)
     song = models.ForeignKey(Song, unique=False, on_delete=models.CASCADE)
-    life = models.ForeignKey(UserAverageLife, unique=False, on_delete=models.CASCADE)
-    # Datas
+    round = models.ForeignKey(UserAverageLife, unique=False, on_delete=models.CASCADE)
+    # Data
     similarity = models.FloatField(default=0.0, unique=False)
     iLike = models.BooleanField(default=False)
     score = models.IntegerField(blank=True, null=True, unique=False)
-    # Timers
+    # Timer
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = (('user', 'song'),)
-
-    def as_json(self):
-        return dict(
-            song_id=self.song_id,
-            user_id=self.user_id,
-            similarity=self.similarity,
-            iLike=self.iLike,
-            score=self.score
-        )

@@ -16,7 +16,7 @@ from apps.kemures.kernel_var import MAX_THREAD
 class CosineController:
     def __init__(self, song_set_df):
         self.__logger = logging.getLogger(__name__)
-        self.__song_model_size = song_set_df.count()
+        self.__song_set_size = song_set_df.count()
         self.__song_set_df = song_set_df
         self.__song_similarity_df = pd.DataFrame()
 
@@ -24,12 +24,12 @@ class CosineController:
         return self.__song_similarity_df
 
     def run_similarity(self):
-        self.__logger.info("[Start Run Cosine Metadata]")
+        self.__logger.info("[Start Run Cosine Similarity]")
         started_at = timezone.now()
         self.__song_similarity_df = self.__start_cosine()
         finished_at = timezone.now()
         CosineSimilarityRunTime.objects.create(
-            song_model_size=self.__song_model_size,
+            song_set_size=self.__song_set_size,
             started_at=started_at,
             finished_at=finished_at
         )
@@ -39,7 +39,7 @@ class CosineController:
             + " || Finished at -"
             + str(finished_at)
         )
-        self.__logger.info("[Finish Run Cosine Metadata]")
+        self.__logger.info("[Finish Run Cosine Similarity]")
 
     def __lem_tokens(self, tokens):
         lemmer = nltk.stem.WordNetLemmatizer()
@@ -56,22 +56,20 @@ class CosineController:
             )
         )
 
-    def find_similarity(self, metadata_list):
-        self.__logger.info("[Start Cosine Similarity]")
+    def find_similarity(self, text_list):
         tfidf_vec = TfidfVectorizer(
             tokenizer=self.__lem_normalize,
             stop_words={'english'},
             analyzer='word'
         )
-        tfidf = tfidf_vec.fit_transform([str(txt) for txt in metadata_list])
-        self.__logger.info("[Finished Cosine Similarity]")
+        tfidf = tfidf_vec.fit_transform([str(txt) for txt in text_list])
         return (tfidf * tfidf.T).toarray()
 
     def __start_cosine(self):
-        matrix_metadata = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if
-                           column != 'id']
+        matrix_data = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if
+                       column != 'id']
         pool = ThreadPool(MAX_THREAD)
-        feature_matrix_similarity = pool.map(self.find_similarity, matrix_metadata)
+        feature_matrix_similarity = pool.map(self.find_similarity, matrix_data)
         pool.close()
         pool.join()
         similarity_matrix = np.zeros(self.__song_set_df['id'].count())

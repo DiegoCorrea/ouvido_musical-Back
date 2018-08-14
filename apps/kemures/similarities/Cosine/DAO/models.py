@@ -6,7 +6,7 @@ from apps.metadata.songs.models import Song
 
 
 class CosineSimilarity(models.Model):
-    # IDS
+    # ID
     songBase = models.ForeignKey(
         Song,
         unique=False,
@@ -17,19 +17,12 @@ class CosineSimilarity(models.Model):
         unique=False,
         related_name='CosineSimilarity_SongTitle_left', on_delete=models.CASCADE
     )
-    # Datas
+    # Data
     title = models.FloatField(default=0, unique=False)
     album = models.FloatField(default=0, unique=False)
     artist = models.FloatField(default=0, unique=False)
-    # Timers
+    # Timer
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = (('songBase', 'songCompare'),)
-
-    def as_json(self):
-        return dict(
-            songBase=self.songBase,
-            songCompare=self.songCompare,
-            similarity=self.similarity
-        )

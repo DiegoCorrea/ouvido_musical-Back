@@ -5,6 +5,7 @@
       <w>lemmer</w>
       <w>ndcg</w>
       <w>punct</w>
+      <w>recommender</w>
       <w>recommenders</w>
       <w>tfidf</w>
     </words>

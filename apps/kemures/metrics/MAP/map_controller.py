@@ -36,7 +36,8 @@ class MAPController:
         self.__logger.info("[Calculating Users MAP]")
         users_metric_result_list = []
         for user in self.__evaluated_recommendations_df['user_id'].unique().tolist():
-            __user_recommendation_model = self.__evaluated_recommendations_df.loc[self.__evaluated_recommendations_df['user_id'] == user]
+            __user_recommendation_model = self.__evaluated_recommendations_df.loc[
+                self.__evaluated_recommendations_df['user_id'] == user]
             __user_recommendation_model.sort_values(by=['similarity'], ascending=False)
             users_metric_result_list.append(self.__get_ap_from_list(__user_recommendation_model['iLike'].tolist()[:at]))
         metric_result = np.mean(users_metric_result_list)
@@ -50,7 +51,7 @@ class MAPController:
         value = self.__calc_users_metric(at=at)
         finished_at = timezone.now()
         metric_result_obj = MAP.objects.create(
-            life=UserAverageLife.objects.last(),
+            round=UserAverageLife.objects.last(),
             value=value,
             at=at
         )
@@ -60,7 +61,7 @@ class MAPController:
             finished_at=finished_at
         )
         self.__logger.info(
-            "Run Time[ "
+            "MAP Run Time[ "
             + str(value)
             + " ]: Start at - "
             + str(started_at)
