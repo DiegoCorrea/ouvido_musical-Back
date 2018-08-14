@@ -13,8 +13,8 @@ INTERVAL = 10
 AT_LIST = [1, 4, 7, 10]
 
 # List of paths to save Graphics and CSV
-COSINE_PATH_GRAPHICS = 'files/apps/similarities/cosine/graphs/'
-USER_AVERAGE_PATH_GRAPHICS = 'files/apps/recommenders/userAverage/graphs/'
-MAP_PATH_GRAPHICS = 'files/apps/metrics/map/graphs/'
-MRR_PATH_GRAPHICS = 'files/apps/metrics/mrr/graphs/'
-NDCG_PATH_GRAPHICS = 'files/apps/metrics/ndcg/graphs/'
+COSINE_PATH_GRAPHICS = 'files/kemures/similarities/cosine/graphs/'
+USER_AVERAGE_PATH_GRAPHICS = 'files/kemures/recommenders/userAverage/graphs/'
+MAP_PATH_GRAPHICS = 'files/kemures/metrics/map/graphs/'
+MRR_PATH_GRAPHICS = 'files/kemures/metrics/mrr/graphs/'
+NDCG_PATH_GRAPHICS = 'files/kemures/metrics/ndcg/graphs/'

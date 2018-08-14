@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/lowe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,9 +53,9 @@
           <entry key="dummy" value="58" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="7694" />
+          <entry key="py" value="7701" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="1411" />
+          <entry key="txt" value="1443" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -65,8 +63,8 @@
           <entry key="DBN-SQL" value="11" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1469" />
-          <entry key="Python" value="7694" />
+          <entry key="PLAIN_TEXT" value="1501" />
+          <entry key="Python" value="7701" />
         </counts>
       </usages-collector>
     </session>
@@ -75,11 +73,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+                <state relative-caret-position="369">
+                  <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
                   <folding>
                     <element signature="e#31#45#0" expanded="true" />
                     <marker date="1534270856776" expanded="true" signature="1164:1610" ph="..." />
@@ -103,11 +101,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="41" />
+                <state relative-caret-position="2295">
+                  <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
                   <folding>
                     <element signature="e#55#64#0" expanded="true" />
                   </folding>
@@ -131,11 +129,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2100">
-                  <caret line="146" column="49" selection-start-line="146" selection-start-column="49" selection-end-line="146" selection-end-column="49" />
+                <state relative-caret-position="2295">
+                  <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
                   <folding>
                     <element signature="e#55#64#0" expanded="true" />
                   </folding>
@@ -155,11 +153,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_var.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="18" selection-start-line="19" selection-end-line="19" selection-end-column="18" />
+                <state relative-caret-position="195">
+                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
                 </state>
               </provider>
             </entry>
@@ -189,8 +187,8 @@
       <find>self.__runtime_collection</find>
       <find>self.directory_to_save_graphics</find>
       <find>logger</find>
-      <find>self.__directory</find>
       <find>self.__rounds_collection</find>
+      <find>self.__directory</find>
     </findStrings>
     <replaceStrings>
       <replace>apps.kemures.similarities</replace>
@@ -203,9 +201,9 @@
       <replace>ndcg</replace>
       <replace>self.__runtime_collection</replace>
       <replace>self.__logger</replace>
-      <replace>self.__directory_to_save_graphics</replace>
       <replace>self.__runtime_collection_df</replace>
       <replace>self.__metric_results_collection_df</replace>
+      <replace>self.__directory_to_save_graphics</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -264,10 +262,10 @@
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/kernel_var.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/kernel_var.py" />
       </list>
     </option>
   </component>
@@ -857,7 +855,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534271387188</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="todos os overviews generalizados">
+      <created>1534272404948</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1534272404948</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -916,7 +921,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user recommendation entregando a lista" />
     <MESSAGE value="chamando impressão de gráficos" />
     <MESSAGE value="deletando arquivos" />
     <MESSAGE value="inicio da refatoração do map" />
@@ -941,7 +945,8 @@
     <MESSAGE value="novos tamanhos" />
     <MESSAGE value="cosine overview generalizado" />
     <MESSAGE value="user average overview generalizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="user average overview generalizado" />
+    <MESSAGE value="todos os overviews generalizados" />
+    <option name="LAST_COMMIT_MESSAGE" value="todos os overviews generalizados" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -1214,19 +1219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding>
-            <element signature="e#31#45#0" expanded="true" />
-            <marker date="1534270856776" expanded="true" signature="1164:1610" ph="..." />
-            <marker date="1534270856776" expanded="true" signature="1651:1652" ph="..." />
-            <marker date="1534270856776" expanded="true" signature="1651:1656" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1258,30 +1250,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_var.py">
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="18" selection-start-line="19" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="2295">
+          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
+          <folding>
+            <element signature="e#55#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="41" />
+        <state relative-caret-position="2295">
+          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="e#55#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py">
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="146" column="49" selection-start-line="146" selection-start-column="49" selection-end-line="146" selection-end-column="49" />
+        <state relative-caret-position="369">
+          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
           <folding>
-            <element signature="e#55#64#0" expanded="true" />
+            <element signature="e#31#45#0" expanded="true" />
+            <marker date="1534270856776" expanded="true" signature="1164:1610" ph="..." />
+            <marker date="1534270856776" expanded="true" signature="1651:1652" ph="..." />
+            <marker date="1534270856776" expanded="true" signature="1651:1656" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_var.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
