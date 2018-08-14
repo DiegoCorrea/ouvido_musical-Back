@@ -10,7 +10,9 @@ from apps.kemures.recommenders.UserAverage.user_average_overview import UserAver
 from apps.kemures.metrics.MAP.map_controller import MAPController
 from apps.kemures.metrics.MAP.map_overview import MAPOverview
 from apps.kemures.metrics.MRR.mrr_controller import MRRController
+from apps.kemures.metrics.MRR.mrr_overview import MRROverview
 from apps.kemures.metrics.NDCG.ndcg_controller import NDCGController
+from apps.kemures.metrics.NDCG.ndcg_overview import NDCGOverview
 from apps.kemures.relevance_overview.relevance_overview import RelevanceOverview
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
@@ -27,6 +29,12 @@ def make_graphics():
     map_over = MAPOverview()
     map_over.make_results_graphics()
     map_over.make_time_graphics()
+    mrr_over = MRROverview()
+    mrr_over.make_results_graphics()
+    mrr_over.make_time_graphics()
+    ndcg_over = NDCGOverview()
+    ndcg_over.make_results_graphics()
+    ndcg_over.make_time_graphics()
 
 
 def one_run_kernel(song_model_size=1500):
