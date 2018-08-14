@@ -2,8 +2,11 @@
   <dictionary name="lowe">
     <words>
       <w>kemures</w>
+      <w>lemmer</w>
       <w>ndcg</w>
+      <w>punct</w>
       <w>recommenders</w>
+      <w>tfidf</w>
     </words>
   </dictionary>
 </component>

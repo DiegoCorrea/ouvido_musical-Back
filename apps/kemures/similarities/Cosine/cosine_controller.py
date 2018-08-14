@@ -1,87 +1,81 @@
 # -*- coding: utf-8 -*-
-# O.S. and Python/Django Calls
+# Python and Pip Modules Calls
+import nltk
 import string
 import logging
+import numpy as np
+import pandas as pd
 from django.utils import timezone
 from multiprocessing import Pool as ThreadPool
-# Modules Calls
-import nltk
-import pandas as pd
-import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 # Application Calls
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
 from apps.kemures.kernel_var import MAX_THREAD
 
-logger = logging.getLogger(__name__)
-
 
 class CosineController:
-    def __init__(self, song_model_size, song_model_df):
-        self.song_model_size = song_model_size
-        self.metadata_df = song_model_df
-        self.similarity_metadata_df = np.zeros(self.metadata_df['id'].count())
+    def __init__(self, song_set_df):
+        self.__logger = logging.getLogger(__name__)
+        self.__song_model_size = song_set_df.count()
+        self.__song_set_df = song_set_df
+        self.__song_similarity_df = pd.DataFrame()
 
-    def run_cosine_metadata(self):
-        logger.info("[Start Run Cosine Metadata]")
+    def get_song_similarity_df(self):
+        return self.__song_similarity_df
+
+    def run_similarity(self):
+        self.__logger.info("[Start Run Cosine Metadata]")
         started_at = timezone.now()
-        self.similarity_metadata_df = self.__start_cosine()
+        self.__song_similarity_df = self.__start_cosine()
         finished_at = timezone.now()
         CosineSimilarityRunTime.objects.create(
-            song_model_size=self.song_model_size,
+            song_model_size=self.__song_model_size,
             started_at=started_at,
             finished_at=finished_at
         )
-        logger.info(
-            "Benchmark: Start at - "
+        self.__logger.info(
+            "Cosine Run Time: Start at - "
             + str(started_at)
             + " || Finished at -"
             + str(finished_at)
         )
-        logger.info("[Finish Run Cosine Metadata]")
+        self.__logger.info("[Finish Run Cosine Metadata]")
 
-    def get_similarity_metadata_df(self):
-        return self.similarity_metadata_df
-
-    def get_metadata_df(self):
-        return self.metadata_df
-
-    def __LemTokens(self, tokens):
+    def __lem_tokens(self, tokens):
         lemmer = nltk.stem.WordNetLemmatizer()
         return [lemmer.lemmatize(token) for token in tokens]
 
-    def __LemNormalize(self, text):
+    def __lem_normalize(self, text):
         remove_punct_dict = dict(
             (ord(punct), None)
             for punct in string.punctuation
         )
-        return self.__LemTokens(
+        return self.__lem_tokens(
             nltk.word_tokenize(
                 text.lower().translate(remove_punct_dict)
             )
         )
 
-    def CosineSimilarity(self, metadata_list):
-        logger.info("[Start Cosine Similarity]")
-        TfidfVec = TfidfVectorizer(
-            tokenizer=self.__LemNormalize,
+    def find_similarity(self, metadata_list):
+        self.__logger.info("[Start Cosine Similarity]")
+        tfidf_vec = TfidfVectorizer(
+            tokenizer=self.__lem_normalize,
             stop_words={'english'},
             analyzer='word'
         )
-        tfidf = TfidfVec.fit_transform([str(txt) for txt in metadata_list])
-        logger.info("[Finished Cosine Similarity]")
+        tfidf = tfidf_vec.fit_transform([str(txt) for txt in metadata_list])
+        self.__logger.info("[Finished Cosine Similarity]")
         return (tfidf * tfidf.T).toarray()
 
     def __start_cosine(self):
-        matrix_metadata = [self.metadata_df[column].tolist() for column in self.metadata_df.columns if column != 'id']
+        matrix_metadata = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if
+                           column != 'id']
         pool = ThreadPool(MAX_THREAD)
-        feature_matrix_similarity = pool.map(self.CosineSimilarity, matrix_metadata)
+        feature_matrix_similarity = pool.map(self.find_similarity, matrix_metadata)
         pool.close()
         pool.join()
-        similarity_matrix = np.zeros(self.metadata_df['id'].count())
+        similarity_matrix = np.zeros(self.__song_set_df['id'].count())
         for matrix in feature_matrix_similarity:
             similarity_matrix = np.add(similarity_matrix, matrix)
-        return pd.DataFrame(data=similarity_matrix, index=self.metadata_df['id'].tolist(), columns=self.metadata_df['id'].tolist())
-
-    def save_matrix_similarity_metadata(self):
-        pass
+        return pd.DataFrame(data=similarity_matrix, index=self.__song_set_df['id'].tolist(),
+                            columns=self.__song_set_df['id'].tolist())

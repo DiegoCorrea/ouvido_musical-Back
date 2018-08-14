@@ -37,18 +37,18 @@ def make_graphics():
 
 
 def one_run_kernel(song_model_size=1500):
-    song_model_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
+    song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
     users_preferences_df = pd.DataFrame.from_records(list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
     while users_preferences_df.empty:
-        song_model_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
+        song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_model_size))
         users_preferences_df = pd.DataFrame.from_records(
-            list(UserPreference.objects.filter(song__in=song_model_df['id'].tolist()).values()))
-    cos = CosineController(song_model_size, song_model_df)
-    cos.run_cosine_metadata()
+            list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
+    cos = CosineController(song_set_df=song_set_df)
+    cos.run_similarity()
     user_ave = UserAverageController(
-        similarity_metadata_df=cos.get_similarity_metadata_df(),
+        similarity_metadata_df=cos.get_song_similarity_df(),
         song_model_size=song_model_size,
-        song_model_df=song_model_df,
+        song_model_df=song_set_df,
         users_preferences_df=users_preferences_df
     )
     user_ave.run_user_average()
