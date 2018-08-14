@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/algorithm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/benchmark.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/analyzer/views.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +35,7 @@
           <entry key="log" value="6" />
           <entry key="md" value="15" />
           <entry key="png" value="4" />
-          <entry key="py" value="307" />
+          <entry key="py" value="308" />
           <entry key="sql" value="6" />
           <entry key="txt" value="4" />
         </counts>
@@ -44,7 +48,7 @@
           <entry key="Log" value="5" />
           <entry key="Markdown" value="15" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="307" />
+          <entry key="Python" value="308" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -54,7 +58,7 @@
           <entry key="md" value="145" />
           <entry key="py" value="7349" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="1239" />
+          <entry key="txt" value="1289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -62,7 +66,7 @@
           <entry key="DBN-SQL" value="11" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1297" />
+          <entry key="PLAIN_TEXT" value="1347" />
           <entry key="Python" value="7349" />
         </counts>
       </usages-collector>
@@ -102,14 +106,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-877">
-                  <caret line="33" column="51" lean-forward="true" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+                <state relative-caret-position="323">
+                  <caret line="113" column="19" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="19" />
                   <folding>
                     <element signature="e#55#64#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
@@ -156,7 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/benchmark/apps.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/__init__.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/apps.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/apps.py" />
@@ -207,6 +219,7 @@
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" />
       </list>
     </option>
   </component>
@@ -242,29 +255,6 @@
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="kemures" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="metrics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="metrics" type="462c0819:PsiDirectoryNode" />
-              <item name="MAP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="metrics" type="462c0819:PsiDirectoryNode" />
-              <item name="MRR" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -277,8 +267,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/kemures/metrics/MRR" />
       <recent name="$PROJECT_DIR$/apps/kemures/metrics/NDCG" />
+      <recent name="$PROJECT_DIR$/apps/kemures/metrics/MRR" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apps/kemures" />
@@ -709,14 +699,28 @@
       <option name="project" value="LOCAL" />
       <updated>1534217374225</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="adicionando mrr overview">
+      <created>1534217427605</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1534217427605</updated>
+    </task>
+    <task id="LOCAL-00043" summary="deletando mrr analyzer">
+      <created>1534217448812</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1534217448812</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-30" width="1920" height="1110" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16078018" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16078018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -768,8 +772,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deletando pasta" />
-    <MESSAGE value="user average calculando e retornando no map" />
     <MESSAGE value="calculando as recomendações" />
     <MESSAGE value="cosine buf consertado, valores retornando corretamente" />
     <MESSAGE value="retirando log" />
@@ -793,19 +795,11 @@
     <MESSAGE value="deletando chamda do numpy sem uso" />
     <MESSAGE value="melhorando generalização no constructor" />
     <MESSAGE value="trocando variavel de case" />
-    <option name="LAST_COMMIT_MESSAGE" value="trocando variavel de case" />
+    <MESSAGE value="adicionando mrr overview" />
+    <MESSAGE value="deletando mrr analyzer" />
+    <option name="LAST_COMMIT_MESSAGE" value="deletando mrr analyzer" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/complete_install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="495">
-            <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1122,11 +1116,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-877">
-          <caret line="33" column="51" lean-forward="true" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+        <state relative-caret-position="323">
+          <caret line="113" column="19" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="19" />
           <folding>
             <element signature="e#55#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
         </state>
       </provider>
     </entry>
