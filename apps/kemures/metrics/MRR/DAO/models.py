@@ -8,4 +8,3 @@ class MRR(models.Model):
     life = models.ForeignKey(UserAverageLife, unique=False, on_delete=models.CASCADE)
     value = models.FloatField()
     at = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
