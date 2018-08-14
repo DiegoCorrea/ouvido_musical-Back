@@ -8,33 +8,33 @@ import matplotlib.pyplot as plt
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.metrics.MAP.DAO.models import MAP
 from apps.kemures.metrics.MAP.runtime.models import MAPRunTime
-from apps.kemures.kernel_var import AT_LIST, SONG_MODEL_SIZE_LIST
+from apps.kemures.kernel_var import AT_LIST, SONG_MODEL_SIZE_LIST, MAP_PATH_GRAPHICS
 
 
 class MAPOverview:
-    def __init__(self, song_model_size_list=SONG_MODEL_SIZE_LIST, at_size_list=AT_LIST):
+    def __init__(self, song_model_size_list=SONG_MODEL_SIZE_LIST, at_size_list=AT_LIST,
+                 directory_to_save_graphics=MAP_PATH_GRAPHICS):
         self.__logger = logging.getLogger(__name__)
-        self.__directory = str(
-            'files/apps/metrics/map/graphs/'
-        )
-        if not os.path.exists(self.__directory):
-            os.makedirs(self.__directory)
+        self.__directory_to_save_graphics = str(directory_to_save_graphics)
+        if not os.path.exists(self.__directory_to_save_graphics):
+            os.makedirs(self.__directory_to_save_graphics)
         self.__at_size_list = at_size_list
         self.__song_model_size_list = song_model_size_list
         rounds_df = pd.DataFrame.from_records(list(UserAverageLife.objects.all().values()))
         metric_df = pd.DataFrame.from_records(list(MAP.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(MAPRunTime.objects.all().values()))
-        self.__rounds_collection = pd.DataFrame()
-        self.__rounds_collection['song_model_size'] = metric_df['life_id']
-        self.__rounds_collection['value'] = metric_df['value']
-        self.__rounds_collection['at'] = metric_df['at']
-        self.__rounds_collection['started_at'] = metric_run_time_df['started_at']
-        self.__rounds_collection['finished_at'] = metric_run_time_df['finished_at']
+        self.__metric_results_collection_df = pd.DataFrame()
+        self.__metric_results_collection_df['song_model_size'] = metric_df['life_id']
+        self.__metric_results_collection_df['value'] = metric_df['value']
+        self.__metric_results_collection_df['at'] = metric_df['at']
+        self.__metric_results_collection_df['started_at'] = metric_run_time_df['started_at']
+        self.__metric_results_collection_df['finished_at'] = metric_run_time_df['finished_at']
         for size in self.__song_model_size_list:
             life_size_df = rounds_df.loc[rounds_df['song_model_size'] == size]
             life_id_list = life_size_df['id'].tolist()
-            self.__rounds_collection['song_model_size'] = [size if x in life_id_list else x for x in
-                                                           self.__rounds_collection['song_model_size']]
+            self.__metric_results_collection_df['song_model_size'] = [size if x in life_id_list else x for x in
+                                                                      self.__metric_results_collection_df[
+                                                                          'song_model_size']]
 
     def make_time_graphics(self):
         self.__all_time_graph_line()
@@ -48,8 +48,9 @@ class MAPOverview:
             plt.xlabel('Rodada')
             plt.ylabel('Tempo (segundos)')
             for size in self.__song_model_size_list:
-                runs_size_at_df = self.__rounds_collection[
-                    (self.__rounds_collection['song_model_size'] == size) & (self.__rounds_collection['at'] == at)]
+                runs_size_at_df = self.__metric_results_collection_df[
+                    (self.__metric_results_collection_df['song_model_size'] == size) & (
+                                self.__metric_results_collection_df['at'] == at)]
                 values = [(finished - start).total_seconds() for (finished, start) in
                           zip(runs_size_at_df['finished_at'], runs_size_at_df['started_at'])]
                 plt.plot(
@@ -59,7 +60,7 @@ class MAPOverview:
                 )
             plt.legend(loc='best')
             plt.savefig(
-                self.__directory
+                self.__directory_to_save_graphics
                 + 'map_all_time_graph_line_'
                 + str(at)
                 + '.png'
@@ -76,8 +77,9 @@ class MAPOverview:
             plt.ylabel('Tempo (segundos)')
             box_plot_matrix = []
             for size in self.__song_model_size_list:
-                runs_size_at_df = self.__rounds_collection[
-                    (self.__rounds_collection['song_model_size'] == size) & (self.__rounds_collection['at'] == at)]
+                runs_size_at_df = self.__metric_results_collection_df[
+                    (self.__metric_results_collection_df['song_model_size'] == size) & (
+                                self.__metric_results_collection_df['at'] == at)]
                 box_plot_matrix.append([(finished - start).total_seconds() for (finished, start) in
                                         zip(runs_size_at_df['finished_at'], runs_size_at_df['started_at'])])
             plt.boxplot(
@@ -85,7 +87,7 @@ class MAPOverview:
                 labels=self.__song_model_size_list
             )
             plt.savefig(
-                self.__directory
+                self.__directory_to_save_graphics
                 + 'map_all_time_graph_box_plot_'
                 + str(at)
                 + '.png'
@@ -105,8 +107,9 @@ class MAPOverview:
             plt.xlabel('Rodada')
             plt.ylabel('Valor')
             for size in self.__song_model_size_list:
-                runs_size_at_df = self.__rounds_collection[
-                    (self.__rounds_collection['song_model_size'] == size) & (self.__rounds_collection['at'] == at)]
+                runs_size_at_df = self.__metric_results_collection_df[
+                    (self.__metric_results_collection_df['song_model_size'] == size) & (
+                                self.__metric_results_collection_df['at'] == at)]
                 values = [value for value in runs_size_at_df['value'].tolist()]
                 plt.plot(
                     [int(i + 1) for i in range(len(values))],
@@ -115,7 +118,7 @@ class MAPOverview:
                 )
             plt.legend(loc='best')
             plt.savefig(
-                self.__directory
+                self.__directory_to_save_graphics
                 + 'map_all_results_graph_line_'
                 + str(at)
                 + '.png'
@@ -132,15 +135,16 @@ class MAPOverview:
             plt.ylabel('valor')
             box_plot_matrix = []
             for size in self.__song_model_size_list:
-                runs_size_at_df = self.__rounds_collection[
-                    (self.__rounds_collection['song_model_size'] == size) & (self.__rounds_collection['at'] == at)]
+                runs_size_at_df = self.__metric_results_collection_df[
+                    (self.__metric_results_collection_df['song_model_size'] == size) & (
+                                self.__metric_results_collection_df['at'] == at)]
                 box_plot_matrix.append([value for value in runs_size_at_df['value'].tolist()])
             plt.boxplot(
                 box_plot_matrix,
                 labels=self.__song_model_size_list
             )
             plt.savefig(
-                self.__directory
+                self.__directory_to_save_graphics
                 + 'map_all_results_graph_box_plot_'
                 + str(at)
                 + '.png'
