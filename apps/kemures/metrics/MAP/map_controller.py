@@ -11,7 +11,7 @@ from apps.kemures.kernel_var import AT_LIST
 
 class MAPController:
     def __init__(self, evaluated_recommendations_df, at_size_list=AT_LIST):
-        self.__logger = logging.getself.__logger(__name__)
+        self.__logger = logging.getLogger(__name__)
         self.__evaluated_recommendations_df = evaluated_recommendations_df
         self.__at_size_list = at_size_list
 

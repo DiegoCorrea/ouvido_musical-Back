@@ -4,18 +4,32 @@
     <bookmark url="file://$PROJECT_DIR$/apps/kemures/kernel_var.py" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="map overview gerando grafico">
-      <change afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" afterDir="false" />
+    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/migrations/0002_remove_map_created_at.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/algorithm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/benchmark.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/algorithm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/algorithm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/songs/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/songs/migrations/0002_auto_20180813_2125.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/user_preferences/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/users/migrations/0002_auto_20180813_2125.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/migrations/0001_initial.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +52,9 @@
         <counts>
           <entry key="csv" value="5" />
           <entry key="log" value="6" />
-          <entry key="md" value="14" />
-          <entry key="py" value="292" />
+          <entry key="md" value="15" />
+          <entry key="png" value="4" />
+          <entry key="py" value="306" />
           <entry key="sql" value="6" />
           <entry key="txt" value="4" />
         </counts>
@@ -48,10 +63,11 @@
         <counts>
           <entry key="CSV" value="5" />
           <entry key="DBN-SQL" value="6" />
+          <entry key="Image" value="4" />
           <entry key="Log" value="5" />
-          <entry key="Markdown" value="14" />
+          <entry key="Markdown" value="15" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="292" />
+          <entry key="Python" value="306" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -59,9 +75,9 @@
           <entry key="dummy" value="58" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="6784" />
+          <entry key="py" value="7337" />
           <entry key="sql" value="11" />
-          <entry key="txt" value="953" />
+          <entry key="txt" value="1052" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -69,8 +85,8 @@
           <entry key="DBN-SQL" value="11" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1011" />
-          <entry key="Python" value="6784" />
+          <entry key="PLAIN_TEXT" value="1110" />
+          <entry key="Python" value="7337" />
         </counts>
       </usages-collector>
     </session>
@@ -80,13 +96,12 @@
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+                <state relative-caret-position="788">
+                  <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
                   <folding>
-                    <marker date="1534205101189" expanded="true" signature="996:997" ph="..." />
-                    <marker date="1534205101189" expanded="true" signature="996:1001" ph="..." />
+                    <element signature="e#24#33#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -97,12 +112,52 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="930">
-                  <caret line="76" column="27" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="27" />
+                <state relative-caret-position="188">
+                  <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
                   <folding>
-                    <element signature="e#0#14#0" expanded="true" />
+                    <element signature="e#31#45#0" expanded="true" />
+                    <marker date="1534215621718" expanded="true" signature="1037:1269" ph="..." />
+                    <marker date="1534215621718" expanded="true" signature="1310:1311" ph="..." />
+                    <marker date="1534215621718" expanded="true" signature="1310:1315" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-186">
+                  <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="19" />
+                  <folding>
+                    <marker date="1534205650620" expanded="true" signature="377:382" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="188">
+                  <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+                  <folding>
+                    <element signature="e#31#40#0" expanded="true" />
+                    <marker date="1534044932717" expanded="true" signature="351:356" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+                  <folding>
+                    <element signature="e#24#63#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -127,12 +182,14 @@
       <find>matrix_similarity_metadata</find>
       <find>map</find>
       <find>self.at_size_list</find>
+      <find>logger</find>
     </findStrings>
     <replaceStrings>
       <replace>apps.kemures.similarities</replace>
       <replace>apps.kemures.recommenders</replace>
       <replace>apps.kemures.metrics</replace>
       <replace>self.__at_size_list</replace>
+      <replace>self.__logger</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -188,13 +245,13 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_var.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/algorithm.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
       </list>
     </option>
   </component>
@@ -626,14 +683,42 @@
       <option name="project" value="LOCAL" />
       <updated>1534198654007</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="mrr refatorada">
+      <created>1534205154827</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1534205154827</updated>
+    </task>
+    <task id="LOCAL-00034" summary="map refatorado">
+      <created>1534205169516</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1534205169516</updated>
+    </task>
+    <task id="LOCAL-00035" summary="ndcg refatorado">
+      <created>1534205189746</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1534205189746</updated>
+    </task>
+    <task id="LOCAL-00036" summary="chamando as classes das metricas">
+      <created>1534205206029</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1534205206029</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-30" width="1920" height="1110" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15885417" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16078018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -685,10 +770,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refatoração dos models funcionando" />
-    <MESSAGE value="refatoração carregando dados no banco" />
-    <MESSAGE value="Cosine Similarity refatorada para classe e funcionando" />
-    <MESSAGE value="Cosine Ovweview adicionanda e gerando graficos de tempo" />
     <MESSAGE value="deletando arquivos do cosine" />
     <MESSAGE value="iniciando refatoração de User Average" />
     <MESSAGE value="User Average class sendo criada" />
@@ -710,14 +791,13 @@
     <MESSAGE value="modificando chamada inicial" />
     <MESSAGE value="novos tamanhos de dados" />
     <MESSAGE value="map overview gerando grafico" />
-    <option name="LAST_COMMIT_MESSAGE" value="map overview gerando grafico" />
+    <MESSAGE value="mrr refatorada" />
+    <MESSAGE value="map refatorado" />
+    <MESSAGE value="ndcg refatorado" />
+    <MESSAGE value="chamando as classes das metricas" />
+    <option name="LAST_COMMIT_MESSAGE" value="chamando as classes das metricas" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/views.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/views.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/views.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/tests.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/views.py" />
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -748,16 +828,6 @@
     <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/benchmark.py" />
     <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/views.py" />
     <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/analyzer/algorithm.py" />
-    <entry file="file://$PROJECT_DIR$/commands.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="390">
-            <caret line="26" column="90" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="90" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -806,6 +876,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
           <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+          <folding>
+            <element signature="e#31#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -842,13 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/benchmark.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
@@ -868,31 +934,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="21" />
-          <folding>
-            <element signature="e#31#40#0" expanded="true" />
-            <marker date="1534044932717" expanded="true" signature="351:356" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
@@ -906,13 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/views.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -922,16 +960,6 @@
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -982,44 +1010,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/commands.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/apps/similarities/cosine/graphs/cosine_metadata_time_graph_box_plot.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/apps/similarities/cosine/graphs/cosine_metadata_time_graph_line.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/apps/recommenders/UserAverage/graphs/user_average_time_graph_line.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/apps/recommenders/UserAverage/graphs/user_average_time_graph_box_plot.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="165">
           <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+          <folding>
+            <element signature="e#31#40#0" expanded="true" />
+            <marker date="1534044932717" expanded="true" signature="351:356" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/benchmark.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="387" lean-forward="true" selection-start-line="387" selection-end-line="387" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/algorithm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="228" selection-start-line="228" selection-end-line="318" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+        <state relative-caret-position="-186">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="19" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1534204986496" expanded="true" signature="377:382" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="76" column="27" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1534205650620" expanded="true" signature="377:382" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        <state relative-caret-position="188">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
           <folding>
-            <marker date="1534205101189" expanded="true" signature="996:997" ph="..." />
-            <marker date="1534205101189" expanded="true" signature="996:1001" ph="..." />
+            <element signature="e#31#45#0" expanded="true" />
+            <marker date="1534215621718" expanded="true" signature="1037:1269" ph="..." />
+            <marker date="1534215621718" expanded="true" signature="1310:1311" ph="..." />
+            <marker date="1534215621718" expanded="true" signature="1310:1315" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="788">
+          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

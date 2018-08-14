@@ -8,6 +8,7 @@ from apps.kemures.similarities.Cosine.cosine_overview import CosineOverview
 from apps.kemures.recommenders.UserAverage.user_average_controller import UserAverageController
 from apps.kemures.recommenders.UserAverage.user_average_overview import UserAverageOverview
 from apps.kemures.metrics.MAP.map_controller import MAPController
+from apps.kemures.metrics.MAP.map_overview import MAPOverview
 from apps.kemures.metrics.MRR.mrr_controller import MRRController
 from apps.kemures.metrics.NDCG.ndcg_controller import NDCGController
 from apps.kemures.relevance_overview.relevance_overview import RelevanceOverview
@@ -16,6 +17,16 @@ from apps.metadata.user_preferences.models import UserPreference
 from apps.kemures.kernel_var import SONG_MODEL_SIZE_LIST, TOTAL_RUN
 
 logger = logging.getLogger(__name__)
+
+
+def make_graphics():
+    cos_over = CosineOverview()
+    cos_over.make_graphics()
+    user_over = UserAverageOverview()
+    user_over.make_graphics()
+    map_over = MAPOverview()
+    map_over.make_results_graphics()
+    map_over.make_time_graphics()
 
 
 def one_run_kernel(song_model_size=1500):
