@@ -22,14 +22,14 @@ class MAPOverview:
         self.__at_size_list = at_size_list
         self.__song_model_size_list = song_model_size_list
         rounds_df = pd.DataFrame.from_records(list(UserAverageLife.objects.all().values()))
-        map_df = pd.DataFrame.from_records(list(MAP.objects.all().values()))
-        map_run_time_df = pd.DataFrame.from_records(list(MAPRunTime.objects.all().values()))
+        metric_df = pd.DataFrame.from_records(list(MAP.objects.all().values()))
+        metric_run_time_df = pd.DataFrame.from_records(list(MAPRunTime.objects.all().values()))
         self.__rounds_collection = pd.DataFrame()
-        self.__rounds_collection['song_model_size'] = map_df['life_id']
-        self.__rounds_collection['value'] = map_df['value']
-        self.__rounds_collection['at'] = map_df['at']
-        self.__rounds_collection['started_at'] = map_run_time_df['started_at']
-        self.__rounds_collection['finished_at'] = map_run_time_df['finished_at']
+        self.__rounds_collection['song_model_size'] = metric_df['life_id']
+        self.__rounds_collection['value'] = metric_df['value']
+        self.__rounds_collection['at'] = metric_df['at']
+        self.__rounds_collection['started_at'] = metric_run_time_df['started_at']
+        self.__rounds_collection['finished_at'] = metric_run_time_df['finished_at']
         for size in self.__song_model_size_list:
             life_size_df = rounds_df.loc[rounds_df['song_model_size'] == size]
             life_id_list = life_size_df['id'].tolist()
