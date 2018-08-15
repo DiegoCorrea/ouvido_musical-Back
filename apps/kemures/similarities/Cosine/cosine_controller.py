@@ -42,17 +42,17 @@ class CosineController:
         self.__logger.info("[Finish Run Cosine Similarity]")
 
     @classmethod
-    def __LemTokens(cls, tokens):
+    def __lem_tokens(cls, tokens):
         lemmer = nltk.stem.WordNetLemmatizer()
         return [lemmer.lemmatize(token) for token in tokens]
 
     @classmethod
-    def __LemNormalize(cls, text):
+    def __lem_normalize(cls, text):
         remove_punct_dict = dict(
             (ord(punct), None)
             for punct in string.punctuation
         )
-        return cls.__LemTokens(
+        return cls.__lem_tokens(
             nltk.word_tokenize(
                 text.lower().translate(remove_punct_dict)
             )
@@ -60,12 +60,12 @@ class CosineController:
 
     @classmethod
     def find_similarity(cls, text_list):
-        TfidfVec = TfidfVectorizer(
-            tokenizer=cls.__LemNormalize,
+        tfidf_vec = TfidfVectorizer(
+            tokenizer=cls.__lem_normalize,
             stop_words={'english'},
             analyzer='word'
         )
-        tfidf = TfidfVec.fit_transform([str(txt) for txt in text_list])
+        tfidf = tfidf_vec.fit_transform([str(txt) for txt in text_list])
         return (tfidf * tfidf.T).toarray()
 
     def __start_cosine(self):

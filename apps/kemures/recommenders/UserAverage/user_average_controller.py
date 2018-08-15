@@ -70,7 +70,6 @@ class UserAverageController:
         return user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[0:RECOMMENDATION_LIST_SIZE]
 
     def __start_user_average(self):
-        self.__logger.info("[Start User Average]")
         pool = ThreadPool(MAX_THREAD)
         users_recommendations_df_list = pool.map(self.get_user_average_recommendations, self.user_list)
         pool.close()
@@ -78,5 +77,4 @@ class UserAverageController:
         recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
         for df in users_recommendations_df_list:
             recommendations_df = pd.concat([recommendations_df, df], sort=False)
-        self.__logger.info("[Finish User Average]")
         return recommendations_df

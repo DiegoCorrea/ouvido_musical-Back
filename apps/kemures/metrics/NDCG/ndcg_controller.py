@@ -16,7 +16,8 @@ class NDCGController:
         self.__evaluated_recommendations_df = evaluated_recommendations_df
         self.__at_size_list = at_size_list
 
-    def __dcg_at_k(self, r, k, method=0):
+    @classmethod
+    def __dcg_at_k(cls, r, k, method=0):
         r = np.asfarray(r)[:k]
         if r.size:
             if method == 0:
@@ -27,11 +28,12 @@ class NDCGController:
                 raise ValueError('method must be 0 or 1.')
         return 0.
 
-    def __ndcg_at_k(self, r, k, method=0):
-        dcg_max = self.__dcg_at_k(sorted(r, reverse=True), k, method)
+    @classmethod
+    def __ndcg_at_k(cls, r, k, method=0):
+        dcg_max = NDCGController.__dcg_at_k(sorted(r, reverse=True), k, method)
         if not dcg_max:
             return 0.
-        return self.__dcg_at_k(r, k, method) / dcg_max
+        return NDCGController.__dcg_at_k(r, k, method) / dcg_max
 
     def __calc_users_metric(self, at):
         self.__logger.info("[Calculating Users NDCG]")
@@ -67,9 +69,8 @@ class NDCGController:
             finished_at=finished_at
         )
         self.__logger.info(
-            "NDCG Run Time[ "
-            + str(value)
-            + " ]: Start at - "
+            "NDCG Run Time : "
+            + "Start at - "
             + str(started_at)
             + " || Finished at -"
             + str(finished_at)

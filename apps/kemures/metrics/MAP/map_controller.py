@@ -16,19 +16,20 @@ class MAPController:
         self.__evaluated_recommendations_df = evaluated_recommendations_df
         self.__at_size_list = at_size_list
 
-    def __get_ap_from_list(self, relevance_array):
-        n_relevances = len(relevance_array)
-        if n_relevances == 0:
+    @classmethod
+    def __get_ap_from_list(cls, relevance_array):
+        relevance_list_size = len(relevance_array)
+        if relevance_list_size == 0:
             return 0.0
         hit_list = []
         relevant = 0
-        for i in range(n_relevances):
+        for i in range(relevance_list_size):
             if relevance_array[i]:
                 relevant += 1
             hit_list.append(relevant / (i + 1))
         ap = sum(hit_list)
         if ap > 0.0:
-            return ap / n_relevances
+            return ap / relevance_list_size
         else:
             return 0.0
 
@@ -39,7 +40,7 @@ class MAPController:
             __user_recommendation_model = self.__evaluated_recommendations_df.loc[
                 self.__evaluated_recommendations_df['user_id'] == user]
             __user_recommendation_model.sort_values(by=['similarity'], ascending=False)
-            users_metric_result_list.append(self.__get_ap_from_list(__user_recommendation_model['iLike'].tolist()[:at]))
+            users_metric_result_list.append(MAPController.__get_ap_from_list(__user_recommendation_model['iLike'].tolist()[:at]))
         metric_result = np.mean(users_metric_result_list)
         self.__logger.debug("Mean Average Precision@%d: %f", at, metric_result)
         self.__logger.debug("Total Users Rated: %d", len(users_metric_result_list))
@@ -61,9 +62,8 @@ class MAPController:
             finished_at=finished_at
         )
         self.__logger.info(
-            "MAP Run Time[ "
-            + str(value)
-            + " ]: Start at - "
+            "MAP Run Time : "
+            + "Start at - "
             + str(started_at)
             + " || Finished at -"
             + str(finished_at)
