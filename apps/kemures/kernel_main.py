@@ -82,5 +82,5 @@ def with_config_run_kernel():
                 + str(i)
             )
             logger.info("*" * 60)
-            one_run_kernel(song_set_size=song_set_size)
+            one_run_kernel(song_set_size=song_set_size, user_set_size=100)
     make_graphics()
