@@ -33,7 +33,7 @@ class MRRController:
             __user_recommendation_model = self.__evaluated_recommendations_df.loc[
                 self.__evaluated_recommendations_df['user_id'] == user]
             __user_recommendation_model.sort_values(by=['similarity'], ascending=False)
-            users_metric_result_list.append(MRRController.__get_rr_from_list(__user_recommendation_model['iLike'].tolist()[:at]))
+            users_metric_result_list.append(MRRController.__get_rr_from_list(__user_recommendation_model['relevance'].tolist()[:at]))
         metric_result = np.mean(users_metric_result_list)
         self.__logger.debug("Mean Reciprocal Rank@%d: %f", at, metric_result)
         self.__logger.debug("Total Users Rated: %d", len(users_metric_result_list))

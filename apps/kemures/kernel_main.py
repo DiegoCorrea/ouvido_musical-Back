@@ -14,7 +14,7 @@ from apps.kemures.metrics.MRR.mrr_controller import MRRController
 from apps.kemures.metrics.MRR.mrr_overview import MRROverview
 from apps.kemures.metrics.NDCG.ndcg_controller import NDCGController
 from apps.kemures.metrics.NDCG.ndcg_overview import NDCGOverview
-from apps.kemures.relevance_overview.relevance_overview import RelevanceOverview
+from apps.kemures.analysis_of_recommendations.analysis_of_recommendations import AnalysisOfRecommendations
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
 from apps.kemures.kernel_var import SONG_SET_SIZE_LIST, TOTAL_RUN
@@ -56,13 +56,17 @@ def one_run_kernel(song_set_size=1500, user_set_size=100):
         users_preferences_df=users_preferences_df
     )
     user_ave.run_recommender()
-    rel_over = RelevanceOverview(recommendations_df=user_ave.get_recommendations_df())
-    rel_over.evaluate_recommendations()
-    map_metric = MAPController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
+    an_rec = AnalysisOfRecommendations(
+        recommendations_df=user_ave.get_recommendations_df(),
+        users_preferences_df=users_preferences_df,
+        song_set_df=song_set_df
+    )
+    an_rec.with_global_song_mean()
+    map_metric = MAPController(evaluated_recommendations_df=an_rec.get_evaluated_recommendations())
     map_metric.run_for_all_at_size()
-    mrr_metric = MRRController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
+    mrr_metric = MRRController(evaluated_recommendations_df=an_rec.get_evaluated_recommendations())
     mrr_metric.run_for_all_at_size()
-    ndcg_metric = NDCGController(evaluated_recommendations_df=rel_over.get_evaluated_recommendations())
+    ndcg_metric = NDCGController(evaluated_recommendations_df=an_rec.get_evaluated_recommendations())
     ndcg_metric.run_for_all_at_size()
 
 

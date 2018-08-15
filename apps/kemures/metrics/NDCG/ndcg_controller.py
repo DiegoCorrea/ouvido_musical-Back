@@ -43,7 +43,7 @@ class NDCGController:
                 self.__evaluated_recommendations_df['user_id'] == user]
             __user_recommendation_model.sort_values(by=['similarity'], ascending=False)
             users_metric_result_list.append(self.__ndcg_at_k(
-                __user_recommendation_model['score'].tolist()[:at],
+                __user_recommendation_model['relevance_score'].tolist()[:at],
                 k=at,
                 method=0
 
