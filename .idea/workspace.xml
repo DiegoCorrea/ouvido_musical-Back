@@ -4,9 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/apps/kemures/kernel_var.py" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="verificando a lista de recomendação com a mediana das músicas mais ouvidas">
+    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +34,7 @@
           <entry key="log" value="6" />
           <entry key="md" value="18" />
           <entry key="png" value="4" />
-          <entry key="py" value="428" />
+          <entry key="py" value="429" />
           <entry key="sql" value="9" />
           <entry key="txt" value="4" />
         </counts>
@@ -46,7 +47,7 @@
           <entry key="Log" value="5" />
           <entry key="Markdown" value="18" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="428" />
+          <entry key="Python" value="429" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -54,9 +55,9 @@
           <entry key="dummy" value="69" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="10076" />
+          <entry key="py" value="10080" />
           <entry key="sql" value="20" />
-          <entry key="txt" value="1800" />
+          <entry key="txt" value="1833" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -64,22 +65,36 @@
           <entry key="DBN-SQL" value="20" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1869" />
-          <entry key="Python" value="10076" />
+          <entry key="PLAIN_TEXT" value="1902" />
+          <entry key="Python" value="10080" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+            <state relative-caret-position="578">
+              <caret line="56" column="31" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="31" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1534349650594" expanded="true" signature="2175:2741" ph="..." />
+                <marker date="1534349806741" expanded="true" signature="2175:2741" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+              <folding>
+                <element signature="e#55#69#0" expanded="true" />
+                <marker date="1534349814717" expanded="true" signature="1174:1620" ph="..." />
+                <marker date="1534349814717" expanded="true" signature="1678:1679" ph="..." />
               </folding>
             </state>
           </provider>
@@ -208,11 +223,11 @@
         <option value="$PROJECT_DIR$/apps/kemures/relevance_overview/relevance_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
       </list>
     </option>
   </component>
@@ -353,13 +368,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00011" summary="deletando arquivos do cosine">
-      <created>1534028397438</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1534028397438</updated>
     </task>
     <task id="LOCAL-00012" summary="iniciando refatoração de User Average">
       <created>1534031256844</created>
@@ -697,7 +705,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534307844079</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="relevancia considerando a mediana">
+      <created>1534349793832</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1534349793832</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -756,7 +771,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ndcg refatorado" />
     <MESSAGE value="chamando as classes das metricas" />
     <MESSAGE value="map analyzer refatorado para map overview" />
     <MESSAGE value="chamada para make graphics" />
@@ -781,7 +795,8 @@
     <MESSAGE value="definindo metodos estaticos" />
     <MESSAGE value="alterando logs e definindo metodos como estaticos" />
     <MESSAGE value="verificando a lista de recomendação com a mediana das músicas mais ouvidas" />
-    <option name="LAST_COMMIT_MESSAGE" value="verificando a lista de recomendação com a mediana das músicas mais ouvidas" />
+    <MESSAGE value="relevancia considerando a mediana" />
+    <option name="LAST_COMMIT_MESSAGE" value="relevancia considerando a mediana" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/apps/kemures/views.py" />
@@ -963,18 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
-          <folding>
-            <element signature="e#55#69#0" expanded="true" />
-            <marker date="1534305612776" expanded="true" signature="1174:1620" ph="..." />
-            <marker date="1534305612776" expanded="true" signature="1678:1679" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1028,11 +1031,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+        <state relative-caret-position="578">
+          <caret line="56" column="31" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="31" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1534349650594" expanded="true" signature="2175:2741" ph="..." />
+            <marker date="1534349806741" expanded="true" signature="2175:2741" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+            <marker date="1534349814717" expanded="true" signature="1174:1620" ph="..." />
+            <marker date="1534349814717" expanded="true" signature="1678:1679" ph="..." />
           </folding>
         </state>
       </provider>

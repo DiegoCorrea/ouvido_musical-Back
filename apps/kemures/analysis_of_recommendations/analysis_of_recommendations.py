@@ -54,7 +54,7 @@ class AnalysisOfRecommendations:
             ], sort=False)
         return song_total_play_df
 
-    def with_global_song_mean(self):
+    def with_global_song_median(self):
         song_total_play_df = self.__get_songs_total_play_df()
         median_global_value = median(song_total_play_df['total_play'].tolist())
         max_global_value = max(song_total_play_df['total_play'].tolist())
