@@ -41,24 +41,27 @@ class CosineController:
         )
         self.__logger.info("[Finish Run Cosine Similarity]")
 
-    def __LemTokens(self, tokens):
+    @classmethod
+    def __LemTokens(cls, tokens):
         lemmer = nltk.stem.WordNetLemmatizer()
         return [lemmer.lemmatize(token) for token in tokens]
 
-    def __LemNormalize(self, text):
+    @classmethod
+    def __LemNormalize(cls, text):
         remove_punct_dict = dict(
             (ord(punct), None)
             for punct in string.punctuation
         )
-        return self.__LemTokens(
+        return cls.__LemTokens(
             nltk.word_tokenize(
                 text.lower().translate(remove_punct_dict)
             )
         )
 
-    def CosineSimilarity(self, text_list):
+    @classmethod
+    def find_similarity(cls, text_list):
         TfidfVec = TfidfVectorizer(
-            tokenizer=self.__LemNormalize,
+            tokenizer=cls.__LemNormalize,
             stop_words={'english'},
             analyzer='word'
         )
@@ -68,11 +71,10 @@ class CosineController:
     def __start_cosine(self):
         matrix_data = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if
                        column != 'id']
-        # pool = ThreadPool(MAX_THREAD)
-        # feature_matrix_similarity = pool.map(self.CosineSimilarity, matrix_data)
-        # pool.close()
-        # pool.join()
-        feature_matrix_similarity = [self.CosineSimilarity(matrix) for matrix in matrix_data]
+        pool = ThreadPool(MAX_THREAD)
+        feature_matrix_similarity = pool.map(CosineController.find_similarity, matrix_data)
+        pool.close()
+        pool.join()
         similarity_matrix = np.zeros(self.__song_set_df['id'].count())
         for matrix in feature_matrix_similarity:
             similarity_matrix = np.add(similarity_matrix, matrix)
