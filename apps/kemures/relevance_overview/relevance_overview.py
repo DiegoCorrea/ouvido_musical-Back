@@ -30,7 +30,8 @@ class RelevanceOverview:
                     columns=self.evaluated_recommendations_columns,
                 )
                 user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)
-            user_recommendations_evaluate_df = pd.concat([user_recommendations_evaluate_df, user_recommendations_df], sort=False)
+            user_recommendations_evaluate_df = pd.concat([user_recommendations_evaluate_df, user_recommendations_df],
+                                                         sort=False)
         self.evaluated_recommendations_df = user_recommendations_evaluate_df
 
     def get_evaluated_recommendations(self):

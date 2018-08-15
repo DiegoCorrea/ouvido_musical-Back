@@ -3,7 +3,7 @@
 import logging
 import pandas as pd
 from django.utils import timezone
-from multiprocessing import Pool as ThreadPool
+from multiprocessing.dummy import Pool as ThreadPool
 # Application Calls
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.recommenders.UserAverage.runtime.models import UserAverageRunTime
@@ -17,13 +17,13 @@ class UserAverageController:
     def __init__(self, similarity_data_df, song_set_df, users_preferences_df):
         self.__logger = logging.getLogger(__name__)
         self.__similarity_data_df = similarity_data_df
-        self.__song_set_size = song_set_df.count()
+        self.__song_set_size = int(song_set_df['id'].count())
         self.__song_set_df = song_set_df
         self.__round = UserAverageLife.objects.create(song_set_size=self.__song_set_size)
         self.__recommendations_columns = ['user_id', 'song_id', 'similarity']
         self.__recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
         self.__users_preferences_df = users_preferences_df
-        self.__user_list = users_preferences_df['user_id'].unique().tolist()
+        self.user_list = users_preferences_df['user_id'].unique().tolist()
 
     def get_recommendations_df(self):
         return self.__recommendations_df
@@ -72,7 +72,7 @@ class UserAverageController:
     def __start_user_average(self):
         self.__logger.info("[Start User Average]")
         pool = ThreadPool(MAX_THREAD)
-        users_recommendations_df_list = pool.map(self.get_user_average_recommendations, self.__user_list)
+        users_recommendations_df_list = pool.map(self.get_user_average_recommendations, self.user_list)
         pool.close()
         pool.join()
         recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
