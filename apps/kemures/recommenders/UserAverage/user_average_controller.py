@@ -5,7 +5,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 import pandas as pd
 from django.utils import timezone
 
-from apps.kemures.kernel_config.kernel_var import (
+from apps.kemures.kernel.config.global_var import (
     MAX_THREAD,
     RECOMMENDATION_LIST_SIZE
 )

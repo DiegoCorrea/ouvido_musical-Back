@@ -17,7 +17,7 @@ from apps.kemures.metrics.NDCG.ndcg_overview import NDCGOverview
 from apps.kemures.analysis_of_recommendations.analysis_of_recommendations import AnalysisOfRecommendations
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
-from apps.kemures.kernel_config.kernel_var import SONG_SET_SIZE_LIST, TOTAL_RUN
+from apps.kemures.kernel.config.global_var import SONG_SET_SIZE_LIST, TOTAL_RUN
 
 
 def make_graphics():

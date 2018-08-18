@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Python and Pip Modules Calls
 import logging
 import string
 from multiprocessing import Pool as ThreadPool
@@ -10,8 +9,7 @@ import pandas as pd
 from django.utils import timezone
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-from apps.kemures.kernel_config.kernel_var import MAX_THREAD
-# Application Calls
+from apps.kemures.kernel.config.global_var import MAX_THREAD
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
 
 

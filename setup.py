@@ -16,7 +16,7 @@ setup(
               'apps.kemures.recommenders.UserAverage.runtime.migrations', 'apps.kemures.similarities',
               'apps.kemures.similarities.Cosine', 'apps.kemures.similarities.Cosine.DAO',
               'apps.kemures.similarities.Cosine.DAO.migrations', 'apps.kemures.similarities.Cosine.runtime',
-              'apps.kemures.similarities.Cosine.runtime.migrations', 'apps.kemures.kernel_config',
+              'apps.kemures.similarities.Cosine.runtime.migrations', 'apps.kemures.kernel',
               'apps.kemures.analysis_of_recommendations', 'apps.tecnics', 'apps.tecnics.content_based_metadata',
               'apps.tecnics.content_based_metadata.migrations', 'apps.metadata', 'apps.metadata.songs',
               'apps.metadata.songs.migrations', 'apps.metadata.users', 'apps.metadata.users.migrations',

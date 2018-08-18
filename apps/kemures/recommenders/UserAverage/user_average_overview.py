@@ -5,7 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from apps.kemures.kernel_config.kernel_var import SONG_SET_SIZE_LIST, USER_AVERAGE_PATH_GRAPHICS
+from apps.kemures.kernel.config.global_var import SONG_SET_SIZE_LIST, USER_AVERAGE_PATH_GRAPHICS
 from apps.kemures.recommenders.UserAverage.runtime.models import UserAverageRunTime
 
 

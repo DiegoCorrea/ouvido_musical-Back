@@ -4,7 +4,7 @@ import logging
 import numpy as np
 from django.utils import timezone
 
-from apps.kemures.kernel_config.kernel_var import AT_LIST
+from apps.kemures.kernel.config.global_var import AT_LIST
 from apps.kemures.metrics.MAP.DAO.models import MAP
 from apps.kemures.metrics.MAP.runtime.models import MAPRunTime
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife

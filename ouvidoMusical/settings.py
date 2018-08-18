@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'apps.metadata.users',
     'apps.metadata.user_preferences',
     'apps.tecnics.content_based_metadata',
+    'apps.kemures.kernel.round',
     'apps.kemures.similarities.Cosine.DAO',
     'apps.kemures.similarities.Cosine.runtime',
     'apps.kemures.recommenders.UserAverage.DAO',

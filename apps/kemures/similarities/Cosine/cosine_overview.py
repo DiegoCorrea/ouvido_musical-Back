@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
-# Python and Pip Modules Calls
 import logging
 import os
 
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from apps.kemures.kernel_config.kernel_var import SONG_SET_SIZE_LIST, COSINE_PATH_GRAPHICS
-# Application Calls
+from apps.kemures.kernel.config.global_var import SONG_SET_SIZE_LIST, COSINE_PATH_GRAPHICS
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
 
 

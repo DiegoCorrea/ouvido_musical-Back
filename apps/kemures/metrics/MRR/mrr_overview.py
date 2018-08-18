@@ -5,7 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from apps.kemures.kernel_config.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, MRR_PATH_GRAPHICS
+from apps.kemures.kernel.config.global_var import AT_LIST, SONG_SET_SIZE_LIST, MRR_PATH_GRAPHICS
 from apps.kemures.metrics.MRR.DAO.models import MRR
 from apps.kemures.metrics.MRR.runtime.models import MRRRunTime
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
