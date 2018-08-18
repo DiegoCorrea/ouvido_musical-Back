@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 from django.db import models
+
 from apps.kemures.metrics.MAP.DAO.models import MAP
 
 

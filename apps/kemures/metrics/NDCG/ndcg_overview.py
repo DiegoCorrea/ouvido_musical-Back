@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Python and Pip Modules Calls
-import os
 import logging
-import pandas as pd
+import os
+
 import matplotlib.pyplot as plt
-# Application Calls
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
+import pandas as pd
+
+from apps.kemures.kernel_config.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, NDCG_PATH_GRAPHICS
 from apps.kemures.metrics.NDCG.DAO.models import NDCG
 from apps.kemures.metrics.NDCG.runtime.models import NDCGRunTime
-from apps.kemures.kernel_config.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, NDCG_PATH_GRAPHICS
+from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 
 
 class NDCGOverview:

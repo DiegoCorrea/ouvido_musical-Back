@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Python and Pip Modules Calls
 import logging
+
 import numpy as np
 from django.utils import timezone
-# Application Calls
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
+
+from apps.kemures.kernel_config.kernel_var import AT_LIST
 from apps.kemures.metrics.MAP.DAO.models import MAP
 from apps.kemures.metrics.MAP.runtime.models import MAPRunTime
-from apps.kemures.kernel_config.kernel_var import AT_LIST
+from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 
 
 class MAPController:

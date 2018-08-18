@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Python and Pip Modules Calls
 import logging
+
 import numpy as np
 from django.utils import timezone
-# Application Calls
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
+
+from apps.kemures.kernel_config.kernel_var import AT_LIST
 from apps.kemures.metrics.NDCG.DAO.models import NDCG
 from apps.kemures.metrics.NDCG.runtime.models import NDCGRunTime
-from apps.kemures.kernel_config.kernel_var import AT_LIST
+from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 
 
 class NDCGController:
