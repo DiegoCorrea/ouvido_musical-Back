@@ -15,21 +15,6 @@ class Song(models.Model):
     album = models.CharField(max_length=511, unique=False)
     artist = models.CharField(max_length=511, unique=False)
 
-    def getSimilaries(self, songIDList):
-        right_b = self.SongSimilarity_right.filter(songBase_id__in=songIDList)
-        right_c = self.SongSimilarity_right.filter(
-            songCompare_id__in=songIDList
-        )
-        left_b = self.SongSimilarity_left.filter(songBase_id__in=songIDList)
-        left_c = self.SongSimilarity_left.filter(songCompare_id__in=songIDList)
-        return (((left_c | left_b) | right_c) | right_b)
-
-    def as_json(self):
-        return dict(
-            song_id=self.id,
-            title=self.title,
-        )
-
 
 class SongSimilarity(models.Model):
     # IDS
@@ -39,7 +24,7 @@ class SongSimilarity(models.Model):
     songCompare = models.ForeignKey(
         Song, unique=False, related_name='SongSimilarity_left', on_delete=models.CASCADE
     )
-    # Datas
+    # Data
     similarity = models.FloatField(default=0.0, unique=False)
     # Timers
     created_at = models.DateTimeField(auto_now_add=True)
