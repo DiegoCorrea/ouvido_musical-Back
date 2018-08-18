@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/kemures/kernel_config/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel_config/kernel_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +34,7 @@
           <entry key="log" value="6" />
           <entry key="md" value="19" />
           <entry key="png" value="4" />
-          <entry key="py" value="433" />
+          <entry key="py" value="435" />
           <entry key="sql" value="9" />
           <entry key="txt" value="4" />
         </counts>
@@ -59,7 +47,7 @@
           <entry key="Log" value="5" />
           <entry key="Markdown" value="19" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="433" />
+          <entry key="Python" value="435" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -67,9 +55,9 @@
           <entry key="dummy" value="69" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="10106" />
+          <entry key="py" value="10115" />
           <entry key="sql" value="20" />
-          <entry key="txt" value="1862" />
+          <entry key="txt" value="1898" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -77,8 +65,8 @@
           <entry key="DBN-SQL" value="20" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="1931" />
-          <entry key="Python" value="10106" />
+          <entry key="PLAIN_TEXT" value="1967" />
+          <entry key="Python" value="10115" />
         </counts>
       </usages-collector>
     </session>
@@ -86,14 +74,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="510">
+              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
               <folding>
-                <element signature="e#55#69#0" expanded="true" />
-                <marker date="1534625787082" expanded="true" signature="1188:1634" ph="..." />
-                <marker date="1534625787082" expanded="true" signature="1692:1693" ph="..." />
+                <element signature="e#55#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -211,7 +197,6 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
@@ -227,6 +212,7 @@
         <option value="$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_var.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" />
       </list>
     </option>
   </component>
@@ -260,14 +246,22 @@
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="tecnics" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="tecnics" type="462c0819:PsiDirectoryNode" />
-              <item name="content_based_metadata" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="similarities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="similarities" type="462c0819:PsiDirectoryNode" />
+              <item name="Cosine" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -313,13 +307,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00014" summary="cosine retoando dataframe">
-      <created>1534040847825</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1534040847825</updated>
     </task>
     <task id="LOCAL-00015" summary="user average overview iniciando">
       <created>1534045179552</created>
@@ -657,11 +644,19 @@
       <option name="project" value="LOCAL" />
       <updated>1534350295974</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="mudando variavel de kernel de local">
+      <created>1534625997277</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1534625997278</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-30" width="1920" height="1110" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16078018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -715,7 +710,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="map analyzer refatorado para map overview" />
     <MESSAGE value="chamada para make graphics" />
     <MESSAGE value="deletando chamda do numpy sem uso" />
     <MESSAGE value="melhorando generalização no constructor" />
@@ -740,7 +734,8 @@
     <MESSAGE value="verificando a lista de recomendação com a mediana das músicas mais ouvidas" />
     <MESSAGE value="relevancia considerando a mediana" />
     <MESSAGE value="rodando com tamanho de 10 mil" />
-    <option name="LAST_COMMIT_MESSAGE" value="rodando com tamanho de 10 mil" />
+    <MESSAGE value="mudando variavel de kernel de local" />
+    <option name="LAST_COMMIT_MESSAGE" value="mudando variavel de kernel de local" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/apps/kemures/views.py" />
@@ -864,13 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -889,13 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-247">
           <caret line="7" column="52" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -967,12 +948,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#55#69#0" expanded="true" />
             <marker date="1534625787082" expanded="true" signature="1188:1634" ph="..." />
             <marker date="1534625787082" expanded="true" signature="1692:1693" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-97">
+          <caret line="18" column="56" lean-forward="true" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+          <folding>
+            <element signature="e#55#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding>
+            <element signature="e#55#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
