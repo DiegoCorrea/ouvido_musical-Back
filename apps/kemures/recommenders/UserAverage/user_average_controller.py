@@ -7,7 +7,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 # Application Calls
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.recommenders.UserAverage.runtime.models import UserAverageRunTime
-from apps.kemures.kernel_var import (
+from apps.kemures.kernel_config.kernel_var import (
     MAX_THREAD,
     RECOMMENDATION_LIST_SIZE
 )

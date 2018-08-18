@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.metrics.NDCG.DAO.models import NDCG
 from apps.kemures.metrics.NDCG.runtime.models import NDCGRunTime
-from apps.kemures.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, NDCG_PATH_GRAPHICS
+from apps.kemures.kernel_config.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, NDCG_PATH_GRAPHICS
 
 
 class NDCGOverview:

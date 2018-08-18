@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.metrics.MAP.DAO.models import MAP
 from apps.kemures.metrics.MAP.runtime.models import MAPRunTime
-from apps.kemures.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, MAP_PATH_GRAPHICS
+from apps.kemures.kernel_config.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, MAP_PATH_GRAPHICS
 
 
 class MAPOverview:

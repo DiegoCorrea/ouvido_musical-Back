@@ -7,7 +7,7 @@ from django.utils import timezone
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.metrics.NDCG.DAO.models import NDCG
 from apps.kemures.metrics.NDCG.runtime.models import NDCGRunTime
-from apps.kemures.kernel_var import AT_LIST
+from apps.kemures.kernel_config.kernel_var import AT_LIST
 
 
 class NDCGController:

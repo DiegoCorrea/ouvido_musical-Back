@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # Application Calls
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
-from apps.kemures.kernel_var import SONG_SET_SIZE_LIST, COSINE_PATH_GRAPHICS
+from apps.kemures.kernel_config.kernel_var import SONG_SET_SIZE_LIST, COSINE_PATH_GRAPHICS
 
 
 class CosineOverview:

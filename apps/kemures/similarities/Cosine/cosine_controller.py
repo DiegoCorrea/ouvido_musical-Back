@@ -10,7 +10,7 @@ from multiprocessing import Pool as ThreadPool
 from sklearn.feature_extraction.text import TfidfVectorizer
 # Application Calls
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
-from apps.kemures.kernel_var import MAX_THREAD
+from apps.kemures.kernel_config.kernel_var import MAX_THREAD
 
 
 class CosineController:

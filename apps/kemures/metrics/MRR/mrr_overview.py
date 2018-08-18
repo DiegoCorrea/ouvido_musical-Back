@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.metrics.MRR.DAO.models import MRR
 from apps.kemures.metrics.MRR.runtime.models import MRRRunTime
-from apps.kemures.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, MRR_PATH_GRAPHICS
+from apps.kemures.kernel_config.kernel_var import AT_LIST, SONG_SET_SIZE_LIST, MRR_PATH_GRAPHICS
 
 
 class MRROverview:

@@ -7,7 +7,7 @@ from django.utils import timezone
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.metrics.MRR.DAO.models import MRR
 from apps.kemures.metrics.MRR.runtime.models import MRRRunTime
-from apps.kemures.kernel_var import AT_LIST
+from apps.kemures.kernel_config.kernel_var import AT_LIST
 
 
 class MRRController:
