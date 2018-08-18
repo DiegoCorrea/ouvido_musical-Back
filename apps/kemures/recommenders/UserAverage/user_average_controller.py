@@ -9,17 +9,16 @@ from apps.kemures.kernel.config.global_var import (
     MAX_THREAD,
     RECOMMENDATION_LIST_SIZE
 )
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 from apps.kemures.recommenders.UserAverage.runtime.models import UserAverageRunTime
 
 
 class UserAverageController:
-    def __init__(self, similarity_data_df, song_set_df, users_preferences_df):
+    def __init__(self, similarity_data_df, song_set_df, users_preferences_df, round_instance):
         self.__logger = logging.getLogger(__name__)
         self.__similarity_data_df = similarity_data_df
         self.__song_set_size = int(song_set_df['id'].count())
         self.__song_set_df = song_set_df
-        self.__round = UserAverageLife.objects.create(song_set_size=self.__song_set_size)
+        self.__round_instance = round_instance
         self.__recommendations_columns = ['user_id', 'song_id', 'similarity']
         self.__recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
         self.__users_preferences_df = users_preferences_df
@@ -34,7 +33,7 @@ class UserAverageController:
         self.__recommendations_df = self.__start_user_average()
         finished_at = timezone.now()
         UserAverageRunTime.objects.create(
-            round=self.__round,
+            round=self.__round_instance,
             song_set_size=self.__song_set_size,
             started_at=started_at,
             finished_at=finished_at

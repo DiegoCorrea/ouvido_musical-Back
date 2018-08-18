@@ -7,14 +7,14 @@ from django.utils import timezone
 from apps.kemures.kernel.config.global_var import AT_LIST
 from apps.kemures.metrics.MRR.DAO.models import MRR
 from apps.kemures.metrics.MRR.runtime.models import MRRRunTime
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 
 
 class MRRController:
-    def __init__(self, evaluated_recommendations_df, at_size_list=AT_LIST):
+    def __init__(self, evaluated_recommendations_df, round_instance, at_size_list=AT_LIST):
         self.__logger = logging.getLogger(__name__)
         self.__evaluated_recommendations_df = evaluated_recommendations_df
         self.__at_size_list = at_size_list
+        self.__round_instance = round_instance
 
     @classmethod
     def __get_rr_from_list(cls, relevance_array):
@@ -46,7 +46,7 @@ class MRRController:
         value = self.__calc_users_metric(at=at)
         finished_at = timezone.now()
         metric_result_obj = MRR.objects.create(
-            round=UserAverageLife.objects.last(),
+            round=self.__round_instance,
             value=value,
             at=at
         )

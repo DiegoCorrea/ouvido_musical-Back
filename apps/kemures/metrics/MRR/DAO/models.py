@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 from django.db import models
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
+
+from apps.kemures.kernel.round.models import Round
 
 
 class MRR(models.Model):
-    round = models.ForeignKey(UserAverageLife, unique=False, on_delete=models.CASCADE)
+    round = models.ForeignKey(Round, unique=False, on_delete=models.CASCADE)
     value = models.FloatField()
     at = models.IntegerField()

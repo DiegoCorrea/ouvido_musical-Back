@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from apps.kemures.kernel.config.global_var import AT_LIST, SONG_SET_SIZE_LIST, NDCG_PATH_GRAPHICS
+from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.NDCG.DAO.models import NDCG
 from apps.kemures.metrics.NDCG.runtime.models import NDCGRunTime
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 
 
 class NDCGOverview:
@@ -20,7 +20,7 @@ class NDCGOverview:
             os.makedirs(self.__directory_to_save_graphics)
         self.__at_size_list = at_size_list
         self.__song_set_size = song_set_size
-        rounds_df = pd.DataFrame.from_records(list(UserAverageLife.objects.all().values()))
+        rounds_df = pd.DataFrame.from_records(list(Round.objects.all().values()))
         metric_df = pd.DataFrame.from_records(list(NDCG.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(NDCGRunTime.objects.all().values()))
         self.__metric_results_collection_df = pd.DataFrame()

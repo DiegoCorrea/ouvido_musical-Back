@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from apps.kemures.kernel.config.global_var import AT_LIST, SONG_SET_SIZE_LIST, MRR_PATH_GRAPHICS
+from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MRR.DAO.models import MRR
 from apps.kemures.metrics.MRR.runtime.models import MRRRunTime
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
 
 
 class MRROverview:
@@ -20,7 +20,7 @@ class MRROverview:
             os.makedirs(self.__directory_to_save_graphics)
         self.__at_size_list = at_size_list
         self.__song_set_size_list = song_set_size_list
-        rounds_df = pd.DataFrame.from_records(list(UserAverageLife.objects.all().values()))
+        rounds_df = pd.DataFrame.from_records(list(Round.objects.all().values()))
         metric_df = pd.DataFrame.from_records(list(MRR.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(MRRRunTime.objects.all().values()))
         self.__metric_results_collection_df = pd.DataFrame()
