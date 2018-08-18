@@ -11,13 +11,14 @@ from apps.kemures.kernel_config.kernel_var import SONG_SET_SIZE_LIST, USER_AVERA
 
 class UserAverageOverview:
     def __init__(self, song_set_size_list=SONG_SET_SIZE_LIST,
-                 directory_to_save_graphics=USER_AVERAGE_PATH_GRAPHICS):
+                 directory_to_save_graphics=USER_AVERAGE_PATH_GRAPHICS,
+                 runtime_collection_class=UserAverageRunTime.objects.all().values()):
         self.__logger = logging.getLogger(__name__)
         self.__directory_to_save_graphics = str(directory_to_save_graphics)
         if not os.path.exists(self.__directory_to_save_graphics):
             os.makedirs(self.__directory_to_save_graphics)
         self.__song_set_size_list = song_set_size_list
-        self.__runtime_collection_df = pd.DataFrame.from_records(list(UserAverageRunTime.objects.all().values()))
+        self.__runtime_collection_df = pd.DataFrame.from_records(list(runtime_collection_class))
 
     def make_time_graphics(self):
         self.__all_time_graph_line()

@@ -23,7 +23,7 @@ class UserAverageController:
         self.__recommendations_columns = ['user_id', 'song_id', 'similarity']
         self.__recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
         self.__users_preferences_df = users_preferences_df
-        self.user_list = users_preferences_df['user_id'].unique().tolist()
+        self.__user_list = users_preferences_df['user_id'].unique().tolist()
 
     def get_recommendations_df(self):
         return self.__recommendations_df
@@ -71,7 +71,7 @@ class UserAverageController:
 
     def __start_user_average(self):
         pool = ThreadPool(MAX_THREAD)
-        users_recommendations_df_list = pool.map(self.get_user_average_recommendations, self.user_list)
+        users_recommendations_df_list = pool.map(self.get_user_average_recommendations, self.__user_list)
         pool.close()
         pool.join()
         recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
