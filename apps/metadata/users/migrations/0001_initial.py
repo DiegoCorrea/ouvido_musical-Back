@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -14,7 +13,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User',
             fields=[
-                ('id', models.CharField(db_index=True, default='024f4323a01911e88469a6c2a045979d', max_length=255, primary_key=True, serialize=False, unique=True)),
+                ('id', models.CharField(db_index=True, default='024f4323a01911e88469a6c2a045979d', max_length=255,
+                                        primary_key=True, serialize=False, unique=True)),
             ],
         ),
     ]

@@ -1,7 +1,7 @@
 from django.db import models
 
-from apps.metadata.users.models import User
 from apps.metadata.songs.models import Song
+from apps.metadata.users.models import User
 
 
 class UserPreference(models.Model):
