@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+    <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/apps/kemures/kernel_config/kernel_var.py" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" afterDir="false" />
+    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="adicionando setup e limpando migration">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +38,7 @@
           <entry key="log" value="6" />
           <entry key="md" value="19" />
           <entry key="png" value="4" />
-          <entry key="py" value="462" />
+          <entry key="py" value="475" />
           <entry key="sql" value="9" />
           <entry key="txt" value="4" />
         </counts>
@@ -53,7 +51,7 @@
           <entry key="Log" value="5" />
           <entry key="Markdown" value="19" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="462" />
+          <entry key="Python" value="475" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -61,9 +59,9 @@
           <entry key="dummy" value="69" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="10143" />
+          <entry key="py" value="10366" />
           <entry key="sql" value="20" />
-          <entry key="txt" value="1991" />
+          <entry key="txt" value="2059" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -71,42 +69,19 @@
           <entry key="DBN-SQL" value="20" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="2060" />
-          <entry key="Python" value="10143" />
+          <entry key="PLAIN_TEXT" value="2128" />
+          <entry key="Python" value="10366" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="18" />
-              <folding>
-                <element signature="e#55#69#0" expanded="true" />
-                <marker date="1534625787082" expanded="true" signature="1188:1634" ph="..." />
-                <marker date="1534625787082" expanded="true" signature="1692:1693" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <caret line="20" column="119" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -117,6 +92,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Setup Script" />
       </list>
     </option>
   </component>
@@ -188,15 +164,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/apps.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/__init__.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/apps.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/__init__.py" />
-        <option value="$PROJECT_DIR$/ouvidoMusical/settings.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/algorithm/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/algorithm/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/algorithm/models.py" />
-        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/models.py" />
         <option value="$PROJECT_DIR$/apps/metadata/user_preferences/apps.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" />
@@ -219,19 +189,16 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/algorithm.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/models.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/models.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql" />
         <option value="$PROJECT_DIR$/apps/kemures/relevance_overview/relevance_overview.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_var.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/models.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py" />
@@ -239,6 +206,15 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_overview.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/apps.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py" />
+        <option value="$PROJECT_DIR$/apps/metadata/songs/models.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/admin.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/admin.py" />
+        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/models.py" />
+        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/models.py" />
+        <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" />
       </list>
     </option>
   </component>
@@ -279,15 +255,15 @@
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="recommenders" type="462c0819:PsiDirectoryNode" />
+              <item name="similarities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="kemures" type="462c0819:PsiDirectoryNode" />
-              <item name="recommenders" type="462c0819:PsiDirectoryNode" />
-              <item name="UserAverage" type="462c0819:PsiDirectoryNode" />
+              <item name="similarities" type="462c0819:PsiDirectoryNode" />
+              <item name="Cosine" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,6 +273,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -333,41 +310,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00020" summary="retirando log">
-      <created>1534088744728</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1534088744728</updated>
-    </task>
-    <task id="LOCAL-00021" summary="user recommendation entregando uma lista">
-      <created>1534091765515</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1534091765515</updated>
-    </task>
-    <task id="LOCAL-00022" summary="user recommendation entregando a lista limitada">
-      <created>1534092504978</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1534092504978</updated>
-    </task>
-    <task id="LOCAL-00023" summary="user recommendation entregando a lista limitada">
-      <created>1534100239162</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1534100239162</updated>
-    </task>
-    <task id="LOCAL-00024" summary="user recommendation entregando a lista">
-      <created>1534124097038</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1534124097038</updated>
     </task>
     <task id="LOCAL-00025" summary="chamando impressão de gráficos">
       <created>1534125691691</created>
@@ -677,7 +619,42 @@
       <option name="project" value="LOCAL" />
       <updated>1534627857140</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="otimizando imports e aplicando refactor">
+      <created>1534628132558</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1534628132558</updated>
+    </task>
+    <task id="LOCAL-00070" summary="otimizando imports e aplicando refactor">
+      <created>1534628154841</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1534628154842</updated>
+    </task>
+    <task id="LOCAL-00071" summary="otimizando imports e aplicando refactor">
+      <created>1534628219236</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1534628219236</updated>
+    </task>
+    <task id="LOCAL-00072" summary="inspect">
+      <created>1534628864623</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1534628864623</updated>
+    </task>
+    <task id="LOCAL-00073" summary="adicionando setup e limpando migration">
+      <created>1534629063803</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1534629063803</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -690,6 +667,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="DB Browser" order="4" />
       <window_info id="Job Explorer" order="5" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32935324" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49973643" weight="0.3287037" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -736,9 +714,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adicionando mrr overview" />
-    <MESSAGE value="deletando mrr analyzer" />
-    <MESSAGE value="refatorando ndcg" />
     <MESSAGE value="sistema refatorado" />
     <MESSAGE value="novos tamanhos" />
     <MESSAGE value="cosine overview generalizado" />
@@ -761,16 +736,12 @@
     <MESSAGE value="alterando label do DAO" />
     <MESSAGE value="identando" />
     <MESSAGE value="otimizando imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="otimizando imports" />
+    <MESSAGE value="otimizando imports e aplicando refactor" />
+    <MESSAGE value="inspect" />
+    <MESSAGE value="adicionando setup e limpando migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionando setup e limpando migration" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/views.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/views.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/algorithm.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/views.py" />
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/algorithm.py" />
-    <entry file="file://$PROJECT_DIR$/files/apps/similarities/cosine/graphs/cosine_metadata_time_graph_box_plot.png" />
-    <entry file="file://$PROJECT_DIR$/files/apps/similarities/cosine/graphs/cosine_metadata_time_graph_line.png" />
     <entry file="file://$PROJECT_DIR$/files/apps/recommenders/UserAverage/graphs/user_average_time_graph_line.png" />
     <entry file="file://$PROJECT_DIR$/files/apps/recommenders/UserAverage/graphs/user_average_time_graph_box_plot.png" />
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/analyzer/benchmark.py" />
@@ -884,16 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="18" column="56" lean-forward="true" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-          <folding>
-            <element signature="e#55#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -943,16 +904,6 @@
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/admin.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -966,16 +917,6 @@
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/admin.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_overview.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -983,29 +924,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1282">
           <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="18" />
-          <folding>
-            <element signature="e#55#69#0" expanded="true" />
-            <marker date="1534625787082" expanded="true" signature="1188:1634" ph="..." />
-            <marker date="1534625787082" expanded="true" signature="1692:1693" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1023,5 +945,109 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="18" />
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+            <marker date="1534625787082" expanded="true" signature="1188:1634" ph="..." />
+            <marker date="1534625787082" expanded="true" signature="1692:1693" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/songs/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="90" selection-start-line="36" selection-start-column="90" selection-end-line="36" selection-end-column="90" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="119" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

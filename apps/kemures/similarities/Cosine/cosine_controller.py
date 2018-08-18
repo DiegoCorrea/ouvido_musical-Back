@@ -17,6 +17,11 @@ from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunT
 
 class CosineController:
     def __init__(self, song_set_df):
+        """
+            Construtor da classe CosineController, onde o valor é calculado a partir dos dados no argumento song_set_df
+            Args:
+                song_set_df (DataFrame): Um DataFrame com as informações das músicas.
+        """
         self.__logger = logging.getLogger(__name__)
         self.__song_set_size = song_set_df['id'].count()
         self.__song_set_df = song_set_df
