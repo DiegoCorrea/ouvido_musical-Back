@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 # Python and Pip Modules Calls
-import nltk
-import string
 import logging
+import string
+from multiprocessing import Pool as ThreadPool
+
+import nltk
 import numpy as np
 import pandas as pd
 from django.utils import timezone
-from multiprocessing import Pool as ThreadPool
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+from apps.kemures.kernel_config.kernel_var import MAX_THREAD
 # Application Calls
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
-from apps.kemures.kernel_config.kernel_var import MAX_THREAD
 
 
 class CosineController:
