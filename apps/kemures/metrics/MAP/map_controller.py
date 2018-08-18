@@ -40,7 +40,8 @@ class MAPController:
             __user_recommendation_model = self.__evaluated_recommendations_df.loc[
                 self.__evaluated_recommendations_df['user_id'] == user]
             __user_recommendation_model.sort_values(by=['similarity'], ascending=False)
-            users_metric_result_list.append(MAPController.__get_ap_from_list(__user_recommendation_model['relevance'].tolist()[:at]))
+            users_metric_result_list.append(
+                MAPController.__get_ap_from_list(__user_recommendation_model['relevance'].tolist()[:at]))
         metric_result = np.mean(users_metric_result_list)
         self.__logger.debug("Mean Average Precision@%d: %f", at, metric_result)
         self.__logger.debug("Total Users Rated: %d", len(users_metric_result_list))
