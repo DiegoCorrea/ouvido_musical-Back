@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 from django.db import models
+
 from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
+
 
 # Create your models here.
 

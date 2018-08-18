@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Python and Pip Modules Calls
 import logging
+from multiprocessing.dummy import Pool as ThreadPool
+
 import pandas as pd
 from django.utils import timezone
-from multiprocessing.dummy import Pool as ThreadPool
-# Application Calls
-from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
-from apps.kemures.recommenders.UserAverage.runtime.models import UserAverageRunTime
+
 from apps.kemures.kernel_config.kernel_var import (
     MAX_THREAD,
     RECOMMENDATION_LIST_SIZE
 )
+from apps.kemures.recommenders.UserAverage.DAO.models import UserAverageLife
+from apps.kemures.recommenders.UserAverage.runtime.models import UserAverageRunTime
 
 
 class UserAverageController:
