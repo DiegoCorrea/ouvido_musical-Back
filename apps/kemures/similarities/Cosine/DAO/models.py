@@ -10,12 +10,12 @@ class CosineSimilarity(models.Model):
     songBase = models.ForeignKey(
         Song,
         unique=False,
-        related_name='CosineSimilarity_SongTitle_right', on_delete=models.CASCADE
+        related_name='CosineSimilarity_right', on_delete=models.CASCADE
     )
     songCompare = models.ForeignKey(
         Song,
         unique=False,
-        related_name='CosineSimilarity_SongTitle_left', on_delete=models.CASCADE
+        related_name='CosineSimilarity_left', on_delete=models.CASCADE
     )
     # Data
     title = models.FloatField(default=0, unique=False)
