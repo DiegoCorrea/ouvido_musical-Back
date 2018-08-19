@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-# Python and Pip Modules Calls
 import logging
-import pandas as pd
-from statistics import median
 from random import choice, uniform
+from statistics import median
 
-
-# Application Calls
+import pandas as pd
 
 
 class AnalysisOfRecommendations:
@@ -43,33 +40,52 @@ class AnalysisOfRecommendations:
     def get_evaluated_recommendations(self):
         return self.__evaluated_recommendations_df
 
-    def __get_songs_total_play_df(self):
-        song_total_play_df = pd.DataFrame(columns=['song_id', 'total_play'])
+    def __songs_statistical(self):
+        songs_df = pd.DataFrame(columns=['song_id', 'total_play', 'total_liked'])
         for song_id in self.__users_preferences_df['song_id'].unique().tolist():
             df = self.__users_preferences_df.loc[self.__users_preferences_df['song_id'] == song_id]
-            song_total_play_df = pd.concat([
-                pd.DataFrame(data=[[song_id, sum(df['play_count'].tolist())]], index=[song_id],
-                             columns=['song_id', 'total_play']),
-                song_total_play_df
+            songs_df = pd.concat([
+                pd.DataFrame(data=[[song_id, sum(df['play_count'].values), df['play_count'].count()]], index=[song_id],
+                             columns=['song_id', 'total_play', 'total_liked']),
+                songs_df
             ], sort=False)
-        return song_total_play_df
+        return songs_df
 
     def with_global_song_median(self):
-        song_total_play_df = self.__get_songs_total_play_df()
-        median_global_value = median(song_total_play_df['total_play'].tolist())
-        max_global_value = max(song_total_play_df['total_play'].tolist())
-        song_total_play_df['relevance_score'] = [total_play / max_global_value for total_play in
-                                                 song_total_play_df['total_play'].tolist()]
-        global_relevance_id_list = song_total_play_df.loc[
-            song_total_play_df['total_play'] >= median_global_value, 'song_id'].values
+        songs_df = self.__songs_statistical()
+        median_global_value = median(songs_df['total_play'].tolist())
+        max_global_value = max(songs_df['total_play'].tolist())
+        songs_df['relevance_score'] = [total_play / max_global_value for total_play in
+                                       songs_df['total_play'].tolist()]
+        global_relevance_id_list = songs_df.loc[
+            songs_df['total_play'] >= median_global_value, 'song_id'].values
         self.__logger.info('Mediana: ' + str(median_global_value))
-        self.__logger.info('Total play: ' + str(sum(song_total_play_df['total_play'].tolist())))
+        self.__logger.info('Total play: ' + str(sum(songs_df['total_play'].tolist())))
         self.__logger.info(global_relevance_id_list)
         self.__evaluated_recommendations_df['relevance'] = [True if x in global_relevance_id_list else False for x in
                                                             self.__recommendations_df[
                                                                 'song_id']]
         self.__evaluated_recommendations_df['relevance_score'] = 0.0
-        for song_id in song_total_play_df.index.values:
+        for song_id in songs_df.index.values:
             self.__evaluated_recommendations_df.loc[
-                self.__evaluated_recommendations_df['song_id'] == song_id, 'relevance_score'] = song_total_play_df.at[
+                self.__evaluated_recommendations_df['song_id'] == song_id, 'relevance_score'] = songs_df.at[
                 song_id, 'relevance_score']
+
+    def with_global_song_std(self):
+        songs_df = self.__songs_statistical()
+        standard = songs_df["total_liked"].std()
+        max_value = songs_df['total_liked'].max()
+        songs_df['relevance_score'] = [total / max_value for total in
+                                       songs_df['total_liked'].tolist()]
+        relevance_songs_id_list = songs_df.loc[
+            songs_df['total_liked'] >= standard, 'song_id'].values
+        self.__evaluated_recommendations_df['relevance'] = [True if x in relevance_songs_id_list else False for x in
+                                                            self.__recommendations_df[
+                                                                'song_id']]
+        self.__evaluated_recommendations_df['relevance_score'] = 0.0
+        for song_id in songs_df.index.values:
+            self.__evaluated_recommendations_df.loc[
+                self.__evaluated_recommendations_df['song_id'] == song_id, 'relevance_score'] = songs_df.at[
+                song_id, 'relevance_score']
+        self.__logger.info('Desvio Padrão: ' + str(standard))
+        self.__logger.info('Total Liked: ' + str(sum(songs_df['total_liked'].tolist())))

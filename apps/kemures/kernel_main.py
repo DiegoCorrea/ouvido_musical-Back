@@ -70,7 +70,7 @@ def one_run_kernel(song_set_size=1500, user_set_size=100):
         users_preferences_df=users_preferences_df,
         song_set_df=song_set_df
     )
-    an_rec.with_global_song_median()
+    an_rec.with_global_song_std()
     map_metric = MAPController(
         evaluated_recommendations_df=an_rec.get_evaluated_recommendations(),
         round_instance=round_instance
