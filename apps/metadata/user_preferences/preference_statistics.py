@@ -34,11 +34,6 @@ class PreferenceStatistics:
             songs_df['total_play'] >= partitioning_value, 'song_id'].values
         songs_df['global_relevance'] = [True if x in song_relevance_id_list else False for x in
                                         songs_df['song_id']]
-        songs_df['global_relevance_score'] = 0.0
-        for song_id in songs_df.index.values:
-            songs_df.loc[
-                songs_df['song_id'] == song_id, 'global_relevance_score'] = songs_df.at[
-                song_id, 'global_relevance_score']
         self.__song_relevance_df = songs_df
         self.__logger.info('Median: ' + str(partitioning_value))
         self.__logger.info('Max: ' + str(max_value))
@@ -54,11 +49,6 @@ class PreferenceStatistics:
             songs_df['total_play'] >= partitioning_value, 'song_id'].values
         songs_df['global_relevance'] = [True if x in song_relevance_id_list else False for x in
                                         songs_df['song_id']]
-        songs_df['global_relevance_score'] = 0.0
-        for song_id in songs_df.index.values:
-            songs_df.loc[
-                songs_df['song_id'] == song_id, 'global_relevance_score'] = songs_df.at[
-                song_id, 'global_relevance_score']
         self.__song_relevance_df = songs_df
         self.__logger.info('Median: ' + str(partitioning_value))
         self.__logger.info('Max: ' + str(max_value))
@@ -74,11 +64,6 @@ class PreferenceStatistics:
             songs_df['total_liked'] >= partitioning_value, 'song_id'].values
         songs_df['global_relevance'] = [True if x in song_relevance_id_list else False for x in
                                         songs_df['song_id']]
-        songs_df['global_relevance_score'] = 0.0
-        for song_id in songs_df.index.values:
-            songs_df.loc[
-                songs_df['song_id'] == song_id, 'global_relevance_score'] = songs_df.at[
-                song_id, 'global_relevance_score']
         self.__song_relevance_df = songs_df
         self.__logger.info('Standard Deviation: ' + str(partitioning_value))
         self.__logger.info('Max: ' + str(max_value))
@@ -94,11 +79,6 @@ class PreferenceStatistics:
             songs_df['total_liked'] >= partitioning_value, 'song_id'].values
         songs_df['global_relevance'] = [True if x in song_relevance_id_list else False for x in
                                         songs_df['song_id']]
-        songs_df['global_relevance_score'] = 0.0
-        for song_id in songs_df.index.values:
-            songs_df.loc[
-                songs_df['song_id'] == song_id, 'global_relevance_score'] = songs_df.at[
-                song_id, 'global_relevance_score']
         self.__song_relevance_df = songs_df
         self.__logger.info('Standard Deviation: ' + str(partitioning_value))
         self.__logger.info('Max: ' + str(max_value))

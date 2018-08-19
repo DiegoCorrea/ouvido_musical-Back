@@ -16,8 +16,6 @@ class HitRecommendations:
         self.__recommendations_df['global_relevance'] = False
         for song_id in self.__song_relevance_df['song_id'].unique().tolist():
             self.__recommendations_df.loc[self.__recommendations_df['song_id'] == song_id, 'global_relevance_score'] = \
-                self.__song_relevance_df.at[
-                    song_id, 'global_relevance_score']
+                self.__song_relevance_df.at[song_id, 'global_relevance_score']
             self.__recommendations_df.loc[self.__recommendations_df['song_id'] == song_id, 'global_relevance'] = \
-                self.__song_relevance_df.at[
-                    song_id, 'global_relevance']
+                self.__song_relevance_df.at[song_id, 'global_relevance']
