@@ -5,7 +5,6 @@ from random import sample
 import pandas as pd
 from django.utils import timezone
 
-from apps.kemures.analysis_of_recommendations.analysis_of_recommendations import AnalysisOfRecommendations
 from apps.kemures.kernel.config.global_var import SONG_SET_SIZE_LIST, TOTAL_RUN
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MAP.map_controller import MAPController
@@ -20,6 +19,8 @@ from apps.kemures.similarities.Cosine.cosine_controller import CosineController
 from apps.kemures.similarities.Cosine.cosine_overview import CosineOverview
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
+from apps.metadata.user_preferences.preference_statistics import PreferenceStatistics
+from apps.tecnics.content_based_metadata.hit_recommendations import HitRecommendations
 
 
 def make_graphics():
@@ -39,50 +40,53 @@ def make_graphics():
 
 
 def one_run_kernel(song_set_size=1500, user_set_size=100):
-    round_instance = Round.objects.create(
-        song_set_size=song_set_size,
-        user_set_size=user_set_size,
-        started_at=timezone.now(),
-        finished_at=timezone.now()
-    )
-    song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_set_size))
-    users_preferences_df = pd.DataFrame.from_records(
-        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
-    users_preferences_df = users_preferences_df.loc[
-        users_preferences_df['user_id'].isin(sample(users_preferences_df['user_id'].tolist(), user_set_size))]
+    song_set_df = pd.DataFrame()
+    users_preferences_df = pd.DataFrame()
     while users_preferences_df.empty:
         song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_set_size))
         users_preferences_df = pd.DataFrame.from_records(
             list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
         users_preferences_df = users_preferences_df.loc[
             users_preferences_df['user_id'].isin(sample(users_preferences_df['user_id'].tolist(), user_set_size))]
-    cos = CosineController(song_set_df=song_set_df, round_instance=round_instance)
-    cos.run_similarity()
-    user_ave = UserAverageController(
-        similarity_data_df=cos.get_song_similarity_df(),
+    round_instance = Round.objects.create(
+        song_set_size=song_set_size,
+        user_set_size=user_set_size,
+        started_at=timezone.now(),
+        finished_at=timezone.now()
+    )
+    preference_statistic = PreferenceStatistics(
+        users_preferences_df=users_preferences_df
+    )
+    preference_statistic.song_relevance_with_global_like_std()
+    cos_instance = CosineController(
+        song_set_df=song_set_df,
+        round_instance=round_instance
+    )
+    cos_instance.run_similarity()
+    user_ave_instance = UserAverageController(
+        similarity_data_df=cos_instance.get_song_similarity_df(),
         song_set_df=song_set_df,
         users_preferences_df=users_preferences_df,
         round_instance=round_instance
     )
-    user_ave.run_recommender()
-    an_rec = AnalysisOfRecommendations(
-        recommendations_df=user_ave.get_recommendations_df(),
-        users_preferences_df=users_preferences_df,
-        song_set_df=song_set_df
+    user_ave_instance.run_recommender()
+    hit_rec_instance = HitRecommendations(
+        recommendations_df=user_ave_instance.get_recommendations_df(),
+        song_relevance_df=preference_statistic.get_song_relevance_df()
     )
-    an_rec.with_global_song_std()
+    hit_rec_instance.run()
     map_metric = MAPController(
-        evaluated_recommendations_df=an_rec.get_evaluated_recommendations(),
+        evaluated_recommendations_df=hit_rec_instance.get_hited_recommendation_df(),
         round_instance=round_instance
     )
     map_metric.run_for_all_at_size()
     mrr_metric = MRRController(
-        evaluated_recommendations_df=an_rec.get_evaluated_recommendations(),
+        evaluated_recommendations_df=hit_rec_instance.get_hited_recommendation_df(),
         round_instance=round_instance
     )
     mrr_metric.run_for_all_at_size()
     ndcg_metric = NDCGController(
-        evaluated_recommendations_df=an_rec.get_evaluated_recommendations(),
+        evaluated_recommendations_df=hit_rec_instance.get_hited_recommendation_df(),
         round_instance=round_instance
     )
     ndcg_metric.run_for_all_at_size()
