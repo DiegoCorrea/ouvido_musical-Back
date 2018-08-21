@@ -5,28 +5,15 @@
     <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" line="3" />
+    <bookmark url="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" line="4" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel/round/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel/round/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/runtime/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/DAO/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/DAO/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/runtime/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/runtime/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/metadata/songs/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/songs/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/metadata/user_preferences/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/metadata/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/users/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/hit_recommendations.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/hit_recommendations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,23 +25,23 @@
     <session id="-630249398">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.4" value="3" />
+          <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="6" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="5" />
           <entry key="log" value="6" />
-          <entry key="md" value="21" />
+          <entry key="md" value="22" />
           <entry key="png" value="4" />
-          <entry key="py" value="534" />
+          <entry key="py" value="541" />
           <entry key="sql" value="9" />
           <entry key="txt" value="4" />
         </counts>
@@ -65,9 +52,9 @@
           <entry key="DBN-SQL" value="9" />
           <entry key="Image" value="4" />
           <entry key="Log" value="5" />
-          <entry key="Markdown" value="21" />
+          <entry key="Markdown" value="22" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="534" />
+          <entry key="Python" value="541" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -75,9 +62,9 @@
           <entry key="dummy" value="91" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="11934" />
+          <entry key="py" value="12091" />
           <entry key="sql" value="20" />
-          <entry key="txt" value="2235" />
+          <entry key="txt" value="2319" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -85,19 +72,22 @@
           <entry key="DBN-SQL" value="20" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="2326" />
-          <entry key="Python" value="11934" />
+          <entry key="PLAIN_TEXT" value="2410" />
+          <entry key="Python" value="12091" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
+        <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="213">
+              <caret line="59" column="60" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="60" />
+              <folding>
+                <element signature="e#24#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -185,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/algorithm.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/algorithm/models.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/models.py" />
@@ -229,13 +218,14 @@
         <option value="$PROJECT_DIR$/apps/kemures/analysis_of_recommendations/analysis_of_recommendations.py" />
         <option value="$PROJECT_DIR$/apps/metadata/songs/song_statistical.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel_main.py" />
-        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_controller.py" />
         <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/hit_recommendations.py" />
         <option value="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" />
+        <option value="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" />
+        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py" />
       </list>
     </option>
   </component>
@@ -265,25 +255,6 @@
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="kemures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="metadata" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="metadata" type="462c0819:PsiDirectoryNode" />
-              <item name="user_preferences" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
@@ -345,13 +316,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00031" summary="novos tamanhos de dados">
-      <created>1534197986278</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1534197986279</updated>
     </task>
     <task id="LOCAL-00032" summary="map overview gerando grafico">
       <created>1534198654007</created>
@@ -689,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534655345277</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="limpando código e adiconando ndcg ao relevance global corretamente">
+      <created>1534698735517</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1534698735518</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -750,7 +721,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="utf8 nas classes" />
     <MESSAGE value="cosine controller iniciando generalização" />
     <MESSAGE value="reformulação de variaveis" />
     <MESSAGE value="migrate" />
@@ -775,19 +745,13 @@
     <MESSAGE value="round do sistema adicionado" />
     <MESSAGE value="desvio padrão atualizado" />
     <MESSAGE value="refatorando estatistica de preferencias" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatorando estatistica de preferencias" />
+    <MESSAGE value="limpando código e adiconando ndcg ao relevance global corretamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="limpando código e adiconando ndcg ao relevance global corretamente" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="98" column="5" lean-forward="true" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -915,16 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="435">
-            <caret line="29" column="105" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="105" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1044,24 +998,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="96" column="26" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-            <marker date="1534697958721" expanded="true" signature="324:370" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/hit_recommendations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1072,10 +1008,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="117" column="78" selection-start-line="117" selection-start-column="78" selection-end-line="117" selection-end-column="78" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+            <marker date="1534803037631" expanded="true" signature="324:370" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="435">
+            <caret line="29" column="105" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="105" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1554">
+          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <caret line="3" column="9" selection-start-line="3" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="59" column="60" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="60" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

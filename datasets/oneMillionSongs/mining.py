@@ -1,5 +1,6 @@
-from random import sample
 import os
+from random import sample
+
 userPlayList = []
 directory = ''
 
@@ -89,6 +90,7 @@ def start(name, limit, userLimit=None):
     directory = 'datasets/oneMillionSongs/sets/' + str(name)
     song_list = getSongs(name, limit)
     getPlayCount(song_list, name, limit, userLimit)
+    generate_load(name=name)
 
 
 def generate_load(name):
@@ -103,6 +105,5 @@ def generate_load(name):
 ##########
 def main():
     start(name="five_thousand", limit=5000)
-    generate_load(name="five_thousand")
     start(name="ten_thousand", limit=10000)
-    generate_load(name="ten_thousand")
+    start(name="25000", limit=25000)

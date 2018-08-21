@@ -5,7 +5,7 @@ from random import sample
 import pandas as pd
 from django.utils import timezone
 
-from apps.kemures.kernel.config.global_var import SONG_SET_SIZE_LIST, TOTAL_RUN
+from apps.kemures.kernel.config.global_var import SONG_SET_SIZE_LIST, TOTAL_RUN, USER_SIZE
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MAP.map_controller import MAPController
 from apps.kemures.metrics.MAP.map_overview import MAPOverview
@@ -57,7 +57,7 @@ def one_run_kernel(song_set_size=1500, user_set_size=100):
     preference_statistic = PreferenceStatistics(
         users_preferences_df=users_preferences_df
     )
-    preference_statistic.song_relevance_with_global_like_std()
+    preference_statistic.song_relevance_with_global_play_std()
     cos_instance = CosineController(
         song_set_df=song_set_df,
         round_instance=round_instance
@@ -106,5 +106,5 @@ def with_config_run_kernel():
                 + str(i)
             )
             logger.info("*" * 60)
-            one_run_kernel(song_set_size=song_set_size, user_set_size=100)
+            one_run_kernel(song_set_size=song_set_size, user_set_size=USER_SIZE)
     make_graphics()
