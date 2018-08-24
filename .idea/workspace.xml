@@ -10,8 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/dataset_average.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/analytics_overview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/analytics_overview.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/analytics_overview.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +22,14 @@
     <session id="-630249398">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="6" />
-          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,7 +38,7 @@
           <entry key="log" value="6" />
           <entry key="md" value="22" />
           <entry key="png" value="4" />
-          <entry key="py" value="546" />
+          <entry key="py" value="549" />
           <entry key="sql" value="9" />
           <entry key="txt" value="4" />
         </counts>
@@ -52,7 +51,7 @@
           <entry key="Log" value="5" />
           <entry key="Markdown" value="22" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="546" />
+          <entry key="Python" value="549" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -60,9 +59,9 @@
           <entry key="dummy" value="111" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="12778" />
+          <entry key="py" value="13976" />
           <entry key="sql" value="20" />
-          <entry key="txt" value="2342" />
+          <entry key="txt" value="2367" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -70,8 +69,8 @@
           <entry key="DBN-SQL" value="20" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="2453" />
-          <entry key="Python" value="12778" />
+          <entry key="PLAIN_TEXT" value="2478" />
+          <entry key="Python" value="13976" />
         </counts>
       </usages-collector>
     </session>
@@ -83,12 +82,15 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/analytics_overview.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="489">
-                  <caret line="42" column="43" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="43" />
+                <state relative-caret-position="368">
+                  <caret line="121" column="29" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
                   <folding>
-                    <element signature="e#24#33#0" expanded="true" />
-                    <marker date="1534966220977" expanded="true" signature="104:409" ph="..." />
-                    <marker date="1534966220977" expanded="true" signature="1383:1388" ph="..." />
+                    <element signature="e#24#40#0" expanded="true" />
+                    <marker date="1535115233107" expanded="true" signature="263:609" ph="..." />
+                    <marker date="1535115233107" expanded="true" signature="1019:1589" ph="..." />
+                    <marker date="1535115233107" expanded="true" signature="2564:2858" ph="..." />
+                    <marker date="1535115233107" expanded="true" signature="3351:3357" ph="..." />
+                    <marker date="1535115233107" expanded="true" signature="5325:5709" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -97,12 +99,42 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+                <state relative-caret-position="315">
+                  <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+                  <folding>
+                    <element signature="e#24#38#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="444">
+                  <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="96" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="713">
+                  <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
                   <folding>
                     <element signature="e#24#38#0" expanded="true" />
                   </folding>
@@ -285,9 +317,7 @@
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
-              <item name="clean_set" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -337,13 +367,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00033" summary="mrr refatorada">
-      <created>1534205154827</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1534205154827</updated>
     </task>
     <task id="LOCAL-00034" summary="map refatorado">
       <created>1534205169516</created>
@@ -681,14 +704,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534826206522</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="analisando dataset">
+      <created>1534966684328</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1534966684328</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-30" width="1920" height="1110" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1544544" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1544544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -742,7 +772,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reformulação de variaveis" />
     <MESSAGE value="migrate" />
     <MESSAGE value="editando carregamento de 10 mil" />
     <MESSAGE value="voltando a rodar" />
@@ -767,7 +796,8 @@
     <MESSAGE value="refatorando estatistica de preferencias" />
     <MESSAGE value="limpando código e adiconando ndcg ao relevance global corretamente" />
     <MESSAGE value="acertando novos valores" />
-    <option name="LAST_COMMIT_MESSAGE" value="acertando novos valores" />
+    <MESSAGE value="analisando dataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="analisando dataset" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -911,13 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/DAO/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -978,13 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MRR/mrr_controller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1023,13 +1039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
-          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1050,24 +1059,51 @@
     <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/songs.csv">
       <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
+    <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        <state relative-caret-position="713">
+          <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
           <folding>
             <element signature="e#24#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/mining.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/metrics/MAP/map_overview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/datasets/oneMillionSongs/analytics_overview.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="42" column="43" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="43" />
+        <state relative-caret-position="368">
+          <caret line="121" column="29" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
           <folding>
-            <element signature="e#24#33#0" expanded="true" />
-            <marker date="1534966220977" expanded="true" signature="104:409" ph="..." />
-            <marker date="1534966220977" expanded="true" signature="1383:1388" ph="..." />
+            <element signature="e#24#40#0" expanded="true" />
+            <marker date="1535115233107" expanded="true" signature="263:609" ph="..." />
+            <marker date="1535115233107" expanded="true" signature="1019:1589" ph="..." />
+            <marker date="1535115233107" expanded="true" signature="2564:2858" ph="..." />
+            <marker date="1535115233107" expanded="true" signature="3351:3357" ph="..." />
+            <marker date="1535115233107" expanded="true" signature="5325:5709" ph="..." />
           </folding>
         </state>
       </provider>
