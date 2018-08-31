@@ -15,10 +15,8 @@ class UserAverageRecommendations(models.Model):
     round = models.ForeignKey(Round, unique=False, on_delete=models.CASCADE)
     # Data
     similarity = models.FloatField(default=0.0, unique=False)
-    iLike = models.BooleanField(default=False)
-    score = models.IntegerField(blank=True, null=True, unique=False)
-    # Timer
-    created_at = models.DateTimeField(auto_now_add=True)
+    relevance_like = models.BooleanField(default=False)
+    relevance_score = models.IntegerField(blank=True, null=True, unique=False)
 
     class Meta:
         unique_together = (('user', 'song'),)
