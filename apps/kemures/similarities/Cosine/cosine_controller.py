@@ -7,7 +7,7 @@ import nltk
 import numpy as np
 import pandas as pd
 from django.utils import timezone
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer, TfidfTransformer
 
 from apps.kemures.kernel.config.global_var import MAX_THREAD
 from apps.kemures.similarities.Cosine.runtime.models import CosineSimilarityRunTime
@@ -74,6 +74,26 @@ class CosineController:
         )
         tfidf = tfidf_vec.fit_transform([str(txt) for txt in text_list])
         return (tfidf * tfidf.T).toarray()
+
+    @classmethod
+    def test_similarity(cls, text_list):
+        LemVectorizer = CountVectorizer(tokenizer=cls.__lem_normalize, stop_words='english')
+        LemVectorizer.fit_transform(text_list)
+        print(LemVectorizer.vocabulary_)
+        tf_matrix = LemVectorizer.transform(text_list).toarray()
+        print(tf_matrix)
+        tfidfTran = TfidfTransformer(norm="l2")
+        tfidfTran.fit(tf_matrix)
+        print(tfidfTran.idf_)
+        tfidf_matrix = tfidfTran.transform(tf_matrix)
+        for t in tfidf_matrix.toarray():
+            print(t)
+        print("")
+        print("*")
+        print("")
+        cos_similarity_matrix = (tfidf_matrix * tfidf_matrix.T).toarray()
+        for c in cos_similarity_matrix:
+            print(c)
 
     def __start_cosine(self):
         matrix_data = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if

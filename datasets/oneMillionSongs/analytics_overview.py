@@ -34,6 +34,7 @@ class AnalyticsOverview:
 
     def make_set(self):
         self.__song_relevance_df.to_csv(self.__path_to_save_set + 'song_relevance.csv')
+        self.__users_relevance_df.to_csv(self.__path_to_save_set + 'users_relevance.csv')
         self.__users_preferences_df.to_csv(self.__path_to_save_set + 'preferences.csv')
         liked_songs_df = self.__songs_df.loc[self.__songs_df['id'].isin(self.__song_relevance_df['song_id'].tolist())]
         liked_songs_df.to_csv(self.__path_to_save_set + 'songs.csv')
@@ -54,11 +55,11 @@ class AnalyticsOverview:
         print('+ + Música menos preferida: ' + str(self.__songs_min_value))
         print('+ + Desvio Padrão das preferencias: ' + str(self.__songs_std_value))
         counted = Counter(self.__song_relevance_df['global_relevance'].tolist())
-        print('+ + Quantidade de músicas relevantes: ' + str(counted))
+        print('+ + Relevância musical: ' + str(counted))
         print('')
-        print('Total de álbuns: ' + str(self.__song_relevance_df.album.unique().size))
+        # print('Total de álbuns: ' + str(self.__song_relevance_df.album.unique().size))
         print('')
-        print('Total de Artistas: ' + str(self.__song_relevance_df.artist.unique().size))
+        # print('Total de Artistas: ' + str(self.__song_relevance_df.artist.unique().size))
         print('')
 
     def print_user_statistical(self):
@@ -68,7 +69,7 @@ class AnalyticsOverview:
         print('+ + Usuário com menos músicas preferidas: ' + str(self.__users_min_value))
         print('+ + Desvio Padrão das preferencias: ' + str(self.__users_std_value))
         counted = Counter(self.__users_relevance_df['global_relevance'].tolist())
-        print('+ + Quantidade de usuários relevantes: ' + str(counted))
+        print('+ + Usuários Relevantes: ' + str(counted))
 
     def calc_a_song(self, song_id):
         print("__ Begin: calc -> song_id: " + str(song_id))
@@ -97,7 +98,7 @@ class AnalyticsOverview:
         self.__songs_std_value = songs_preference_df["total_liked"].std()
         self.__songs_max_value = songs_preference_df['total_liked'].max()
         self.__songs_min_value = songs_preference_df['total_liked'].min()
-        songs_preference_df['global_relevance_score'] = ["{0:.1f}".format(total / self.__songs_max_value) for total in
+        songs_preference_df['global_relevance_score'] = ["{0:.5f}".format(total / self.__songs_max_value) for total in
                                                          songs_preference_df['total_liked'].tolist()]
         song_relevance_id_list = songs_preference_df.loc[
             songs_preference_df['total_liked'] >= self.__songs_std_value, 'song_id'].values
@@ -146,7 +147,7 @@ class AnalyticsOverview:
         for index, row in users_df.iterrows():
             # print('index: ', str(index))
             users_df.at[index, 'global_relevance'] = True if row['total_liked'] >= self.__users_std_value else False
-            users_df.at[index, 'global_relevance_score'] = "{0:.1f}".format(row['total_liked'] / self.__users_max_value)
+            users_df.at[index, 'global_relevance_score'] = "{0:.5f}".format(row['total_liked'] / self.__users_max_value)
         return users_df
 
     def users_make_global_relevance(self, users_relevance_df):
@@ -187,7 +188,11 @@ class AnalyticsOverview:
     def song_global_relevance_score_histo(self):
         x = self.__song_relevance_df.sort_values(by=['global_relevance_score'])
         plt.figure()
-        plt.hist(x['global_relevance_score'].values.tolist(), histtype='bar')
+        data = x['global_relevance_score'].values.tolist()
+        binwidth = 0.05
+        plt.hist(data, bins=30, normed=True, alpha=0.5,
+                 histtype='stepfilled', color='steelblue',
+                 edgecolor='none')
         plt.xlabel('Música preferida normalizada')
         plt.ylabel('Quantidade')
         # plt.grid(True)
@@ -202,7 +207,11 @@ class AnalyticsOverview:
         plt.figure()
         plt.xlabel('Preferência do usuário normalizada')
         plt.ylabel('Quantidade')
-        plt.hist(x['global_relevance_score'].values.tolist(), histtype='bar')
+        data = x['global_relevance_score'].values.tolist()
+        binwidth = 0.05
+        plt.hist(data, bins=30, normed=True, alpha=0.5,
+                 histtype='stepfilled', color='steelblue',
+                 edgecolor='none')
         # plt.grid(True)
         plt.savefig(
             self.__path_to_save_graphics
