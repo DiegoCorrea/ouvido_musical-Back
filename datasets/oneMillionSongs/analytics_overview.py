@@ -189,13 +189,12 @@ class AnalyticsOverview:
         x = self.__song_relevance_df.sort_values(by=['global_relevance_score'])
         plt.figure()
         data = x['global_relevance_score'].values.tolist()
-        binwidth = 0.05
-        plt.hist(data, bins=30, normed=True, alpha=0.5,
+        plt.hist(data, bins=30, alpha=0.5,
                  histtype='stepfilled', color='steelblue',
                  edgecolor='none')
         plt.xlabel('Música preferida normalizada')
         plt.ylabel('Quantidade')
-        # plt.grid(True)
+        plt.grid(axis='y')
         plt.savefig(
             self.__path_to_save_graphics
             + 'song_global_relevance_score_histo.png'
@@ -208,11 +207,10 @@ class AnalyticsOverview:
         plt.xlabel('Preferência do usuário normalizada')
         plt.ylabel('Quantidade')
         data = x['global_relevance_score'].values.tolist()
-        binwidth = 0.05
-        plt.hist(data, bins=30, normed=True, alpha=0.5,
+        plt.hist(data, bins=30, alpha=0.5,
                  histtype='stepfilled', color='steelblue',
                  edgecolor='none')
-        # plt.grid(True)
+        plt.grid(axis='y')
         plt.savefig(
             self.__path_to_save_graphics
             + 'user_global_relevance_score_histo.png'
