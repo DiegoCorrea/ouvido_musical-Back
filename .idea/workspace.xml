@@ -9,9 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_model_length.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +38,7 @@
           <entry key="log" value="6" />
           <entry key="md" value="23" />
           <entry key="png" value="14" />
-          <entry key="py" value="570" />
+          <entry key="py" value="572" />
           <entry key="sql" value="11" />
           <entry key="txt" value="5" />
         </counts>
@@ -52,7 +51,7 @@
           <entry key="Log" value="5" />
           <entry key="Markdown" value="23" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="570" />
+          <entry key="Python" value="572" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -60,7 +59,7 @@
           <entry key="dummy" value="138" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="16285" />
+          <entry key="py" value="16524" />
           <entry key="sql" value="21" />
           <entry key="txt" value="2410" />
         </counts>
@@ -71,25 +70,42 @@
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
           <entry key="PLAIN_TEXT" value="2548" />
-          <entry key="Python" value="16285" />
+          <entry key="Python" value="16524" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_model_length.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+            <state relative-caret-position="368">
+              <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+              <folding>
+                <element signature="e#24#38#0" expanded="true" />
+                <marker date="1536516484528" expanded="true" signature="1956:2116" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/round/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="24" selection-start-line="8" selection-end-line="8" selection-end-column="24" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -176,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/runtime/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/metrics/MRR/runtime/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/caller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/algorithm.py" />
@@ -219,7 +234,6 @@
         <option value="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/mining.py" />
         <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/content_main.py" />
-        <option value="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" />
         <option value="$PROJECT_DIR$/apps/metadata/songs/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/DAO/models.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/DAO/models.py" />
@@ -227,6 +241,8 @@
         <option value="$PROJECT_DIR$/apps/kemures/kernel/round/models.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/analytics_overview.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/set/relevance_set/load.sql" />
+        <option value="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" />
+        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" />
       </list>
     </option>
   </component>
@@ -261,6 +277,27 @@
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="kemures" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="tecnics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -281,18 +318,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/tecnics/content_based_metadata" />
+      <recent name="$PROJECT_DIR$/apps/kemures/kernel/round/migrations" />
+      <recent name="$PROJECT_DIR$/apps/kemures/kernel/round" />
+      <recent name="$PROJECT_DIR$/apps/kemures/metrics/NDCG" />
+      <recent name="$PROJECT_DIR$/apps/kemures/metrics/MRR" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apps/tecnics/content_based_metadata" />
       <recent name="$PROJECT_DIR$/apps/kemures/kernel/config" />
       <recent name="$PROJECT_DIR$/apps/kemures/kernel_config" />
       <recent name="$PROJECT_DIR$/apps/kemures" />
       <recent name="$PROJECT_DIR$/apps/metadata" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/kemures/kernel/round/migrations" />
-      <recent name="$PROJECT_DIR$/apps/kemures/kernel/round" />
-      <recent name="$PROJECT_DIR$/apps/kemures/metrics/NDCG" />
-      <recent name="$PROJECT_DIR$/apps/kemures/metrics/MRR" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -904,13 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1031,13 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/round/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/metadata/songs/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1052,8 +1076,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="24" selection-start-line="8" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/round/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+            <marker date="1536516484528" expanded="true" signature="1956:2116" ph="..." />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

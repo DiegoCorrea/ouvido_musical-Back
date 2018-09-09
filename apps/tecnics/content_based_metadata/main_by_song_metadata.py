@@ -5,7 +5,7 @@ from random import sample
 import pandas as pd
 from django.utils import timezone
 
-from apps.kemures.kernel.config.global_var import SONG_SET_SIZE_LIST, TOTAL_RUN, USER_SIZE
+from apps.kemures.kernel.config.global_var import METADATA_TO_PROCESS_LIST, TOTAL_RUN, USER_SIZE
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MAP.map_controller import MAPController
 from apps.kemures.metrics.MAP.map_overview import MAPOverview
@@ -39,17 +39,23 @@ def make_graphics():
     ndcg_over.make_time_graphics()
 
 
-def one_run_kernel(song_set_size=1500, user_set_size=100):
-    song_set_df = pd.DataFrame()
-    users_preferences_df = pd.DataFrame()
-    while users_preferences_df.empty:
-        song_set_df = pd.DataFrame.from_records(sample(list(Song.objects.all().values()), song_set_size))
-        users_preferences_df = pd.DataFrame.from_records(
-            list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
-        users_preferences_df = users_preferences_df.loc[
-            users_preferences_df['user_id'].isin(sample(users_preferences_df['user_id'].tolist(), user_set_size))]
+def get_song_df(metadata_to_process):
+    song_set_df = pd.DataFrame.from_records(list(Song.objects.all().values()))
+    if isinstance(metadata_to_process, list):
+        metadata_to_process.append('id')
+        new = song_set_df.filter(metadata_to_process, axis=1)
+    else:
+        new = song_set_df.filter(['id', metadata_to_process], axis=1)
+    return new
+
+
+def one_run_kernel(metadata_to_process='title', user_set_size=100):
+    song_set_df = get_song_df(metadata_to_process)
+    users_preferences_df = pd.DataFrame.from_records(
+        list(UserPreference.objects.all().values()))
     round_instance = Round.objects.create(
-        song_set_size=song_set_size,
+        metadata_used=metadata_to_process,
+        song_set_size=Song.objects.count(),
         user_set_size=user_set_size,
         started_at=timezone.now(),
         finished_at=timezone.now()
@@ -96,15 +102,15 @@ def one_run_kernel(song_set_size=1500, user_set_size=100):
 
 def with_config_run_kernel():
     logger = logging.getLogger(__name__)
-    for song_set_size in SONG_SET_SIZE_LIST:
+    for metadata in METADATA_TO_PROCESS_LIST:
         for i in range(TOTAL_RUN):
             logger.info("*" * 60)
             logger.info(
-                "*\tTamanho do modelo de músicas ("
-                + str(song_set_size)
+                "*\tProcessando o metadado ("
+                + str(metadata)
                 + ") Rodada: "
                 + str(i)
             )
             logger.info("*" * 60)
-            one_run_kernel(song_set_size=song_set_size, user_set_size=USER_SIZE)
+            one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
     make_graphics()
