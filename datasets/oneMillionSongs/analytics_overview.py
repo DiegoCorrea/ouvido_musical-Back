@@ -9,13 +9,14 @@ import numpy as np
 import pandas as pd
 
 from apps.kemures.kernel.config.global_var import MAX_THREAD
+import matplotlib.ticker as ticker
 
 
 class AnalyticsOverview:
     def __init__(self):
         self.__songs_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/songs.csv')
         self.__users_preferences_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/playCount.csv')
-        # self.__users_preferences_df = self.__users_preferences_df[:1000]
+        # self.__users_preferences_df = self.__users_preferences_df[:10000]
         self.__song_relevance_df = None
         self.__users_relevance_df = None
         self.__users_df = None
@@ -35,11 +36,11 @@ class AnalyticsOverview:
     def make_set(self):
         self.__song_relevance_df.to_csv(self.__path_to_save_set + 'song_relevance.csv')
         self.__users_relevance_df.to_csv(self.__path_to_save_set + 'users_relevance.csv')
-        self.__users_preferences_df.to_csv(self.__path_to_save_set + 'preferences.csv')
+        self.__users_preferences_df.to_csv(self.__path_to_save_set + 'preferences.csv', index=False)
         liked_songs_df = self.__songs_df.loc[self.__songs_df['id'].isin(self.__song_relevance_df['song_id'].tolist())]
-        liked_songs_df.to_csv(self.__path_to_save_set + 'songs.csv')
+        liked_songs_df.to_csv(self.__path_to_save_set + 'songs.csv', index=False, columns=['id', 'title', 'artist', 'album'])
         self.__users_relevance_df.to_csv(self.__path_to_save_set + 'user_relevance.csv')
-        self.__users_df.to_csv(self.__path_to_save_set + 'users.csv')
+        self.__users_df.to_csv(self.__path_to_save_set + 'users.csv', index=False)
 
     def print_song_statistical(self):
         print('')
@@ -188,13 +189,17 @@ class AnalyticsOverview:
     def song_global_relevance_score_histo(self):
         x = self.__song_relevance_df.sort_values(by=['global_relevance_score'])
         plt.figure()
+        ax = plt.axes()
+        ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
+        ax.xaxis.set_minor_locator(ticker.MultipleLocator(1))
         data = x['global_relevance_score'].values.tolist()
-        plt.hist(data, bins=30, alpha=0.5,
-                 histtype='stepfilled', color='steelblue',
-                 edgecolor='none')
+        plt.hist(data, bins=20, alpha=0.5,
+                 histtype='bar', color='steelblue',
+                 edgecolor='black')
         plt.xlabel('Música preferida normalizada')
         plt.ylabel('Quantidade')
         plt.grid(axis='y')
+        # plt.xticks([0.0, 0.25, 0.5, 0.75, 1.0])
         plt.savefig(
             self.__path_to_save_graphics
             + 'song_global_relevance_score_histo.png'
@@ -204,13 +209,17 @@ class AnalyticsOverview:
     def user_global_relevance_score_histo(self):
         x = self.__users_relevance_df.sort_values(by=['global_relevance_score'])
         plt.figure()
+        ax = plt.axes()
+        ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
+        ax.xaxis.set_minor_locator(ticker.MultipleLocator(1))
         plt.xlabel('Preferência do usuário normalizada')
         plt.ylabel('Quantidade')
         data = x['global_relevance_score'].values.tolist()
-        plt.hist(data, bins=30, alpha=0.5,
-                 histtype='stepfilled', color='steelblue',
-                 edgecolor='none')
+        plt.hist(data, bins=20, alpha=0.5,
+                 histtype='bar', color='steelblue',
+                 edgecolor='black')
         plt.grid(axis='y')
+        # plt.xticks([0., 0.25, 0.5, 0.75, 1.])
         plt.savefig(
             self.__path_to_save_graphics
             + 'user_global_relevance_score_histo.png'
