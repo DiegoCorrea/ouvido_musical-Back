@@ -34,7 +34,6 @@ class UserAverageController:
         finished_at = timezone.now()
         UserAverageRunTime.objects.create(
             round=self.__round_instance,
-            song_set_size=self.__song_set_size,
             started_at=started_at,
             finished_at=finished_at
         )
