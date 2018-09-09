@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-
+from random import sample
 import pandas as pd
 from django.utils import timezone
 
@@ -45,17 +45,21 @@ def get_song_df(metadata_to_process):
         new = song_set_df.filter(metadata_to_process, axis=1)
     else:
         new = song_set_df.filter(['id', metadata_to_process], axis=1)
-    return new
+    return new[:2500]
+
+
+def get_users_preference_df(song_set_df):
+    users_preferences_df = pd.DataFrame.from_records(
+        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
+    return users_preferences_df
 
 
 def one_run_kernel(metadata_to_process='title', user_set_size=100):
     song_set_df = get_song_df(metadata_to_process)
-    users_preferences_df = pd.DataFrame.from_records(
-        list(UserPreference.objects.all().values())
-    )
+    users_preferences_df = get_users_preference_df(song_set_df)
     round_instance = Round.objects.create(
         metadata_used=metadata_to_process,
-        song_set_size=Song.objects.count(),
+        song_set_size=song_set_df['id'].count(),
         user_set_size=user_set_size,
         started_at=timezone.now(),
         finished_at=timezone.now()

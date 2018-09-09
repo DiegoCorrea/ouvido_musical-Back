@@ -112,8 +112,8 @@ class PreferenceStatistics:
 
     def _song_calc(self, songs_df):
         for index, row in songs_df.iterrows():
-            songs_df.at[index, 'global_relevance'] = True if row['total_liked'] >= self.__users_std_value else False
-            songs_df.at[index, 'global_relevance_score'] = "{0:.3f}".format(row['total_liked'] / self.__users_max_value)
+            songs_df.at[index, 'global_relevance'] = True if row['total_liked'] >= self.__songs_std_value else False
+            songs_df.at[index, 'global_relevance_score'] = "{0:.3f}".format(row['total_liked'] / self.__songs_max_value)
         return songs_df
 
     def songs_make_global_relevance(self, songs_count_df):
