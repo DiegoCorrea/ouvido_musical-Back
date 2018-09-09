@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import logging
-from random import sample
 
 import pandas as pd
 from django.utils import timezone
@@ -52,7 +51,8 @@ def get_song_df(metadata_to_process):
 def one_run_kernel(metadata_to_process='title', user_set_size=100):
     song_set_df = get_song_df(metadata_to_process)
     users_preferences_df = pd.DataFrame.from_records(
-        list(UserPreference.objects.all().values()))
+        list(UserPreference.objects.all().values())
+    )
     round_instance = Round.objects.create(
         metadata_used=metadata_to_process,
         song_set_size=Song.objects.count(),
@@ -63,7 +63,7 @@ def one_run_kernel(metadata_to_process='title', user_set_size=100):
     preference_statistic = PreferenceStatistics(
         users_preferences_df=users_preferences_df
     )
-    preference_statistic.song_relevance_with_global_play_std()
+    preference_statistic.run()
     cos_instance = CosineController(
         song_set_df=song_set_df,
         round_instance=round_instance
@@ -72,7 +72,7 @@ def one_run_kernel(metadata_to_process='title', user_set_size=100):
     user_ave_instance = UserAverageController(
         similarity_data_df=cos_instance.get_song_similarity_df(),
         song_set_df=song_set_df,
-        users_preferences_df=users_preferences_df,
+        users_preferences_df=preference_statistic.get_users_relevance_preferences_df(user_size=user_set_size),
         round_instance=round_instance
     )
     user_ave_instance.run_recommender()
