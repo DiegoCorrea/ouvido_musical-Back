@@ -50,8 +50,10 @@ def get_song_df(metadata_to_process):
 
 def get_users_preference_df(song_set_df):
     users_preferences_df = pd.DataFrame.from_records(
-        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values()))
-    return users_preferences_df
+        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
+    )
+    ids = users_preferences_df['user_id'].unique().tolist()[:2000]
+    return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
 
 
 def one_run_kernel(metadata_to_process='title', user_set_size=100):
@@ -102,19 +104,18 @@ def one_run_kernel(metadata_to_process='title', user_set_size=100):
     ndcg_metric.run_for_all_at_size()
     round_instance.finished_at = timezone.now()
     round_instance.save()
+    preference_statistic.print_song_statistical()
+    preference_statistic.print_user_statistical()
 
 
 def with_config_run_kernel():
     logger = logging.getLogger(__name__)
     for metadata in METADATA_TO_PROCESS_LIST:
-        for i in range(TOTAL_RUN):
-            logger.info("*" * 60)
-            logger.info(
-                "*\tProcessando o metadado ("
-                + str(metadata)
-                + ") Rodada: "
-                + str(i)
-            )
-            logger.info("*" * 60)
-            one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
-    make_graphics()
+        logger.info("*" * 60)
+        logger.info(
+            "*\tProcessando o metadado - "
+            + str(metadata)
+        )
+        logger.info("*" * 60)
+        one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
+    # make_graphics()

@@ -46,7 +46,7 @@ class UserAverageController:
         self.__logger.info("[Start Run User Average]")
 
     def get_user_average_recommendations(self, user):
-        self.__logger.info("[Start Get User Recommendation] - id: " + str(user))
+        # self.__logger.info("[Start Get User Recommendation] - id: " + str(user))
         user_model_df = self.__users_preferences_df.loc[self.__users_preferences_df['user_id'] == user]
         user_similarity_songs_model_df = self.__similarity_data_df.loc[user_model_df['song_id'].tolist()]
         index_list = user_similarity_songs_model_df.index.values.tolist()
@@ -75,4 +75,5 @@ class UserAverageController:
         recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
         for df in users_recommendations_df_list:
             recommendations_df = pd.concat([recommendations_df, df], sort=False)
+        # self.__logger.debug(recommendations_df)
         return recommendations_df

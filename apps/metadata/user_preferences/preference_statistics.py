@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
+from collections import Counter
 from multiprocessing.dummy import Pool as ThreadPool
 
 import numpy as np
@@ -35,12 +36,11 @@ class PreferenceStatistics:
 
     def __calc_by_users_map(self):
         self.__logger.info("__ Begin: __calc_by_users_map")
-        users_id_split_list = np.array_split(np.array(self.__users_preferences_df['user_id'].unique().tolist()),
-                                             MAX_THREAD)
         pool = ThreadPool(MAX_THREAD)
         users_preference_df = pool.map(
             self.user_preference_count,
-            users_id_split_list
+            np.array_split(np.array(self.__users_preferences_df['user_id'].unique().tolist()),
+                           MAX_THREAD)
         )
         pool.close()
         pool.join()
@@ -55,9 +55,8 @@ class PreferenceStatistics:
 
     def users_make_global_relevance(self, users_count_df):
         self.__logger.info("__ Begin: users_make_global_relevance")
-        users_relevance_df_split = np.array_split(users_count_df, MAX_THREAD)
         pool = ThreadPool(MAX_THREAD)
-        users_relevance_df = pool.map(self._user_calc, users_relevance_df_split)
+        users_relevance_df = pool.map(self._user_calc, np.array_split(users_count_df, MAX_THREAD))
         pool.close()
         pool.join()
         self.__logger.info("__ End: users_make_global_relevance")
@@ -73,21 +72,9 @@ class PreferenceStatistics:
         self.__logger.info("__ End: user_relevance_with_global_like_std")
 
     # Song Methods
-    def _song_preference_count_df(self, song_id):
-        print("----> " + str(song_id))
-        song_df = self.__users_preferences_df.loc[self.__users_preferences_df['song_id'] == song_id]
-        return pd.DataFrame(data=[[song_id, sum(song_df['play_count'].values), song_df['song_id'].count()]],
-                            columns=['song_id', 'total_play', 'total_liked'], index=[song_id])
-
-    def song_preference_count(self, song_id):
-        print("----> " + str(song_id))
-        song_df = self.__users_preferences_df.loc[self.__users_preferences_df['song_id'] == song_id]
-        return [song_id, sum(song_df['play_count'].values), song_df['song_id'].count()]
-
     def _song_preference_count_list(self, songs_id_list):
         songs_relevance_df = pd.DataFrame()
         for song_id in songs_id_list:
-            print("----> " + str(song_id))
             song_df = self.__users_preferences_df.loc[self.__users_preferences_df['song_id'] == song_id]
             songs_relevance_df = pd.concat([
                 songs_relevance_df,
@@ -98,17 +85,15 @@ class PreferenceStatistics:
 
     def __count_by_songs_map(self):
         self.__logger.info("__ Begin: __count_by_songs_map")
-        # songs_id_split_list = np.array_split(np.array(self.__users_preferences_df['song_id'].unique().tolist()),
-        #                                      MAX_THREAD)
         pool = ThreadPool(MAX_THREAD)
         songs_preference_df = pool.map(
-            self.song_preference_count,
-            self.__users_preferences_df['song_id'].unique().tolist()
+            self._song_preference_count_list,
+            np.array_split(np.array(self.__users_preferences_df['song_id'].unique().tolist()), MAX_THREAD)
         )
         pool.close()
         pool.join()
         self.__logger.info("__ End: __count_by_songs_map")
-        return pd.DataFrame(data=songs_preference_df, columns=['song_id', 'total_play', 'total_liked'])
+        return pd.concat(songs_preference_df)
 
     def _song_calc(self, songs_df):
         for index, row in songs_df.iterrows():
@@ -118,10 +103,8 @@ class PreferenceStatistics:
 
     def songs_make_global_relevance(self, songs_count_df):
         self.__logger.info("__ Begin: songs_make_global_relevance")
-        songs_count_df.set_index('song_id')
-        songs_relevance_df_split = np.array_split(songs_count_df, MAX_THREAD)
         pool = ThreadPool(MAX_THREAD)
-        songs_relevance_df = pool.map(self._song_calc, songs_relevance_df_split)
+        songs_relevance_df = pool.map(self._song_calc, np.array_split(songs_count_df, MAX_THREAD))
         pool.close()
         pool.join()
         self.__logger.info("__ End: songs_make_global_relevance")
@@ -134,7 +117,6 @@ class PreferenceStatistics:
         self.__songs_max_value = songs_count_df['total_liked'].max()
         self.__songs_min_value = songs_count_df['total_liked'].min()
         self.__songs_relevance_df = self.songs_make_global_relevance(songs_count_df)
-        self.__songs_relevance_df.set_index('song_id')
         self.__logger.info("__ End: song_relevance_with_global_like_std")
 
     # callers
@@ -151,3 +133,25 @@ class PreferenceStatistics:
 
     def get_song_relevance_df(self):
         return self.__songs_relevance_df
+
+    def print_song_statistical(self):
+        print('')
+        print('+ + Total de músicas: ' + str(self.__songs_relevance_df.song_id.size))
+        print('+ + Total de músicas: ' + str(self.__songs_relevance_df['song_id'].count()))
+        print('+ + Total de Reproduções: ' + str(self.__users_preferences_df['play_count'].sum()))
+        print('+ + Música mais preferida: ' + str(self.__songs_max_value))
+        print('+ + Música menos preferida: ' + str(self.__songs_min_value))
+        print('+ + Desvio Padrão das preferencias: ' + str(self.__songs_std_value))
+        counted = Counter(self.__songs_relevance_df['global_relevance'].tolist())
+        print('+ + Relevância musical: ' + str(counted))
+        print('')
+
+    def print_user_statistical(self):
+        print('')
+        print('Total de usuários: ' + str(self.__users_relevance_df.user_id.size))
+        print('+ + Usuário com mais músicas preferidas: ' + str(self.__users_max_value))
+        print('+ + Usuário com menos músicas preferidas: ' + str(self.__users_min_value))
+        print('+ + Desvio Padrão das preferencias: ' + str(self.__users_std_value))
+        counted = Counter(self.__users_relevance_df['global_relevance'].tolist())
+        print('+ + Usuários Relevantes: ' + str(counted))
+        print('')

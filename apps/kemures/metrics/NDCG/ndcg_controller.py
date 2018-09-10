@@ -30,7 +30,8 @@ class NDCGController:
 
     @classmethod
     def __ndcg_at_k(cls, r, k, method=0):
-        dcg_max = NDCGController.__dcg_at_k(sorted(r, reverse=True), k, method)
+        score = [float(i) for i in r]
+        dcg_max = NDCGController.__dcg_at_k(sorted(score, reverse=True), k, method)
         if not dcg_max:
             return 0.
         return NDCGController.__dcg_at_k(r, k, method) / dcg_max
