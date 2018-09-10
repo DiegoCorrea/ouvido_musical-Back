@@ -142,7 +142,10 @@ class PreferenceStatistics:
 
     def get_users_relevance_preferences_df(self, user_size):
         self.__users_relevance_df.sort_values("global_relevance")
-        return self.__users_relevance_df[:user_size]
+        relevance_users = self.__users_relevance_df[:user_size]
+        users_relevance_preferences_df = self.__users_preferences_df.loc[
+            self.__users_preferences_df['user_id'].isin(relevance_users['user_id'].unique().tolist())]
+        return users_relevance_preferences_df
 
     def get_song_relevance_df(self):
         return self.__songs_relevance_df
