@@ -45,7 +45,7 @@ def get_song_df(metadata_to_process):
         new = song_set_df.filter(metadata_to_process, axis=1)
     else:
         new = song_set_df.filter(['id', metadata_to_process], axis=1)
-    return new[:100]
+    return new[:2000]
 
 
 def get_users_preference_df(song_set_df):
