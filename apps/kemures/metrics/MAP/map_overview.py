@@ -5,7 +5,8 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from apps.kemures.kernel.config.global_var import METADATA_OPTION_GRAPH, AT_LIST, SONG_SET_SIZE_LIST, MAP_PATH_GRAPHICS, METADATA_TO_PROCESS_LIST
+from apps.kemures.kernel.config.global_var import METADATA_OPTION_GRAPH, AT_LIST, SONG_SET_SIZE_LIST, MAP_PATH_GRAPHICS, \
+    METADATA_TO_PROCESS_LIST
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MAP.DAO.models import MAP
 from apps.kemures.metrics.MAP.runtime.models import MAPRunTime
@@ -26,8 +27,10 @@ class MAPOverview:
         metric_df = pd.DataFrame.from_records(list(MAP.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(MAPRunTime.objects.all().values()))
         self.__metric_results_collection_df = metric_df.copy()
-        self.__metric_results_collection_df = self.__metric_results_collection_df.join(metric_run_time_df.set_index('id_id'), on='id')
-        self.__metric_results_collection_df = self.__metric_results_collection_df.join(rounds_df.set_index('id'), on='round_id')
+        self.__metric_results_collection_df = self.__metric_results_collection_df.join(
+            metric_run_time_df.set_index('id_id'), on='id')
+        self.__metric_results_collection_df = self.__metric_results_collection_df.join(rounds_df.set_index('id'),
+                                                                                       on='round_id')
 
     def make_time_graphics(self):
         self.__all_time_graph_line()

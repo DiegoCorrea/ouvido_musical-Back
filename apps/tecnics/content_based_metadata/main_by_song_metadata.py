@@ -23,19 +23,12 @@ from apps.tecnics.content_based_metadata.hit_recommendations import HitRecommend
 
 
 def make_graphics():
-    cos_over = CosineOverview()
-    cos_over.make_time_graphics()
-    user_over = UserAverageOverview()
-    user_over.make_time_graphics()
     map_over = MAPOverview()
-    map_over.make_results_graphics()
-    map_over.make_time_graphics()
+    map_over.make_graphics_by_metadata()
     mrr_over = MRROverview()
-    mrr_over.make_results_graphics()
-    mrr_over.make_time_graphics()
+    mrr_over.make_graphics_by_metadata()
     ndcg_over = NDCGOverview()
-    ndcg_over.make_results_graphics()
-    ndcg_over.make_time_graphics()
+    ndcg_over.make_graphics_by_metadata()
 
 
 def get_song_df(metadata_to_process):
