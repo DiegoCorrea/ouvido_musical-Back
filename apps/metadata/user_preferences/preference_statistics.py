@@ -118,6 +118,7 @@ class PreferenceStatistics:
 
     def songs_make_global_relevance(self, songs_count_df):
         self.__logger.info("__ Begin: songs_make_global_relevance")
+        songs_count_df.set_index('song_id')
         songs_relevance_df_split = np.array_split(songs_count_df, MAX_THREAD)
         pool = ThreadPool(MAX_THREAD)
         songs_relevance_df = pool.map(self._song_calc, songs_relevance_df_split)
@@ -133,6 +134,7 @@ class PreferenceStatistics:
         self.__songs_max_value = songs_count_df['total_liked'].max()
         self.__songs_min_value = songs_count_df['total_liked'].min()
         self.__songs_relevance_df = self.songs_make_global_relevance(songs_count_df)
+        self.__songs_relevance_df.set_index('song_id')
         self.__logger.info("__ End: song_relevance_with_global_like_std")
 
     # callers
