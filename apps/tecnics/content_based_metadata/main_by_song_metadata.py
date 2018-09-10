@@ -38,18 +38,22 @@ def get_song_df(metadata_to_process):
         new = song_set_df.filter(metadata_to_process, axis=1)
     else:
         new = song_set_df.filter(['id', metadata_to_process], axis=1)
-    return new[:2000]
+    # return new[:2000]
+    return new
 
 
 def get_users_preference_df(song_set_df):
-    users_preferences_df = pd.DataFrame.from_records(
-        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
+    # users_preferences_df = pd.DataFrame.from_records(
+    #     list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
+    # )
+    # ids = users_preferences_df['user_id'].unique().tolist()[:2000]
+    # return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
+    return pd.DataFrame.from_records(
+        list(UserPreference.objects.all().values())
     )
-    ids = users_preferences_df['user_id'].unique().tolist()[:2000]
-    return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
 
 
-def one_run_kernel(metadata_to_process='title', user_set_size=100):
+def one_run_kernel(metadata_to_process='title', user_set_size=1000):
     song_set_df = get_song_df(metadata_to_process)
     users_preferences_df = get_users_preference_df(song_set_df)
     round_instance = Round.objects.create(

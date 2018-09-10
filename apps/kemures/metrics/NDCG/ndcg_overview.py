@@ -24,6 +24,7 @@ class NDCGOverview:
         self.__metadata_to_process = metadata_to_process
         self.__song_set_size = song_set_size
         rounds_df = pd.DataFrame.from_records(list(Round.objects.all().values()))
+        rounds_df = rounds_df[-3:]
         rounds_df = rounds_df.drop(columns=['finished_at', 'started_at'])
         metric_df = pd.DataFrame.from_records(list(NDCG.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(NDCGRunTime.objects.all().values()))
@@ -158,7 +159,7 @@ class NDCGOverview:
         self.__logger.info("[Start NDCG Overview - Results - (Graph Line)]")
         plt.figure()
         plt.grid(True)
-        plt.xlabel('Metadado')
+        plt.xlabel('Tamanho da lista de recomendação')
         plt.ylabel('Valor')
         for metadata, style in zip(self.__metadata_to_process, METADATA_OPTION_GRAPH):
             at_df = self.__metric_results_collection_df[
