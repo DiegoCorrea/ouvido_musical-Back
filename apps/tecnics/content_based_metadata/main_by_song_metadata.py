@@ -53,7 +53,7 @@ def get_users_preference_df(song_set_df):
     )
 
 
-def one_run_kernel(metadata_to_process='title', user_set_size=1000):
+def one_run_kernel(metadata_to_process='title', user_set_size=10000):
     song_set_df = get_song_df(metadata_to_process)
     users_preferences_df = get_users_preference_df(song_set_df)
     round_instance = Round.objects.create(
@@ -115,4 +115,4 @@ def with_config_run_kernel():
         )
         logger.info("*" * 60)
         one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
-    # make_graphics()
+    make_graphics()

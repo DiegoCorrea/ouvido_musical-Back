@@ -1,17 +1,17 @@
 # Kernel Threads
 MAX_THREAD = 3
 
-USER_SIZE = 100
+USER_SIZE = 10000
 USER_SIZE_LIST = [100, 200, 300]
 SONG_SET_SIZE_LIST = [1000, 5000, 10000]
 
 METADATA_TO_PROCESS_LIST = ['title', 'artist', 'album']
 METADATA_OPTION_GRAPH = ['bo--', 'r^--', 'ys--']
 
-RECOMMENDATION_LIST_SIZE = 10
+RECOMMENDATION_LIST_SIZE = 20
 TOTAL_RUN = 10
 
-AT_LIST = [1, 3, 7, 10]
+AT_LIST = [1, 5, 10, 15, 20]
 
 # List of paths to save Graphics and CSV
 COSINE_PATH_GRAPHICS = 'files/kemures/similarities/cosine/graphs/'

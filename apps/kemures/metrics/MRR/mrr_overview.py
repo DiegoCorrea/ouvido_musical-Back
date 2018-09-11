@@ -24,7 +24,6 @@ class MRROverview:
         self.__metadata_to_process = metadata_to_process
         self.__song_set_size_list = song_set_size_list
         rounds_df = pd.DataFrame.from_records(list(Round.objects.all().values()))
-        rounds_df = rounds_df[-3:]
         rounds_df = rounds_df.drop(columns=['finished_at', 'started_at'])
         metric_df = pd.DataFrame.from_records(list(MRR.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(MRRRunTime.objects.all().values()))
