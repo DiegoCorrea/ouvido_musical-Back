@@ -58,10 +58,10 @@ class UserAverageController:
             for column in user_similarity_songs_model_df.columns:
                 if column in index_list:
                     continue
-                # similarity = float(sum(user_similarity_songs_model_df[column].tolist())) / float(
-                #     user_similarity_songs_model_df[column].count())
                 similarity = float(sum(user_similarity_songs_model_df[column].tolist())) / float(
-                    user_model_df['song_id'].count())
+                    user_similarity_songs_model_df[column].count())
+                # similarity = float(sum(user_similarity_songs_model_df[column].tolist())) / float(
+                #     user_model_df['song_id'].count())
                 if similarity == 0.0:
                     continue
                 recommendation_list[column] = similarity

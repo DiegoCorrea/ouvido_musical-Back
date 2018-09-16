@@ -68,7 +68,7 @@ class CosineController:
     def find_similarity(cls, text_list):
         tfidf_vec = TfidfVectorizer(
             tokenizer=cls.__lem_normalize,
-            stop_words={'english'},
+            stop_words='english',
             analyzer='word'
         )
         tfidf = tfidf_vec.fit_transform([str(txt) for txt in text_list])
