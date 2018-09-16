@@ -2,6 +2,7 @@
 import logging
 from multiprocessing.dummy import Pool as ThreadPool
 
+import numpy as np
 import pandas as pd
 from django.utils import timezone
 
@@ -45,34 +46,40 @@ class UserAverageController:
         )
         self.__logger.info("[Start Run User Average]")
 
-    def get_user_average_recommendations(self, user):
-        # self.__logger.info("[Start Get User Recommendation] - id: " + str(user))
-        user_model_df = self.__users_preferences_df.loc[self.__users_preferences_df['user_id'] == user]
-        user_similarity_songs_model_df = self.__similarity_data_df.loc[user_model_df['song_id'].tolist()]
-        index_list = user_similarity_songs_model_df.index.values.tolist()
-        user_similarity_songs_model_df.drop(columns=index_list)
-        recommendation_list = {}
-        for column in user_similarity_songs_model_df.columns:
-            similarity = float(sum(user_similarity_songs_model_df[column].tolist())) / float(
-                user_similarity_songs_model_df[column].count())
-            if similarity == 0.0 or column in index_list:
-                continue
-            recommendation_list[column] = similarity
-        user_recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
-        for song in recommendation_list:
-            df = pd.DataFrame(
-                data=[[user, song, recommendation_list[song]]],
-                columns=self.__recommendations_columns,
-            )
-            user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)
-        return user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[0:RECOMMENDATION_LIST_SIZE]
+    def get_user_average_recommendations(self, user_id_list):
+        users_recommendation_df = pd.DataFrame()
+        for user_id in user_id_list:
+            self.__logger.info("[Start Get User Recommendation] - id: " + str(user_id))
+            user_model_df = self.__users_preferences_df.loc[self.__users_preferences_df['user_id'] == user_id]
+            user_similarity_songs_model_df = self.__similarity_data_df.loc[user_model_df['song_id'].tolist()]
+            index_list = user_similarity_songs_model_df.index.values.tolist()
+            user_similarity_songs_model_df.drop(columns=index_list)
+            recommendation_list = {}
+            for column in user_similarity_songs_model_df.columns:
+                if column in index_list:
+                    continue
+                # similarity = float(sum(user_similarity_songs_model_df[column].tolist())) / float(
+                #     user_similarity_songs_model_df[column].count())
+                similarity = float(sum(user_similarity_songs_model_df[column].tolist())) / float(
+                    user_model_df['song_id'].count())
+                if similarity == 0.0:
+                    continue
+                recommendation_list[column] = similarity
+            user_recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
+            for song in recommendation_list:
+                df = pd.DataFrame(
+                    data=[[user_id, song, recommendation_list[song]]],
+                    columns=self.__recommendations_columns,
+                )
+                user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)
+            users_recommendation_df = pd.concat(
+                [user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[0:RECOMMENDATION_LIST_SIZE], users_recommendation_df], sort=False)
+        return users_recommendation_df
 
     def __start_user_average(self):
         pool = ThreadPool(MAX_THREAD)
-        users_recommendations_df_list = pool.map(self.get_user_average_recommendations, self.__user_list)
+        users_recommendations_df_list = pool.map(self.get_user_average_recommendations,
+                                                 np.array_split(self.__user_list, MAX_THREAD))
         pool.close()
         pool.join()
-        recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
-        for df in users_recommendations_df_list:
-            recommendations_df = pd.concat([recommendations_df, df], sort=False)
-        return recommendations_df
+        return pd.concat(users_recommendations_df_list, sort=False)
