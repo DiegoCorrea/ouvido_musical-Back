@@ -5,28 +5,27 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from apps.kemures.kernel.config.global_var import METADATA_OPTION_GRAPH, METADATA_TO_PROCESS_LIST, AT_LIST, \
-    SONG_SET_SIZE_LIST, \
-    NDCG_PATH_GRAPHICS
+from apps.kemures.kernel.config.global_var import METADATA_OPTION_GRAPH, NDCG_PATH_GRAPHICS
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.NDCG.DAO.models import NDCG
 from apps.kemures.metrics.NDCG.runtime.models import NDCGRunTime
 
 
 class NDCGOverview:
-    def __init__(self, song_set_size=SONG_SET_SIZE_LIST, at_size_list=AT_LIST,
-                 directory_to_save_graphics=NDCG_PATH_GRAPHICS, metadata_to_process=METADATA_TO_PROCESS_LIST):
+    def __init__(self, directory_to_save_graphics=NDCG_PATH_GRAPHICS):
         self.__logger = logging.getLogger(__name__)
         self.__directory_to_save_graphics = str(directory_to_save_graphics)
         if not os.path.exists(self.__directory_to_save_graphics):
             os.makedirs(self.__directory_to_save_graphics)
-        self.__at_size_list = at_size_list
-        self.__metadata_to_process = metadata_to_process
-        self.__song_set_size = song_set_size
         rounds_df = pd.DataFrame.from_records(list(Round.objects.all().values()))
         rounds_df = rounds_df.drop(columns=['finished_at', 'started_at'])
         metric_df = pd.DataFrame.from_records(list(NDCG.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(NDCGRunTime.objects.all().values()))
+        self.__metadata_to_process = rounds_df['metadata_used'].unique().tolist()
+        self.__song_set_size_list = rounds_df['song_set_size'].unique().tolist().sort()
+        self.__user_set_size_list = rounds_df['user_set_size'].unique().tolist().sort()
+        self.__at_size_list = metric_df['at'].unique().tolist().sort()
+        self.__graph_style = METADATA_OPTION_GRAPH[:len(self.__metadata_to_process)]
         self.__metric_results_collection_df = metric_df.copy()
         self.__metric_results_collection_df = self.__metric_results_collection_df.join(
             metric_run_time_df.set_index('id_id'), on='id')
@@ -44,7 +43,7 @@ class NDCGOverview:
             plt.grid(True)
             plt.xlabel('Rodada')
             plt.ylabel('Tempo (segundos)')
-            for size in self.__song_set_size:
+            for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
                             self.__metric_results_collection_df['at'] == at)]
@@ -73,7 +72,7 @@ class NDCGOverview:
             plt.xlabel('Tamanho do conjunto de músicas')
             plt.ylabel('Tempo (segundos)')
             box_plot_matrix = []
-            for size in self.__song_set_size:
+            for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
                             self.__metric_results_collection_df['at'] == at)]
@@ -81,7 +80,7 @@ class NDCGOverview:
                                         zip(runs_size_at_df['finished_at'], runs_size_at_df['started_at'])])
             plt.boxplot(
                 box_plot_matrix,
-                labels=self.__song_set_size
+                labels=self.__song_set_size_list
             )
             plt.savefig(
                 self.__directory_to_save_graphics
@@ -103,7 +102,7 @@ class NDCGOverview:
             plt.grid(True)
             plt.xlabel('Rodada')
             plt.ylabel('Valor')
-            for size in self.__song_set_size:
+            for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
                             self.__metric_results_collection_df['at'] == at)]
@@ -131,14 +130,14 @@ class NDCGOverview:
             plt.xlabel('Tamanho do conjunto de músicas')
             plt.ylabel('valor')
             box_plot_matrix = []
-            for size in self.__song_set_size:
+            for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
                             self.__metric_results_collection_df['at'] == at)]
                 box_plot_matrix.append([value for value in runs_size_at_df['value'].tolist()])
             plt.boxplot(
                 box_plot_matrix,
-                labels=self.__song_set_size
+                labels=self.__song_set_size_list
             )
             plt.savefig(
                 self.__directory_to_save_graphics
@@ -160,7 +159,7 @@ class NDCGOverview:
         plt.grid(True)
         plt.xlabel('Tamanho da lista de recomendação')
         plt.ylabel('Valor')
-        for metadata, style in zip(self.__metadata_to_process, METADATA_OPTION_GRAPH):
+        for metadata, style in zip(self.__metadata_to_process, self.__graph_style):
             at_df = self.__metric_results_collection_df[
                 self.__metric_results_collection_df['metadata_used'] == metadata]
             at_df.sort_values("at")

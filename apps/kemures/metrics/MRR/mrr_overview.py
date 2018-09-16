@@ -5,28 +5,27 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from apps.kemures.kernel.config.global_var import METADATA_OPTION_GRAPH, METADATA_TO_PROCESS_LIST, AT_LIST, \
-    SONG_SET_SIZE_LIST, \
-    MRR_PATH_GRAPHICS
+from apps.kemures.kernel.config.global_var import METADATA_OPTION_GRAPH, MRR_PATH_GRAPHICS
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MRR.DAO.models import MRR
 from apps.kemures.metrics.MRR.runtime.models import MRRRunTime
 
 
 class MRROverview:
-    def __init__(self, song_set_size_list=SONG_SET_SIZE_LIST, at_size_list=AT_LIST,
-                 directory_to_save_graphics=MRR_PATH_GRAPHICS, metadata_to_process=METADATA_TO_PROCESS_LIST):
+    def __init__(self, directory_to_save_graphics=MRR_PATH_GRAPHICS):
         self.__logger = logging.getLogger(__name__)
         self.__directory_to_save_graphics = str(directory_to_save_graphics)
         if not os.path.exists(self.__directory_to_save_graphics):
             os.makedirs(self.__directory_to_save_graphics)
-        self.__at_size_list = at_size_list
-        self.__metadata_to_process = metadata_to_process
-        self.__song_set_size_list = song_set_size_list
         rounds_df = pd.DataFrame.from_records(list(Round.objects.all().values()))
         rounds_df = rounds_df.drop(columns=['finished_at', 'started_at'])
         metric_df = pd.DataFrame.from_records(list(MRR.objects.all().values()))
         metric_run_time_df = pd.DataFrame.from_records(list(MRRRunTime.objects.all().values()))
+        self.__metadata_to_process = rounds_df['metadata_used'].unique().tolist()
+        self.__song_set_size_list = rounds_df['song_set_size'].unique().tolist().sort()
+        self.__user_set_size_list = rounds_df['user_set_size'].unique().tolist().sort()
+        self.__at_size_list = metric_df['at'].unique().tolist().sort()
+        self.__graph_style = METADATA_OPTION_GRAPH[:len(self.__metadata_to_process)]
         self.__metric_results_collection_df = metric_df.copy()
         self.__metric_results_collection_df = self.__metric_results_collection_df.join(
             metric_run_time_df.set_index('id_id'), on='id')
@@ -160,7 +159,7 @@ class MRROverview:
         plt.grid(True)
         plt.xlabel('Tamanho da lista de recomendação')
         plt.ylabel('Valor')
-        for metadata, style in zip(self.__metadata_to_process, METADATA_OPTION_GRAPH):
+        for metadata, style in zip(self.__metadata_to_process, self.__graph_style):
             at_df = self.__metric_results_collection_df[
                 self.__metric_results_collection_df['metadata_used'] == metadata]
             at_df.sort_values("at")
