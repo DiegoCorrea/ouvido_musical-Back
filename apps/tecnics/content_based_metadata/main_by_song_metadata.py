@@ -105,44 +105,46 @@ def one_run_kernel(metadata_to_process='title', user_set_size=100):
     preference_statistic.print_user_statistical()
 
 
-def concat_df(df_list, label, metadata_to_process):
+def concat_df(df_list, label, metadata_to_process_list):
     for index, row in df_list.iterrows():
-        df_list.at[index, label] = str(row[metadata_to_process[0]] + ' ' + row[metadata_to_process[1]])
+        new_document = ''
+        for metadata in metadata_to_process_list:
+            new_document = str(row[metadata]) + ' '
+        df_list.at[index, label] = new_document
     return df_list
 
 
-def concat_metadata_df(df_list, metadata_to_process):
-    label = str(str(metadata_to_process[0][0]).upper() + str(metadata_to_process[0][1]).upper() + '+' + str(
-        metadata_to_process[1][0]).upper() + str(metadata_to_process[1][1]).upper())
+def concat_metadata_df(df_list, metadata_to_process_list):
+    label = ''
+    for i in range(len(metadata_to_process_list)-1):
+        if i == 0:
+            label = metadata_to_process_list[i][0].upper() + metadata_to_process_list[i][1].upper()
+        else:
+            label = label + '+' + metadata_to_process_list[i][0].upper() + metadata_to_process_list[i][1].upper()
     df_list[label] = ''
     pool = ThreadPool(MAX_THREAD)
-    songs_relevance_df = pool.map(partial(concat_df, label=label, metadata_to_process=metadata_to_process),
+    songs_relevance_df = pool.map(partial(concat_df, label=label, metadata_to_process_list=metadata_to_process_list),
                                   np.array_split(df_list, MAX_THREAD))
     pool.close()
     pool.join()
     return pd.concat(songs_relevance_df, sort=False), label
 
 
-def get_song_concat_df(metadata_to_process):
-    metadata = metadata_to_process
+def get_song_set_by_concat_metadata_df(metadata_to_process_list):
     song_set_df = pd.DataFrame.from_records(list(Song.objects.all().values()))
-    if isinstance(metadata_to_process, list):
-        metadata.append('id')
-        song_df = song_set_df.filter(metadata, axis=1)
-    else:
-        song_df = song_set_df.filter(['id', metadata], axis=1)
+    song_df = song_set_df.filter(['id'] + metadata_to_process_list, axis=1)
     song_df.set_index('id', drop=False)
-    new_df, label = concat_metadata_df(song_df, metadata_to_process)
-    new_df.drop(metadata_to_process, axis=1)
-    new_df.set_index('id', drop=False)
-    return new_df, label
+    new_song_set_df, concat_label = concat_metadata_df(song_df, metadata_to_process_list)
+    new_song_set_df.drop(metadata_to_process_list, axis=1)
+    new_song_set_df.set_index('id', drop=False)
+    return new_song_set_df, concat_label
 
 
-def concat_metadata_run(metadata_to_process, user_set_size=100):
-    song_set_df, label = get_song_concat_df(metadata_to_process)
+def concat_metadata_run(metadata_to_process_list, user_set_size=100):
+    song_set_df, concat_label = get_song_set_by_concat_metadata_df(metadata_to_process_list)
     users_preferences_df = get_users_preference_df(song_set_df)
     round_instance = Round.objects.create(
-        metadata_used=label,
+        metadata_used=concat_label,
         song_set_size=song_set_df['id'].count(),
         user_set_size=user_set_size,
         started_at=timezone.now(),
@@ -200,5 +202,5 @@ def with_config_run_kernel():
         )
         logger.info("*" * 60)
         one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
-    concat_metadata_run(metadata_to_process=['title', 'album'], user_set_size=USER_SIZE)
+    concat_metadata_run(metadata_to_process_list=['title', 'album'], user_set_size=USER_SIZE)
     make_graphics()
