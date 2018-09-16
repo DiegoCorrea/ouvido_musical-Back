@@ -92,10 +92,10 @@ class NDCGOverview:
         self.__logger.info("[Finish NDCG Overview - Run Time - (Graph Box Plot)]")
 
     def make_results_graphics(self):
-        self.__all_results_graph_line()
-        self.__all_results_graph_box_plot()
+        self.__by_length_results_graph_line()
+        self.__by_length_results_graph_box_plot()
 
-    def __all_results_graph_line(self):
+    def __by_length_results_graph_line(self):
         self.__logger.info("[Start NDCG Overview - Results - (Graph Line)]")
         for at in self.__at_size_list:
             plt.figure()
@@ -122,7 +122,7 @@ class NDCGOverview:
             plt.close()
         self.__logger.info("[Finish NDCG Overview - Results - (Graph Line)]")
 
-    def __all_results_graph_box_plot(self):
+    def __by_length_results_graph_box_plot(self):
         self.__logger.info("[Start NDCG Overview - Results - (Graph Box Plot)]")
         for at in self.__at_size_list:
             plt.figure()

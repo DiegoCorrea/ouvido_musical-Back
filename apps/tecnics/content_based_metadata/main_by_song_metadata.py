@@ -53,7 +53,7 @@ def get_users_preference_df(song_set_df):
     )
 
 
-def one_run_kernel(metadata_to_process='title', user_set_size=10000):
+def one_run_kernel(metadata_to_process='title', user_set_size=100):
     song_set_df = get_song_df(metadata_to_process)
     users_preferences_df = get_users_preference_df(song_set_df)
     round_instance = Round.objects.create(
