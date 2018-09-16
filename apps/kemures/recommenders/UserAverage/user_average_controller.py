@@ -75,5 +75,4 @@ class UserAverageController:
         recommendations_df = pd.DataFrame(columns=self.__recommendations_columns)
         for df in users_recommendations_df_list:
             recommendations_df = pd.concat([recommendations_df, df], sort=False)
-        # self.__logger.debug(recommendations_df)
         return recommendations_df

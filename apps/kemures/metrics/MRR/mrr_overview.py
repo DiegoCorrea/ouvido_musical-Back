@@ -24,7 +24,7 @@ class MRROverview:
         self.__metadata_to_process = rounds_df['metadata_used'].unique().tolist()
         self.__song_set_size_list = rounds_df['song_set_size'].unique().tolist().sort()
         self.__user_set_size_list = rounds_df['user_set_size'].unique().tolist().sort()
-        self.__at_size_list = metric_df['at'].unique().tolist().sort()
+        self.__at_size_list = metric_df['at'].unique().tolist()
         self.__graph_style = METADATA_OPTION_GRAPH[:len(self.__metadata_to_process)]
         self.__metric_results_collection_df = metric_df.copy()
         self.__metric_results_collection_df = self.__metric_results_collection_df.join(

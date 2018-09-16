@@ -116,7 +116,7 @@ def concat_df(df_list, label, metadata_to_process_list):
 
 def concat_metadata_df(df_list, metadata_to_process_list):
     label = ''
-    for i in range(len(metadata_to_process_list)-1):
+    for i in range(len(metadata_to_process_list)):
         if i == 0:
             label = metadata_to_process_list[i][0].upper() + metadata_to_process_list[i][1].upper()
         else:
