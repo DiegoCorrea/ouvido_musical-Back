@@ -200,4 +200,5 @@ def with_config_run_kernel():
         )
         logger.info("*" * 60)
         one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
+    concat_metadata_run(metadata_to_process=['title', 'artist'], user_set_size=USER_SIZE)
     make_graphics()

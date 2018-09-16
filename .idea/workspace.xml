@@ -9,9 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/metrics/MAP/map_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,7 +58,7 @@
           <entry key="dummy" value="138" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="18709" />
+          <entry key="py" value="18716" />
           <entry key="sql" value="21" />
           <entry key="txt" value="2410" />
         </counts>
@@ -72,7 +69,7 @@
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
           <entry key="PLAIN_TEXT" value="2548" />
-          <entry key="Python" value="18709" />
+          <entry key="Python" value="18716" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -80,38 +77,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="110" column="55" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="55" />
-              <folding>
-                <element signature="e#24#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="135" column="43" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
+            <state relative-caret-position="848">
+              <caret line="202" column="88" selection-start-line="202" selection-start-column="88" selection-end-line="202" selection-end-column="88" />
               <folding>
                 <element signature="e#24#38#0" expanded="true" />
-                <marker date="1537056224166" expanded="true" signature="1799:1804" ph="..." />
-                <marker date="1537056224166" expanded="true" signature="1799:2204" ph="..." />
-                <marker date="1537056224166" expanded="true" signature="4450:4472" ph="..." />
-                <marker date="1537056224166" expanded="true" signature="4989:5052" ph="..." />
+                <marker date="1537057126642" expanded="true" signature="1799:1804" ph="..." />
+                <marker date="1537057126642" expanded="true" signature="1799:2204" ph="..." />
+                <marker date="1537057126642" expanded="true" signature="4450:4472" ph="..." />
+                <marker date="1537057126642" expanded="true" signature="4989:5052" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1173,24 +1149,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="135" column="43" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-            <marker date="1537056224166" expanded="true" signature="1799:1804" ph="..." />
-            <marker date="1537056224166" expanded="true" signature="1799:2204" ph="..." />
-            <marker date="1537056224166" expanded="true" signature="4450:4472" ph="..." />
-            <marker date="1537056224166" expanded="true" signature="4989:5052" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="848">
+          <caret line="202" column="88" selection-start-line="202" selection-start-column="88" selection-end-line="202" selection-end-column="88" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+            <marker date="1537057126642" expanded="true" signature="1799:1804" ph="..." />
+            <marker date="1537057126642" expanded="true" signature="1799:2204" ph="..." />
+            <marker date="1537057126642" expanded="true" signature="4450:4472" ph="..." />
+            <marker date="1537057126642" expanded="true" signature="4989:5052" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
