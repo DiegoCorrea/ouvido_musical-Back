@@ -38,19 +38,19 @@ def get_song_df(metadata_to_process):
         new = song_set_df.filter(metadata_to_process, axis=1)
     else:
         new = song_set_df.filter(['id', metadata_to_process], axis=1)
-    # return new[:2000]
-    return new
+    return new[:2000]
+    # return new
 
 
 def get_users_preference_df(song_set_df):
-    # users_preferences_df = pd.DataFrame.from_records(
-    #     list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
-    # )
-    # ids = users_preferences_df['user_id'].unique().tolist()[:2000]
-    # return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
-    return pd.DataFrame.from_records(
-        list(UserPreference.objects.all().values())
+    users_preferences_df = pd.DataFrame.from_records(
+        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
     )
+    ids = users_preferences_df['user_id'].unique().tolist()[:2000]
+    return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
+    # return pd.DataFrame.from_records(
+    #     list(UserPreference.objects.all().values())
+    # )
 
 
 def one_run_kernel(metadata_to_process='title', user_set_size=100):
@@ -134,7 +134,7 @@ def get_song_set_by_concat_metadata_df(metadata_to_process_list):
     song_set_df = pd.DataFrame.from_records(list(Song.objects.all().values()))
     song_df = song_set_df.filter(['id'] + metadata_to_process_list, axis=1)
     song_df.set_index('id', drop=False)
-    new_song_set_df, concat_label = concat_metadata_df(song_df, metadata_to_process_list)
+    new_song_set_df, concat_label = concat_metadata_df(song_df[:2000], metadata_to_process_list)
     new_song_set_df.drop(metadata_to_process_list, axis=1)
     new_song_set_df.set_index('id', drop=False)
     return new_song_set_df, concat_label
@@ -203,4 +203,5 @@ def with_config_run_kernel():
         logger.info("*" * 60)
         one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
     concat_metadata_run(metadata_to_process_list=['title', 'album'], user_set_size=USER_SIZE)
+    concat_metadata_run(metadata_to_process_list=['title', 'artist'], user_set_size=USER_SIZE)
     make_graphics()
