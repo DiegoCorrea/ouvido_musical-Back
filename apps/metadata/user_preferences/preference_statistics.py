@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 import logging
+import os
 from collections import Counter
 from multiprocessing.dummy import Pool as ThreadPool
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
@@ -21,6 +23,11 @@ class PreferenceStatistics:
         self.__users_std_value = 0.0
         self.__users_max_value = 0.0
         self.__users_min_value = 0.0
+        self.__songs_mean_value = 0.0
+        self.__users_mean_value = 0.0
+        self.__path_to_save_graphics = 'files/metadata/'
+        if not os.path.exists(self.__path_to_save_graphics):
+            os.makedirs(self.__path_to_save_graphics)
 
     # Users Methods
     def user_preference_count(self, users_id_list):
@@ -50,7 +57,8 @@ class PreferenceStatistics:
     def _user_calc(self, users_df):
         for index, row in users_df.iterrows():
             users_df.at[index, 'global_relevance'] = True if row['total_liked'] >= self.__users_std_value else False
-            users_df.at[index, 'global_relevance_score'] = "{0:.3f}".format(row['total_liked'] / self.__users_max_value)
+            users_df.at[index, 'global_relevance_score'] = float(
+                "{0:.3f}".format(row['total_liked'] / self.__users_max_value))
         return users_df
 
     def users_make_global_relevance(self, users_count_df):
@@ -68,6 +76,7 @@ class PreferenceStatistics:
         self.__users_std_value = users_count_df["total_liked"].std()
         self.__users_max_value = users_count_df['total_liked'].max()
         self.__users_min_value = users_count_df['total_liked'].min()
+        self.__users_mean_value = users_count_df['total_liked'].mean()
         self.__users_relevance_df = self.users_make_global_relevance(users_count_df)
         self.__logger.info("__ End: user_relevance_with_global_like_std")
 
@@ -98,7 +107,8 @@ class PreferenceStatistics:
     def _song_calc(self, songs_df):
         for index, row in songs_df.iterrows():
             songs_df.at[index, 'global_relevance'] = True if row['total_liked'] >= self.__songs_std_value else False
-            songs_df.at[index, 'global_relevance_score'] = "{0:.3f}".format(row['total_liked'] / self.__songs_max_value)
+            songs_df.at[index, 'global_relevance_score'] = float(
+                "{0:.2f}".format(row['total_liked'] / self.__songs_max_value))
         return songs_df
 
     def songs_make_global_relevance(self, songs_count_df):
@@ -116,6 +126,7 @@ class PreferenceStatistics:
         self.__songs_std_value = songs_count_df["total_liked"].std()
         self.__songs_max_value = songs_count_df['total_liked'].max()
         self.__songs_min_value = songs_count_df['total_liked'].min()
+        self.__songs_mean_value = songs_count_df['total_liked'].mean()
         self.__songs_relevance_df = self.songs_make_global_relevance(songs_count_df)
         self.__logger.info("__ End: song_relevance_with_global_like_std")
 
@@ -155,3 +166,39 @@ class PreferenceStatistics:
         counted = Counter(self.__users_relevance_df['global_relevance'].tolist())
         print('+ + Usuários Relevantes: ' + str(counted))
         print('')
+
+    def song_global_relevance_score_histo(self):
+        x = self.__songs_relevance_df.sort_values(by=['global_relevance_score'])
+        plt.figure()
+        data = x['global_relevance_score'].values.tolist()
+        plt.hist(data, bins=100, alpha=0.5,
+                 histtype='bar', color='steelblue',
+                 edgecolor='black')
+        plt.xlabel('Música preferida normalizada')
+        plt.ylabel('Quantidade')
+        plt.grid(axis='y')
+        plt.savefig(
+            self.__path_to_save_graphics
+            + 'song_global_relevance_score_histo.png'
+        )
+        plt.close()
+
+    def user_global_relevance_score_histo(self):
+        x = self.__users_relevance_df.sort_values(by=['global_relevance_score'])
+        plt.figure()
+        plt.xlabel('Preferência do usuário normalizada')
+        plt.ylabel('Quantidade')
+        data = x['global_relevance_score'].values.tolist()
+        plt.hist(data, bins=100, alpha=0.5,
+                 histtype='bar', color='steelblue',
+                 edgecolor='black')
+        plt.grid(axis='y')
+        plt.savefig(
+            self.__path_to_save_graphics
+            + 'user_global_relevance_score_histo.png'
+        )
+        plt.close()
+
+    def make_graphics(self):
+        self.song_global_relevance_score_histo()
+        self.user_global_relevance_score_histo()
