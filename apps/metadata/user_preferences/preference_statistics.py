@@ -2,7 +2,7 @@
 import logging
 import os
 from collections import Counter
-from multiprocessing import Pool as ThreadPool
+from multiprocessing.dummy import Pool as ThreadPool
 
 import matplotlib.pyplot as plt
 import numpy as np

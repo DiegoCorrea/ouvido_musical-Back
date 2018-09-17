@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import string
-from multiprocessing import Pool as ThreadPool
+from multiprocessing.dummy import Pool as ThreadPool
 
 import nltk
 import numpy as np

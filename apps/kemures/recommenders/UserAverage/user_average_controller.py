@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-from multiprocessing import Pool as ThreadPool
+from multiprocessing.dummy import Pool as ThreadPool
 
 import numpy as np
 import pandas as pd
