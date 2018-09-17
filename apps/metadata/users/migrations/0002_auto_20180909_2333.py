@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('users', '0001_initial'),
     ]
@@ -13,6 +12,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='id',
-            field=models.CharField(db_index=True, default='d157f9d9b48811e8bd37708bcdd0cf1e', max_length=255, primary_key=True, serialize=False, unique=True),
+            field=models.CharField(db_index=True, default='d157f9d9b48811e8bd37708bcdd0cf1e', max_length=255,
+                                   primary_key=True, serialize=False, unique=True),
         ),
     ]

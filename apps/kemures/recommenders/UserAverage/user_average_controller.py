@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-from multiprocessing.dummy import Pool as ThreadPool
+from multiprocessing import Pool as ThreadPool
 
 import numpy as np
 import pandas as pd
@@ -73,7 +73,8 @@ class UserAverageController:
                 )
                 user_recommendations_df = pd.concat([user_recommendations_df, df], sort=False)
             users_recommendation_df = pd.concat(
-                [user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[0:RECOMMENDATION_LIST_SIZE], users_recommendation_df], sort=False)
+                [user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[
+                 0:RECOMMENDATION_LIST_SIZE], users_recommendation_df], sort=False)
         return users_recommendation_df
 
     def __start_user_average(self):

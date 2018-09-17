@@ -104,6 +104,6 @@ class CosineController:
         similarity_matrix = np.zeros(self.__song_set_df['id'].count())
         for matrix in feature_matrix_similarity:
             similarity_matrix = np.add(similarity_matrix, matrix)
-        similarity_matrix = similarity_matrix/len(feature_matrix_similarity)
+        similarity_matrix = similarity_matrix / len(feature_matrix_similarity)
         return pd.DataFrame(data=similarity_matrix, index=self.__song_set_df['id'].tolist(),
                             columns=self.__song_set_df['id'].tolist())
