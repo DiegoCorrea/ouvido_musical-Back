@@ -31,36 +31,42 @@ def make_graphics():
     # ndcg_over.make_graphics_by_metadata()
 
 
-def get_song_df(metadata_to_process):
+def get_song_df(metadata_to_process_list):
     song_set_df = pd.DataFrame.from_records(list(Song.objects.all().values()))
-    if metadata_to_process is None:
-        return song_set_df[:2000]
-        # return song_set_df
-    if isinstance(metadata_to_process, list):
-        metadata_to_process.append('id')
-        new = song_set_df.filter(metadata_to_process, axis=1)
+    label = ''
+    if metadata_to_process_list is None:
+        # return song_set_df[:2000]
+        return song_set_df, 'all'
+    if len(metadata_to_process_list) >= 2:
+        for i in range(len(metadata_to_process_list)):
+            if i == 0:
+                label = metadata_to_process_list[i][0].upper() + metadata_to_process_list[i][1].upper()
+            else:
+                label = label + 'U' + metadata_to_process_list[i][0].upper() + metadata_to_process_list[i][1].upper()
     else:
-        new = song_set_df.filter(['id', metadata_to_process], axis=1)
-    return new[:2000]
-    # return new
+        label = metadata_to_process_list[0]
+    metadata_to_process_list.append('id')
+    new = song_set_df.filter(metadata_to_process_list, axis=1)
+    # return new[:2000]
+    return new, label
 
 
 def get_users_preference_df(song_set_df):
-    users_preferences_df = pd.DataFrame.from_records(
-        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
-    )
-    ids = users_preferences_df['user_id'].unique().tolist()[:2000]
-    return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
-    # return pd.DataFrame.from_records(
-    #     list(UserPreference.objects.all().values())
+    # users_preferences_df = pd.DataFrame.from_records(
+    #     list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
     # )
+    # ids = users_preferences_df['user_id'].unique().tolist()[:2000]
+    # return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
+    return pd.DataFrame.from_records(
+        list(UserPreference.objects.all().values())
+    )
 
 
-def one_run_kernel(metadata_to_process='title', user_set_size=100):
-    song_set_df = get_song_df(metadata_to_process)
+def one_run_kernel(metadata_to_process_list=[''], user_set_size=100):
+    song_set_df, label = get_song_df(metadata_to_process_list)
     users_preferences_df = get_users_preference_df(song_set_df)
     round_instance = Round.objects.create(
-        metadata_used=metadata_to_process,
+        metadata_used=label,
         song_set_size=song_set_df['id'].count(),
         user_set_size=user_set_size,
         started_at=timezone.now(),
@@ -137,8 +143,8 @@ def get_song_set_by_concat_metadata_df(metadata_to_process_list):
     song_set_df = pd.DataFrame.from_records(list(Song.objects.all().values()))
     song_df = song_set_df.filter(['id'] + metadata_to_process_list, axis=1)
     song_df.set_index('id', drop=False)
-    new_song_set_df, concat_label = concat_metadata_df(song_df[:2000], metadata_to_process_list)
-    # new_song_set_df, concat_label = concat_metadata_df(song_df, metadata_to_process_list)
+    # new_song_set_df, concat_label = concat_metadata_df(song_df[:2000], metadata_to_process_list)
+    new_song_set_df, concat_label = concat_metadata_df(song_df, metadata_to_process_list)
     new_song_set_df.drop(metadata_to_process_list, axis=1)
     new_song_set_df.set_index('id', drop=False)
     return new_song_set_df, concat_label
@@ -198,7 +204,7 @@ def concat_metadata_run(metadata_to_process_list, user_set_size=100):
 
 
 def data_analysis(metadata_to_process_list):
-    song_set_df = get_song_df(metadata_to_process_list)
+    song_set_df, label = get_song_df(metadata_to_process_list)
     users_preferences_df = get_users_preference_df(song_set_df)
     preference_statistic = PreferenceStatistics(
         users_preferences_df=users_preferences_df
@@ -218,7 +224,8 @@ def with_config_run_kernel():
             + str(metadata)
         )
         logger.info("*" * 60)
-        one_run_kernel(metadata_to_process=metadata, user_set_size=USER_SIZE)
-    concat_metadata_run(metadata_to_process_list=['title', 'album'], user_set_size=USER_SIZE)
+        one_run_kernel(metadata_to_process_list=[metadata], user_set_size=USER_SIZE)
+    one_run_kernel(metadata_to_process_list=['title', 'artist'], user_set_size=USER_SIZE)
+    # concat_metadata_run(metadata_to_process_list=['title', 'album'], user_set_size=USER_SIZE)
     concat_metadata_run(metadata_to_process_list=['title', 'artist'], user_set_size=USER_SIZE)
     make_graphics()
