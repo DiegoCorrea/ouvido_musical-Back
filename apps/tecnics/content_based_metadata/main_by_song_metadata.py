@@ -34,18 +34,19 @@ def make_evaluate_graphics():
 
 
 def get_song_set_df():
-    return pd.DataFrame.from_records(list(Song.objects.all().values()))[:2000]
+    # return pd.DataFrame.from_records(list(Song.objects.all().values()))[:2000]
+    return pd.DataFrame.from_records(list(Song.objects.all().values()))
 
 
 def get_users_preference_df(song_set_df):
-    users_preferences_df = pd.DataFrame.from_records(
-        list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
-    )
-    ids = users_preferences_df['user_id'].unique().tolist()[:2000]
-    return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
-    # return pd.DataFrame.from_records(
-    #     list(UserPreference.objects.all().values())
+    # users_preferences_df = pd.DataFrame.from_records(
+    #    list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
     # )
+    # ids = users_preferences_df['user_id'].unique().tolist()[:2000]
+    # return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
+    return pd.DataFrame.from_records(
+        list(UserPreference.objects.all().values())
+    )
 
 
 def on_map_concat_metadata(df_list, new_column, metadata_to_process_list):
