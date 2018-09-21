@@ -24,7 +24,7 @@ from apps.metadata.user_preferences.preference_statistics import PreferenceStati
 from apps.tecnics.content_based_metadata.hit_recommendations import HitRecommendations
 
 
-def make_graphics():
+def make_evaluate_graphics():
     map_over = MAPOverview()
     map_over.make_graphics_by_metadata()
     mrr_over = MRROverview()
@@ -46,17 +46,6 @@ def get_users_preference_df(song_set_df):
     # return pd.DataFrame.from_records(
     #     list(UserPreference.objects.all().values())
     # )
-
-
-def data_analysis():
-    song_set_df, label = get_song_set_df()
-    preference_statistic = PreferenceStatistics(
-        users_preferences_df=get_users_preference_df(song_set_df)
-    )
-    preference_statistic.run()
-    preference_statistic.print_song_statistical()
-    preference_statistic.print_user_statistical()
-    preference_statistic.make_graphics()
 
 
 def on_map_concat_metadata(df_list, new_column, metadata_to_process_list):
@@ -153,3 +142,23 @@ def with_pre_load_data_set():
             user_size=USER_SIZE),
         preference_statistic=preference_statistic,
         label='AL+AR')
+    preference_statistic.print_song_statistical()
+    preference_statistic.print_user_statistical()
+    preference_statistic.make_graphics()
+    make_evaluate_graphics()
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+def data_analysis():
+    song_set_df, label = get_song_set_df()
+    preference_statistic = PreferenceStatistics(
+        users_preferences_df=get_users_preference_df(song_set_df)
+    )
+    preference_statistic.run()
+    preference_statistic.print_song_statistical()
+    preference_statistic.print_user_statistical()
+    preference_statistic.make_graphics()
