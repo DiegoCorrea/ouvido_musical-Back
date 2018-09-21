@@ -29,10 +29,10 @@
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="11" />
-          <entry key="project.open.time.6" value="12" />
+          <entry key="project.open.time.6" value="13" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -42,7 +42,7 @@
           <entry key="log" value="6" />
           <entry key="md" value="24" />
           <entry key="png" value="17" />
-          <entry key="py" value="683" />
+          <entry key="py" value="684" />
           <entry key="sql" value="11" />
           <entry key="txt" value="8" />
         </counts>
@@ -55,7 +55,7 @@
           <entry key="Log" value="5" />
           <entry key="Markdown" value="24" />
           <entry key="PLAIN_TEXT" value="10" />
-          <entry key="Python" value="683" />
+          <entry key="Python" value="684" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,9 +63,9 @@
           <entry key="dummy" value="138" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="20458" />
+          <entry key="py" value="21139" />
           <entry key="sql" value="21" />
-          <entry key="txt" value="2472" />
+          <entry key="txt" value="2519" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -73,8 +73,8 @@
           <entry key="DBN-SQL" value="21" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="2610" />
-          <entry key="Python" value="20458" />
+          <entry key="PLAIN_TEXT" value="2657" />
+          <entry key="Python" value="21139" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -85,11 +85,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-322">
-              <caret line="152" column="48" lean-forward="true" selection-start-line="152" selection-start-column="48" selection-end-line="152" selection-end-column="48" />
+            <state relative-caret-position="473">
+              <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
               <folding>
                 <element signature="e#24#38#0" expanded="true" />
+                <marker date="1537488849485" expanded="true" signature="1606:1611" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="27" selection-start-line="8" selection-end-line="8" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -342,13 +352,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00039" summary="deletando chamda do numpy sem uso">
-      <created>1534217185911</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1534217185911</updated>
     </task>
     <task id="LOCAL-00040" summary="melhorando generalização no constructor">
       <created>1534217346699</created>
@@ -686,11 +689,19 @@
       <option name="project" value="LOCAL" />
       <updated>1537158396601</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="alterando carregamento">
+      <created>1537405341480</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1537405341480</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-30" width="1920" height="1110" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1544544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -746,7 +757,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="alterando logs e definindo metodos como estaticos" />
     <MESSAGE value="verificando a lista de recomendação com a mediana das músicas mais ouvidas" />
     <MESSAGE value="relevancia considerando a mediana" />
     <MESSAGE value="rodando com tamanho de 10 mil" />
@@ -771,7 +781,8 @@
     <MESSAGE value="pre filtragem" />
     <MESSAGE value="imprimindo graficos de histogram" />
     <MESSAGE value="refatorando multiprocesso" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatorando multiprocesso" />
+    <MESSAGE value="alterando carregamento" />
+    <option name="LAST_COMMIT_MESSAGE" value="alterando carregamento" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1066,16 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="730">
           <caret line="233" column="9" selection-start-line="233" selection-start-column="9" selection-end-line="233" selection-end-column="9" />
-          <folding>
-            <element signature="e#24#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -1089,12 +1090,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="27" selection-start-line="8" selection-end-line="8" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="152" column="48" lean-forward="true" selection-start-line="152" selection-start-column="48" selection-end-line="152" selection-end-column="48" />
+        <state relative-caret-position="473">
+          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
           <folding>
             <element signature="e#24#38#0" expanded="true" />
+            <marker date="1537488849485" expanded="true" signature="1606:1611" ph="..." />
           </folding>
         </state>
       </provider>
