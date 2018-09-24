@@ -109,3 +109,4 @@ files/
 *.log
 *.csv
 *.ideia/
+datasets/oneMillionSongs/clean_set/*
