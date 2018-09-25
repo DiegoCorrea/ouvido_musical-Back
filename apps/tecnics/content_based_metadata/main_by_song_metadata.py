@@ -8,7 +8,7 @@ import pandas as pd
 from django.utils import timezone
 
 from apps.kemures.kernel.config.global_var import METADATA_TO_PROCESS_LIST, USER_SIZE, MAX_THREAD, \
-    METADATA_TO_PROCESS_LIST_PT
+    METADATA_TO_PROCESS_LIST_PT, USER_SIZE_LIST
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MAP.map_controller import MAPController
 from apps.kemures.metrics.MAP.map_overview import MAPOverview
@@ -24,13 +24,13 @@ from apps.metadata.user_preferences.preference_statistics import PreferenceStati
 from apps.tecnics.content_based_metadata.hit_recommendations import HitRecommendations
 
 
-def make_evaluate_graphics():
+def make_evaluate_graphics(song_size, user_size):
     map_over = MAPOverview()
-    map_over.make_graphics_by_metadata()
+    map_over.make_graphics_by_metadata(song_size, user_size)
     mrr_over = MRROverview()
-    mrr_over.make_graphics_by_metadata()
+    mrr_over.make_graphics_by_metadata(song_size, user_size)
     ndcg_over = NDCGOverview()
-    ndcg_over.make_graphics_by_metadata()
+    ndcg_over.make_graphics_by_metadata(song_size, user_size)
 
 
 def get_song_set_df():
@@ -147,6 +147,47 @@ def with_pre_load_data_set():
     preference_statistic.print_user_statistical()
     preference_statistic.make_graphics()
     make_evaluate_graphics()
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+def with_pre_load_data_set_and_user_variation():
+    logger = logging.getLogger(__name__)
+    song_set_df = get_song_set_df()
+    preference_statistic = PreferenceStatistics(
+        users_preferences_df=get_users_preference_df(song_set_df)
+    )
+    preference_statistic.run()
+    for user_size in USER_SIZE_LIST:
+        for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST_PT):
+            metadata_to_process_list = ['id', metadata]
+            logger.info("*" * 60)
+            logger.info(
+                "*\tProcessando o metadado - "
+                + str(metadata)
+            )
+            logger.info("*" * 60)
+            one_metadata_process(song_set_df=song_set_df.filter(metadata_to_process_list, axis=1),
+                                 users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
+                                     user_size=user_size), preference_statistic=preference_statistic,
+                                 label=pt_graph_name)
+        one_metadata_process(song_set_df=song_set_df.filter(['id', 'album', 'artist'], axis=1),
+                             users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
+                                 user_size=user_size), preference_statistic=preference_statistic, label='s.AL+s.AR')
+        one_metadata_process(
+            song_set_df=concat_metadata_preserve_id(df_list=song_set_df, metadata_to_process_list=['album', 'artist'],
+                                                    new_column='AL+AR'),
+            users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
+                user_size=user_size),
+            preference_statistic=preference_statistic,
+            label='AL+AR')
+        preference_statistic.print_song_statistical()
+        preference_statistic.print_user_statistical()
+        preference_statistic.make_graphics()
+        make_evaluate_graphics(song_size=song_set_df['id'].count(), user_size=user_size)
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -148,12 +148,12 @@ class MAPOverview:
             plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Box Plot)]")
 
-    def make_graphics_by_metadata(self):
-        self.__by_metadata_results_graph_line()
-        self.__by_metadata_results_graph_box_plot()
+    def make_graphics_by_metadata(self, song_size, user_size):
+        self.__by_metadata_results_graph_line(song_size, user_size)
+        self.__by_metadata_results_graph_box_plot(song_size, user_size)
         self.__save_csv()
 
-    def __by_metadata_results_graph_line(self):
+    def __by_metadata_results_graph_line(self, song_size, user_size):
         self.__logger.info("[Start MAP Overview - Results - (Graph Line)]")
         plt.figure()
         plt.grid(True)
@@ -174,12 +174,14 @@ class MAPOverview:
         plt.savefig(
             self.__directory_to_save_graphics
             + 'map_by_metadata_results_graph_line_'
+            + 'song_' + str(song_size)
+            + 'user_' + str(user_size)
             + '.png'
         )
         plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Line)]")
 
-    def __by_metadata_results_graph_box_plot(self):
+    def __by_metadata_results_graph_box_plot(self, song_size, user_size):
         self.__logger.info("[Start MAP Overview - Results - (Graph Box Plot)]")
         plt.figure()
         plt.grid(True)
@@ -197,6 +199,8 @@ class MAPOverview:
         plt.savefig(
             self.__directory_to_save_graphics
             + 'map_by_metadata_results_graph_box_plot_'
+            + 'song_' + str(song_size)
+            + 'user_' + str(user_size)
             + '.png'
         )
         plt.close()
