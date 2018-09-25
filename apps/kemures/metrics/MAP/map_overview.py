@@ -175,7 +175,7 @@ class MAPOverview:
             self.__directory_to_save_graphics
             + 'map_by_metadata_results_graph_line_'
             + 'song_' + str(song_size)
-            + 'user_' + str(user_size)
+            + '_user_' + str(user_size)
             + '.png'
         )
         plt.close()
@@ -200,7 +200,7 @@ class MAPOverview:
             self.__directory_to_save_graphics
             + 'map_by_metadata_results_graph_box_plot_'
             + 'song_' + str(song_size)
-            + 'user_' + str(user_size)
+            + '_user_' + str(user_size)
             + '.png'
         )
         plt.close()

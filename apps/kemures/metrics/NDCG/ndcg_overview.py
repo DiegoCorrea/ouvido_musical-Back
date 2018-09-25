@@ -149,8 +149,8 @@ class NDCGOverview:
         self.__logger.info("[Finish NDCG Overview - Results - (Graph Box Plot)]")
 
     def make_graphics_by_metadata(self, song_size, user_size):
-        self.__by_metadata_results_graph_line()
-        self.__by_metadata_results_graph_box_plot()
+        self.__by_metadata_results_graph_line(song_size, user_size)
+        self.__by_metadata_results_graph_box_plot(song_size, user_size)
         self.__save_csv()
 
     def __by_metadata_results_graph_line(self, song_size, user_size):
@@ -175,7 +175,7 @@ class NDCGOverview:
             self.__directory_to_save_graphics
             + 'ndcg_by_metadata_results_graph_line_'
             + 'song_' + str(song_size)
-            + 'user_' + str(user_size)
+            + '_user_' + str(user_size)
             + '.png'
         )
         plt.close()
@@ -200,7 +200,7 @@ class NDCGOverview:
             self.__directory_to_save_graphics
             + 'ndcg_by_metadata_results_graph_box_plot_'
             + 'song_' + str(song_size)
-            + 'user_' + str(user_size)
+            + '_user_' + str(user_size)
             + '.png'
         )
         plt.close()
