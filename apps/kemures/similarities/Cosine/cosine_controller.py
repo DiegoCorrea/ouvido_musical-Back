@@ -22,7 +22,6 @@ class CosineController:
         """
         self.__logger = logging.getLogger(__name__)
         self.__round_instance = round_instance
-        self.__song_set_size = song_set_df['id'].count()
         self.__song_set_df = song_set_df
         self.__song_similarity_df = pd.DataFrame()
 
@@ -46,6 +45,20 @@ class CosineController:
             finished_at=__finished_at
         )
         self.__logger.info("[Finish Run Cosine Similarity]")
+
+    def __start_cosine(self):
+        matrix_data = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if
+                       column != 'id']
+        pool = ThreadPool(MAX_THREAD)
+        feature_matrix_similarity = pool.map(CosineController.find_similarity, matrix_data)
+        pool.close()
+        pool.join()
+        similarity_matrix = np.zeros(self.__song_set_df['id'].count())
+        for matrix in feature_matrix_similarity:
+            similarity_matrix = np.add(similarity_matrix, matrix)
+        similarity_matrix = similarity_matrix / len(feature_matrix_similarity)
+        return pd.DataFrame(data=similarity_matrix, index=self.__song_set_df['id'].tolist(),
+                            columns=self.__song_set_df['id'].tolist())
 
     @classmethod
     def __lem_tokens(cls, tokens):
@@ -93,17 +106,3 @@ class CosineController:
         cos_similarity_matrix = (tfidf_matrix * tfidf_matrix.T).toarray()
         for c in cos_similarity_matrix:
             print(c)
-
-    def __start_cosine(self):
-        matrix_data = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if
-                       column != 'id']
-        pool = ThreadPool(MAX_THREAD)
-        feature_matrix_similarity = pool.map(CosineController.find_similarity, matrix_data)
-        pool.close()
-        pool.join()
-        similarity_matrix = np.zeros(self.__song_set_df['id'].count())
-        for matrix in feature_matrix_similarity:
-            similarity_matrix = np.add(similarity_matrix, matrix)
-        similarity_matrix = similarity_matrix / len(feature_matrix_similarity)
-        return pd.DataFrame(data=similarity_matrix, index=self.__song_set_df['id'].tolist(),
-                            columns=self.__song_set_df['id'].tolist())

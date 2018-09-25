@@ -8,7 +8,7 @@ class HitRecommendations:
         self.__recommendations_df = recommendations_df
         self.__song_relevance_df = song_relevance_df
 
-    def get_hited_recommendation_df(self):
+    def get_recommendation_df_with_relevance_evaluated(self):
         return self.__recommendations_df
 
     def run(self):

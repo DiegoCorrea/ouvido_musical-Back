@@ -111,7 +111,7 @@ class PreferenceStatistics:
         for index, row in songs_df.iterrows():
             songs_df.at[index, 'global_relevance'] = True if row['total_liked'] >= self.__songs_std_value else False
             songs_df.at[index, 'global_relevance_score'] = float(
-                "{0:.2f}".format(row['total_liked'] / self.__songs_max_value))
+                "{0:.3f}".format(row['total_liked'] / self.__songs_max_value))
         return songs_df
 
     def songs_make_global_relevance(self, songs_count_df):
@@ -139,9 +139,9 @@ class PreferenceStatistics:
         self.song_relevance_with_global_like_std()
         self.user_relevance_with_global_like_std()
 
-    def get_users_relevance_preferences_df(self, user_size):
-        self.__users_relevance_df.sort_values("global_relevance")
-        relevance_users = self.__users_relevance_df[:user_size]
+    def get_users_relevance_preferences_df(self, user_top_n_relevance):
+        self.__users_relevance_df.sort_values("global_relevance_score", ascending=False)
+        relevance_users = self.__users_relevance_df[:user_top_n_relevance]
         users_relevance_preferences_df = self.__users_preferences_df.loc[
             self.__users_preferences_df['user_id'].isin(relevance_users['user_id'].unique().tolist())]
         return users_relevance_preferences_df
