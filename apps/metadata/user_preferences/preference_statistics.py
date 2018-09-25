@@ -25,6 +25,8 @@ class PreferenceStatistics:
         self.__users_min_value = 0.0
         self.__songs_mean_value = 0.0
         self.__users_mean_value = 0.0
+        self.__songs_median_value = 0.0
+        self.__users_median_value = 0.0
         self.__path_to_save_graphics = 'files/metadata/'
         if not os.path.exists(self.__path_to_save_graphics):
             os.makedirs(self.__path_to_save_graphics)
@@ -77,6 +79,7 @@ class PreferenceStatistics:
         self.__users_max_value = users_count_df['total_liked'].max()
         self.__users_min_value = users_count_df['total_liked'].min()
         self.__users_mean_value = users_count_df['total_liked'].mean()
+        self.__users_median_value = users_count_df['total_liked'].median()
         self.__users_relevance_df = self.users_make_global_relevance(users_count_df)
         self.__logger.info("__ End: user_relevance_with_global_like_std")
 
@@ -127,6 +130,7 @@ class PreferenceStatistics:
         self.__songs_max_value = songs_count_df['total_liked'].max()
         self.__songs_min_value = songs_count_df['total_liked'].min()
         self.__songs_mean_value = songs_count_df['total_liked'].mean()
+        self.__songs_median_value = songs_count_df['total_liked'].median()
         self.__songs_relevance_df = self.songs_make_global_relevance(songs_count_df)
         self.__logger.info("__ End: song_relevance_with_global_like_std")
 
@@ -148,23 +152,28 @@ class PreferenceStatistics:
     def print_song_statistical(self):
         print('')
         print('+ + Total de músicas: ' + str(self.__songs_relevance_df.song_id.size))
-        print('+ + Total de músicas: ' + str(self.__songs_relevance_df['song_id'].count()))
         print('+ + Total de Reproduções: ' + str(self.__users_preferences_df['play_count'].sum()))
         print('+ + Música mais preferida: ' + str(self.__songs_max_value))
         print('+ + Música menos preferida: ' + str(self.__songs_min_value))
         print('+ + Desvio Padrão das preferencias: ' + str(self.__songs_std_value))
+        print('- - Desvio Padrão normalizado das preferencias: ' + str(self.__songs_std_value / self.__songs_max_value))
+        print('+ + Media das preferencias: ' + str(self.__songs_mean_value))
+        print('+ + Mediana das preferencias: ' + str(self.__songs_median_value))
         counted = Counter(self.__songs_relevance_df['global_relevance'].tolist())
         print('+ + Relevância musical: ' + str(counted))
         print('')
 
     def print_user_statistical(self):
         print('')
-        print('Total de usuários: ' + str(self.__users_relevance_df.user_id.size))
-        print('+ + Usuário com mais músicas preferidas: ' + str(self.__users_max_value))
-        print('+ + Usuário com menos músicas preferidas: ' + str(self.__users_min_value))
-        print('+ + Desvio Padrão das preferencias: ' + str(self.__users_std_value))
+        print('- -Total de usuários: ' + str(self.__users_relevance_df.user_id.size))
+        print('- - Usuário com mais músicas preferidas: ' + str(self.__users_max_value))
+        print('- - Usuário com menos músicas preferidas: ' + str(self.__users_min_value))
+        print('- - Desvio Padrão das preferencias: ' + str(self.__users_std_value))
+        print('- - Desvio Padrão normalizado das preferencias: ' + str(self.__users_std_value / self.__users_max_value))
+        print('+ + Media das preferencias: ' + str(self.__users_mean_value))
+        print('+ + Mediana das preferencias: ' + str(self.__users_median_value))
         counted = Counter(self.__users_relevance_df['global_relevance'].tolist())
-        print('+ + Usuários Relevantes: ' + str(counted))
+        print('- - Usuários Relevantes: ' + str(counted))
         print('')
 
     def song_global_relevance_score_histo(self):

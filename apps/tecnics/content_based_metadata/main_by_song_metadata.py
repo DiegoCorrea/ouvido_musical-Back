@@ -155,7 +155,7 @@ def with_pre_load_data_set():
 
 
 def data_analysis():
-    song_set_df, label = get_song_set_df()
+    song_set_df = get_song_set_df()
     preference_statistic = PreferenceStatistics(
         users_preferences_df=get_users_preference_df(song_set_df)
     )

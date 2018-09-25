@@ -8,11 +8,12 @@
     <bookmark url="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="">
+    <list default="true" id="1e34efb6-02b1-48a6-824e-0ace9ce5b375" name="Default Changelist" comment="todo o banco">
       <change afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/msd-MAGD-genreAssignment.cls" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/msd_tagtraum_cd2.cls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/sets/25000/load.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/sets/five_thousand/load.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/oneMillionSongs/sets/ten_thousand/load.sql" beforeDir="false" />
@@ -27,25 +28,25 @@
     <session id="-630249398">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="32" />
+          <entry key="project.closed" value="33" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="11" />
-          <entry key="project.open.time.6" value="14" />
+          <entry key="project.open.time.6" value="15" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="34" />
+          <entry key="project.opened" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cls" value="1" />
           <entry key="csv" value="17" />
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="log" value="6" />
           <entry key="md" value="24" />
           <entry key="png" value="17" />
-          <entry key="py" value="685" />
+          <entry key="py" value="687" />
           <entry key="sql" value="11" />
           <entry key="txt" value="8" />
         </counts>
@@ -57,8 +58,8 @@
           <entry key="Image" value="17" />
           <entry key="Log" value="5" />
           <entry key="Markdown" value="24" />
-          <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="685" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="Python" value="687" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -67,7 +68,7 @@
           <entry key="gitignore" value="37" />
           <entry key="log" value="2" />
           <entry key="md" value="145" />
-          <entry key="py" value="21200" />
+          <entry key="py" value="21310" />
           <entry key="sql" value="21" />
           <entry key="txt" value="2633" />
         </counts>
@@ -78,7 +79,7 @@
           <entry key="Log" value="2" />
           <entry key="Markdown" value="145" />
           <entry key="PLAIN_TEXT" value="2808" />
-          <entry key="Python" value="21200" />
+          <entry key="Python" value="21310" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -89,34 +90,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="37" column="71" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
+            <state relative-caret-position="728">
+              <caret line="156" column="17" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="17" />
               <folding>
                 <element signature="e#24#38#0" expanded="true" />
-                <marker date="1537489619489" expanded="true" signature="1498:1503" ph="..." />
-                <marker date="1537489619489" expanded="true" signature="1695:1700" ph="..." />
+                <marker date="1537804136536" expanded="true" signature="1498:1503" ph="..." />
+                <marker date="1537804136536" expanded="true" signature="1695:1700" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
-              <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-              <folding>
-                <element signature="e#24#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="203">
+              <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -251,12 +240,12 @@
         <option value="$PROJECT_DIR$/apps/kemures/metrics/NDCG/ndcg_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" />
-        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/lyrics_concat.py" />
         <option value="$PROJECT_DIR$/datasets/oneMillionSongs/analytics_overview.py" />
         <option value="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" />
-        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" />
+        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py" />
       </list>
     </option>
   </component>
@@ -284,20 +273,20 @@
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="tecnics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ouvido_musical-Back" type="b2602c69:ProjectViewProjectNode" />
               <item name="ouvido_musical-Back" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-              <item name="oneMillionSongs" type="462c0819:PsiDirectoryNode" />
-              <item name="clean_set" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="tecnics" type="462c0819:PsiDirectoryNode" />
+              <item name="content_based_metadata" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -348,13 +337,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00043" summary="deletando mrr analyzer">
-      <created>1534217448812</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1534217448812</updated>
     </task>
     <task id="LOCAL-00044" summary="refatorando ndcg">
       <created>1534217539479</created>
@@ -692,7 +674,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537489869602</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="todo o banco">
+      <created>1537796665323</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1537796665323</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -715,7 +704,7 @@
       <window_info anchor="bottom" id="Console" order="7" />
       <window_info anchor="bottom" id="DB Execution Console" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002636" side_tool="true" weight="0.32935324" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002636" side_tool="true" weight="0.3286991" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32935324" />
@@ -1062,13 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1076,15 +1058,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="37" column="71" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-            <marker date="1537489619489" expanded="true" signature="1498:1503" ph="..." />
-            <marker date="1537489619489" expanded="true" signature="1695:1700" ph="..." />
-          </folding>
+        <state relative-caret-position="559">
+          <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1098,10 +1075,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
+        <state relative-caret-position="728">
+          <caret line="156" column="17" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="17" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+            <marker date="1537804136536" expanded="true" signature="1498:1503" ph="..." />
+            <marker date="1537804136536" expanded="true" signature="1695:1700" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preference_statistics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
         </state>
       </provider>
     </entry>
