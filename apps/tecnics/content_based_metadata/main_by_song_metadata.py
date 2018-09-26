@@ -43,7 +43,7 @@ def get_users_preference_df(song_set_df):
     users_preferences_df = pd.DataFrame.from_records(
         list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
     )
-    ids = users_preferences_df['user_id'].unique().tolist()[:2000]
+    ids = users_preferences_df['user_id'].unique().tolist()
     return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
     # return pd.DataFrame.from_records(
     #     list(UserPreference.objects.all().values())
