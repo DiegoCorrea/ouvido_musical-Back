@@ -40,8 +40,8 @@ def song_select(song_set_df, song_set_size, preference_statistic):
     song_counted = Counter(song_relevance_df['global_relevance'].tolist())
     good_relevance_size = song_counted[True] / song_relevance_df['song_id'].nunique()
     bad_relevance_size = song_counted[False] / song_relevance_df['song_id'].nunique()
-    true_df = song_relevance_df[song_relevance_df['global_relevance'] is True]
-    false_df = song_relevance_df[song_relevance_df['global_relevance'] is False]
+    true_df = song_relevance_df[song_relevance_df['global_relevance'] == True]
+    false_df = song_relevance_df[song_relevance_df['global_relevance'] == False]
     true_df.sort_values(by=['global_relevance_score'], ascending=False)
     false_df.sort_values(by=['global_relevance_score'], ascending=False)
     true_size = int(good_relevance_size * song_set_size)
@@ -49,15 +49,25 @@ def song_select(song_set_df, song_set_size, preference_statistic):
     if true_size + false_size < song_set_size:
         diff = song_set_size - (true_size + false_size)
         false_size += diff
-    true_relevance_df_with_size = true_df[:true_size]
-    false_relevance_df_with_size = true_df[:false_size]
-    resp = song_set_df[song_set_df['id'].isin(
-        true_relevance_df_with_size['song_id'].tolist() + false_relevance_df_with_size['song_id'].tolist())]
+    print(str(true_size + false_size))
+    true_relevance_df_with_size = true_df[0:true_size]
+    false_relevance_df_with_size = true_df[0:false_size]
+    print('*' * 30)
+    print(true_relevance_df_with_size['song_id'].nunique())
+    print(false_relevance_df_with_size['song_id'].nunique())
+    resp_true_df = song_set_df[song_set_df['id'].isin(true_relevance_df_with_size['song_id'].tolist())]
+    resp_false_df = song_set_df[song_set_df['id'].isin(false_relevance_df_with_size['song_id'].tolist())]
+    print('*' * 30)
+    print(resp_true_df)
+    print(resp_false_df)
+    resp = pd.concat([resp_false_df, resp_true_df], sort=False)
+    print('*' * 30)
+    print(resp)
     return resp
 
 
 def get_song_set_df():
-    return pd.DataFrame.from_records(list(Song.objects.all().values()))[:5000]
+    return pd.DataFrame.from_records(list(Song.objects.all().values()))[:1000]
     # return pd.DataFrame.from_records(list(Song.objects.all().values()))
 
 
@@ -141,10 +151,11 @@ def with_pre_load_data_set():
         users_preferences_df=get_users_preference_df(song_set_df)
     )
     preference_statistic.run()
-    song_set_with_size_df = song_select(song_set_df, 1000, preference_statistic)
+    song_set_with_size_df = song_select(song_set_df, 100, preference_statistic)
     preference_statistic_with_size = PreferenceStatistics(
         users_preferences_df=get_users_preference_df(song_set_with_size_df)
     )
+    preference_statistic_with_size.run()
     for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST_PT):
         gc.collect()
         metadata_to_process_list = ['id', metadata]
@@ -194,6 +205,7 @@ def with_pre_load_data_set_and_song_variation():
         preference_statistic_with_size = PreferenceStatistics(
             users_preferences_df=get_users_preference_df(song_set_with_size_df)
         )
+        preference_statistic_with_size.run()
         for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST_PT):
             gc.collect()
             metadata_to_process_list = ['id', metadata]
