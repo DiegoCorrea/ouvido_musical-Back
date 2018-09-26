@@ -28,3 +28,5 @@ Para criar os DB, usuarios e garantir privilegios, siga o roteiro a seguir:
 
 ### Pip
 1. Reinstalar todos os modulos forçadamente: `pip install --upgrade -r requirements.txt --force-reinstall`  
+2. Gerar novo requirements: `pip freeze > requirements.txt`
+  
