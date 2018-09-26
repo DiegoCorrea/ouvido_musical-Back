@@ -25,13 +25,13 @@ from apps.metadata.user_preferences.preference_statistics import PreferenceStati
 from apps.tecnics.content_based_metadata.hit_recommendations import HitRecommendations
 
 
-def make_evaluate_graphics(song_size, user_size):
+def make_evaluate_graphics():
     map_over = MAPOverview()
-    map_over.make_graphics_by_metadata(song_size, user_size)
+    map_over.make_graphics_by_metadata()
     mrr_over = MRROverview()
-    mrr_over.make_graphics_by_metadata(song_size, user_size)
+    mrr_over.make_graphics_by_metadata()
     ndcg_over = NDCGOverview()
-    ndcg_over.make_graphics_by_metadata(song_size, user_size)
+    ndcg_over.make_graphics_by_metadata()
 
 
 def get_song_set_df():
@@ -75,8 +75,8 @@ def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
 def one_metadata_process(song_set_df, users_preferences_df, preference_statistic, label):
     round_instance = Round.objects.create(
         metadata_used=label,
-        song_set_size=song_set_df['id'].count(),
-        user_set_size=users_preferences_df['user_id'].nunique(),
+        song_set_size=int(song_set_df['id'].count()),
+        user_set_size=int(users_preferences_df['user_id'].nunique()),
         started_at=timezone.now(),
         finished_at=timezone.now()
     )
@@ -148,7 +148,7 @@ def with_pre_load_data_set():
     preference_statistic.print_song_statistical()
     preference_statistic.print_user_statistical()
     preference_statistic.make_graphics()
-    make_evaluate_graphics(song_size=song_set_df['id'].count(), user_size=USER_SIZE)
+    make_evaluate_graphics()
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -191,7 +191,7 @@ def with_pre_load_data_set_and_user_variation():
         preference_statistic.print_song_statistical()
         preference_statistic.print_user_statistical()
         preference_statistic.make_graphics()
-        make_evaluate_graphics(song_size=song_set_df['id'].count(), user_size=user_size)
+    make_evaluate_graphics()
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

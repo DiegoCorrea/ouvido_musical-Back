@@ -16,8 +16,8 @@ TOTAL_RUN = 10
 AT_LIST = [1, 5, 10, 15, 20]
 
 # List of paths to save Graphics and CSV
-COSINE_PATH_GRAPHICS = 'files/kemures/similarities/cosine/graphs/'
-USER_AVERAGE_PATH_GRAPHICS = 'files/kemures/recommenders/userAverage/graphs/'
-MAP_PATH_GRAPHICS = 'files/kemures/metrics/map/graphs/'
-MRR_PATH_GRAPHICS = 'files/kemures/metrics/mrr/graphs/'
-NDCG_PATH_GRAPHICS = 'files/kemures/metrics/ndcg/graphs/'
+COSINE_PATH_GRAPHICS = 'files/kemures/similarities/cosine/'
+USER_AVERAGE_PATH_GRAPHICS = 'files/kemures/recommenders/userAverage/'
+MAP_PATH_GRAPHICS = 'files/kemures/metrics/map/'
+MRR_PATH_GRAPHICS = 'files/kemures/metrics/mrr/'
+NDCG_PATH_GRAPHICS = 'files/kemures/metrics/ndcg/'

@@ -148,62 +148,70 @@ class MAPOverview:
             plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Box Plot)]")
 
-    def make_graphics_by_metadata(self, song_size, user_size):
-        self.__by_metadata_results_graph_line(song_size, user_size)
-        self.__by_metadata_results_graph_box_plot(song_size, user_size)
+    def make_graphics_by_metadata(self):
+        self.__by_metadata_results_graph_line()
+        self.__by_metadata_results_graph_box_plot()
         self.__save_csv()
 
-    def __by_metadata_results_graph_line(self, song_size, user_size):
+    def __by_metadata_results_graph_line(self):
         self.__logger.info("[Start MAP Overview - Results - (Graph Line)]")
-        plt.figure()
-        plt.grid(True)
-        plt.xlabel('Tamanho da lista de recomendação')
-        plt.ylabel('Valor')
-        for metadata, style in zip(self.__metadata_to_process, self.__graph_style):
-            at_df = self.__metric_results_collection_df[
-                self.__metric_results_collection_df['metadata_used'] == metadata]
-            at_df.sort_values("at")
-            plt.plot(
-                at_df['at'],
-                at_df['value'],
-                style,
-                label=metadata
-            )
-        plt.legend(loc='best')
-        plt.xticks(self.__at_size_list)
-        plt.savefig(
-            self.__directory_to_save_graphics
-            + 'map_by_metadata_results_graph_line_'
-            + 'song_' + str(song_size)
-            + '_user_' + str(user_size)
-            + '.png'
-        )
-        plt.close()
+        for song_size in self.__metric_results_collection_df['song_set_size'].unique().tolist():
+            for user_size in self.__metric_results_collection_df['user_set_size'].unique().tolist():
+                plt.figure()
+                plt.grid(True)
+                plt.xlabel('Tamanho da lista de recomendação')
+                plt.ylabel('Valor')
+                for metadata, style in zip(self.__metadata_to_process, self.__graph_style):
+                    at_df = self.__metric_results_collection_df[
+                        (self.__metric_results_collection_df['metadata_used'] == metadata) &
+                        (self.__metric_results_collection_df['song_set_size'] == song_size) &
+                        (self.__metric_results_collection_df['user_set_size'] == user_size)]
+                    at_df.sort_values("at")
+                    plt.plot(
+                        at_df['at'],
+                        at_df['value'],
+                        style,
+                        label=metadata
+                    )
+                plt.legend(loc='best')
+                plt.xticks(self.__at_size_list)
+                plt.savefig(
+                    self.__directory_to_save_graphics
+                    + 'map_by_metadata_results_graph_line_'
+                    + 'song_' + str(song_size)
+                    + '_user_' + str(user_size)
+                    + '.png'
+                )
+                plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Line)]")
 
-    def __by_metadata_results_graph_box_plot(self, song_size, user_size):
+    def __by_metadata_results_graph_box_plot(self):
         self.__logger.info("[Start MAP Overview - Results - (Graph Box Plot)]")
-        plt.figure()
-        plt.grid(True)
-        plt.xlabel('Metadado')
-        plt.ylabel('valor')
-        box_plot_matrix = []
-        for metadata in self.__metadata_to_process:
-            at_df = self.__metric_results_collection_df[
-                self.__metric_results_collection_df['metadata_used'] == metadata]
-            box_plot_matrix.append([value for value in at_df['value'].tolist()])
-        plt.boxplot(
-            box_plot_matrix,
-            labels=self.__metadata_to_process
-        )
-        plt.savefig(
-            self.__directory_to_save_graphics
-            + 'map_by_metadata_results_graph_box_plot_'
-            + 'song_' + str(song_size)
-            + '_user_' + str(user_size)
-            + '.png'
-        )
-        plt.close()
+        for song_size in self.__metric_results_collection_df['song_set_size'].unique().tolist():
+            for user_size in self.__metric_results_collection_df['user_set_size'].unique().tolist():
+                plt.figure()
+                plt.grid(True)
+                plt.xlabel('Metadado')
+                plt.ylabel('valor')
+                box_plot_matrix = []
+                for metadata in self.__metadata_to_process:
+                    at_df = self.__metric_results_collection_df[
+                        (self.__metric_results_collection_df['metadata_used'] == metadata) &
+                        (self.__metric_results_collection_df['song_set_size'] == song_size) &
+                        (self.__metric_results_collection_df['user_set_size'] == user_size)]
+                    box_plot_matrix.append([value for value in at_df['value'].tolist()])
+                plt.boxplot(
+                    box_plot_matrix,
+                    labels=self.__metadata_to_process
+                )
+                plt.savefig(
+                    self.__directory_to_save_graphics
+                    + 'map_by_metadata_results_graph_box_plot_'
+                    + 'song_' + str(song_size)
+                    + '_user_' + str(user_size)
+                    + '.png'
+                )
+                plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Box Plot)]")
 
     def __save_csv(self):
