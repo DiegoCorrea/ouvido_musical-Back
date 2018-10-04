@@ -60,8 +60,8 @@ def song_select(song_set_df, song_set_size, preference_statistic):
 
 
 def get_song_set_df():
-    return pd.DataFrame.from_records(list(Song.objects.all().values()))[:2000]
-    # return pd.DataFrame.from_records(list(Song.objects.all().values()))
+    # return pd.DataFrame.from_records(list(Song.objects.all().values()))[:2000]
+    return pd.DataFrame.from_records(list(Song.objects.all().values()))
 
 
 def get_users_preference_df(song_set_df):
