@@ -49,17 +49,10 @@ def song_select(song_set_df, song_set_size, preference_statistic):
     if true_size + false_size < song_set_size:
         diff = song_set_size - (true_size + false_size)
         false_size += diff
-    print(str(true_size + false_size))
     true_relevance_df_with_size = true_df[0:true_size]
     false_relevance_df_with_size = true_df[0:false_size]
-    print('*' * 30)
-    print(true_relevance_df_with_size['song_id'].nunique())
-    print(false_relevance_df_with_size['song_id'].nunique())
     resp_true_df = song_set_df[song_set_df['id'].isin(true_relevance_df_with_size['song_id'].tolist())]
     resp_false_df = song_set_df[song_set_df['id'].isin(false_relevance_df_with_size['song_id'].tolist())]
-    print('*' * 30)
-    print(resp_true_df)
-    print(resp_false_df)
     resp = pd.concat([resp_false_df, resp_true_df], sort=False)
     print('*' * 30)
     print(resp)
@@ -67,7 +60,7 @@ def song_select(song_set_df, song_set_size, preference_statistic):
 
 
 def get_song_set_df():
-    return pd.DataFrame.from_records(list(Song.objects.all().values()))[:1000]
+    return pd.DataFrame.from_records(list(Song.objects.all().values()))[:2000]
     # return pd.DataFrame.from_records(list(Song.objects.all().values()))
 
 
@@ -76,7 +69,7 @@ def get_users_preference_df(song_set_df):
         list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
     )
     ids = users_preferences_df['user_id'].unique().tolist()
-    return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
+    return users_preferences_df[users_preferences_df['user_id'].isin(ids)]
 
 
 def on_map_concat_metadata(df_list, new_column, metadata_to_process_list):
@@ -102,6 +95,7 @@ def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
 
 
 def one_metadata_process(song_set_df, users_preferences_df, preference_statistic, label):
+    print(users_preferences_df)
     round_instance = Round.objects.create(
         metadata_used=label,
         song_set_size=int(song_set_df['id'].count()),

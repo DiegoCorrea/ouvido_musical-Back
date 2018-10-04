@@ -45,18 +45,25 @@ class UserAverageController:
 
     def get_user_average_recommendations(self, user_id_list):
         resp_users_recommendation_df = pd.DataFrame()
+        print(user_id_list)
         for user_id in user_id_list:
             self.__logger.info("[Start Get User Recommendation] - id: " + str(user_id))
             user_model_df = self.__users_preferences_df.loc[self.__users_preferences_df['user_id'] == user_id]
-            song_model_df = self.__similarity_data_df.loc[user_model_df['song_id'].tolist()]
-            index_list = song_model_df.index.values.tolist()
+            index_list = user_model_df['song_id'].tolist()
+            song_model_df = self.__similarity_data_df.loc[index_list]
             song_model_df.drop(columns=index_list)
+            song_model_df = song_model_df.loc[:, ~song_model_df.columns.duplicated()]
             recommendation_list = {}
             for column in song_model_df.columns:
-                if column in index_list:
+                print(str('@' * 10), column)
+                print('=' * 10, song_model_df[column])
+                print('+' * 10, song_model_df[column].values)
+                column_values = song_model_df[column].values.tolist()
+                print('||-> ', column_values)
+                if len(column_values) == 0:
                     continue
-                similarity = float(sum(song_model_df[column].tolist())) / float(
-                    song_model_df[column].count())
+                similarity = float(sum(column_values)) / float(
+                    len(column_values))
                 if similarity == 0.0:
                     continue
                 recommendation_list[column] = similarity
@@ -75,7 +82,7 @@ class UserAverageController:
         pool = ThreadPool(MAX_THREAD)
         users_recommendations_df_list = pool.map(self.get_user_average_recommendations,
                                                  np.array_split(
-                                                     self.__users_preferences_df['user_id'].unique().tolist(),
+                                                     self.__users_preferences_df['user_id'].unique(),
                                                      MAX_THREAD))
         pool.close()
         pool.join()

@@ -142,8 +142,8 @@ class PreferenceStatistics:
     def get_users_relevance_preferences_df(self, user_top_n_relevance):
         self.__users_relevance_df.sort_values("global_relevance_score", ascending=False)
         relevance_users = self.__users_relevance_df[:user_top_n_relevance]
-        users_relevance_preferences_df = self.__users_preferences_df.loc[
-            self.__users_preferences_df['user_id'].isin(relevance_users['user_id'].unique().tolist())]
+        users_relevance_preferences_df = self.__users_preferences_df[
+            self.__users_preferences_df['user_id'].isin(relevance_users['user_id'].tolist())]
         return users_relevance_preferences_df
 
     def get_song_relevance_df(self):
