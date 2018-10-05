@@ -44,23 +44,19 @@ def song_select(song_set_df, song_set_size, preference_statistic):
     false_df = song_relevance_df[song_relevance_df['global_relevance'] == False]
     true_df.sort_values(by=['global_relevance_score'], ascending=False)
     false_df.sort_values(by=['global_relevance_score'], ascending=False)
-    true_size = int(good_relevance_size * song_set_size)
-    false_size = int(bad_relevance_size * song_set_size)
+    true_size = int((good_relevance_size / 10000) * song_set_size)
+    false_size = int((bad_relevance_size / 10000) * song_set_size)
     if true_size + false_size < song_set_size:
         diff = song_set_size - (true_size + false_size)
         false_size += diff
-    true_relevance_df_with_size = true_df[0:true_size]
-    false_relevance_df_with_size = true_df[0:false_size]
+    true_relevance_df_with_size = true_df[:true_size]
+    false_relevance_df_with_size = true_df[:false_size]
     resp_true_df = song_set_df[song_set_df['id'].isin(true_relevance_df_with_size['song_id'].tolist())]
     resp_false_df = song_set_df[song_set_df['id'].isin(false_relevance_df_with_size['song_id'].tolist())]
-    resp = pd.concat([resp_false_df, resp_true_df], sort=False)
-    print('*' * 30)
-    print(resp)
-    return resp
+    return pd.concat([resp_false_df, resp_true_df], sort=False)
 
 
 def get_song_set_df():
-    # return pd.DataFrame.from_records(list(Song.objects.all().values()))[:2000]
     return pd.DataFrame.from_records(list(Song.objects.all().values()))
 
 
@@ -95,7 +91,6 @@ def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
 
 
 def one_metadata_process(song_set_df, users_preferences_df, preference_statistic, label):
-    print(users_preferences_df)
     round_instance = Round.objects.create(
         metadata_used=label,
         song_set_size=int(song_set_df['id'].count()),
@@ -196,6 +191,7 @@ def with_pre_load_data_set_and_song_variation():
     preference_statistic.run()
     for song_set_size in SONG_SET_SIZE_LIST:
         song_set_with_size_df = song_select(song_set_df, song_set_size, preference_statistic)
+        print(song_set_with_size_df['id'].count())
         preference_statistic_with_size = PreferenceStatistics(
             users_preferences_df=get_users_preference_df(song_set_with_size_df)
         )
