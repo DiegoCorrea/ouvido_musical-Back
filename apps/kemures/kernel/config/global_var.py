@@ -1,5 +1,5 @@
 # Kernel Threads
-MAX_THREAD = 3
+MAX_THREAD = 7
 
 USER_SIZE = 1000
 USER_SIZE_LIST = [100, 500, 1000]

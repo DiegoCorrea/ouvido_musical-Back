@@ -63,6 +63,7 @@ class PreferenceAnalytics:
         self.__users_median_value = users_count_df['total_liked'].median()
         users_count_df['global_relevance_score'] = (users_count_df['total_liked'] / self.__users_max_value).values
         self.__users_relevance_df = self.users_make_global_relevance(users_count_df)
+        self.__logger.info(self.__users_relevance_df)
         self.__logger.info("__ End: user_relevance_with_global_like_std")
 
     # Song Methods
@@ -95,6 +96,7 @@ class PreferenceAnalytics:
         self.__songs_median_value = songs_count_df['total_liked'].median()
         songs_count_df['global_relevance_score'] = (songs_count_df['total_liked'] / self.__songs_max_value).values
         self.__songs_relevance_df = self.songs_make_global_relevance(songs_count_df)
+        self.__logger.info(self.__songs_relevance_df)
         self.__logger.info("__ End: song_relevance_with_global_like_std")
 
     # callers

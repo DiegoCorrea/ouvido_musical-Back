@@ -35,16 +35,10 @@ def make_evaluate_graphics():
 
 
 def get_song_set_df():
-    # return pd.DataFrame.from_records(list(Song.objects.all().values()))[:2000]
     return pd.DataFrame.from_records(list(Song.objects.all().values()))
 
 
-def get_users_preference_df(song_set_df):
-    # users_preferences_df = pd.DataFrame.from_records(
-    #     list(UserPreference.objects.filter(song__in=song_set_df['id'].tolist()).values())
-    # )
-    # ids = users_preferences_df['user_id'].unique().tolist()
-    # return users_preferences_df.loc[users_preferences_df['user_id'].isin(ids)]
+def get_users_preference_df():
     return pd.DataFrame.from_records(
         list(UserPreference.objects.all().values())
     )
@@ -119,7 +113,7 @@ def with_pre_load_data_set():
     logger = logging.getLogger(__name__)
     song_set_df = get_song_set_df()
     preference_statistic = PreferenceAnalytics(
-        users_preferences_df=get_users_preference_df(song_set_df)
+        users_preferences_df=get_users_preference_df()
     )
     preference_statistic.run()
     for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST_PT):
@@ -160,7 +154,7 @@ def with_pre_load_data_set_and_user_variation():
     logger = logging.getLogger(__name__)
     song_set_df = get_song_set_df()
     preference_statistic = PreferenceAnalytics(
-        users_preferences_df=get_users_preference_df(song_set_df)
+        users_preferences_df=get_users_preference_df()
     )
     preference_statistic.run()
     for user_size in USER_SIZE_LIST:
@@ -202,7 +196,7 @@ def with_pre_load_data_set_and_user_variation():
 def data_analysis():
     song_set_df = get_song_set_df()
     preference_statistic = PreferenceAnalytics(
-        users_preferences_df=get_users_preference_df(song_set_df)
+        users_preferences_df=get_users_preference_df()
     )
     preference_statistic.run()
     preference_statistic.print_song_statistical()
