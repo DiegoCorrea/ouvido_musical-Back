@@ -21,7 +21,7 @@ from apps.kemures.recommenders.UserAverage.user_average_controller import UserAv
 from apps.kemures.similarities.Cosine.cosine_controller import CosineController
 from apps.metadata.songs.models import Song
 from apps.metadata.user_preferences.models import UserPreference
-from apps.metadata.user_preferences.preference_statistics import PreferenceStatistics
+from apps.metadata.user_preferences.preferences_analytics import PreferenceAnalytics
 from apps.tecnics.content_based_metadata.hit_recommendations import HitRecommendations
 
 
@@ -118,7 +118,7 @@ def one_metadata_process(song_set_df, users_preferences_df, preference_statistic
 def with_pre_load_data_set():
     logger = logging.getLogger(__name__)
     song_set_df = get_song_set_df()
-    preference_statistic = PreferenceStatistics(
+    preference_statistic = PreferenceAnalytics(
         users_preferences_df=get_users_preference_df(song_set_df)
     )
     preference_statistic.run()
@@ -159,7 +159,7 @@ def with_pre_load_data_set():
 def with_pre_load_data_set_and_user_variation():
     logger = logging.getLogger(__name__)
     song_set_df = get_song_set_df()
-    preference_statistic = PreferenceStatistics(
+    preference_statistic = PreferenceAnalytics(
         users_preferences_df=get_users_preference_df(song_set_df)
     )
     preference_statistic.run()
@@ -201,7 +201,7 @@ def with_pre_load_data_set_and_user_variation():
 
 def data_analysis():
     song_set_df = get_song_set_df()
-    preference_statistic = PreferenceStatistics(
+    preference_statistic = PreferenceAnalytics(
         users_preferences_df=get_users_preference_df(song_set_df)
     )
     preference_statistic.run()
