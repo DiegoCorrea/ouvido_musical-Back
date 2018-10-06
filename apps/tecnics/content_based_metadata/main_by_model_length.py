@@ -35,8 +35,7 @@ def make_evaluate_graphics():
     ndcg_over.make_graphics_by_metadata()
 
 
-def song_select(song_set_df, song_set_size, preference_statistic):
-    song_relevance_df = preference_statistic.get_song_relevance_df()
+def song_select(song_set_df, song_set_size, song_relevance_df):
     song_counted = Counter(song_relevance_df['global_relevance'].tolist())
     good_relevance_size = song_counted[True] / song_relevance_df['song_id'].nunique()
     bad_relevance_size = song_counted[False] / song_relevance_df['song_id'].nunique()
@@ -44,17 +43,19 @@ def song_select(song_set_df, song_set_size, preference_statistic):
     false_df = song_relevance_df[song_relevance_df['global_relevance'] == False]
     true_df.sort_values(by=['global_relevance_score'], ascending=False)
     false_df.sort_values(by=['global_relevance_score'], ascending=False)
-    true_size = int((good_relevance_size / 10000) * song_set_size)
-    false_size = int((bad_relevance_size / 10000) * song_set_size)
-    print('*' * 100)
-    print(true_size.count())
-    print(false_size.count())
-    print('*' * 100)
+    true_size = int(good_relevance_size * song_set_size)
+    false_size = int(bad_relevance_size * song_set_size)
     if true_size + false_size < song_set_size:
         diff = song_set_size - (true_size + false_size)
         false_size += diff
+
     true_relevance_df_with_size = true_df[:true_size]
-    false_relevance_df_with_size = true_df[:false_size]
+    false_relevance_df_with_size = false_df[:false_size]
+    print('*' * 100)
+    print(true_relevance_df_with_size.count())
+    print('-' * 100)
+    print(false_relevance_df_with_size.count())
+    print('*' * 100)
     resp_true_df = song_set_df[song_set_df['id'].isin(true_relevance_df_with_size['song_id'].tolist())]
     resp_false_df = song_set_df[song_set_df['id'].isin(false_relevance_df_with_size['song_id'].tolist())]
     return pd.concat([resp_false_df, resp_true_df], sort=False)
@@ -144,7 +145,7 @@ def with_pre_load_data_set():
         users_preferences_df=get_users_preference_df(song_set_df)
     )
     preference_statistic.run()
-    song_set_with_size_df = song_select(song_set_df, 3000, preference_statistic)
+    song_set_with_size_df = song_select(song_set_df, 3000, preference_statistic.get_song_relevance_df())
     preference_statistic_with_size = PreferenceStatistics(
         users_preferences_df=get_users_preference_df(song_set_with_size_df)
     )
