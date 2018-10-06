@@ -108,6 +108,6 @@ ENV/
 files/
 *.log
 *.csv
+*.cls
 *.ideia/
 datasets/oneMillionSongs/clean_set/*
-*.cls
