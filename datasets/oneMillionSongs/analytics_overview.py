@@ -3,6 +3,7 @@ import functools
 import os
 from collections import Counter
 from multiprocessing import Pool as ThreadPool
+from random import sample
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -14,13 +15,28 @@ from apps.kemures.kernel.config.global_var import MAX_THREAD
 
 class AnalyticsOverview:
     def __init__(self):
+        # Load data
         self.__song_msd_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/songs.csv')
-        self.__song_by_track_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/unique_tracks.txt',
-                                              sep='<SEP>', names=['track_id', 'song_id', 'title', 'artist'])
-        self.__song_by_track_df.set_index('song_id')
-        # self.__gender_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/msd_tagtraum_cd2.cls')
-        self.__users_preferences_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/playCount.csv')
-        self.__users_preferences_df = self.__users_preferences_df[:1000]
+        song_by_track_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/unique_tracks.txt',
+                                       sep='<SEP>', names=['track_id', 'id', 'title', 'artist'])
+        gender_df = pd.read_csv(os.getcwd() + '/datasets/oneMillionSongs/clean_set/msd-MAGD-genreAssignment.cls',
+                                sep='\t', names=['track_id', 'gender'])
+        self.__users_preferences_df = pd.read_csv(
+            os.getcwd() + '/datasets/oneMillionSongs/clean_set/train_triplets.txt',
+            sep='\t', names=['user_id', 'song_id', 'play_count'])
+        # Remove Duplicate
+        song_by_track_df = song_by_track_df.drop(['title', 'artist'], axis=1)
+        song_by_track_df = song_by_track_df.drop_duplicates(['id'])
+        # Join
+        self.__song_msd_df = pd.merge(self.__song_msd_df, song_by_track_df, how='left', left_on='id',
+                                      right_on='id')
+        merg = pd.merge(self.__song_msd_df, gender_df, how='inner', left_on='track_id', right_on='track_id')
+        self.__song_msd_df = merg[merg['id'].isin(self.__users_preferences_df['song_id'].tolist())]
+        self.__song_msd_df = self.__song_msd_df.sample(10000)
+        self.__users_preferences_df = self.__users_preferences_df[
+            self.__users_preferences_df['song_id'].isin(self.__song_msd_df['id'].tolist())]
+        self.__users_preferences_df = self.__users_preferences_df[self.__users_preferences_df['user_id'].isin(
+            sample(self.__users_preferences_df['user_id'].unique().tolist(), k=100000))]
         self.__song_relevance_df = None
         self.__song_to_save_df = None
         self.__users_relevance_df = None
@@ -42,7 +58,7 @@ class AnalyticsOverview:
         self.__song_relevance_df.to_csv(self.__path_to_save_set + 'song_relevance.csv')
         self.__users_preferences_df.to_csv(self.__path_to_save_set + 'preferences.csv', index=False)
         self.__song_to_save_df.to_csv(self.__path_to_save_set + 'songs.csv', index=False,
-                                      columns=['id', 'title', 'artist', 'album'])
+                                      columns=['id', 'title', 'artist', 'album', 'gender'])
         self.__users_relevance_df.to_csv(self.__path_to_save_set + 'user_relevance.csv')
         self.__users_df.to_csv(self.__path_to_save_set + 'users.csv', index=False)
 
@@ -61,11 +77,6 @@ class AnalyticsOverview:
         print('+ + Desvio Padrão das preferencias: ' + str(self.__songs_std_value))
         counted = Counter(self.__song_relevance_df['global_relevance'].tolist())
         print('+ + Relevância musical: ' + str(counted))
-        print('')
-        # print('Total de álbuns: ' + str(self.__song_relevance_df.album.unique().size))
-        print('')
-        # print('Total de Artistas: ' + str(self.__song_relevance_df.artist.unique().size))
-        print('')
 
     def print_user_statistical(self):
         print('Total de usuários: ' + str(self.__users_df.size))
@@ -184,7 +195,6 @@ class AnalyticsOverview:
 
     def song_check(self):
         self.song_relevance_with_global_like_std()
-        self.merge_song_metadata()
         self.song_global_relevance_score_histo()
         self.print_song_statistical()
 
@@ -230,13 +240,6 @@ class AnalyticsOverview:
             + 'user_global_relevance_score_histo.png'
         )
         plt.close()
-
-    def merge_song_metadata(self):
-        track_load_df = self.__song_by_track_df.loc[
-            self.__song_by_track_df['song_id'].isin(self.__song_to_save_df['id'].tolist())]
-        print(track_load_df)
-        print('\n\n')
-        print(track_load_df['song_id'].count())
 
 
 def call():

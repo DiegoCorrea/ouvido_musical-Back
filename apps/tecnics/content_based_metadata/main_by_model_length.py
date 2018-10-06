@@ -46,6 +46,10 @@ def song_select(song_set_df, song_set_size, preference_statistic):
     false_df.sort_values(by=['global_relevance_score'], ascending=False)
     true_size = int((good_relevance_size / 10000) * song_set_size)
     false_size = int((bad_relevance_size / 10000) * song_set_size)
+    print('*' * 100)
+    print(true_size.count())
+    print(false_size.count())
+    print('*' * 100)
     if true_size + false_size < song_set_size:
         diff = song_set_size - (true_size + false_size)
         false_size += diff
@@ -140,7 +144,7 @@ def with_pre_load_data_set():
         users_preferences_df=get_users_preference_df(song_set_df)
     )
     preference_statistic.run()
-    song_set_with_size_df = song_select(song_set_df, 100, preference_statistic)
+    song_set_with_size_df = song_select(song_set_df, 3000, preference_statistic)
     preference_statistic_with_size = PreferenceStatistics(
         users_preferences_df=get_users_preference_df(song_set_with_size_df)
     )
