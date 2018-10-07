@@ -195,7 +195,7 @@ def with_pre_load_data_set_and_song_variation():
     )
     preference_statistic.run()
     for song_set_size in SONG_SET_SIZE_LIST:
-        song_set_with_size_df = song_select(song_set_df, song_set_size, preference_statistic)
+        song_set_with_size_df = song_select(song_set_df, song_set_size, preference_statistic.get_song_relevance_df())
         print(song_set_with_size_df['id'].count())
         preference_statistic_with_size = PreferenceAnalytics(
             users_preferences_df=get_users_preference_df(song_set_with_size_df)
