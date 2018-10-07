@@ -96,23 +96,19 @@ class UserAverageController:
         recommendation_list = {}
         for column in song_model_df.columns:
             column_values = song_model_df[column].values.tolist()
-            if len(column_values) == 0:
-                continue
             column_values = [i for i in column_values if i != 0.0]
             if len(column_values) == 0:
                 continue
             similarity = float(sum(column_values)) / float(
                 len(column_values))
-            recommendation_list[column] = similarity
-        user_recommendations_df_list = [pd.DataFrame(
-            data=[[user_id, song, recommendation_list[song]]],
-            columns=self.__recommendations_columns,
-        ) for song in recommendation_list]
-        user_recommendations_df = pd.concat(user_recommendations_df_list, sort=False)
+            recommendation_list[column] = [similarity]
+        user_recommendations_df = pd.DataFrame.from_dict(data=dict(recommendation_list), orient='index',
+                                                         columns=['similarity'])
         resp_user_recommendation_df = pd.concat(
             [user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[
              0:RECOMMENDATION_LIST_SIZE], resp_user_recommendation_df], sort=False)
-        print(resp_user_recommendation_df['song_id'].count())
+        resp_user_recommendation_df['song_id'] = resp_user_recommendation_df.index.values
+        resp_user_recommendation_df['user_id'] = user_id
         return resp_user_recommendation_df
 
     def __start_user_average_with_async(self):
