@@ -87,8 +87,8 @@ class UserAverageController:
 
     def get_user_recommendations(self, user_id):
         self.__logger.info("[Start Get User Recommendation] - id: " + str(user_id))
-        user_model_df = self.__users_preferences_df.loc[self.__users_preferences_df['user_id'] == user_id]
-        index_list = user_model_df['song_id'].values.tolist()
+        user_model_df = self.__users_preferences_df[self.__users_preferences_df['user_id'] == user_id]
+        index_list = user_model_df['song_id'].unique().tolist()
         song_model_df = self.__similarity_data_df.loc[index_list]
         song_model_df = song_model_df.drop(columns=index_list)
         # song_model_df = song_model_df.T.drop_duplicates().T

@@ -19,4 +19,4 @@ class HitRecommendations:
                 self.__song_relevance_df.at[song_id, 'global_relevance_score']
             self.__recommendations_df.loc[self.__recommendations_df['song_id'] == song_id, 'global_relevance'] = \
                 self.__song_relevance_df.at[song_id, 'global_relevance']
-        self.__logger.debug(self.__recommendations_df)
+        # self.__logger.debug(self.__recommendations_df)
