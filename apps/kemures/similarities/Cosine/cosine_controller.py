@@ -47,8 +47,7 @@ class CosineController:
         self.__logger.info("[Finish Run Cosine Similarity]")
 
     def __start_cosine(self):
-        matrix_data = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if
-                       column != 'id']
+        matrix_data = [self.__song_set_df[column].tolist() for column in self.__song_set_df.columns if column != 'id']
         pool = ThreadPool(MAX_THREAD)
         feature_matrix_similarity = pool.map(CosineController.find_similarity, matrix_data)
         pool.close()

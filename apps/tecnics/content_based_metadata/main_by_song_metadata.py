@@ -182,8 +182,6 @@ def with_pre_load_data_set_and_user_variation():
                 user_top_n_relevance=user_size),
             preference_statistic=preference_statistic,
             label='AL+AR')
-        preference_statistic.print_song_statistical()
-        preference_statistic.print_user_statistical()
         preference_statistic.make_graphics()
     make_evaluate_graphics()
 

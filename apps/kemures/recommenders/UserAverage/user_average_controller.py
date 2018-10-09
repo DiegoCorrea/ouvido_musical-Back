@@ -41,7 +41,7 @@ class UserAverageController:
             + " || Finished at -"
             + str(finished_at)
         )
-        self.__logger.info("[Start Run User Average]")
+        self.__logger.info("[Finish Run User Average]")
 
     def get_user_average_recommendations(self, user_id_list):
         resp_users_recommendation_df = pd.DataFrame()
@@ -86,28 +86,32 @@ class UserAverageController:
         return pd.concat(users_recommendations_df_list, sort=False)
 
     def get_user_recommendations(self, user_id):
-        resp_user_recommendation_df = pd.DataFrame()
         self.__logger.info("[Start Get User Recommendation] - id: " + str(user_id))
         user_model_df = self.__users_preferences_df.loc[self.__users_preferences_df['user_id'] == user_id]
         index_list = user_model_df['song_id'].values.tolist()
         song_model_df = self.__similarity_data_df.loc[index_list]
-        song_model_df.drop(columns=index_list)
+        song_model_df = song_model_df.drop(columns=index_list)
         # song_model_df = song_model_df.T.drop_duplicates().T
         recommendation_list = {}
         for column in song_model_df.columns:
             column_values = song_model_df[column].values.tolist()
+            # print('')
+            # print('')
+            if column in index_list:
+                print(column_values)
             column_values = [i for i in column_values if i != 0.0]
             if len(column_values) == 0:
                 continue
             similarity = float(sum(column_values)) / float(
                 len(column_values))
+            if similarity == 0.0:
+                continue
             recommendation_list[column] = [similarity]
         user_recommendations_df = pd.DataFrame.from_dict(data=dict(recommendation_list), orient='index',
                                                          columns=['similarity'])
-        resp_user_recommendation_df = pd.concat(
-            [user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[
-             0:RECOMMENDATION_LIST_SIZE], resp_user_recommendation_df], sort=False)
-        resp_user_recommendation_df['song_id'] = resp_user_recommendation_df.index.values
+        resp_user_recommendation_df = user_recommendations_df.sort_values(by=['similarity'], ascending=False).iloc[
+                                      0:RECOMMENDATION_LIST_SIZE]
+        resp_user_recommendation_df['song_id'] = resp_user_recommendation_df.index.values.tolist()
         resp_user_recommendation_df['user_id'] = user_id
         return resp_user_recommendation_df
 
@@ -117,4 +121,7 @@ class UserAverageController:
                                                  self.__users_preferences_df['user_id'].unique().tolist())
         pool.close()
         pool.join()
-        return pd.concat(users_recommendations_df_list, sort=False)
+        resp = pd.concat(users_recommendations_df_list, sort=False)
+        resp = resp.reset_index(drop=True)
+        # print(resp)
+        return resp

@@ -48,7 +48,6 @@ def song_select(song_set_df, song_set_size, song_relevance_df):
     if true_size + false_size < song_set_size:
         diff = song_set_size - (true_size + false_size)
         false_size += diff
-
     true_relevance_df_with_size = true_df[:true_size]
     false_relevance_df_with_size = false_df[:false_size]
     print('*' * 100)
