@@ -12,13 +12,8 @@
       <change afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/msd-MAGD-genreAssignment.cls" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datasets/oneMillionSongs/clean_set/msd_tagtraum_cd2.cls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/metadata/user_preferences/preferences_analytics.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/metadata/user_preferences/preferences_analytics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/hit_recommendations.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/hit_recommendations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_model_length.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_model_length.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,9 +67,9 @@
           <entry key="gitignore" value="45" />
           <entry key="log" value="2" />
           <entry key="md" value="182" />
-          <entry key="py" value="24156" />
+          <entry key="py" value="24203" />
           <entry key="sql" value="21" />
-          <entry key="txt" value="3147" />
+          <entry key="txt" value="3177" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -82,8 +77,8 @@
           <entry key="DBN-SQL" value="21" />
           <entry key="Log" value="2" />
           <entry key="Markdown" value="182" />
-          <entry key="PLAIN_TEXT" value="3330" />
-          <entry key="Python" value="24156" />
+          <entry key="PLAIN_TEXT" value="3360" />
+          <entry key="Python" value="24203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -96,9 +91,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1448">
               <caret line="227" column="26" selection-start-line="227" selection-start-column="26" selection-end-line="229" selection-end-column="63" />
-              <folding>
-                <element signature="e#24#33#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -117,9 +109,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2745">
               <caret line="183" column="26" selection-start-line="183" selection-start-column="26" selection-end-line="183" selection-end-column="26" />
-              <folding>
-                <element signature="e#24#33#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -133,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+            <state relative-caret-position="848">
+              <caret line="121" selection-start-line="121" selection-end-line="121" />
               <folding>
                 <element signature="e#24#38#0" expanded="true" />
               </folding>
@@ -150,22 +139,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="21" selection-end-column="11" />
-              <folding>
-                <element signature="e#24#38#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preferences_analytics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="638">
+              <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
               <folding>
                 <element signature="e#24#38#0" expanded="true" />
-                <marker date="1539051089396" expanded="true" signature="1870:2056" ph="..." />
-                <marker date="1539051089396" expanded="true" signature="3574:3760" ph="..." />
+                <marker date="1539052316975" expanded="true" signature="1870:2056" ph="..." />
+                <marker date="1539052316975" expanded="true" signature="3574:3760" ph="..." />
               </folding>
             </state>
           </provider>
@@ -305,8 +291,8 @@
         <option value="$PROJECT_DIR$/apps/kemures/kernel/config/global_var.py" />
         <option value="$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py" />
         <option value="$PROJECT_DIR$/apps/kemures/similarities/Cosine/cosine_controller.py" />
-        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/preferences_analytics.py" />
         <option value="$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py" />
+        <option value="$PROJECT_DIR$/apps/metadata/user_preferences/preferences_analytics.py" />
       </list>
     </option>
   </component>
@@ -449,13 +435,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533354582116</updated>
-    </task>
-    <task id="LOCAL-00066" summary="alterando label do DAO">
-      <created>1534627264456</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1534627264456</updated>
     </task>
     <task id="LOCAL-00067" summary="identando">
       <created>1534627574229</created>
@@ -793,7 +772,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538880915781</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="apertando os parafusos soltos">
+      <created>1539051923646</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1539051923646</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -854,7 +840,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refatorando multiprocesso" />
     <MESSAGE value="alterando carregamento" />
     <MESSAGE value="refatorando para todos os dados carregados na memoria" />
     <MESSAGE value="ajustando graficos e imprimindo resultados" />
@@ -879,7 +864,8 @@
     <MESSAGE value="nova chama" />
     <MESSAGE value="novo map no user average" />
     <MESSAGE value="song relevance sendo passado como parametro" />
-    <option name="LAST_COMMIT_MESSAGE" value="song relevance sendo passado como parametro" />
+    <MESSAGE value="apertando os parafusos soltos" />
+    <option name="LAST_COMMIT_MESSAGE" value="apertando os parafusos soltos" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1149,9 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1448">
           <caret line="227" column="26" selection-start-line="227" selection-start-column="26" selection-end-line="229" selection-end-column="63" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,6 +1149,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="21" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2745">
+          <caret line="183" column="26" selection-start-line="183" selection-start-column="26" selection-end-line="183" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="848">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
           <folding>
             <element signature="e#24#38#0" expanded="true" />
           </folding>
@@ -1174,32 +1171,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/metadata/user_preferences/preferences_analytics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="638">
+          <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
           <folding>
             <element signature="e#24#38#0" expanded="true" />
-            <marker date="1539051089396" expanded="true" signature="1870:2056" ph="..." />
-            <marker date="1539051089396" expanded="true" signature="3574:3760" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/tecnics/content_based_metadata/main_by_song_metadata.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2745">
-          <caret line="183" column="26" selection-start-line="183" selection-start-column="26" selection-end-line="183" selection-end-column="26" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/kemures/recommenders/UserAverage/user_average_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
+            <marker date="1539052316975" expanded="true" signature="1870:2056" ph="..." />
+            <marker date="1539052316975" expanded="true" signature="3574:3760" ph="..." />
           </folding>
         </state>
       </provider>

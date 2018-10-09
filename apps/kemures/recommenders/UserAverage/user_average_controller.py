@@ -95,10 +95,6 @@ class UserAverageController:
         recommendation_list = {}
         for column in song_model_df.columns:
             column_values = song_model_df[column].values.tolist()
-            # print('')
-            # print('')
-            if column in index_list:
-                print(column_values)
             column_values = [i for i in column_values if i != 0.0]
             if len(column_values) == 0:
                 continue
@@ -123,5 +119,4 @@ class UserAverageController:
         pool.join()
         resp = pd.concat(users_recommendations_df_list, sort=False)
         resp = resp.reset_index(drop=True)
-        # print(resp)
         return resp

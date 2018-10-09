@@ -96,6 +96,7 @@ class PreferenceAnalytics:
         songs_count_df['global_relevance_score'] = (songs_count_df['total_liked'] / self.__songs_max_value).values
         self.__songs_relevance_df = self.songs_make_global_relevance(songs_count_df)
         self.__songs_relevance_df = self.__songs_relevance_df.set_index('song_id')
+        self.__songs_relevance_df['song_id'] = self.__songs_relevance_df.index.values.tolist()
         self.__logger.info("__ End: song_relevance_with_global_like_std")
 
     # callers
