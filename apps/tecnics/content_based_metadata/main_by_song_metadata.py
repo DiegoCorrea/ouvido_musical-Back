@@ -173,6 +173,7 @@ def with_pre_load_data_set_and_user_variation():
                     user_top_n_relevance=user_size), preference_statistic=preference_statistic,
                 label=pt_graph_name
             )
+        gc.collect()
         one_metadata_process(
             song_set_df=song_set_df.filter(['id', 'album', 'title'], axis=1),
             users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
@@ -191,6 +192,7 @@ def with_pre_load_data_set_and_user_variation():
                 user_top_n_relevance=user_size), preference_statistic=preference_statistic,
             label='|TL|+|AL|'
         )
+        gc.collect()
         one_metadata_process(
             song_set_df=concat_metadata_preserve_id(df_list=song_set_df, metadata_to_process_list=['album', 'title'],
                                                     new_column='AL+TL'),
@@ -216,6 +218,7 @@ def with_pre_load_data_set_and_user_variation():
             label='TL+AL'
         )
         preference_statistic.make_graphics()
+    gc.collect()
     make_evaluate_graphics()
 
 

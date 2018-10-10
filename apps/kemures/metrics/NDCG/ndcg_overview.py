@@ -5,7 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from apps.kemures.kernel.config.global_var import METADATA_OPTION_GRAPH, NDCG_PATH_GRAPHICS
+from apps.kemures.kernel.config.global_var import NDCG_PATH_GRAPHICS, GRAPH_MARKERS, GRAPH_STYLE, GRAPH_COLORS
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.NDCG.DAO.models import NDCG
 from apps.kemures.metrics.NDCG.runtime.models import NDCGRunTime
@@ -25,7 +25,9 @@ class NDCGOverview:
         self.__song_set_size_list = rounds_df['song_set_size'].unique().tolist().sort()
         self.__user_set_size_list = rounds_df['user_set_size'].unique().tolist().sort()
         self.__at_size_list = metric_df['at'].unique().tolist()
-        self.__graph_style = METADATA_OPTION_GRAPH[:len(self.__metadata_to_process)]
+        self.__graph_style = GRAPH_STYLE[:len(self.__metadata_to_process)]
+        self.__graph_makers = GRAPH_MARKERS[:len(self.__metadata_to_process)]
+        self.__graph_colors = GRAPH_COLORS[:len(self.__metadata_to_process)]
         self.__metric_results_collection_df = metric_df.copy()
         self.__metric_results_collection_df = self.__metric_results_collection_df.join(
             metric_run_time_df.set_index('id_id'), on='id')
@@ -161,7 +163,8 @@ class NDCGOverview:
                 plt.grid(True)
                 plt.xlabel('Tamanho da lista de recomendação')
                 plt.ylabel('Valor')
-                for metadata, style in zip(self.__metadata_to_process, self.__graph_style):
+                for metadata, style, colors, makers in zip(self.__metadata_to_process, self.__graph_style,
+                                                           self.__graph_colors, self.__graph_makers):
                     at_df = self.__metric_results_collection_df[
                         (self.__metric_results_collection_df['metadata_used'] == metadata) &
                         (self.__metric_results_collection_df['song_set_size'] == song_size) &
@@ -170,7 +173,9 @@ class NDCGOverview:
                     plt.plot(
                         at_df['at'],
                         at_df['value'],
-                        style,
+                        linestyle=style,
+                        color=colors,
+                        marker=makers,
                         label=metadata
                     )
                 # plt.legend(loc='best')
