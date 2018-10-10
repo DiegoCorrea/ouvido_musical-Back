@@ -173,14 +173,17 @@ class MRROverview:
                         style,
                         label=metadata
                     )
-                plt.legend(loc='best')
+                # plt.legend(loc='best')
+                lgd = plt.legend(loc=9, bbox_to_anchor=(0.5, -0.1), ncol=3)
                 plt.xticks(self.__at_size_list)
                 plt.savefig(
                     self.__directory_to_save_graphics
                     + 'mrr_by_metadata_results_graph_line_'
                     + 'song_' + str(song_size)
                     + '_user_' + str(user_size)
-                    + '.png'
+                    + '.png',
+                    bbox_extra_artists=(lgd,),
+                    bbox_inches='tight'
                 )
                 plt.close()
         self.__logger.info("[Finish MRR Overview - Results - (Graph Line)]")

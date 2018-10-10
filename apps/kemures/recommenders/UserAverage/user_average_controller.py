@@ -86,7 +86,7 @@ class UserAverageController:
         return pd.concat(users_recommendations_df_list, sort=False)
 
     def get_user_recommendations(self, user_id):
-        self.__logger.info("[Start Get User Recommendation] - id: " + str(user_id))
+        # self.__logger.info("[Start Get User Recommendation] - id: " + str(user_id))
         user_model_df = self.__users_preferences_df[self.__users_preferences_df['user_id'] == user_id]
         index_list = user_model_df['song_id'].unique().tolist()
         song_model_df = self.__similarity_data_df.loc[index_list]
@@ -109,6 +109,18 @@ class UserAverageController:
                                       0:RECOMMENDATION_LIST_SIZE]
         resp_user_recommendation_df['song_id'] = resp_user_recommendation_df.index.values.tolist()
         resp_user_recommendation_df['user_id'] = user_id
+        # print(
+        #    "\n"
+        #    + str(user_id)
+        #    + "\n"
+        #    + str(song_model_df)
+        #    + "\n"
+        #    + str(index_list)
+        #    + "\n"
+        #    + "\n"
+        #    + str(resp_user_recommendation_df)
+        #    + "\n"
+        # )
         return resp_user_recommendation_df
 
     def __start_user_average_with_async(self):

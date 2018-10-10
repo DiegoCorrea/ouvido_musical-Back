@@ -50,11 +50,6 @@ def song_select(song_set_df, song_set_size, song_relevance_df):
         false_size += diff
     true_relevance_df_with_size = true_df[:true_size]
     false_relevance_df_with_size = false_df[:false_size]
-    print('*' * 100)
-    print(true_relevance_df_with_size.count())
-    print('-' * 100)
-    print(false_relevance_df_with_size.count())
-    print('*' * 100)
     resp_true_df = song_set_df[song_set_df['id'].isin(true_relevance_df_with_size['song_id'].tolist())]
     resp_false_df = song_set_df[song_set_df['id'].isin(false_relevance_df_with_size['song_id'].tolist())]
     return pd.concat([resp_false_df, resp_true_df], sort=False)
@@ -195,7 +190,6 @@ def with_pre_load_data_set_and_song_variation():
     preference_statistic.run()
     for song_set_size in SONG_SET_SIZE_LIST:
         song_set_with_size_df = song_select(song_set_df, song_set_size, preference_statistic.get_song_relevance_df())
-        print(song_set_with_size_df['id'].count())
         preference_statistic_with_size = PreferenceAnalytics(
             users_preferences_df=get_users_preference_df(song_set_with_size_df)
         )
@@ -214,10 +208,98 @@ def with_pre_load_data_set_and_song_variation():
                                      user_top_n_relevance=USER_SIZE),
                                  preference_statistic=preference_statistic_with_size,
                                  label=pt_graph_name)
-        one_metadata_process(song_set_df=song_set_with_size_df.filter(['id', 'album', 'artist'], axis=1),
-                             users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
-                                 user_top_n_relevance=USER_SIZE), preference_statistic=preference_statistic_with_size,
-                             label='|AL|+|AR|')
+        if song_set_size != 9000:
+            one_metadata_process(song_set_df=song_set_with_size_df.filter(['id', 'album', 'title'], axis=1),
+                                 users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                                     user_top_n_relevance=USER_SIZE),
+                                 preference_statistic=preference_statistic_with_size,
+                                 label='|AL|+|TL|')
+            one_metadata_process(
+                song_set_df=concat_metadata_preserve_id(df_list=song_set_with_size_df,
+                                                        metadata_to_process_list=['album', 'title'],
+                                                        new_column='AL+TL'),
+                users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                    user_top_n_relevance=USER_SIZE),
+                preference_statistic=preference_statistic_with_size,
+                label='AL+TL')
+        else:
+            one_metadata_process(song_set_df=song_set_with_size_df.filter(['id', 'album', 'artist'], axis=1),
+                                 users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                                     user_top_n_relevance=USER_SIZE),
+                                 preference_statistic=preference_statistic_with_size,
+                                 label='|AL|+|AR|')
+            one_metadata_process(
+                song_set_df=concat_metadata_preserve_id(df_list=song_set_with_size_df,
+                                                        metadata_to_process_list=['album', 'artist'],
+                                                        new_column='AL+AR'),
+                users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                    user_top_n_relevance=USER_SIZE),
+                preference_statistic=preference_statistic_with_size,
+                label='AL+AR')
+        preference_statistic_with_size.print_song_statistical()
+        preference_statistic_with_size.print_user_statistical()
+        preference_statistic_with_size.make_graphics()
+    make_evaluate_graphics()
+
+
+def pre_load_data_set_and_song_variation_all_combination():
+    logger = logging.getLogger(__name__)
+    song_set_df = get_song_set_df()
+    preference_statistic = PreferenceAnalytics(
+        users_preferences_df=get_users_preference_df(song_set_df)
+    )
+    preference_statistic.run()
+    for song_set_size in SONG_SET_SIZE_LIST:
+        song_set_with_size_df = song_select(song_set_df, song_set_size, preference_statistic.get_song_relevance_df())
+        preference_statistic_with_size = PreferenceAnalytics(
+            users_preferences_df=get_users_preference_df(song_set_with_size_df)
+        )
+        preference_statistic_with_size.run()
+        for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST_PT):
+            gc.collect()
+            metadata_to_process_list = ['id', metadata]
+            logger.info("*" * 60)
+            logger.info(
+                "*\tProcessando o metadado - "
+                + str(metadata)
+            )
+            logger.info("*" * 60)
+            one_metadata_process(
+                song_set_df=song_set_with_size_df.filter(metadata_to_process_list, axis=1),
+                users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                    user_top_n_relevance=USER_SIZE),
+                preference_statistic=preference_statistic_with_size,
+                label=pt_graph_name
+            )
+        one_metadata_process(
+            song_set_df=song_set_with_size_df.filter(['id', 'album', 'title'], axis=1),
+            users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                user_top_n_relevance=USER_SIZE), preference_statistic=preference_statistic_with_size,
+            label='|AL|+|TL|'
+        )
+        one_metadata_process(
+            song_set_df=song_set_with_size_df.filter(['id', 'album', 'artist'], axis=1),
+            users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                user_top_n_relevance=USER_SIZE),
+            preference_statistic=preference_statistic_with_size,
+            label='|AL|+|AR|'
+        )
+        one_metadata_process(
+            song_set_df=song_set_with_size_df.filter(['id', 'title', 'artist'], axis=1),
+            users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                user_top_n_relevance=USER_SIZE),
+            preference_statistic=preference_statistic_with_size,
+            label='|TL|+|AR|'
+        )
+        one_metadata_process(
+            song_set_df=concat_metadata_preserve_id(df_list=song_set_with_size_df,
+                                                    metadata_to_process_list=['album', 'title'],
+                                                    new_column='AL+TL'),
+            users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                user_top_n_relevance=USER_SIZE),
+            preference_statistic=preference_statistic_with_size,
+            label='AL+TL'
+        )
         one_metadata_process(
             song_set_df=concat_metadata_preserve_id(df_list=song_set_with_size_df,
                                                     metadata_to_process_list=['album', 'artist'],
@@ -225,7 +307,17 @@ def with_pre_load_data_set_and_song_variation():
             users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
                 user_top_n_relevance=USER_SIZE),
             preference_statistic=preference_statistic_with_size,
-            label='AL+AR')
+            label='AL+AR'
+        )
+        one_metadata_process(
+            song_set_df=concat_metadata_preserve_id(df_list=song_set_with_size_df,
+                                                    metadata_to_process_list=['title', 'artist'],
+                                                    new_column='TL+AR'),
+            users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                user_top_n_relevance=USER_SIZE),
+            preference_statistic=preference_statistic_with_size,
+            label='TL+AR'
+        )
         preference_statistic_with_size.print_song_statistical()
         preference_statistic_with_size.print_user_statistical()
         preference_statistic_with_size.make_graphics()
