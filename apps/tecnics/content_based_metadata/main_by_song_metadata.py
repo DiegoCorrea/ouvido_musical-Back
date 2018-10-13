@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 import gc
 import logging
-from functools import partial
-from multiprocessing.dummy import Pool as ThreadPool
 
-import numpy as np
 import pandas as pd
 from django.utils import timezone
 
-from apps.kemures.kernel.config.global_var import METADATA_TO_PROCESS_LIST, USER_SIZE, MAX_THREAD, \
-    METADATA_TO_PROCESS_LIST_PT, USER_SIZE_LIST
+from apps.kemures.kernel.config.global_var import METADATA_TO_PROCESS_LIST, USER_SIZE, METADATA_TO_PROCESS_LIST_PT, \
+    USER_SIZE_LIST
 from apps.kemures.kernel.round.models import Round
 from apps.kemures.metrics.MAP.map_controller import MAPController
 from apps.kemures.metrics.MAP.map_overview import MAPOverview
@@ -54,15 +51,18 @@ def on_map_concat_metadata(df_list, new_column, metadata_to_process_list):
 
 
 def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
-    df_list[new_column] = ''
-    pool = ThreadPool(MAX_THREAD)
-    new_songs_df = pool.map(partial(on_map_concat_metadata, new_column=new_column,
-                                    metadata_to_process_list=metadata_to_process_list),
-                            np.array_split(df_list, MAX_THREAD))
-    pool.close()
-    pool.join()
-    resp = pd.concat(new_songs_df, sort=False)
-    resp.drop(metadata_to_process_list, axis=1)
+    # df_list[new_column] = ''
+    # pool = ThreadPool(MAX_THREAD)
+    # new_songs_df = pool.map(partial(on_map_concat_metadata, new_column=new_column,
+    #                                 metadata_to_process_list=metadata_to_process_list),
+    #                         np.array_split(df_list, MAX_THREAD))
+    # pool.close()
+    # pool.join()
+    # resp = pd.concat(new_songs_df, sort=False)
+    # resp = resp.drop(metadata_to_process_list, axis=1)
+    resp = pd.DataFrame()
+    resp['id'] = df_list['id']
+    resp[new_column] = df_list[metadata_to_process_list[0]] + ' ' + df_list[metadata_to_process_list[1]]
     return resp
 
 
@@ -163,7 +163,7 @@ def with_pre_load_data_set_and_user_variation():
             metadata_to_process_list = ['id', metadata]
             logger.info("*" * 60)
             logger.info(
-                "*\tProcessando o metadado - "
+                "*\tEXPERIMENTO 1 - "
                 + str(metadata)
             )
             logger.info("*" * 60)
@@ -174,25 +174,49 @@ def with_pre_load_data_set_and_user_variation():
                 label=pt_graph_name
             )
         gc.collect()
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 2 - "
+            + "album and title - |AL|+|TL|"
+        )
+        logger.info("*" * 60)
         one_metadata_process(
             song_set_df=song_set_df.filter(['id', 'album', 'title'], axis=1),
             users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
                 user_top_n_relevance=user_size), preference_statistic=preference_statistic,
             label='|AL|+|TL|'
         )
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 2 - "
+            + "album and artist - |AL|+|AR|"
+        )
+        logger.info("*" * 60)
         one_metadata_process(
             song_set_df=song_set_df.filter(['id', 'album', 'artist'], axis=1),
             users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
                 user_top_n_relevance=user_size), preference_statistic=preference_statistic,
             label='|AL|+|AR|'
         )
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 2 - "
+            + "title and artist - |TL|+|AR|"
+        )
+        logger.info("*" * 60)
         one_metadata_process(
-            song_set_df=song_set_df.filter(['id', 'title', 'album'], axis=1),
+            song_set_df=song_set_df.filter(['id', 'title', 'artist'], axis=1),
             users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
                 user_top_n_relevance=user_size), preference_statistic=preference_statistic,
-            label='|TL|+|AL|'
+            label='|TL|+|AR|'
         )
         gc.collect()
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 3 - "
+            + "title and album - AL+TL"
+        )
+        logger.info("*" * 60)
         one_metadata_process(
             song_set_df=concat_metadata_preserve_id(df_list=song_set_df, metadata_to_process_list=['album', 'title'],
                                                     new_column='AL+TL'),
@@ -201,6 +225,12 @@ def with_pre_load_data_set_and_user_variation():
             preference_statistic=preference_statistic,
             label='AL+TL'
         )
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 3 - "
+            + "artist and album - AL+AR"
+        )
+        logger.info("*" * 60)
         one_metadata_process(
             song_set_df=concat_metadata_preserve_id(df_list=song_set_df, metadata_to_process_list=['album', 'artist'],
                                                     new_column='AL+AR'),
@@ -209,13 +239,19 @@ def with_pre_load_data_set_and_user_variation():
             preference_statistic=preference_statistic,
             label='AL+AR'
         )
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 3 - "
+            + "title and artist - TL+AR"
+        )
+        logger.info("*" * 60)
         one_metadata_process(
-            song_set_df=concat_metadata_preserve_id(df_list=song_set_df, metadata_to_process_list=['title', 'album'],
+            song_set_df=concat_metadata_preserve_id(df_list=song_set_df, metadata_to_process_list=['title', 'artist'],
                                                     new_column='AL+TL'),
             users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
                 user_top_n_relevance=user_size),
             preference_statistic=preference_statistic,
-            label='TL+AL'
+            label='TL+AR'
         )
         preference_statistic.make_graphics()
     gc.collect()
