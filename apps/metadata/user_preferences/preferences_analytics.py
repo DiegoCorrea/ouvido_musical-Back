@@ -153,7 +153,7 @@ class PreferenceAnalytics:
         plt.grid(axis='y')
         plt.savefig(
             self.__path_to_save_graphics
-            + 'song_global_relevance_score_histo.png'
+            + 'song_global_relevance_score_histo.eps', format='eps', dpi=1000
         )
         plt.close()
 
@@ -169,7 +169,7 @@ class PreferenceAnalytics:
         plt.grid(axis='y')
         plt.savefig(
             self.__path_to_save_graphics
-            + 'user_global_relevance_score_histo.png'
+            + 'user_global_relevance_score_histo.eps', format='eps', dpi=1000
         )
         plt.close()
 

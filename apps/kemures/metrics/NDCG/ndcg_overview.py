@@ -61,7 +61,9 @@ class NDCGOverview:
                 self.__directory_to_save_graphics
                 + 'ndcg_all_time_graph_line_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish NDCG Overview - Run Time - (Graph Line)]")
@@ -88,7 +90,9 @@ class NDCGOverview:
                 self.__directory_to_save_graphics
                 + 'ndcg_all_time_graph_box_plot_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish NDCG Overview - Run Time - (Graph Box Plot)]")
@@ -119,7 +123,9 @@ class NDCGOverview:
                 self.__directory_to_save_graphics
                 + 'ndcg_all_results_graph_line_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish NDCG Overview - Results - (Graph Line)]")
@@ -145,7 +151,9 @@ class NDCGOverview:
                 self.__directory_to_save_graphics
                 + 'ndcg_all_results_graph_box_plot_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish NDCG Overview - Results - (Graph Box Plot)]")
@@ -186,7 +194,9 @@ class NDCGOverview:
                     + 'ndcg_by_metadata_results_graph_line_'
                     + 'song_' + str(song_size)
                     + '_user_' + str(user_size)
-                    + '.png',
+                    + '.eps',
+                    format='eps',
+                    dpi=1000,
                     bbox_extra_artists=(lgd,),
                     bbox_inches='tight'
                 )
@@ -217,7 +227,9 @@ class NDCGOverview:
                     + 'ndcg_by_metadata_results_graph_box_plot_'
                     + 'song_' + str(song_size)
                     + '_user_' + str(user_size)
-                    + '.png'
+                    + '.eps',
+                    format='eps',
+                    dpi=1000
                 )
                 plt.close()
         self.__logger.info("[Finish NDCG Overview - Results - (Graph Box Plot)]")

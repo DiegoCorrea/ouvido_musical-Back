@@ -51,15 +51,6 @@ def on_map_concat_metadata(df_list, new_column, metadata_to_process_list):
 
 
 def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
-    # df_list[new_column] = ''
-    # pool = ThreadPool(MAX_THREAD)
-    # new_songs_df = pool.map(partial(on_map_concat_metadata, new_column=new_column,
-    #                                 metadata_to_process_list=metadata_to_process_list),
-    #                         np.array_split(df_list, MAX_THREAD))
-    # pool.close()
-    # pool.join()
-    # resp = pd.concat(new_songs_df, sort=False)
-    # resp = resp.drop(metadata_to_process_list, axis=1)
     resp = pd.DataFrame()
     resp['id'] = df_list['id']
     resp[new_column] = df_list[metadata_to_process_list[0]] + ' ' + df_list[metadata_to_process_list[1]]

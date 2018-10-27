@@ -61,7 +61,9 @@ class MAPOverview:
                 self.__directory_to_save_graphics
                 + 'map_all_time_graph_line_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish MAP Overview - Run Time - (Graph Line)]")
@@ -84,11 +86,14 @@ class MAPOverview:
                 box_plot_matrix,
                 labels=self.__song_set_size_list
             )
+            plt.xticks(rotation=30)
             plt.savefig(
                 self.__directory_to_save_graphics
                 + 'map_all_time_graph_box_plot_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish MAP Overview - Run Time - (Graph Box Plot)]")
@@ -119,7 +124,9 @@ class MAPOverview:
                 self.__directory_to_save_graphics
                 + 'map_all_results_graph_line_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Line)]")
@@ -141,11 +148,14 @@ class MAPOverview:
                 box_plot_matrix,
                 labels=self.__song_set_size_list
             )
+            plt.xticks(rotation=30)
             plt.savefig(
                 self.__directory_to_save_graphics
                 + 'map_all_results_graph_box_plot_'
                 + str(at)
-                + '.png'
+                + '.eps',
+                format='eps',
+                dpi=1000
             )
             plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Box Plot)]")
@@ -186,7 +196,9 @@ class MAPOverview:
                     + 'map_by_metadata_results_graph_line_'
                     + 'song_' + str(song_size)
                     + '_user_' + str(user_size)
-                    + '.png',
+                    + '.eps',
+                    format='eps',
+                    dpi=1000,
                     bbox_extra_artists=(lgd,),
                     bbox_inches='tight'
                 )
@@ -212,12 +224,15 @@ class MAPOverview:
                     box_plot_matrix,
                     labels=self.__metadata_to_process
                 )
+                plt.xticks(rotation=30)
                 plt.savefig(
                     self.__directory_to_save_graphics
                     + 'map_by_metadata_results_graph_box_plot_'
                     + 'song_' + str(song_size)
                     + '_user_' + str(user_size)
-                    + '.png'
+                    + '.eps',
+                    format='eps',
+                    dpi=1000
                 )
                 plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Box Plot)]")
