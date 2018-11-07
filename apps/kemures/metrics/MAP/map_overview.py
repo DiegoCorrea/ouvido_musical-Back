@@ -196,9 +196,10 @@ class MAPOverview:
                     + 'map_by_metadata_results_graph_line_'
                     + 'song_' + str(song_size)
                     + '_user_' + str(user_size)
-                    + '.eps',
-                    format='eps',
+                    + '.png',
+                    format='png',
                     dpi=1000,
+                    quality=100,
                     bbox_extra_artists=(lgd,),
                     bbox_inches='tight'
                 )
@@ -209,10 +210,6 @@ class MAPOverview:
         self.__logger.info("[Start MAP Overview - Results - (Graph Box Plot)]")
         for song_size in self.__metric_results_collection_df['song_set_size'].unique().tolist():
             for user_size in self.__metric_results_collection_df['user_set_size'].unique().tolist():
-                plt.figure()
-                plt.grid(True)
-                plt.xlabel('Metadado')
-                plt.ylabel('valor')
                 box_plot_matrix = []
                 for metadata in self.__metadata_to_process:
                     at_df = self.__metric_results_collection_df[
@@ -220,19 +217,29 @@ class MAPOverview:
                         (self.__metric_results_collection_df['song_set_size'] == song_size) &
                         (self.__metric_results_collection_df['user_set_size'] == user_size)]
                     box_plot_matrix.append([value for value in at_df['value'].tolist()])
-                plt.boxplot(
+                if len(box_plot_matrix[0]) == 0:
+                    continue
+                plt.figure()
+                plt.grid(True)
+                plt.xlabel('Metadado')
+                plt.ylabel('valor')
+                bp = plt.boxplot(
                     box_plot_matrix,
-                    labels=self.__metadata_to_process
+                    labels=self.__metadata_to_process,
+                    showfliers=True
                 )
+                for flier in bp['fliers']:
+                    flier.set(marker='o', color='#e7298a', alpha=0.5)
                 plt.xticks(rotation=30)
                 plt.savefig(
                     self.__directory_to_save_graphics
                     + 'map_by_metadata_results_graph_box_plot_'
                     + 'song_' + str(song_size)
                     + '_user_' + str(user_size)
-                    + '.eps',
-                    format='eps',
-                    dpi=1000
+                    + '.png',
+                    format='png',
+                    dpi=1000,
+                    quality=100
                 )
                 plt.close()
         self.__logger.info("[Finish MAP Overview - Results - (Graph Box Plot)]")
