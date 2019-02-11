@@ -1,33 +1,25 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 
-from apps.metadata.users.models import User
+from .controller import create, read, update, delete, all_songs
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
-
-
-def user(request, userid=''):
     if request.method == 'GET':
-        return show(userid)
+        return all_songs()
+    elif request.method == 'PUT':
+        return create()
+    return JsonResponse({'message': 'Não utilizamos este tipo de requisição'})
+
+
+def process_request(request, user_id=''):
+    if request.method == 'GET':
+        return read(user_id)
     elif request.method == 'POST':
-        return edit(userid)
+        return update(user_id)
     elif request.method == 'DELETE':
-        return remove(userid)
-    return HttpResponse("User_ID: Falhou a obter as informações!")
+        return delete(user_id)
+    return JsonResponse({'message': 'Não utilizamos este tipo de requisição'})
 
 
-def remove(id):
-    return HttpResponse("DELETE User_ID")
-
-
-def show(id):
-    try:
-        user = User.objects.get(id=id)
-        return JsonResponse(status=200, data={'id': str(user.id)})
-    except Exception as e:
-        return HttpResponse(str(e))
-
-
-def edit(id):
-    return HttpResponse("EDIT User_ID")
+def index_song_request(request, user_id=''):
+    pass
