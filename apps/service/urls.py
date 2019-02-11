@@ -21,8 +21,8 @@ from apps.service.users import views as users_views
 urlpatterns = [
     url(r'^users/$', users_views.index),
     url(r'^users/(?P<user_id>\w+)/$', users_views.process_request, name='user'),
-    # url(r'^users/(?P<user_id>\w+)/songs/$', users_views.index_song_request, name='user_songs'),
-    # url(r'^users/(?P<user_id>\w+)/songs/(?P<song_id>\w+)$', users_views.song_request, name='user_songs'),
+    url(r'^users/(?P<user_id>\w+)/songs/$', users_views.index_song_request, name='user_songs'),
+    url(r'^users/(?P<user_id>\w+)/songs/(?P<song_id>\w+)$', users_views.song_request, name='user_songs'),
     url(r'^songs/$', songs_views.index, name='songs'),
     url(r'^songs/(?P<song_id>\w+)/$', songs_views.process_request, name='song'),
 ]
