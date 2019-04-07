@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-import gc
 import logging
 from collections import Counter
 
+import gc
 import pandas as pd
 from django.utils import timezone
 
@@ -45,8 +45,8 @@ def song_select(song_set_df, song_set_size, song_relevance_df):
     if true_size + false_size < song_set_size:
         diff = song_set_size - (true_size + false_size)
         false_size += diff
-    true_relevance_df_with_size = true_df[:true_size]
-    false_relevance_df_with_size = false_df[:false_size]
+    true_relevance_df_with_size = true_df.sample(n=true_size)
+    false_relevance_df_with_size = false_df.sample(n=false_size)
     resp_true_df = song_set_df[song_set_df['id'].isin(true_relevance_df_with_size['song_id'].tolist())]
     resp_false_df = song_set_df[song_set_df['id'].isin(false_relevance_df_with_size['song_id'].tolist())]
     return pd.concat([resp_false_df, resp_true_df], sort=False)
