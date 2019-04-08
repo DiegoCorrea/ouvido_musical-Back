@@ -78,7 +78,7 @@ def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
     resp['id'] = df_list['id']
     resp[new_column] = " "
     for metadata in metadata_to_process_list:
-        resp[new_column] += " " + metadata_to_process_list[metadata]
+        resp[new_column] += (" " + df_list[metadata])
     return resp
 
 
