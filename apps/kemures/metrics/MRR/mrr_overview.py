@@ -43,8 +43,8 @@ class MRROverview:
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
-            plt.xlabel('Rodada')
-            plt.ylabel('Tempo (segundos)')
+            plt.xlabel('Round')
+            plt.ylabel('Time (seconds)')
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
@@ -63,7 +63,7 @@ class MRROverview:
                 + str(at)
                 + '.eps',
                 format='eps',
-                dpi=1000
+                dpi=300
             )
             plt.close()
         self.__logger.info("[Finish MRR Overview - Run Time - (Graph Line)]")
@@ -73,8 +73,8 @@ class MRROverview:
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
-            plt.xlabel('Tamanho do conjunto de músicas')
-            plt.ylabel('Tempo (segundos)')
+            plt.xlabel('Length of song set')
+            plt.ylabel('Time (seconds)')
             box_plot_matrix = []
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
@@ -93,7 +93,7 @@ class MRROverview:
                 + str(at)
                 + '.eps',
                 format='eps',
-                dpi=1000
+                dpi=300
             )
             plt.close()
         self.__logger.info("[Finish MRR Overview - Run Time - (Graph Box Plot)]")
@@ -107,8 +107,8 @@ class MRROverview:
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
-            plt.xlabel('Rodada')
-            plt.ylabel('Valor')
+            plt.xlabel('Round')
+            plt.ylabel('Value')
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
@@ -126,7 +126,7 @@ class MRROverview:
                 + str(at)
                 + '.eps',
                 format='eps',
-                dpi=1000
+                dpi=300
             )
             plt.close()
         self.__logger.info("[Finish MRR Overview - Results - (Graph Line)]")
@@ -136,8 +136,8 @@ class MRROverview:
         for at in self.__at_size_list:
             plt.figure()
             plt.grid(True)
-            plt.xlabel('Tamanho do conjunto de músicas')
-            plt.ylabel('valor')
+            plt.xlabel('Length of song set')
+            plt.ylabel('Value')
             box_plot_matrix = []
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
@@ -155,7 +155,7 @@ class MRROverview:
                 + str(at)
                 + '.eps',
                 format='eps',
-                dpi=1000
+                dpi=300
             )
             plt.close()
         self.__logger.info("[Finish MRR Overview - Results - (Graph Box Plot)]")
@@ -171,8 +171,8 @@ class MRROverview:
             for user_size in self.__metric_results_collection_df['user_set_size'].unique().tolist():
                 plt.figure()
                 plt.grid(True)
-                plt.xlabel('Tamanho da lista de recomendação')
-                plt.ylabel('Valor')
+                plt.xlabel('Length of recommendation list')
+                plt.ylabel('Value')
                 for metadata, style, colors, makers in zip(self.__metadata_to_process, self.__graph_style,
                                                            self.__graph_colors, self.__graph_makers):
                     at_df = self.__metric_results_collection_df[
@@ -198,7 +198,7 @@ class MRROverview:
                     + '_user_' + str(user_size)
                     + '.png',
                     format='png',
-                    dpi=1000,
+                    dpi=300,
                     quality=100,
                     bbox_extra_artists=(lgd,),
                     bbox_inches='tight'
@@ -221,8 +221,8 @@ class MRROverview:
                     continue
                 plt.figure()
                 plt.grid(True)
-                plt.xlabel('Metadado')
-                plt.ylabel('valor')
+                plt.xlabel('Metadata')
+                plt.ylabel('Value')
                 bp = plt.boxplot(
                     box_plot_matrix,
                     labels=self.__metadata_to_process,
@@ -238,7 +238,7 @@ class MRROverview:
                     + '_user_' + str(user_size)
                     + '.png',
                     format='png',
-                    dpi=1000,
+                    dpi=300,
                     quality=100
                 )
                 plt.close()

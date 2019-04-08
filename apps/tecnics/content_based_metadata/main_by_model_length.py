@@ -74,18 +74,11 @@ def on_map_concat_metadata(df_list, new_column, metadata_to_process_list):
 
 
 def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
-    # df_list[new_column] = ''
-    # pool = ThreadPool(MAX_THREAD)
-    # new_songs_df = pool.map(partial(on_map_concat_metadata, new_column=new_column,
-    #                                 metadata_to_process_list=metadata_to_process_list),
-    #                         np.array_split(df_list, MAX_THREAD))
-    # pool.close()
-    # pool.join()
-    # resp = pd.concat(new_songs_df, sort=False)
-    # resp = resp.drop(metadata_to_process_list, axis=1)
     resp = pd.DataFrame()
     resp['id'] = df_list['id']
-    resp[new_column] = df_list[metadata_to_process_list[0]] + ' ' + df_list[metadata_to_process_list[1]]
+    resp[new_column] = " "
+    for metadata in metadata_to_process_list:
+        resp[new_column] += " " + metadata_to_process_list[metadata]
     return resp
 
 
@@ -355,6 +348,35 @@ def pre_load_data_set_and_song_variation_all_combination():
                 user_top_n_relevance=USER_SIZE),
             preference_statistic=preference_statistic_with_size,
             label='TL+AR'
+        )
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 4 - "
+            + "title, artist and album - TL+AR+AL"
+        )
+        logger.info("*" * 60)
+        one_metadata_process(
+            song_set_df=concat_metadata_preserve_id(df_list=song_set_with_size_df,
+                                                    metadata_to_process_list=['title', 'artist', 'album'],
+                                                    new_column='TL+AR+AL'),
+            users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                user_top_n_relevance=USER_SIZE),
+            preference_statistic=preference_statistic_with_size,
+            label='TL+AR+AL'
+        )
+        gc.collect()
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 4 - "
+            + "title, artist and album- |TL|+|AR|+|AL|"
+        )
+        logger.info("*" * 60)
+        one_metadata_process(
+            song_set_df=song_set_with_size_df.filter(['id', 'title', 'artist', 'album'], axis=1),
+            users_preferences_df=preference_statistic_with_size.get_users_relevance_preferences_df(
+                user_top_n_relevance=USER_SIZE),
+            preference_statistic=preference_statistic_with_size,
+            label='|TL|+|AR|+|AL|'
         )
         preference_statistic_with_size.print_song_statistical()
         preference_statistic_with_size.print_user_statistical()

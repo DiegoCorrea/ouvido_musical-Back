@@ -7,12 +7,13 @@ SONG_SIZE = 10000
 SONG_SET_SIZE_LIST = [3000, 6000, 9000]
 
 METADATA_TO_PROCESS_LIST_PT = ['Título', 'Artista', 'Álbum']
+METADATA_TO_PROCESS_LIST_EN = ['Title', 'Artist', 'Album']
 METADATA_TO_PROCESS_LIST = ['title', 'artist', 'album']
-METADATA_OPTION_GRAPH = ['o', '^', 's', 'D', 'x', 'p', '.', '1', '|']
-GRAPH_MARKERS = ['o', '^', 's', 'D', 'x', 'p', '.', '1', '|']
-GRAPH_STYLE = [':', ':', ':', '-', '-', '-', '--', '--', '--']
+METADATA_OPTION_GRAPH = ['o', '^', 's', 'D', 'x', 'p', '.', '1', '|', '*', '2']
+GRAPH_MARKERS = ['o', '^', 's', 'D', 'x', 'p', '.', '1', '|', '*', '2']
+GRAPH_STYLE = [':', ':', ':', '-', '-', '-', '--', '--', '--', '-.', '-.']
 GRAPH_COLORS = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
-                'tab:olive']
+                'tab:olive', 'tab:cyan', '#0F0F0F0F']
 
 RECOMMENDATION_LIST_SIZE = 20
 TOTAL_RUN = 10

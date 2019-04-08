@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import gc
 import logging
 
+import gc
 import pandas as pd
 from django.utils import timezone
 
@@ -53,7 +53,9 @@ def on_map_concat_metadata(df_list, new_column, metadata_to_process_list):
 def concat_metadata_preserve_id(df_list, metadata_to_process_list, new_column):
     resp = pd.DataFrame()
     resp['id'] = df_list['id']
-    resp[new_column] = df_list[metadata_to_process_list[0]] + ' ' + df_list[metadata_to_process_list[1]]
+    resp[new_column] = " "
+    for metadata in metadata_to_process_list:
+        resp[new_column] += " " + metadata_to_process_list[metadata]
     return resp
 
 
@@ -243,6 +245,34 @@ def with_pre_load_data_set_and_user_variation():
                 user_top_n_relevance=user_size),
             preference_statistic=preference_statistic,
             label='TL+AR'
+        )
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 4 - "
+            + "title, album and artist - TL+AL+AR"
+        )
+        logger.info("*" * 60)
+        one_metadata_process(
+            song_set_df=concat_metadata_preserve_id(df_list=song_set_df,
+                                                    metadata_to_process_list=['title', 'artist', 'album'],
+                                                    new_column='AL+AR+TL'),
+            users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
+                user_top_n_relevance=user_size),
+            preference_statistic=preference_statistic,
+            label='AL+AR+TL'
+        )
+        gc.collect()
+        logger.info("*" * 60)
+        logger.info(
+            "*\tEXPERIMENTO 4 - "
+            + "title and artist - |TL|+|AR|+|AL|"
+        )
+        logger.info("*" * 60)
+        one_metadata_process(
+            song_set_df=song_set_df.filter(['id', 'title', 'artist', 'album'], axis=1),
+            users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
+                user_top_n_relevance=user_size), preference_statistic=preference_statistic,
+            label='|TL|+|AR|+|AL|'
         )
         preference_statistic.make_graphics()
     gc.collect()
