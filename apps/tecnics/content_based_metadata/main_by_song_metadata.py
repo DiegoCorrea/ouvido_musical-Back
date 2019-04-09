@@ -13,7 +13,6 @@ from apps.kemures.metrics.MAP.map_overview import MAPOverview
 from apps.kemures.metrics.MRR.mrr_controller import MRRController
 from apps.kemures.metrics.MRR.mrr_overview import MRROverview
 from apps.kemures.metrics.NDCG.ndcg_controller import NDCGController
-from apps.kemures.metrics.NDCG.ndcg_overview import NDCGOverview
 from apps.kemures.recommenders.UserAverage.user_average_controller import UserAverageController
 from apps.kemures.similarities.Cosine.cosine_controller import CosineController
 from apps.metadata.songs.models import Song
@@ -27,8 +26,8 @@ def make_evaluate_graphics():
     map_over.make_graphics_by_metadata()
     mrr_over = MRROverview()
     mrr_over.make_graphics_by_metadata()
-    ndcg_over = NDCGOverview()
-    ndcg_over.make_graphics_by_metadata()
+    # ndcg_over = NDCGOverview()
+    # ndcg_over.make_graphics_by_metadata()
 
 
 def get_song_set_df():
@@ -151,7 +150,7 @@ def with_pre_load_data_set_and_user_variation():
     )
     preference_statistic.run()
     for user_size in USER_SIZE_LIST:
-        for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST_PT):
+        for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST):
             gc.collect()
             metadata_to_process_list = ['id', metadata]
             logger.info("*" * 60)
@@ -246,34 +245,34 @@ def with_pre_load_data_set_and_user_variation():
             preference_statistic=preference_statistic,
             label='TL+AR'
         )
-        logger.info("*" * 60)
-        logger.info(
-            "*\tEXPERIMENTO 4 - "
-            + "title, album and artist - TL+AL+AR"
-        )
-        logger.info("*" * 60)
-        one_metadata_process(
-            song_set_df=concat_metadata_preserve_id(df_list=song_set_df,
-                                                    metadata_to_process_list=['title', 'artist', 'album'],
-                                                    new_column='AL+AR+TL'),
-            users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
-                user_top_n_relevance=user_size),
-            preference_statistic=preference_statistic,
-            label='AL+AR+TL'
-        )
-        gc.collect()
-        logger.info("*" * 60)
-        logger.info(
-            "*\tEXPERIMENTO 4 - "
-            + "title and artist - |TL|+|AR|+|AL|"
-        )
-        logger.info("*" * 60)
-        one_metadata_process(
-            song_set_df=song_set_df.filter(['id', 'title', 'artist', 'album'], axis=1),
-            users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
-                user_top_n_relevance=user_size), preference_statistic=preference_statistic,
-            label='|TL|+|AR|+|AL|'
-        )
+        # logger.info("*" * 60)
+        # logger.info(
+        #     "*\tEXPERIMENTO 4 - "
+        #     + "title, album and artist - TL+AL+AR"
+        # )
+        # logger.info("*" * 60)
+        # one_metadata_process(
+        #     song_set_df=concat_metadata_preserve_id(df_list=song_set_df,
+        #                                             metadata_to_process_list=['title', 'artist', 'album'],
+        #                                             new_column='AL+AR+TL'),
+        #     users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
+        #         user_top_n_relevance=user_size),
+        #     preference_statistic=preference_statistic,
+        #     label='AL+AR+TL'
+        # )
+        # gc.collect()
+        # logger.info("*" * 60)
+        # logger.info(
+        #     "*\tEXPERIMENTO 4 - "
+        #     + "title and artist - |TL|+|AR|+|AL|"
+        # )
+        # logger.info("*" * 60)
+        # one_metadata_process(
+        #     song_set_df=song_set_df.filter(['id', 'title', 'artist', 'album'], axis=1),
+        #     users_preferences_df=preference_statistic.get_users_relevance_preferences_df(
+        #         user_top_n_relevance=user_size), preference_statistic=preference_statistic,
+        #     label='|TL|+|AR|+|AL|'
+        # )
         preference_statistic.make_graphics()
     gc.collect()
     make_evaluate_graphics()
