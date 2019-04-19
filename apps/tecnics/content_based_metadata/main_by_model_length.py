@@ -238,13 +238,15 @@ def pre_load_data_set_and_song_variation_all_combination():
     logger = logging.getLogger(__name__)
     song_set_df = get_song_set_df()
     preference_statistic = PreferenceAnalytics(
-        users_preferences_df=get_users_preference_df(song_set_df)
+        users_preferences_df=get_users_preference_df(song_set_df),
+        song_df=song_set_df
     )
     preference_statistic.run()
     for song_set_size in SONG_SET_SIZE_LIST:
         song_set_with_size_df = song_select(song_set_df, song_set_size, preference_statistic.get_song_relevance_df())
         preference_statistic_with_size = PreferenceAnalytics(
-            users_preferences_df=get_users_preference_df(song_set_with_size_df)
+            users_preferences_df=get_users_preference_df(song_set_with_size_df),
+            song_df=song_set_with_size_df
         )
         preference_statistic_with_size.run()
         for metadata, pt_graph_name in zip(METADATA_TO_PROCESS_LIST, METADATA_TO_PROCESS_LIST):
@@ -348,11 +350,11 @@ def pre_load_data_set_and_song_variation_all_combination():
             preference_statistic=preference_statistic_with_size,
             label='TL+AR'
         )
-        logger.info("*" * 60)
-        logger.info(
-            "*\tEXPERIMENTO 4 - "
-            + "title, artist and album - TL+AR+AL"
-        )
+        # logger.info("*" * 60)
+        # logger.info(
+        #     "*\tEXPERIMENTO 4 - "
+        #     + "title, artist and album - TL+AR+AL"
+        # )
         # logger.info("*" * 60)
         # one_metadata_process(
         #     song_set_df=concat_metadata_preserve_id(df_list=song_set_with_size_df,
@@ -392,7 +394,8 @@ def pre_load_data_set_and_song_variation_all_combination():
 def data_analysis():
     song_set_df = get_song_set_df()
     preference_statistic = PreferenceAnalytics(
-        users_preferences_df=get_users_preference_df(song_set_df)
+        users_preferences_df=get_users_preference_df(song_set_df),
+        song_df=song_set_df
     )
     preference_statistic.run()
     preference_statistic.print_song_statistical()

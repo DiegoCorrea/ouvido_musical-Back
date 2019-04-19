@@ -99,7 +99,7 @@ class UserAverageController:
             if len(column_values) == 0:
                 continue
             similarity = float(sum(column_values)) / float(
-                len(column_values))
+                len(user_model_df.index))
             if similarity == 0.0:
                 continue
             recommendation_list[column] = [similarity]
