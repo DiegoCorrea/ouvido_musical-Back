@@ -41,7 +41,7 @@ class NDCGOverview:
     def __all_time_graph_line(self):
         self.__logger.info("[Start NDCG Overview - Run Time - (Graph Line)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 8))
             plt.grid(True)
             plt.xlabel('Rodada')
             plt.ylabel('Tempo (segundos)')
@@ -71,7 +71,7 @@ class NDCGOverview:
     def __all_time_graph_box_plot(self):
         self.__logger.info("[Start NDCG Overview - Run Time - (Graph Box Plot)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 8))
             plt.grid(True)
             plt.xlabel('Tamanho do conjunto de músicas')
             plt.ylabel('Tempo (segundos)')
@@ -104,7 +104,7 @@ class NDCGOverview:
     def __by_length_results_graph_line(self):
         self.__logger.info("[Start NDCG Overview - Results - (Graph Line)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 8))
             plt.grid(True)
             plt.xlabel('Rodada')
             plt.ylabel('Valor')
@@ -133,7 +133,7 @@ class NDCGOverview:
     def __by_length_results_graph_box_plot(self):
         self.__logger.info("[Start NDCG Overview - Results - (Graph Box Plot)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 8))
             plt.grid(True)
             plt.xlabel('Tamanho do conjunto de músicas')
             plt.ylabel('valor')
@@ -167,7 +167,7 @@ class NDCGOverview:
         self.__logger.info("[Start NDCG Overview - Results - (Graph Line)]")
         for song_size in self.__metric_results_collection_df['song_set_size'].unique().tolist():
             for user_size in self.__metric_results_collection_df['user_set_size'].unique().tolist():
-                plt.figure()
+                plt.figure(figsize=(8, 8))
                 plt.grid(True)
                 plt.xlabel('Tamanho da lista de recomendação')
                 plt.ylabel('Valor')
@@ -207,7 +207,7 @@ class NDCGOverview:
         self.__logger.info("[Start NDCG Overview - Results - (Graph Box Plot)]")
         for song_size in self.__metric_results_collection_df['song_set_size'].unique().tolist():
             for user_size in self.__metric_results_collection_df['user_set_size'].unique().tolist():
-                plt.figure()
+                plt.figure(figsize=(8, 8))
                 plt.grid(True)
                 plt.xlabel('Metadado')
                 plt.ylabel('valor')

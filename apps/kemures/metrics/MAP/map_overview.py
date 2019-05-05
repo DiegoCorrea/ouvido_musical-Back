@@ -41,10 +41,10 @@ class MAPOverview:
     def __all_time_graph_line(self):
         self.__logger.info("[Start MAP Overview - Run Time - (Graph Line)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 6))
             plt.grid(True)
-            plt.xlabel('Round')
-            plt.ylabel('Time (seconds)')
+            plt.xlabel('Round', fontsize=18)
+            plt.ylabel('Time (seconds)', fontsize=18)
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
@@ -56,7 +56,7 @@ class MAPOverview:
                     [value for value in values],
                     label=size
                 )
-            plt.legend(loc='best')
+            plt.legend(loc='best', prop={'size': 20})
             plt.savefig(
                 self.__directory_to_save_graphics
                 + 'map_all_time_graph_line_'
@@ -71,10 +71,10 @@ class MAPOverview:
     def __all_time_graph_box_plot(self):
         self.__logger.info("[Start MAP Overview - Run Time - (Graph Box Plot)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 8))
             plt.grid(True)
-            plt.xlabel('Length of song set')
-            plt.ylabel('Time (seconds)')
+            plt.xlabel('Length of song set', fontsize=18)
+            plt.ylabel('Time (seconds)', fontsize=18)
             box_plot_matrix = []
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
@@ -105,10 +105,10 @@ class MAPOverview:
     def __all_results_graph_line(self):
         self.__logger.info("[Start MAP Overview - Results - (Graph Line)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 6))
             plt.grid(True)
-            plt.xlabel('Round')
-            plt.ylabel('Value')
+            plt.xlabel('Round', fontsize=18)
+            plt.ylabel('Value', fontsize=18)
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
                     (self.__metric_results_collection_df['song_set_size'] == size) & (
@@ -119,7 +119,7 @@ class MAPOverview:
                     [value for value in values],
                     label=size
                 )
-            plt.legend(loc='best')
+            plt.legend(loc='best', prop={'size': 20})
             plt.savefig(
                 self.__directory_to_save_graphics
                 + 'map_all_results_graph_line_'
@@ -134,10 +134,10 @@ class MAPOverview:
     def __all_results_graph_box_plot(self):
         self.__logger.info("[Start MAP Overview - Results - (Graph Box Plot)]")
         for at in self.__at_size_list:
-            plt.figure()
+            plt.figure(figsize=(8, 8))
             plt.grid(True)
-            plt.xlabel('Length of song set')
-            plt.ylabel('Value')
+            plt.xlabel('Length of song set', fontsize=18)
+            plt.ylabel('Value', fontsize=18)
             box_plot_matrix = []
             for size in self.__song_set_size_list:
                 runs_size_at_df = self.__metric_results_collection_df[
@@ -169,10 +169,10 @@ class MAPOverview:
         self.__logger.info("[Start MAP Overview - Results - (Graph Line)]")
         for song_size in self.__metric_results_collection_df['song_set_size'].unique().tolist():
             for user_size in self.__metric_results_collection_df['user_set_size'].unique().tolist():
-                plt.figure()
+                plt.figure(figsize=(8, 6))
                 plt.grid(True)
-                plt.xlabel('Length of recommendation list')
-                plt.ylabel('Value')
+                plt.xlabel('Length of recommendation list', fontsize=18)
+                plt.ylabel('Value', fontsize=18)
                 for metadata, style, colors, makers in zip(self.__metadata_to_process, self.__graph_style,
                                                            self.__graph_colors, self.__graph_makers):
                     at_df = self.__metric_results_collection_df[
@@ -189,7 +189,7 @@ class MAPOverview:
                         label=metadata
                     )
                 # plt.legend(loc='best')
-                lgd = plt.legend(loc=9, bbox_to_anchor=(0.5, -0.1), ncol=3)
+                lgd = plt.legend(loc=9, prop={'size': 20}, bbox_to_anchor=(0.5, -0.1), ncol=3)
                 plt.xticks(self.__at_size_list)
                 plt.savefig(
                     self.__directory_to_save_graphics
@@ -219,10 +219,10 @@ class MAPOverview:
                     box_plot_matrix.append([value for value in at_df['value'].tolist()])
                 if len(box_plot_matrix[0]) == 0:
                     continue
-                plt.figure()
+                plt.figure(figsize=(8, 8))
                 plt.grid(True)
-                plt.xlabel('Metadata')
-                plt.ylabel('Value')
+                plt.xlabel('Metadata', fontsize=18)
+                plt.ylabel('Value', fontsize=18)
                 bp = plt.boxplot(
                     box_plot_matrix,
                     labels=self.__metadata_to_process,
