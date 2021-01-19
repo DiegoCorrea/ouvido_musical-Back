@@ -1,4 +1,6 @@
 # Ouvido Musical Back End  
+Código do artigo "Explorando os metadados na recomendação de músicas em um ambiente com escassez de informação" publicado na Revista Brasileira de Computação Aplicada. Link do artigo: http://seer.upf.br/index.php/rbca/article/view/10047  
+
 ## Instalação  
 1. Atualização do Ubuntu: `sudo apt update && sudo apt upgrade -y`  
 2. Instalação do Pip 3 e Postgres: `sudo apt install python3-pip python3-dev python3-venv libpq-dev postgresql postgresql-contrib build-essential libssl-dev libffi-dev zip unzip`  
